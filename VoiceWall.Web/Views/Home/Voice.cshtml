@@ -1,0 +1,25 @@
+﻿@Styles.Render("~/Content/soundRecorder")
+
+<h2>Voice</h2>
+
+<div id="soundRecordingHolder">
+    <div class="container">
+        <div class="viz" class="col-md-12">
+            <canvas id="analyser" width="1024" height="500"></canvas>
+            <canvas id="wavedisplay" width="1024" height="500"></canvas>
+        </div>
+        <div class="controls">
+            <img class="record" src="~/Content/img/soundRecorder/mic128.png" onclick="toggleRecording(this);">
+            <a class="save" href="#"><img src="~/Content/img/soundRecorder/save.svg"></a>
+        </div>
+    </div>
+    <div class="container">
+        <audio id="player" hidden="hidden"></audio>
+    </div>
+
+    <button class="playButton btn btn-primary">Play</button>
+    <button class="sendButton btn btn-success">Send</button>
+    <button class="cancelButton btn btn-danger">Cancel</button>
+</div>
+
+@Scripts.Render("~/bundles/soundRecording")

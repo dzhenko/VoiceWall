@@ -182,12 +182,19 @@
     <Content Include="Content\img\portfolio-2.jpg" />
     <Content Include="Content\img\portfolio-3.jpg" />
     <Content Include="Content\img\portfolio-4.jpg" />
+    <Content Include="Content\img\soundRecorder\mic128.png" />
+    <Content Include="Content\img\soundRecorder\save.svg" />
+    <Content Include="Content\soundRecording.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\App\index.js" />
+    <Content Include="Scripts\app\index.js" />
+    <Content Include="Scripts\app\soundRecording\audiodisplay.js" />
+    <Content Include="Scripts\app\soundRecording\main.js" />
+    <Content Include="Scripts\app\soundRecording\recorder.js" />
+    <Content Include="Scripts\app\soundRecording\recorderWorker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -274,6 +281,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Voice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

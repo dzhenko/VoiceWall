@@ -1,0 +1,64 @@
+﻿#soundRecordingHolder canvas {
+    display: inline-block;
+    background: #202020;
+    width: 400px;
+    height: 100px;
+    box-shadow: 0 0 10px blue;
+}
+
+#soundRecordingHolder .controls {
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 20%;
+    width: 100%;
+}
+
+#soundRecordingHolder .record {
+    height: 15vh;
+}
+
+    #soundRecordingHolder .record.recording {
+        background: red;
+        background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+        background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+        background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+    }
+
+#soundRecordingHolder .save, #soundRecordingHolder .save img {
+    height: 10vh;
+}
+
+#soundRecordingHolder .save {
+    opacity: 0.25;
+}
+
+    #save[download] {
+        opacity: 1;
+    }
+
+#soundRecordingHolder .viz {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (orientation: landscape) {
+    #soundRecordingHolder .controls {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 100%;
+        width: 10%;
+    }
+
+    #soundRecordingHolder .viz {
+        height: 100%;
+        width: 90%;
+    }
+}

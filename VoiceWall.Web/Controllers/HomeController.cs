@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace VoiceWall.Web.Controllers
+﻿namespace VoiceWall.Web.Controllers
 {
+    using System.Web;
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -15,16 +12,22 @@ namespace VoiceWall.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+        }
+
+        public ActionResult Voice()
+        {
+            return View();
+        }
+
+        public ActionResult UploadVoice(HttpPostedFileBase waveBlobFile)
+        {
+            return Json(new { success = true });
         }
     }
 }

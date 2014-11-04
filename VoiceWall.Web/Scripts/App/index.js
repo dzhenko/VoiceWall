@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿window.addEventListener("load", function () {
     // Closes the sidebar menu
     $("#menu-close").click(function (e) {
         e.preventDefault();

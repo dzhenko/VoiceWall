@@ -23,13 +23,22 @@ namespace VoiceWall.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/site").Include(
-                     "~/Scripts/App/index.js"));
+            bundles.Add(new ScriptBundle("~/bundles/sideMenu").Include(
+                     "~/Scripts/app/index.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/soundRecording").Include(
+                     "~/Scripts/app/soundRecording/audiodisplay.js",
+                     "~/Scripts/app/soundRecording/recorder.js",
+                     "~/Scripts/app/soundRecording/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome/css/font-awesome.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/soundRecorder").Include(
+                        "~/Content/soundRecording.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
