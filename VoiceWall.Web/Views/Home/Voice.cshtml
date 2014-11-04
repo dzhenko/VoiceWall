@@ -4,7 +4,7 @@
 
 <div id="soundRecordingHolder">
     <div class="container">
-        <div class="viz" class="col-md-12">
+        <div class="viz col-md-12">
             <canvas id="analyser" width="1024" height="500"></canvas>
             <canvas id="wavedisplay" width="1024" height="500"></canvas>
         </div>
@@ -17,9 +17,16 @@
         <audio id="player" hidden="hidden"></audio>
     </div>
 
+    @using (Html.BeginForm("UploadVoice", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+
     <button class="playButton btn btn-primary">Play</button>
     <button class="sendButton btn btn-success">Send</button>
     <button class="cancelButton btn btn-danger">Cancel</button>
 </div>
-
-@Scripts.Render("~/bundles/soundRecording")
+<script src="~/Scripts/app/soundRecording/audiodisplay.js"></script>
+<script src="~/Scripts/app/soundRecording/main.js"></script>
+<script src="~/Scripts/app/soundRecording/recorder.js"></script>
+@*@Scripts.Render("~/bundles/soundRecording")*@

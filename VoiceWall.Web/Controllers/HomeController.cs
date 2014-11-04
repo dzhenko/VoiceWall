@@ -25,6 +25,7 @@
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult UploadVoice(HttpPostedFileBase waveBlobFile)
         {
             return Json(new { success = true });
