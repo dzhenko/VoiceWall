@@ -24,7 +24,35 @@ var rafID = null;
 var analyserContext = null;
 var canvasWidth, canvasHeight;
 var recIndex = 0;
+var recordVoiceBtnIsHidden = true;
+var soundStreamInput = null;
 
+$("#modalVoiceWindowMain").on('hidden.bs.modal', voiceResetStates);
+function voiceResetStates() {
+    audioContext = new AudioContext();
+    audioInput = null;
+    realAudioInput = null;
+    inputPoint = null;
+    audioRecorder = null;
+    rafID = null;
+    analyserContext = null;
+    canvasWidth, canvasHeight;
+    recIndex = 0;
+    recordVoiceBtnIsHidden = true;
+
+    if (soundStreamInput) {
+        soundStreamInput.stop();
+    }
+
+    soundStreamInput = null;
+
+    $("#soundRecordingHolder .recordButton").hide();
+    $("#soundRecordingHolder .playButton").hide();
+    $("#soundRecordingHolder .sendButton").hide();
+    $("#soundRecordingHolder .saveButton").hide();
+    $("#soundRecordingHolder .wavedisplay").hide();
+    $("#soundRecordingHolder .analyser").show();
+}
 /* TODO:
 
 - offer mono option
@@ -54,14 +82,6 @@ function doneEncoding(blob) {
     $("#soundRecordingHolder .playButton").show().click(function () { Recorder.setupListen(blob) });
     $("#soundRecordingHolder .sendButton").show().click(function () { Recorder.setupPost(blob, "UploadVoice") });
     $("#soundRecordingHolder .saveButton").show().click(function() { $("#soundRecordingHolder .save").click() });
-    $("#soundRecordingHolder .cancelButton").show();
-    $("#soundRecordingHolder .cancelButton").on("click", function () {
-        $("#soundRecordingHolder .playButton").hide();
-        $("#soundRecordingHolder .sendButton").hide();
-        $("#soundRecordingHolder .saveButton").hide();
-        $("#soundRecordingHolder .cancelButton").hide();
-        audioRecorder.clear();
-    }).show();
 }
 
 function toggleRecording(e) {
@@ -74,7 +94,6 @@ function toggleRecording(e) {
         $("#soundRecordingHolder .playButton").show();
         $("#soundRecordingHolder .sendButton").show();
         $("#soundRecordingHolder .saveButton").show();
-        $("#soundRecordingHolder .cancelButton").show();
         $("#soundRecordingHolder .analyser").hide();
         $("#soundRecordingHolder .wavedisplay").show();
     } else {
@@ -89,7 +108,6 @@ function toggleRecording(e) {
         $("#soundRecordingHolder .playButton").hide();
         $("#soundRecordingHolder .sendButton").hide();
         $("#soundRecordingHolder .saveButton").hide();
-        $("#soundRecordingHolder .cancelButton").hide();
         $("#soundRecordingHolder .analyser").show();
         $("#soundRecordingHolder .wavedisplay").hide();
     }
@@ -161,8 +179,9 @@ function toggleMono() {
 
     audioInput.connect(inputPoint);
 }
-var recordVoiceBtnIsHidden = true;
+
 function gotStream(stream) {
+    soundStreamInput = stream;
     inputPoint = audioContext.createGain();
     if (recordVoiceBtnIsHidden) {
         recordVoiceBtnIsHidden = false;
@@ -192,7 +211,6 @@ $("#soundRecordingHolder .recordButton").hide();
 $("#soundRecordingHolder .playButton").hide();
 $("#soundRecordingHolder .sendButton").hide();
 $("#soundRecordingHolder .saveButton").hide();
-$("#soundRecordingHolder .cancelButton").hide();
 $("#soundRecordingHolder .wavedisplay").hide();
 
 function initAudio() {

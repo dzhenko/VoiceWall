@@ -1,6 +1,11 @@
 ﻿<div id="pictureRecordingHolder">    
     <button data-toggle="modal" data-target="#modalPictureWindowMain">Open</button>
 
+    @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+
     <div id="modalPictureWindowMain" class="modal">
         <div class="modal-dialog text-center">
             <div class="modal-content">
@@ -19,8 +24,8 @@
                             <hr />
 
                             <button class="btn-record btn btn-dark" onclick="pictureToggleCapture(this)"><i class="fa fa-video-camera fa-2x"> Preview</i></button>
-                            <button class="sendButton btn btn-success" hidden="hidden"><i class="fa fa-send fa-2x"> Send</i></button>
-                            <a href="#" class="save saveButton btn btn-dark" target="_parent" hidden="hidden"><i class="fa fa-2x fa-floppy"> Save</i></a>
+                            <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                            <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy"> Save</i></a>
                             <button class="cancelButton btn btn-danger" hidden="hidden"><i class="fa fa-2x fa-refresh"> Retry</i></button>
                         </div>
 

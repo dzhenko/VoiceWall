@@ -5,6 +5,8 @@ var videoMergedFile = !!navigator.mozGetUserMedia ? 'video.gif' : 'video.webm';
 if (!navigator.getUserMedia)
     navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
+var mergedStreamHolder = null;
+
 $("#videoAndAudioRecording .sendButton").hide();
 $("#videoAndAudioRecording .saveButton").hide();
 $("#videoAndAudioRecording .cancelButton").hide();
@@ -19,8 +21,8 @@ function toggleMergedRecording(e) {
         recordMergedAudio.stopRecording(function () {
             recordMergedVideo.stopRecording(function () {
                 convertMergedStreams(recordMergedVideo.getBlob(), recordMergedAudio.getBlob());
-
-                log('<a href="' + workerPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file download started. It is about 18MB in size; please be patient!');
+                mergedStreamHolder.stop();
+                log('<a href="' + workerMergedPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file download started. It is about 18MB in size; please be patient!');
             });
         });
     }
@@ -30,6 +32,7 @@ function toggleMergedRecording(e) {
             audio: true,
             video: true
         }, function (stream) {
+            mergedStreamHolder = stream;
             videoMergedPreview.src = window.URL.createObjectURL(stream);
             videoMergedPreview.play();
 
@@ -118,18 +121,11 @@ function convertMergedStreams(videoBlob, audioBlob) {
 
             $("#videoAndAudioRecording .loading").hide();
             $("#videoAndAudioRecording .play").show();
-            $("#videoAndAudioRecording .play source").attr("src", URL.createObjectURL(blob));
+            $("#videoAndAudioRecording .play").attr("src", URL.createObjectURL(blob));
 
             $("#videoAndAudioRecording .sendButton").show().click(function () { PostMergedBlob(blob) });
             $("#videoAndAudioRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
-            $("#videoAndAudioRecording .cancelButton").show().click(function () {
-                $("#videoAndAudioRecording .sendButton").hide();
-                $("#videoAndAudioRecording .saveButton").hide();
-                $("#videoAndAudioRecording .cancelButton").hide();
-                $("#videoAndAudioRecording .play").hide();
-                $(videoMergedPreview).show();
-                $("#videoAndAudioRecording .recordButton").show();
-            });
+            $("#videoAndAudioRecording .cancelButton").show().click(videoMergedResetStates);
         }
     };
     var postMessage = function () {
@@ -161,7 +157,7 @@ function convertMergedStreams(videoBlob, audioBlob) {
 }
 
 function PostMergedBlob(blob) {
-    var form = new FormData(document.querySelector("#videoRecordingHolder .hiddenForm"));
+    var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
     form.append("videoAndAudioFile", blob);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'UploadVideoAndAudio');
@@ -175,4 +171,26 @@ function PostMergedBlob(blob) {
 
 function log(stuff) {
     //console.log(stuff);
+}
+
+$("#modalVideoWindowMain").on('hidden.bs.modal', videoMergedResetStates);
+
+function videoMergedResetStates() {
+    worker = null;
+
+    if (mergedStreamHolder) {
+        mergedStreamHolder.stop();
+    }
+
+    mergedStreamHolder = null;
+    recordMergedVideo = null;
+    recordMergedAudio = null;
+
+
+    $("#videoAndAudioRecording .sendButton").hide();
+    $("#videoAndAudioRecording .saveButton").hide();
+    $("#videoAndAudioRecording .play").hide();
+    $("#videoAndAudioRecording .preview").show();
+    $("#videoAndAudioRecording .cancelButton").hide();
+    $("#videoAndAudioRecording .recordButton").show().removeClass("recording");
 }

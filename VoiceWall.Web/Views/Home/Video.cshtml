@@ -27,26 +27,22 @@
                         <div class="tab-pane fade active in" id="videoRecording">
                             <img src="~/Content/img/loading.gif" width="480" height="360" hidden="hidden" class="loading" /><br />
                             <video autoplay class="preview" width="520" height="360"></video>
-                            <video controls class="play" width="520" height="360" hidden="hidden">
-                                <source src="" type="video/webm">
-                            </video>
+                            <iframe width="520" height="360" src="" class="play" hidden="hidden"></iframe>
                             <hr />
                             <button class="recordButton btn btn-dark" onclick="toggleOnlyVideoRecording(this)"><i class="fa fa-video-camera fa-2x"> Record</i></button>
-                            <button class="sendButton btn btn-success" hidden="hidden"><i class="fa fa-send fa-2x"> Send</i></button>
-                            <a href="#" class="save saveButton btn btn-dark" target="_blank" hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
+                            <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                            <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
                             <button class="cancelButton btn btn-dark" hidden="hidden"><i class="fa fa-refresh fa-2x"> Retry</i></button>
                         </div>
 
                         <div class="tab-pane fade text-center" id="videoAndAudioRecording">
                             <img src="~/Content/img/loading.gif" width="480" height="360" hidden="hidden" class="loading" /><br />
                             <video autoplay class="preview" width="520" height="360"></video>
-                            <video controls class="play" width="520" height="360" hidden="hidden">
-                                <source src="" type="video/mp4">
-                            </video>
+                            <iframe width="520" height="360" src="" class="play" hidden="hidden"></iframe>
                             <hr />
                             <button class="recordButton btn btn-dark" onclick="toggleMergedRecording(this)"><i class="fa fa-video-camera fa-2x"> Record</i></button>
-                            <button class="sendButton btn btn-success" hidden="hidden"><i class="fa fa-send fa-2x"> Send</i></button>
-                            <a href="#" class="save saveButton btn btn-dark" target="_blank" hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
+                            <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                            <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
                             <button class="cancelButton btn btn-dark" hidden="hidden"><i class="fa fa-refresh fa-2x"> Retry</i></button>
                         </div>
 

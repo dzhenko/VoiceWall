@@ -2,6 +2,8 @@
 var recordOnlyVideo;
 var videoOnlyPreview = document.querySelector('#videoRecording .preview');
 var videoOnlyFile = !!navigator.mozGetUserMedia ? 'video.gif' : 'video.webm';
+var onlyVideoStreamHolder;
+
 if (!navigator.getUserMedia)
     navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
@@ -21,22 +23,13 @@ function toggleOnlyVideoRecording(e) {
 
             $("#videoRecording .loading").hide();
             $("#videoRecording .play").show();
-            $("#videoRecording .play source").attr("src", URL.createObjectURL(blob));
+            $("#videoRecording .play").attr("src", URL.createObjectURL(blob));
 
             $("#videoRecording .sendButton").show().click(function () { PostOnlyVideoBlob(blob) });
 
             $("#videoRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
 
-            $("#videoRecording .cancelButton").show().click(function () {
-                $("#videoRecording .sendButton").hide();
-                $("#videoRecording .saveButton").hide();
-                $("#videoRecording .cancelButton").hide();
-                $("#videoRecording .play").hide();
-                $(videoPreview).show();
-                $("#videoRecording .recordButton").show();
-            });
-
-
+            $("#videoRecording .cancelButton").show().click(videoOnlyResetStates);
         });
     }
     else {
@@ -44,6 +37,7 @@ function toggleOnlyVideoRecording(e) {
         navigator.getUserMedia({
             video: true
         }, function (stream) {
+            onlyVideoStreamHolder = stream;
             videoOnlyPreview.src = window.URL.createObjectURL(stream);
             videoOnlyPreview.play();
 
@@ -58,7 +52,7 @@ function toggleOnlyVideoRecording(e) {
 
 
 function PostOnlyVideoBlob(blob) {
-    var form = new FormData(document.querySelector("#videoRecordingHolder .hiddenForm"));
+    var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
     form.append("videoFile", blob);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'UploadVideo');
@@ -68,4 +62,21 @@ function PostOnlyVideoBlob(blob) {
             toastr.success("Wee");
         }
     }
+}
+
+$("#modalVideoWindowMain").on('hidden.bs.modal', videoOnlyResetStates);
+
+function videoOnlyResetStates() {
+    if (onlyVideoStreamHolder) {
+        onlyVideoStreamHolder.stop();
+    }
+    onlyVideoStreamHolder = null;
+    recordOnlyVideo = null;
+
+    $("#videoRecording .sendButton").hide();
+    $("#videoRecording .saveButton").hide();
+    $("#videoRecording .cancelButton").hide();
+    $("#videoRecording .play").hide();
+    $("#videoRecording .preview").show();
+    $("#videoRecording .recordButton").show().removeClass("recording");
 }

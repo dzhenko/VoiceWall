@@ -1,0 +1,134 @@
+﻿<button data-toggle="modal" data-target="#modalVoiceWindowMain" onclick="initAudio()">Voice</button>
+<button data-toggle="modal" data-target="#modalVideoWindowMain">Video</button>
+<button data-toggle="modal" data-target="#modalPictureWindowMain">Picture</button>
+
+<div id="commentContentModalWindowsHolder">
+    @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+
+    <div id="soundRecordingHolder">
+        <div id="modalVoiceWindowMain" class="modal">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#voiceRecording" data-toggle="tab">Record Voice</a></li>
+                            <li><a href="#voiceUpload" data-toggle="tab">Upload Voice</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="voiceRecording">
+                                <div class="container">
+                                    <div class="viz col-md-12">
+                                        <canvas class="analyser" width="620" height="360"></canvas>
+                                        <canvas class="wavedisplay" width="620" height="360"></canvas>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <audio id="player" hidden="hidden"></audio>
+                                </div>
+                                <hr />
+                                <button class="recordButton btn btn-dark" onclick="toggleRecording(this)"><i class="fa fa-microphone fa-2x"> Record</i></button>
+                                <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                                <button class="playButton btn btn-dark" hidden="hidden"><i class="fa fa-volume-up fa-2x"> Play</i></button>
+                                <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
+                            </div>
+
+                            <div class="tab-pane fade" id="voiceUpload">
+                                TODO
+                                <button class="btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="videoRecordingHolder">
+        <div id="modalVideoWindowMain" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#videoRecording" data-toggle="tab">Record Video</a></li>
+                            <li><a href="#videoAndAudioRecording" data-toggle="tab">Record Video and Audio<span class="badge toast-success">Beta</span></a></li>
+                            <li><a href="#videoUpload" data-toggle="tab">Upload Video</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-body  text-center">
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="videoRecording">
+                                <img src="~/Content/img/loading.gif" width="480" height="360" hidden="hidden" class="loading" /><br />
+                                <video autoplay class="preview" width="520" height="360"></video>
+                                <iframe width="520" height="360" src="" class="play" hidden="hidden"></iframe>
+                                <hr />
+                                <button class="recordButton btn btn-dark" onclick="toggleOnlyVideoRecording(this)"><i class="fa fa-video-camera fa-2x"> Record</i></button>
+                                <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                                <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
+                                <button class="cancelButton btn btn-dark" hidden="hidden"><i class="fa fa-refresh fa-2x"> Retry</i></button>
+                            </div>
+
+                            <div class="tab-pane fade text-center" id="videoAndAudioRecording">
+                                <img src="~/Content/img/loading.gif" width="480" height="360" hidden="hidden" class="loading" /><br />
+                                <video autoplay class="preview" width="520" height="360"></video>
+                                <iframe width="520" height="360" src="" class="play" hidden="hidden"></iframe>
+                                <hr />
+                                <button class="recordButton btn btn-dark" onclick="toggleMergedRecording(this)"><i class="fa fa-video-camera fa-2x"> Record</i></button>
+                                <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                                <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
+                                <button class="cancelButton btn btn-dark" hidden="hidden"><i class="fa fa-refresh fa-2x"> Retry</i></button>
+                            </div>
+
+                            <div class="tab-pane fade" id="videoUpload">
+                                TODO
+                                <button class="cancelButton btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pictureRecordingHolder">
+        <div id="modalPictureWindowMain" class="modal">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#pictureRecording" data-toggle="tab">Capture Image</a></li>
+                            <li><a href="#pictureUpload" data-toggle="tab">Upload Image</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="pictureRecording">
+                                <video autoplay width="520" height="360"></video>
+                                <canvas width="520" height="360" hidden="hidden"></canvas>
+                                <hr />
+
+                                <button class="btn-record btn btn-dark" onclick="pictureToggleCapture(this)"><i class="fa fa-video-camera fa-2x"> Preview</i></button>
+                                <button class="sendButton btn btn-success" hidden="hidden" data-dismiss="modal"><i class="fa fa-send fa-2x"> Send</i></button>
+                                <a href="#" class="save saveButton btn btn-dark" download hidden="hidden"><i class="fa fa-2x fa-floppy"> Save</i></a>
+                                <button class="cancelButton btn btn-danger" hidden="hidden"><i class="fa fa-2x fa-refresh"> Retry</i></button>
+                            </div>
+
+                            <div class="tab-pane fade" id="pictureUpload">
+                                TODO
+                                <button class="cancelButton btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

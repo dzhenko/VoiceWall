@@ -122,7 +122,7 @@ DEALINGS IN THE SOFTWARE.
     }
 
     Recorder.setupPost = function (blob, url) {
-        var form = new FormData(document.querySelector("#soundRecordingHolder .hiddenForm"));
+        var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
         form.append("waveBlobFile", blob);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
