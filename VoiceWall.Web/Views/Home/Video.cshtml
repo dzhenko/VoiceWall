@@ -1,0 +1,26 @@
+﻿@section styles {
+    <link href="~/Content/videoRecording.css" rel="stylesheet" />
+}
+
+<div id="videoRecordingHolder">
+
+    <video autoplay class="preview" controls width="300" height="200" ></video>
+
+    @using (Html.BeginForm("UploadVideo", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+
+    <button class="recordButton btn btn-dark" onclick="toggleRecording(this)">Record</button>
+    <button class="playButton btn btn-dark">Play</button>
+    <button class="sendButton btn btn-dark">Send</button>
+    <a href="#" class="save saveButton btn btn-dark" target="_blank">Save</a>
+    <button class="cancelButton btn btn-danger" disabled>Cancel</button>
+    <a href="" class="hiddenLink"></a>
+</div>
+
+@section scripts {
+<script src="~/Scripts/RecordRTC.js"></script>
+<script src="~/Scripts/app/videoRecording/videoMerging.js"></script>
+    @*@Scripts.Render("~/bundles/videoRecording")*@
+}

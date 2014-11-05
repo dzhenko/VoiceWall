@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top:50px;
-    padding-bottom: 20px;
+    padding-top:70px;
     font-family: 'nimbus-sans','helvetica neue',helvetica,arial,sans-serif;
     background: url(../Content/img/bg.jpg) no-repeat center center fixed;
 }
@@ -32,6 +31,9 @@ textarea {
  */
 
 /* Global Styles */
+.btn {
+    border-radius:0!important;
+}
 
 html,
 body {
@@ -91,6 +93,7 @@ hr.small {
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
+    top: 50px;
     right: 0;
     width: 250px;
     height: 100%;

@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - VoiceWall</title>
+    <title>Voice Wall</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
 
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
@@ -26,14 +28,12 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Voice", "Voice", "Home")</li>
+                    <li>@Html.ActionLink("Video", "Video", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
     <div class="container body-content">
         @RenderBody()
 
@@ -44,33 +44,56 @@
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1 text-center">
                         <h4>
-                            <strong>Start Bootstrap</strong>
+                            <strong>About the creator</strong>
                         </h4>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
                         <ul class="list-unstyled">
-                            <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                            <li><i class="fa fa-phone fa-fw"></i> (0896) 123 456</li>
                             <li>
-                                <i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                                <i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:dzhenko@gmail.com">dzhenko@gmail.com</a>
                             </li>
                         </ul>
                         <br>
                         <ul class="list-inline">
                             <li>
-                                <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-github fa-fw fa-3x"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-code-fork fa-fw fa-3x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-google-plus fa-fw fa-3x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/fast4y/VoiceWall"><i class="fa fa-pinterest fa-fw fa-3x"></i></a>
                             </li>
                         </ul>
                         <hr class="small">
-                        <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                        <p class="text-muted">Copyright &copy; Voice Wall 2014</p>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @if (TempData["Success"] != null)
+    {
+        <script>toastr.success('@TempData["Success"].ToString()')</script>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <script>toastr.error('@TempData["Error"].ToString()')</script>
+    }
 </body>
 </html>

@@ -50,19 +50,19 @@ namespace VoiceWall.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "lKSMteThz5jghsaBhHraJO6Fb",
+               consumerSecret: "8pj3nPQvNpFGBJ7sM0EPbzgRteOjSprf0ZAxgg4UdoF96ZYYmS");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "672839802828742",
+               appSecret: "f7abed531e91a605b3d01b7e47893c55");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "215569713467-0m1kj8vq9athipjcd4lq652hi2lbe1as.apps.googleusercontent.com",
+                ClientSecret = "_Whk1PyDhrcGZAk9AiGmabu9"
+            });
         }
     }
 }

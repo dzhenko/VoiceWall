@@ -21,3 +21,7 @@
         }
     }
 }
+
+
+// child action only controller for partials
+// all partials begin with _

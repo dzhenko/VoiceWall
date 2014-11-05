@@ -38,7 +38,7 @@ function saveAudio() {
 }
 
 function gotBuffers(buffers) {
-    var canvas = document.getElementById("wavedisplay");
+    var canvas = document.querySelector("#soundRecordingHolder .wavedisplay");
 
     drawBuffer(canvas.width, canvas.height, canvas.getContext('2d'), buffers[0]);
 
@@ -53,11 +53,14 @@ function doneEncoding(blob) {
 
     $("#soundRecordingHolder .playButton").show().click(function () { Recorder.setupListen(blob) });
     $("#soundRecordingHolder .sendButton").show().click(function () { Recorder.setupPost(blob, "UploadVoice") });
+    $("#soundRecordingHolder .saveButton").show().click(function() { $("#soundRecordingHolder .save").click() });
     $("#soundRecordingHolder .cancelButton").show();
     $("#soundRecordingHolder .cancelButton").on("click", function () {
         $("#soundRecordingHolder .playButton").hide();
         $("#soundRecordingHolder .sendButton").hide();
+        $("#soundRecordingHolder .saveButton").hide();
         $("#soundRecordingHolder .cancelButton").hide();
+        audioRecorder.clear();
     }).show();
 }
 
@@ -67,6 +70,13 @@ function toggleRecording(e) {
         audioRecorder.stop();
         e.classList.remove("recording");
         audioRecorder.getBuffers(gotBuffers);
+
+        $("#soundRecordingHolder .playButton").show();
+        $("#soundRecordingHolder .sendButton").show();
+        $("#soundRecordingHolder .saveButton").show();
+        $("#soundRecordingHolder .cancelButton").show();
+        $("#soundRecordingHolder .analyser").hide();
+        $("#soundRecordingHolder .wavedisplay").show();
     } else {
         // start recording
         if (!audioRecorder)
@@ -74,6 +84,13 @@ function toggleRecording(e) {
         e.classList.add("recording");
         audioRecorder.clear();
         audioRecorder.record();
+
+        $("#soundRecordingHolder .playButton").hide();
+        $("#soundRecordingHolder .sendButton").hide();
+        $("#soundRecordingHolder .saveButton").hide();
+        $("#soundRecordingHolder .cancelButton").hide();
+        $("#soundRecordingHolder .analyser").show();
+        $("#soundRecordingHolder .wavedisplay").hide();
     }
 }
 
@@ -94,7 +111,7 @@ function cancelAnalyserUpdates() {
 
 function updateAnalysers(time) {
     if (!analyserContext) {
-        var canvas = document.getElementById("analyser");
+        var canvas = document.querySelector("#soundRecordingHolder .analyser");
         canvasWidth = canvas.width;
         canvasHeight = canvas.height;
         analyserContext = canvas.getContext('2d');
@@ -170,7 +187,9 @@ function gotStream(stream) {
 function initAudio() {
     $("#soundRecordingHolder .playButton").hide();
     $("#soundRecordingHolder .sendButton").hide();
+    $("#soundRecordingHolder .saveButton").hide();
     $("#soundRecordingHolder .cancelButton").hide();
+    $("#soundRecordingHolder .wavedisplay").hide();
 
     if (!navigator.getUserMedia)
         navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;

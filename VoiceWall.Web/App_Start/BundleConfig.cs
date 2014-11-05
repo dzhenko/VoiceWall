@@ -21,10 +21,15 @@ namespace VoiceWall.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/toastr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/sideMenu").Include(
                      "~/Scripts/app/index.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/videoRecording").Include(
+                    "~/Scripts/RecordRTC.js",
+                    "~/Scripts/app/videoRecording/videoMerging.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/soundRecording").Include(
@@ -35,10 +40,8 @@ namespace VoiceWall.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome/css/font-awesome.css",
+                      "~/Content/toastr.css",
                       "~/Content/site.css"));
-
-            bundles.Add(new StyleBundle("~/Content/soundRecorder").Include(
-                        "~/Content/soundRecording.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

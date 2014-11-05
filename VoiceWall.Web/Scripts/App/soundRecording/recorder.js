@@ -129,7 +129,7 @@ DEALINGS IN THE SOFTWARE.
         xhr.send(form);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                alert('success');
+                toastr.success("Wee");
             }
         }
     }

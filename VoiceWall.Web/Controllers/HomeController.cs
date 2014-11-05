@@ -1,5 +1,6 @@
 ﻿namespace VoiceWall.Web.Controllers
 {
+    using System;
     using System.Web;
     using System.Web.Mvc;
 
@@ -20,6 +21,17 @@
             return View();
         }
 
+        public ActionResult Video()
+        {
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        public ActionResult UploadVideo(HttpPostedFileBase videoFile)
+        {
+            return Json(JsonModels.SuccessJsonModel.Succeeded);
+        }
+
         public ActionResult Voice()
         {
             return View();
@@ -28,7 +40,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult UploadVoice(HttpPostedFileBase waveBlobFile)
         {
-            return Json(new { success = true });
+            // magic
+            return Json(JsonModels.SuccessJsonModel.Succeeded);
         }
     }
 }
