@@ -1,0 +1,13 @@
+﻿@model IEnumerable<VoiceWall.Web.ViewModels.WallItemViewModel>
+
+<h2>Wall</h2>
+
+@Html.Partial("_CommentContent")
+
+@section scripts {
+    @Scripts.Render("~/bundles/commentContent")
+}
+
+@section styles{
+    @Styles.Render("~/Content/commentContent")
+}

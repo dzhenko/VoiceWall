@@ -8,7 +8,7 @@
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Wall", ViewModels.FakeDataSeeder.GetWallItems(15));
         }
 
         public ActionResult About()

@@ -1,6 +1,6 @@
-﻿<button data-toggle="modal" data-target="#modalVoiceWindowMain" onclick="initAudio()">Voice</button>
-<button data-toggle="modal" data-target="#modalVideoWindowMain">Video</button>
-<button data-toggle="modal" data-target="#modalPictureWindowMain">Picture</button>
+﻿<button @*hidden="hidden"*@ id="modalWindowDispatcherVoice" data-toggle="modal" data-target="#modalVoiceWindowMain" onclick="initAudio()">Voice</button>
+<button @*hidden="hidden"*@ id="modalWindowDispatcherVideo" data-toggle="modal" data-target="#modalVideoWindowMain">Video</button>
+<button @*hidden="hidden"*@ id="modalWindowDispatcherPicture" data-toggle="modal" data-target="#modalPictureWindowMain">Picture</button>
 
 <div id="commentContentModalWindowsHolder">
     @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
@@ -13,10 +13,10 @@
             <div class="modal-dialog text-center">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-1x"></i></button>
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#voiceRecording" data-toggle="tab">Record Voice</a></li>
-                            <li><a href="#voiceUpload" data-toggle="tab">Upload Voice</a></li>
+                            <li class="active"><a href="#voiceRecording" data-toggle="tab"><i class="fa fa-microphone fa-2x"> Record</i></a></li>
+                            <li><a href="#voiceUpload" data-toggle="tab"><i class="fa fa-upload fa-2x"> Upload</i></a></li>
                         </ul>
                     </div>
                     <div class="modal-body">
@@ -54,11 +54,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-1x"></i></button>
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#videoRecording" data-toggle="tab">Record Video</a></li>
-                            <li><a href="#videoAndAudioRecording" data-toggle="tab">Record Video and Audio<span class="badge toast-success">Beta</span></a></li>
-                            <li><a href="#videoUpload" data-toggle="tab">Upload Video</a></li>
+                            <li class="active"><a href="#videoRecording" data-toggle="tab"><i class="fa fa-video-camera fa-2x"> Video</i></a></li>
+                            <li><a href="#videoAndAudioRecording" data-toggle="tab"><i class="fa fa-magic fa-2x"> Video/Audio</i></a></li>
+                            <li><a href="#videoUpload" data-toggle="tab"><i class="fa fa-upload fa-2x"> Upload</i></a></li>
                         </ul>
                     </div>
                     <div class="modal-body  text-center">
@@ -87,7 +87,7 @@
 
                             <div class="tab-pane fade" id="videoUpload">
                                 TODO
-                                <button class="cancelButton btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                                <button class="btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
                             </div>
                         </div>
 
@@ -102,10 +102,10 @@
             <div class="modal-dialog text-center">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                        <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-1x"></i></button>
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#pictureRecording" data-toggle="tab">Capture Image</a></li>
-                            <li><a href="#pictureUpload" data-toggle="tab">Upload Image</a></li>
+                            <li class="active"><a href="#pictureRecording" data-toggle="tab"><i class="fa fa-image fa-2x"> Snapshot</i></a></li>
+                            <li><a href="#pictureUpload" data-toggle="tab"><i class="fa fa-upload fa-2x"> Upload</i></a></li>
                         </ul>
                     </div>
                     <div class="modal-body">
@@ -123,7 +123,7 @@
 
                             <div class="tab-pane fade" id="pictureUpload">
                                 TODO
-                                <button class="cancelButton btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                                <button class="btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
                             </div>
                         </div>
                     </div>

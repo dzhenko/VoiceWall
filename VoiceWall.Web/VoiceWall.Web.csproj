@@ -174,7 +174,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Comment.cs" />
     <Compile Include="ViewModels\ContentType.cs" />
-    <Compile Include="ViewModels\View.cs" />
+    <Compile Include="ViewModels\FakeDataSeeder.cs" />
     <Compile Include="ViewModels\WallItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +198,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\videoRecording.css" />
+    <Content Include="Content\wallItemContent.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -312,6 +313,8 @@
     <Content Include="Views\WallItem.cshtml" />
     <Content Include="Views\Home\Picture.cshtml" />
     <Content Include="Views\Home\_CommentContent.cshtml" />
+    <Content Include="Views\Home\_WallItemContent.cshtml" />
+    <Content Include="Views\Home\Wall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

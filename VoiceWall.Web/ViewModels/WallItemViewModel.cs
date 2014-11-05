@@ -15,8 +15,14 @@
 
         public DateTime Created { get; set; }
 
-        public IEnumerable<Comment> Comments { get; set; }
+        public int Views { get; set; }
 
-        public IEnumerable<View> Views { get; set; }
+        public int Likes { get; set; }
+
+        public int Hates { get; set; }
+
+        public int Flags { get; set; }
+
+        public IEnumerable<Comment> Comments { get; set; }
     }
 }

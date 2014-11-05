@@ -40,7 +40,8 @@ namespace VoiceWall.Web
 
             bundles.Add(new StyleBundle("~/Content/commentContent").Include(
                      "~/Content/soundRecording.css",
-                     "~/Content/videoRecording.css"));
+                     "~/Content/videoRecording.css",
+                      "~/Content/wallItemContent.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
