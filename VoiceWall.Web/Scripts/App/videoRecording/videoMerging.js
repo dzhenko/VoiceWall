@@ -5,8 +5,6 @@ var videoFile = !!navigator.mozGetUserMedia ? 'video.gif' : 'video.webm';
 if (!navigator.getUserMedia)
     navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-$("#videoRecordingHolder .stopButton").hide();
-$("#videoRecordingHolder .playButton").hide();
 $("#videoRecordingHolder .sendButton").hide();
 $("#videoRecordingHolder .saveButton").hide();
 $("#videoRecordingHolder .cancelButton").hide();
@@ -15,6 +13,9 @@ function toggleRecording(e) {
     if (e.classList.contains("recording")) {
         // stop recording
         e.classList.remove("recording");
+        $("#videoRecordingHolder .recordButton").hide();
+        $(videoPreview).hide();
+        $("#videoRecordingHolder .loading").show();
         recordAudio.stopRecording(function () {
             recordVideo.stopRecording(function () {
                 convertStreams(recordVideo.getBlob(), recordAudio.getBlob());
@@ -115,16 +116,18 @@ function convertStreams(videoBlob, audioBlob) {
 
             log(JSON.stringify(blob));
 
-            $("#videoRecordingHolder .playButton").show().click(function () {
-                videoPreview.src = URL.createObjectURL(blob);
-            });
+            $("#videoRecordingHolder .loading").hide();
+            $("#videoRecordingHolder .play").show();
+            $("#videoRecordingHolder .play source").attr("src", URL.createObjectURL(blob));
+
             $("#videoRecordingHolder .sendButton").show().click(function () { PostBlob(blob) });
             $("#videoRecordingHolder .saveButton").show().attr("href", URL.createObjectURL(blob));
             $("#videoRecordingHolder .cancelButton").show().click(function () {
-                $("#videoRecordingHolder .playButton").hide();
                 $("#videoRecordingHolder .sendButton").hide();
                 $("#videoRecordingHolder .saveButton").hide();
                 $("#videoRecordingHolder .cancelButton").hide();
+                $("#videoRecordingHolder .play").hide();
+                $("#videoRecordingHolder .recordButton").show();
             });
         }
     };

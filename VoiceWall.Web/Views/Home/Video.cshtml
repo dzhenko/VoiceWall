@@ -4,7 +4,11 @@
 
 <div id="videoRecordingHolder">
 
+    <img src="~/Content/img/loading.gif" width="300" height="200" hidden="hidden" class="loading" /><br />
     <video autoplay class="preview" controls width="300" height="200" ></video>
+    <video controls class="play" width="300" height="200" hidden="hidden">
+        <source src="" type="video/mp4">
+    </video>
 
     @using (Html.BeginForm("UploadVideo", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
     {
@@ -12,11 +16,10 @@
     }
 
     <button class="recordButton btn btn-dark" onclick="toggleRecording(this)">Record</button>
-    <button class="playButton btn btn-dark">Play</button>
+    @*<button class="playButton btn btn-dark">Play</button>*@
     <button class="sendButton btn btn-dark">Send</button>
-    <a href="#" class="save saveButton btn btn-dark" target="_blank">Save</a>
-    <button class="cancelButton btn btn-danger" disabled>Cancel</button>
-    <a href="" class="hiddenLink"></a>
+    <a href="#" class="save saveButton btn btn-dark" target="_parent">Save</a>
+    <button class="cancelButton btn btn-danger">Cancel</button>
 </div>
 
 @section scripts {

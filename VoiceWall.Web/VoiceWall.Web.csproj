@@ -185,6 +185,7 @@
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\callout.jpg" />
+    <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\navback.jpg" />
     <Content Include="Content\img\navigationback.png" />
     <Content Include="Content\img\portfolio-1.jpg" />
