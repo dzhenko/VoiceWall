@@ -4,26 +4,51 @@
 <h2>Voice</h2>
 
 <div id="soundRecordingHolder">
-    <div class="container">
-        <div class="viz col-md-12">
-            <canvas class="analyser" width="1024" height="500"></canvas>
-            <canvas class="wavedisplay" width="1024" height="500"></canvas>
-        </div>
-    </div>
-    <div class="container">
-        <audio id="player" hidden="hidden"></audio>
-    </div>
-
     @using (Html.BeginForm("UploadVoice", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
     {
         @Html.AntiForgeryToken()
     }
 
-    <button class="recordButton btn btn-dark" onclick="toggleRecording(this)">Record</button>
-    <button class="playButton btn btn-dark">Play</button>
-    <button class="sendButton btn btn-dark">Send</button>
-    <a href="#" class="save saveButton btn btn-dark" target="_blank">Save</a>
-    <button class="cancelButton btn btn-danger">Cancel</button>
+    <button data-toggle="modal" data-target="#modalVoiceWindowMain" onclick="initAudio()">Open</button>
+
+    <div id="modalVoiceWindowMain" class="modal">
+        <div class="modal-dialog text-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#voiceRecording" data-toggle="tab">Record Voice</a></li>
+                        <li><a href="#voiceUpload" data-toggle="tab">Upload Voice</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="voiceRecording">
+                            <div class="container">
+                                <div class="viz col-md-12">
+                                    <canvas class="analyser" width="620" height="360"></canvas>
+                                    <canvas class="wavedisplay" width="620" height="360"></canvas>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <audio id="player" hidden="hidden"></audio>
+                            </div>
+                            <hr />
+                            <button class="recordButton btn btn-dark" onclick="toggleRecording(this)"><i class="fa fa-microphone fa-2x"> Record</i></button>
+                            <button class="sendButton btn btn-success" hidden="hidden"><i class="fa fa-send fa-2x"> Send</i></button>
+                            <button class="playButton btn btn-dark" hidden="hidden"><i class="fa fa-volume-up fa-2x"> Play</i></button>
+                            <a href="#" class="save saveButton btn btn-dark" target="_blank" hidden="hidden"><i class="fa fa-2x fa-floppy-o"> Save</i></a>
+                        </div>
+
+                        <div class="tab-pane fade" id="voiceUpload">
+                            TODO
+                            <button class="cancelButton btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section scripts{

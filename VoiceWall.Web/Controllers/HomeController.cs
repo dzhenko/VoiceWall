@@ -27,6 +27,12 @@
         }
 
         [ValidateAntiForgeryToken]
+        public ActionResult UploadVideoAndAudio(HttpPostedFileBase videoAndAudioFile)
+        {
+            return Json(JsonModels.SuccessJsonModel.Succeeded);
+        }
+
+        [ValidateAntiForgeryToken]
         public ActionResult UploadVideo(HttpPostedFileBase videoFile)
         {
             return Json(JsonModels.SuccessJsonModel.Succeeded);
@@ -39,6 +45,18 @@
 
         [ValidateAntiForgeryToken]
         public ActionResult UploadVoice(HttpPostedFileBase waveBlobFile)
+        {
+            // magic
+            return Json(JsonModels.SuccessJsonModel.Succeeded);
+        }
+
+        public ActionResult Picture()
+        {
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        public ActionResult UploadPicture(HttpPostedFileBase imageFile)
         {
             // magic
             return Json(JsonModels.SuccessJsonModel.Succeeded);

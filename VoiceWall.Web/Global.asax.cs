@@ -25,3 +25,4 @@
 
 // child action only controller for partials
 // all partials begin with _
+// reqire ajax attribute (request.isAjax)

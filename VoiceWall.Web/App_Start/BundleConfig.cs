@@ -28,8 +28,9 @@ namespace VoiceWall.Web
                      "~/Scripts/app/index.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/videoRecording").Include(
-                    "~/Scripts/RecordRTC.js",
-                    "~/Scripts/app/videoRecording/videoMerging.js"));
+                    "~/Scripts/app/videoRecording/RecordRTC.js",
+                    "~/Scripts/app/videoRecording/videoMerging.js",
+                    "~/Scripts/app/videoRecording/videoRecording.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/soundRecording").Include(

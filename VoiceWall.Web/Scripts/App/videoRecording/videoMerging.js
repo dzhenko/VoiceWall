@@ -1,24 +1,24 @@
 ﻿/// <reference path="../../RecordRTC.js" />
-var recordVideo, recordAudio;
-var videoPreview = document.querySelector('#videoRecordingHolder .preview');
-var videoFile = !!navigator.mozGetUserMedia ? 'video.gif' : 'video.webm';
+var recordMergedVideo, recordMergedAudio;
+var videoMergedPreview = document.querySelector('#videoAndAudioRecording .preview');
+var videoMergedFile = !!navigator.mozGetUserMedia ? 'video.gif' : 'video.webm';
 if (!navigator.getUserMedia)
     navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-$("#videoRecordingHolder .sendButton").hide();
-$("#videoRecordingHolder .saveButton").hide();
-$("#videoRecordingHolder .cancelButton").hide();
+$("#videoAndAudioRecording .sendButton").hide();
+$("#videoAndAudioRecording .saveButton").hide();
+$("#videoAndAudioRecording .cancelButton").hide();
 
-function toggleRecording(e) {
+function toggleMergedRecording(e) {
     if (e.classList.contains("recording")) {
         // stop recording
         e.classList.remove("recording");
-        $("#videoRecordingHolder .recordButton").hide();
-        $(videoPreview).hide();
-        $("#videoRecordingHolder .loading").show();
-        recordAudio.stopRecording(function () {
-            recordVideo.stopRecording(function () {
-                convertStreams(recordVideo.getBlob(), recordAudio.getBlob());
+        $("#videoAndAudioRecording .recordButton").hide();
+        $(videoMergedPreview).hide();
+        $("#videoAndAudioRecording .loading").show();
+        recordMergedAudio.stopRecording(function () {
+            recordMergedVideo.stopRecording(function () {
+                convertMergedStreams(recordMergedVideo.getBlob(), recordMergedAudio.getBlob());
 
                 log('<a href="' + workerPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file download started. It is about 18MB in size; please be patient!');
             });
@@ -30,28 +30,28 @@ function toggleRecording(e) {
             audio: true,
             video: true
         }, function (stream) {
-            videoPreview.src = window.URL.createObjectURL(stream);
-            videoPreview.play();
+            videoMergedPreview.src = window.URL.createObjectURL(stream);
+            videoMergedPreview.play();
 
-            recordAudio = RecordRTC(stream, {
+            recordMergedAudio = RecordRTC(stream, {
                 // bufferSize: 16384,
                 onAudioProcessStarted: function () {
-                    recordVideo.startRecording();
+                    recordMergedVideo.startRecording();
                 }
             });
 
-            recordVideo = RecordRTC(stream, {
-                type: videoFile.indexOf('gif') == -1 ? 'video' : 'gif'
+            recordMergedVideo = RecordRTC(stream, {
+                type: videoMergedFile.indexOf('gif') == -1 ? 'video' : 'gif'
             });
 
-            recordAudio.startRecording();
+            recordMergedAudio.startRecording();
         }, function (error) { throw error; });
     }
 }
 
-var workerPath = 'https://cdn.webrtc-experiment.com/ffmpeg_asm.js';
-function processInWebWorker() {
-    var blob = URL.createObjectURL(new Blob(['importScripts("' + workerPath + '");var now = Date.now;function print(text) {postMessage({"type" : "stdout","data" : text});};onmessage = function(event) {var message = event.data;if (message.type === "command") {var Module = {print: print,printErr: print,files: message.files || [],arguments: message.arguments || [],TOTAL_MEMORY: message.TOTAL_MEMORY || false};postMessage({"type" : "start","data" : Module.arguments.join(" ")});postMessage({"type" : "stdout","data" : "Received command: " +Module.arguments.join(" ") +((Module.TOTAL_MEMORY) ? ".  Processing with " + Module.TOTAL_MEMORY + " bits." : "")});var time = now();var result = ffmpeg_run(Module);var totalTime = now() - time;postMessage({"type" : "stdout","data" : "Finished processing (took " + totalTime + "ms)"});postMessage({"type" : "done","data" : result,"time" : totalTime});}};postMessage({"type" : "ready"});'], {
+var workerMergedPath = 'https://cdn.webrtc-experiment.com/ffmpeg_asm.js';
+function processMergedInWebWorker() {
+    var blob = URL.createObjectURL(new Blob(['importScripts("' + workerMergedPath + '");var now = Date.now;function print(text) {postMessage({"type" : "stdout","data" : text});};onmessage = function(event) {var message = event.data;if (message.type === "command") {var Module = {print: print,printErr: print,files: message.files || [],arguments: message.arguments || [],TOTAL_MEMORY: message.TOTAL_MEMORY || false};postMessage({"type" : "start","data" : Module.arguments.join(" ")});postMessage({"type" : "stdout","data" : "Received command: " +Module.arguments.join(" ") +((Module.TOTAL_MEMORY) ? ".  Processing with " + Module.TOTAL_MEMORY + " bits." : "")});var time = now();var result = ffmpeg_run(Module);var totalTime = now() - time;postMessage({"type" : "stdout","data" : "Finished processing (took " + totalTime + "ms)"});postMessage({"type" : "done","data" : result,"time" : totalTime});}};postMessage({"type" : "ready"});'], {
         type: 'application/javascript'
     }));
 
@@ -62,7 +62,7 @@ function processInWebWorker() {
 
 var worker;
 
-function convertStreams(videoBlob, audioBlob) {
+function convertMergedStreams(videoBlob, audioBlob) {
     var vab;
     var aab;
     var buffersReady;
@@ -90,20 +90,20 @@ function convertStreams(videoBlob, audioBlob) {
     fileReader2.readAsArrayBuffer(audioBlob);
 
     if (!worker) {
-        worker = processInWebWorker();
+        worker = processMergedInWebWorker();
     }
 
     worker.onmessage = function (event) {
         var message = event.data;
         if (message.type == "ready") {
-            log('<a href="' + workerPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file has been loaded.');
+            log('<a href="' + workerMergedPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file has been loaded.');
             workerReady = true;
             if (buffersReady)
                 postMessage();
         } else if (message.type == "stdout") {
             log(message.data);
         } else if (message.type == "start") {
-            log('<a href="' + workerPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file received ffmpeg command.');
+            log('<a href="' + workerMergedPath + '" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file received ffmpeg command.');
         } else if (message.type == "done") {
             log(JSON.stringify(message));
 
@@ -116,18 +116,19 @@ function convertStreams(videoBlob, audioBlob) {
 
             log(JSON.stringify(blob));
 
-            $("#videoRecordingHolder .loading").hide();
-            $("#videoRecordingHolder .play").show();
-            $("#videoRecordingHolder .play source").attr("src", URL.createObjectURL(blob));
+            $("#videoAndAudioRecording .loading").hide();
+            $("#videoAndAudioRecording .play").show();
+            $("#videoAndAudioRecording .play source").attr("src", URL.createObjectURL(blob));
 
-            $("#videoRecordingHolder .sendButton").show().click(function () { PostBlob(blob) });
-            $("#videoRecordingHolder .saveButton").show().attr("href", URL.createObjectURL(blob));
-            $("#videoRecordingHolder .cancelButton").show().click(function () {
-                $("#videoRecordingHolder .sendButton").hide();
-                $("#videoRecordingHolder .saveButton").hide();
-                $("#videoRecordingHolder .cancelButton").hide();
-                $("#videoRecordingHolder .play").hide();
-                $("#videoRecordingHolder .recordButton").show();
+            $("#videoAndAudioRecording .sendButton").show().click(function () { PostMergedBlob(blob) });
+            $("#videoAndAudioRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
+            $("#videoAndAudioRecording .cancelButton").show().click(function () {
+                $("#videoAndAudioRecording .sendButton").hide();
+                $("#videoAndAudioRecording .saveButton").hide();
+                $("#videoAndAudioRecording .cancelButton").hide();
+                $("#videoAndAudioRecording .play").hide();
+                $(videoMergedPreview).show();
+                $("#videoAndAudioRecording .recordButton").show();
             });
         }
     };
@@ -137,7 +138,7 @@ function convertStreams(videoBlob, audioBlob) {
         worker.postMessage({
             type: 'command',
             arguments: [
-                '-i', videoFile,
+                '-i', videoMergedFile,
                 '-i', 'audio.wav',
                 '-c:v', 'mpeg4',
                 '-c:a', 'vorbis',
@@ -148,7 +149,7 @@ function convertStreams(videoBlob, audioBlob) {
             files: [
                 {
                     data: new Uint8Array(vab),
-                    name: videoFile
+                    name: videoMergedFile
                 },
                 {
                     data: new Uint8Array(aab),
@@ -159,11 +160,11 @@ function convertStreams(videoBlob, audioBlob) {
     };
 }
 
-function PostBlob(blob) {
+function PostMergedBlob(blob) {
     var form = new FormData(document.querySelector("#videoRecordingHolder .hiddenForm"));
-    form.append("videoFile", blob);
+    form.append("videoAndAudioFile", blob);
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'UploadVideo');
+    xhr.open('POST', 'UploadVideoAndAudio');
     xhr.send(form);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -173,5 +174,5 @@ function PostBlob(blob) {
 }
 
 function log(stuff) {
-    // console.log(stuff);
+    //console.log(stuff);
 }

@@ -1,0 +1,40 @@
+﻿<div id="pictureRecordingHolder">    
+    <button data-toggle="modal" data-target="#modalPictureWindowMain">Open</button>
+
+    <div id="modalPictureWindowMain" class="modal">
+        <div class="modal-dialog text-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-2x"></i></button>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#pictureRecording" data-toggle="tab">Capture Image</a></li>
+                        <li><a href="#pictureUpload" data-toggle="tab">Upload Image</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="pictureRecording">
+                            <video autoplay width="520" height="360"></video>
+                            <canvas width="520" height="360" hidden="hidden"></canvas>
+                            <hr />
+
+                            <button class="btn-record btn btn-dark" onclick="pictureToggleCapture(this)"><i class="fa fa-video-camera fa-2x"> Preview</i></button>
+                            <button class="sendButton btn btn-success" hidden="hidden"><i class="fa fa-send fa-2x"> Send</i></button>
+                            <a href="#" class="save saveButton btn btn-dark" target="_parent" hidden="hidden"><i class="fa fa-2x fa-floppy"> Save</i></a>
+                            <button class="cancelButton btn btn-danger" hidden="hidden"><i class="fa fa-2x fa-refresh"> Retry</i></button>
+                        </div>
+
+                        <div class="tab-pane fade" id="pictureUpload">
+                            TODO
+                            <button class="cancelButton btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/app/pictureRecording/main.js"></script>
+}

@@ -204,11 +204,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\index.js" />
+    <Content Include="Scripts\app\pictureRecording\main.js" />
     <Content Include="Scripts\app\soundRecording\audiodisplay.js" />
     <Content Include="Scripts\app\soundRecording\main.js" />
     <Content Include="Scripts\app\soundRecording\recorder.js" />
     <Content Include="Scripts\app\soundRecording\recorderWorker.js" />
     <Content Include="Scripts\app\videoRecording\videoMerging.js" />
+    <Content Include="Scripts\app\videoRecording\videoRecording.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -252,12 +254,14 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\RecordRTC.js" />
+    <Content Include="Scripts\app\videoRecording\RecordRTC.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\toastr.js" />
@@ -305,6 +309,7 @@
     <Content Include="Views\Home\Video.cshtml" />
     <Content Include="Scripts\toastr.min.js.map" />
     <Content Include="Views\WallItem.cshtml" />
+    <Content Include="Views\Home\Picture.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -79,6 +79,7 @@ function toggleRecording(e) {
         $("#soundRecordingHolder .wavedisplay").show();
     } else {
         // start recording
+
         if (!audioRecorder)
             return;
         e.classList.add("recording");
@@ -160,10 +161,13 @@ function toggleMono() {
 
     audioInput.connect(inputPoint);
 }
-
+var recordVoiceBtnIsHidden = true;
 function gotStream(stream) {
     inputPoint = audioContext.createGain();
-
+    if (recordVoiceBtnIsHidden) {
+        recordVoiceBtnIsHidden = false;
+        $("#soundRecordingHolder .recordButton").show();
+    }
     // Create an AudioNode from the stream.
     realAudioInput = audioContext.createMediaStreamSource(stream);
     audioInput = realAudioInput;
@@ -184,12 +188,14 @@ function gotStream(stream) {
     updateAnalysers();
 }
 
+$("#soundRecordingHolder .recordButton").hide();
+$("#soundRecordingHolder .playButton").hide();
+$("#soundRecordingHolder .sendButton").hide();
+$("#soundRecordingHolder .saveButton").hide();
+$("#soundRecordingHolder .cancelButton").hide();
+$("#soundRecordingHolder .wavedisplay").hide();
+
 function initAudio() {
-    $("#soundRecordingHolder .playButton").hide();
-    $("#soundRecordingHolder .sendButton").hide();
-    $("#soundRecordingHolder .saveButton").hide();
-    $("#soundRecordingHolder .cancelButton").hide();
-    $("#soundRecordingHolder .wavedisplay").hide();
 
     if (!navigator.getUserMedia)
         navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -214,5 +220,3 @@ function initAudio() {
             console.log(e);
         });
 }
-
-window.addEventListener('load', initAudio);
