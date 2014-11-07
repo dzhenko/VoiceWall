@@ -25,7 +25,7 @@ function toggleOnlyVideoRecording(e) {
             $("#videoRecording .play").show();
             $("#videoRecording .play").attr("src", URL.createObjectURL(blob));
 
-            $("#videoRecording .sendButton").show().click(function () { PostOnlyVideoBlob(blob) });
+            $("#videoRecording .sendButton").show().click(function () { window.voiceWallContentSender(blob); });
 
             $("#videoRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
 
@@ -51,19 +51,19 @@ function toggleOnlyVideoRecording(e) {
 }
 
 
-function PostOnlyVideoBlob(blob) {
-    var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
-    form.append("videoFile", blob);
-    form.append("wallItemId", window.wallItemHolderClickedId);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'UploadVideo');
-    xhr.send(form);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            toastr.success("Wee");
-        }
-    }
-}
+//function PostOnlyVideoBlob(blob) {
+//    var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
+//    form.append("videoFile", blob);
+//    form.append("wallItemId", window.wallItemHolderClickedId);
+//    var xhr = new XMLHttpRequest();
+//    xhr.open('POST', 'UploadVideo');
+//    xhr.send(form);
+//    xhr.onreadystatechange = function () {
+//        if (xhr.readyState == 4 && xhr.status == 200) {
+//            toastr.success("Wee");
+//        }
+//    }
+//}
 
 $("#modalVideoWindowMain").on('hidden.bs.modal', videoOnlyResetStates);
 

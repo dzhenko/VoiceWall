@@ -5,11 +5,15 @@
 @{ Html.RenderPartial("_CreateContentPartial"); }
 @{ Html.RenderPartial("_PlayContentPartial"); }
 
-<div class="row">
-    <div class="col-md-offset-1 col-md-10">
-        @{ Html.RenderPartial("_WallItemPartial", Model.First()); }
+@foreach (var wallItem in Model)
+{
+    <hr />
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            @{ Html.RenderPartial("_WallItemPartial", wallItem); }
+        </div>
     </div>
-</div>
+}
 
 @section scripts {
     @Scripts.Render("~/bundles/commentContent")

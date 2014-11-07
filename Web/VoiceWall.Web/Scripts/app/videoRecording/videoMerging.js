@@ -123,7 +123,7 @@ function convertMergedStreams(videoBlob, audioBlob) {
             $("#videoAndAudioRecording .play").show();
             $("#videoAndAudioRecording .play").attr("src", URL.createObjectURL(blob));
 
-            $("#videoAndAudioRecording .sendButton").show().click(function () { PostMergedBlob(blob) });
+            $("#videoAndAudioRecording .sendButton").show().click(function () { window.voiceWallContentSender(blob); });
             $("#videoAndAudioRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
             $("#videoAndAudioRecording .cancelButton").show().click(videoMergedResetStates);
         }
@@ -156,19 +156,19 @@ function convertMergedStreams(videoBlob, audioBlob) {
     };
 }
 
-function PostMergedBlob(blob) {
-    var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
-    form.append("videoAndAudioFile", blob);
-    form.append("wallItemId", window.wallItemHolderClickedId);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'UploadVideoAndAudio');
-    xhr.send(form);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            toastr.success("Wee");
-        }
-    }
-}
+//function PostMergedBlob(blob) {
+//    var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
+//    form.append("videoAndAudioFile", blob);
+//    form.append("wallItemId", window.wallItemHolderClickedId);
+//    var xhr = new XMLHttpRequest();
+//    xhr.open('POST', 'UploadVideoAndAudio');
+//    xhr.send(form);
+//    xhr.onreadystatechange = function () {
+//        if (xhr.readyState == 4 && xhr.status == 200) {
+//            toastr.success("Wee");
+//        }
+//    }
+//}
 
 function log(stuff) {
     //console.log(stuff);

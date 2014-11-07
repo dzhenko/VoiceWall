@@ -1,4 +1,9 @@
 ﻿$(function () {
+    // start by hiding icons
+    $(".wallItemMainHolder .commentInnerBtn").hide();
+    $(".wallItemMainHolder .reactInnerBtn").hide();
+
+    // handle picture opening
     $(".fancybox-image").fancybox({
         'titleShow': false,
         'transitionIn': 'elastic',
@@ -7,7 +12,7 @@
         'easingOut': 'easeInBack'
     });
 
-    // media play
+    // handle media play
     $('.wallItemMainHolder .multimedia-main-action:not(.fancybox-image)').click(playMedia);
     $('.wallItemMainHolder .small-multimedia-main-action:not(.fancybox-image)').click(playMedia);
 
@@ -42,17 +47,15 @@
         }
     }
 
+    // stop media on modal closing
     $("#modalContentPlayerHolder").on('hidden.bs.modal', function () {
         $('#modalContentPlayerHolder .audio-player')[0].pause();
         $('#modalContentPlayerHolder .video-player')[0].pause();
     });
     
-    // buttons
+    // animate buttons
     var commentBtns = $(".wallItemMainHolder .commentBtn");
     var reactBtns = $(".wallItemMainHolder .reactBtn");
-
-    $(".wallItemMainHolder .commentInnerBtn").hide();
-    $(".wallItemMainHolder .reactInnerBtn").hide();
 
     commentBtns.click(function (e) {
         var self = $(this);
@@ -84,5 +87,31 @@
         $(own[0]).transition({ x: -95 });
         $(own[1]).transition({ x: -190 });
         $(own[2]).transition({ x: -280 });
+    });
+
+    // attach events to buttons
+    $('.main-create-comment-holder .voiceBtn').click(function () {
+        initAudio();
+        $('#modalVoiceWindowMain').modal('show');
+    });
+
+    $('.main-create-comment-holder .pictureBtn').click(function () {
+        $('#modalPictureWindowMain').modal('show');
+    });
+
+    $('.main-create-comment-holder .videoBtn').click(function () {
+        $('#modalVideoWindowMain').modal('show');
+    });
+
+    $('.main-create-comment-holder .likeBtn').click(function () {
+        window.voiceWallReactionSender('like');
+    });
+
+    $('.main-create-comment-holder .hateBtn').click(function () {
+        window.voiceWallReactionSender('hate');
+    });
+
+    $('.main-create-comment-holder .flagBtn').click(function () {
+        window.voiceWallReactionSender('flag');
     });
 });

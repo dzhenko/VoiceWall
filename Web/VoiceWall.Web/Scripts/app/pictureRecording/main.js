@@ -90,17 +90,18 @@ var pictuireVideoIsOn = false;
 
 function PostBlobPicture() {
     if (pictureFileBlob) {
-        var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
-        form.append("imageFile", pictureFileBlob);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'UploadPicture');
-        xhr.send(form);
+        window.voiceWallContentSender(pictureFileBlob);
+        //var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
+        //form.append("imageFile", pictureFileBlob);
+        //var xhr = new XMLHttpRequest();
+        //xhr.open('POST', 'UploadPicture');
+        //xhr.send(form);
         
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                toastr.success("Wee");
-            }
-        }
+        //xhr.onreadystatechange = function () {
+        //    if (xhr.readyState == 4 && xhr.status == 200) {
+        //        toastr.success("Wee");
+        //    }
+        //}
     }
 }
 

@@ -122,17 +122,18 @@ DEALINGS IN THE SOFTWARE.
     }
 
     Recorder.setupPost = function (blob, url) {
-        var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
-        form.append("waveBlobFile", blob);
-        form.append("wallItemId", window.wallItemHolderClickedId);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', url);
-        xhr.send(form);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                toastr.success("Wee");
-            }
-        }
+        window.voiceWallContentSender(blob);
+        //var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
+        //form.append("waveBlobFile", blob);
+        //form.append("wallItemId", window.wallItemHolderClickedId);
+        //var xhr = new XMLHttpRequest();
+        //xhr.open('POST', url);
+        //xhr.send(form);
+        //xhr.onreadystatechange = function () {
+        //    if (xhr.readyState == 4 && xhr.status == 200) {
+        //        toastr.success("Wee");
+        //    }
+        //}
     }
 
     window.Recorder = Recorder;
