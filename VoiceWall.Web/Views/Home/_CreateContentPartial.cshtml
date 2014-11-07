@@ -1,6 +1,6 @@
-﻿<button @*hidden="hidden"*@ id="modalWindowDispatcherVoice" data-toggle="modal" data-target="#modalVoiceWindowMain" onclick="initAudio()">Voice</button>
-<button @*hidden="hidden"*@ id="modalWindowDispatcherVideo" data-toggle="modal" data-target="#modalVideoWindowMain">Video</button>
-<button @*hidden="hidden"*@ id="modalWindowDispatcherPicture" data-toggle="modal" data-target="#modalPictureWindowMain">Picture</button>
+﻿<button hidden="hidden" id="modalWindowDispatcherVoice" data-toggle="modal" data-target="#modalVoiceWindowMain" onclick="initAudio()">Voice</button>
+<button hidden="hidden" id="modalWindowDispatcherVideo" data-toggle="modal" data-target="#modalVideoWindowMain">Video</button>
+<button hidden="hidden" id="modalWindowDispatcherPicture" data-toggle="modal" data-target="#modalPictureWindowMain">Picture</button>
 
 <div id="commentContentModalWindowsHolder">
     @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))

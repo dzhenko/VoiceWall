@@ -11,7 +11,9 @@ namespace VoiceWall.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.unobtrusive-ajax.js",
-                        "~/Scripts/jquery.transit.min.js"));
+                        "~/Scripts/jquery.transit.min.js",
+                        "~/Scripts/jquery.easing.js",
+                        "~/Scripts/jquery.fancybox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -50,6 +52,7 @@ namespace VoiceWall.Web
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome/css/font-awesome.css",
                       "~/Content/toastr.css",
+                      "~/Content/jquery.fancybox.css",
                       "~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,

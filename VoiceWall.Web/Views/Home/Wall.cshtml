@@ -2,12 +2,12 @@
 
 <h2>Wall</h2>
 
-@Html.Partial("_CreateContentPartial")
-<hr />
+@{ Html.RenderPartial("_CreateContentPartial"); }
+@{ Html.RenderPartial("_PlayContentPartial"); }
 
 <div class="row">
     <div class="col-md-offset-1 col-md-10">
-        @{Html.RenderPartial("_WallItemPartial", Model.First());}
+        @{ Html.RenderPartial("_WallItemPartial", Model.First()); }
     </div>
 </div>
 

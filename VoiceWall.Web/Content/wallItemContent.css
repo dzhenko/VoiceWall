@@ -119,8 +119,19 @@
     margin-top: 0.75em;
 }
 
-.main-comments-holder .single-comment-item button:hover {
+.main-comments-holder .single-comment-item button:hover, .main-create-comment-holder .flagBtn:hover{
     color:red;
+}
+
+.main-create-comment-holder .hateBtn:hover {
+    color:crimson;
+}
+
+.main-create-comment-holder .commentBtn:hover, .main-create-comment-holder .reactBtn:hover{
+    color:dodgerblue;
+}
+.main-create-comment-holder .likeBtn:hover, .main-create-comment-holder .voiceBtn:hover, .main-create-comment-holder .pictureBtn:hover, .main-create-comment-holder .videoBtn:hover{
+    color:limegreen;
 }
 
 .main-comments-holder .single-comment-item:hover{
@@ -130,4 +141,16 @@
     -moz-transition: background .2s linear, color .2s linear;
     -webkit-transition: background .2s linear, color .2s linear;
     -o-transition: background .2s linear, color .2s linear;
+}
+
+#modalContentPlayerHolder video, #modalContentPlayerHolder audio {
+    margin:0;
+    padding:0;
+}
+
+#modalContentPlayerHolder span {
+    margin:0;
+    padding:0;
+    font-size:2em;
+
 }

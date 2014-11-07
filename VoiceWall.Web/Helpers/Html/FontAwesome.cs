@@ -40,24 +40,28 @@
         //</a>
         public static MvcHtmlString FontAwesomeMultimediaActionLink(this HtmlHelper helper, string contentUrl, ContentType type, object htmlAttributes = null)
         {
+            var link = new TagBuilder("a");
+            link.MergeAttributes(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+
             var icon = new TagBuilder("i");
             icon.AddCssClass("fa fa-fw");
             switch (type)
             {
                 case ContentType.Picture:
                     icon.AddCssClass("fa-picture-o");
+                    link.Attributes.Add("href", contentUrl);
+                    link.AddCssClass("fancybox-image");
                     break;
                 case ContentType.Sound:
                     icon.AddCssClass("fa-volume-up");
+                    link.Attributes.Add("href", string.Empty);
                     break;
                 case ContentType.Video:
                     icon.AddCssClass("fa-play-circle");
+                    link.Attributes.Add("href", string.Empty);
                     break;
             }
 
-            var link = new TagBuilder("a");
-            link.Attributes.Add("href", string.Empty);
-            link.MergeAttributes(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
 
             link.Attributes.Add("data-content-src", contentUrl);
             link.Attributes.Add("data-content-type", type.ToString());

@@ -195,6 +195,10 @@
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\callout.jpg" />
+    <Content Include="Content\img\fancybox\blank.gif" />
+    <Content Include="Content\img\fancybox\fancybox-x.png" />
+    <Content Include="Content\img\fancybox\fancybox-y.png" />
+    <Content Include="Content\img\fancybox\fancybox.png" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\navback.jpg" />
     <Content Include="Content\img\navigationback.png" />
@@ -204,6 +208,7 @@
     <Content Include="Content\img\portfolio-4.jpg" />
     <Content Include="Content\img\soundRecorder\mic128.png" />
     <Content Include="Content\img\soundRecorder\save.svg" />
+    <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\soundRecording.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
@@ -265,6 +270,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.easing.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
     <Content Include="Scripts\jquery.transit.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -327,6 +334,7 @@
     <Content Include="Views\Home\_CommentItemPartial.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Home\_PlayContentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

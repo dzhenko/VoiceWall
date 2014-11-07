@@ -29,3 +29,7 @@
 // post get redirect
 // static pages have seperate route ?
 // user can not comment more than once 30 sec ?
+// child action - caching - on comment/wall item - needs to be accesable from the outside after ajax like / comment etc.
+// cache by cache profiles (short, medium, custom)
+// comments and wall items vary by id and string - when requesting update pass guid and solved :) (in partial view actions)
+// cache tracks count of comments ?
