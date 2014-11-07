@@ -1,10 +1,12 @@
-﻿namespace VoiceWall.Data.Common.Repositories
+﻿namespace VoiceWall.Data.Repositories
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
+
+    using VoiceWall.Data.Common.Repositories;
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
