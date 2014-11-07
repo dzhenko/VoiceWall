@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1AB6886E-D662-4FD5-81DD-8F032CE50509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Common", "VoiceWall.Common\VoiceWall.Common.csproj", "{800BA1A0-80DF-45AD-ABD2-15C03385DE75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{AD7DA3B2-163C-40C3-91E5-A56853180E61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{33181659-8E97-45BD-9CE6-C8B1F6EECEA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6B36CA1F-BA10-4173-8E45-567B83177128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Web", "Web\VoiceWall.Web\VoiceWall.Web.csproj", "{F4A5EE8B-3014-49C4-9079-02CE597C04D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Data", "Data\VoiceWall.Data\VoiceWall.Data.csproj", "{09299D1D-4396-46FD-B501-58C5BC97E4A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Data.Common", "Data\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj", "{549481AA-0C89-4E41-93B3-FC64D02C8832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Data.Models", "Data\VoiceWall.Data.Models\VoiceWall.Data.Models.csproj", "{6480B90C-BCF9-427F-98DA-8E2E747112DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09299D1D-4396-46FD-B501-58C5BC97E4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09299D1D-4396-46FD-B501-58C5BC97E4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09299D1D-4396-46FD-B501-58C5BC97E4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09299D1D-4396-46FD-B501-58C5BC97E4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{549481AA-0C89-4E41-93B3-FC64D02C8832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549481AA-0C89-4E41-93B3-FC64D02C8832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549481AA-0C89-4E41-93B3-FC64D02C8832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549481AA-0C89-4E41-93B3-FC64D02C8832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4A5EE8B-3014-49C4-9079-02CE597C04D8} = {1AB6886E-D662-4FD5-81DD-8F032CE50509}
+		{09299D1D-4396-46FD-B501-58C5BC97E4A5} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
+		{549481AA-0C89-4E41-93B3-FC64D02C8832} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
+		{6480B90C-BCF9-427F-98DA-8E2E747112DD} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
+	EndGlobalSection
+EndGlobal
