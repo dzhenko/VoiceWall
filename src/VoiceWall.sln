@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Data.Common", "Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Data.Models", "Data\VoiceWall.Data.Models\VoiceWall.Data.Models.csproj", "{6480B90C-BCF9-427F-98DA-8E2E747112DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Web.Infrastructure", "Web\VoiceWall.Web.Infrastructure\VoiceWall.Web.Infrastructure.csproj", "{598FB15E-28A6-4C76-A383-F504CA3025BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6480B90C-BCF9-427F-98DA-8E2E747112DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +62,6 @@ Global
 		{09299D1D-4396-46FD-B501-58C5BC97E4A5} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
 		{549481AA-0C89-4E41-93B3-FC64D02C8832} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
 		{6480B90C-BCF9-427F-98DA-8E2E747112DD} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
+		{598FB15E-28A6-4C76-A383-F504CA3025BA} = {1AB6886E-D662-4FD5-81DD-8F032CE50509}
 	EndGlobalSection
 EndGlobal

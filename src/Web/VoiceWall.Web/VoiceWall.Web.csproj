@@ -196,9 +196,6 @@
     </Compile>
     <Compile Include="Helpers\Html\FontAwesome.cs" />
     <Compile Include="Helpers\Html\Standart.cs" />
-    <Compile Include="Infrastructure\Mapping\AutoMapperConfig.cs" />
-    <Compile Include="Infrastructure\Mapping\IMapCustom.cs" />
-    <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="JsonModels\SuccessJsonModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -382,9 +379,9 @@
       <Project>{09299d1d-4396-46fd-b501-58c5bc97e4a5}</Project>
       <Name>VoiceWall.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\VoiceWall.Common\VoiceWall.Common.csproj">
-      <Project>{800ba1a0-80df-45ad-abd2-15c03385de75}</Project>
-      <Name>VoiceWall.Common</Name>
+    <ProjectReference Include="..\VoiceWall.Web.Infrastructure\VoiceWall.Web.Infrastructure.csproj">
+      <Project>{598fb15e-28a6-4c76-a383-f504ca3025ba}</Project>
+      <Name>VoiceWall.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
