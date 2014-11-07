@@ -2,10 +2,18 @@
 
 <h2>Wall</h2>
 
-@Html.Partial("_CommentContent")
+@Html.Partial("_CreateContentPartial")
+<hr />
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        @{Html.RenderPartial("_WallItemPartial", Model.First());}
+    </div>
+</div>
 
 @section scripts {
     @Scripts.Render("~/bundles/commentContent")
+    @Scripts.Render("~/bundles/wallContentHolder")
 }
 
 @section styles{

@@ -1,0 +1,29 @@
+﻿@using VoiceWall.Web.Helpers.Html
+@model VoiceWall.Web.ViewModels.Comment
+
+<div class="row single-comment-item">
+    <div class="col-md-3">
+        @Html.DivWithImage(Model.UserImage, new { @class = "comment-image-holder" })
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            @Html.ActionLink(Model.UserName, "Details", new { UserID = Model.UserId })
+        </div>
+        <div class="row">
+            @Html.DisplayFor(m => Model.Created)
+        </div>
+
+        @if (Model.Flags > 0)
+        {
+            <div class="row">
+                <i class="fa fa-2x fa-fw fa-flag-o text-danger">@Model.Flags</i>
+            </div>
+        }
+    </div>
+    <div class="col-md-1">
+        @Html.FontAwesomeButton("Flag", "flag", new { @class = "" }, Model.IsFlagged, 2)
+    </div>
+    <div class="col-md-3 col-md-offset-1">
+        @Html.FontAwesomeMultimediaActionLink(Model.ContentUrl, Model.ContentType, new { @class = "small-multimedia-main-action" })
+    </div>
+</div>

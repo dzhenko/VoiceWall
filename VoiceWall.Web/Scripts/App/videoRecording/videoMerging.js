@@ -159,6 +159,7 @@ function convertMergedStreams(videoBlob, audioBlob) {
 function PostMergedBlob(blob) {
     var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
     form.append("videoAndAudioFile", blob);
+    form.append("wallItemId", window.wallItemHolderClickedId);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'UploadVideoAndAudio');
     xhr.send(form);

@@ -19,6 +19,8 @@ namespace VoiceWall.Web.ViewModels
             {
                 wallItems.Add(new WallItemViewModel()
                 {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = Guid.NewGuid().ToString(),
                     ContentUrl = GetContentUrl(),
                     ContentType = lastType,
                     Created = GetDate(),
@@ -26,6 +28,8 @@ namespace VoiceWall.Web.ViewModels
                     Likes = random.Next(15, 33),
                     Hates = random.Next(2, 13),
                     Views = random.Next(45, 124),
+                    IsLiked = GetIsLiked(),
+                    IsFlagged = GetIsFlagged(),
                     UserName = GetUsername(GetNext()),
                     UserImage = GetProfilePicture(GetSame()),
                     Comments = GetComments(random.Next(5, 15))
@@ -35,6 +39,26 @@ namespace VoiceWall.Web.ViewModels
             return wallItems;
         }
 
+        private static bool GetIsFlagged()
+        {
+            return random.Next(0, 100) < 20;
+        }
+
+        private static bool? GetIsLiked()
+        {
+            var num = random.Next(0, 100);
+            if (num > 60)
+            {
+                return true;
+            }
+            else if (num > 15)
+            {
+                return null;
+            }
+
+            return false;
+        }
+
         private static IEnumerable<Comment> GetComments(int number)
         {
             var comments = new List<Comment>();
@@ -42,6 +66,10 @@ namespace VoiceWall.Web.ViewModels
             {
                 comments.Add(new Comment()
                 {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = Guid.NewGuid().ToString(),
+                    Flags = random.Next(0, 2),
+                    IsFlagged = random.Next(0, 100) < 15,
                     UserName = GetUsername(GetNext()),
                     UserImage = GetProfilePicture(GetSame()),
                     ContentUrl = GetContentUrl(),

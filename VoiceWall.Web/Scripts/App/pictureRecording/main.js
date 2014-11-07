@@ -27,6 +27,7 @@ function pictureSnapshot() {
 function postPicture(blob) {
     var form = new FormData(document.querySelector("#soundRecordingHolder .hiddenForm"));
     form.append("imageFile", blob);
+    form.append("wallItemId", window.wallItemHolderClickedId);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.send(form);

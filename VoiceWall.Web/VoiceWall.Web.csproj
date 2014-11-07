@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -165,7 +171,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Helpers\HtmlExtensionMethods.cs" />
+    <Compile Include="Helpers\Html\FontAwesome.cs" />
+    <Compile Include="Helpers\Html\Standart.cs" />
+    <Compile Include="Infrastructure\Mapping\AutoMapperConfig.cs" />
+    <Compile Include="Infrastructure\Mapping\IMapCustom.cs" />
+    <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="JsonModels\SuccessJsonModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -212,6 +222,7 @@
     <Content Include="Scripts\app\soundRecording\recorderWorker.js" />
     <Content Include="Scripts\app\videoRecording\videoMerging.js" />
     <Content Include="Scripts\app\videoRecording\videoRecording.js" />
+    <Content Include="Scripts\app\wallItemHolder.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -250,7 +261,6 @@
     <Content Include="Content\font-awesome\scss\_variables.scss" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
-    <Content Include="App_Code\DIvHelpers.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -310,11 +320,13 @@
     <Content Include="Views\Home\Voice.cshtml" />
     <Content Include="Views\Home\Video.cshtml" />
     <Content Include="Scripts\toastr.min.js.map" />
-    <Content Include="Views\WallItem.cshtml" />
     <Content Include="Views\Home\Picture.cshtml" />
-    <Content Include="Views\Home\_CommentContent.cshtml" />
-    <Content Include="Views\Home\_WallItemContent.cshtml" />
+    <Content Include="Views\Home\_CreateContentPartial.cshtml" />
+    <Content Include="Views\Home\_WallItemPartial.cshtml" />
     <Content Include="Views\Home\Wall.cshtml" />
+    <Content Include="Views\Home\_CommentItemPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +366,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

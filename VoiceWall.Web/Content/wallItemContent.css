@@ -1,2 +1,133 @@
-﻿body {
+﻿.main-image-holder {
+    height:28em;
+    position:relative;
+    background-size:cover;
+}
+
+.main-comments-holder {
+    height:28em;
+    overflow-y:auto;
+}
+
+.main-create-comment-holder {
+    position:relative;
+    padding:5px;
+}
+
+.create-comment-btn {
+    position:absolute;
+}
+
+.commentBtn, .reactBtn {
+    position:relative;
+}
+
+.commentInnerBtn, .reactInnerBtn {
+    position:absolute;
+}
+
+.main-image-holder > p {
+    visibility:hidden;
+    position: absolute;
+}
+
+.main-image-holder:hover > p {
+    visibility: visible;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 4em;
+    vertical-align: middle;
+    color:#fff;
+    background-color: rgba(0,0,0,0.75);
+    transition: background .2s linear, color .2s linear;
+    -moz-transition: background .2s linear, color .2s linear;
+    -webkit-transition: background .2s linear, color .2s linear;
+    -o-transition: background .2s linear, color .2s linear;
+}
+
+.image-holder-header {
+    top: 0;
+}
+
+.image-holder-footer {
+    bottom:0;
+}
+
+.image-holder-footer i:first-child {
+    margin-left:0.3em;
+}
+.image-holder-footer i {
+    margin-right:1.5em;
+}
+
+.image-holder-header a {
+    font-size:1.4em;
+    margin-left:0.2em;
+    line-height:2.4em;
+}
+
+.main-image-holder .multimedia-main-action {
+    position:absolute;
+    font-size:10em;
+    top:25%;
+    left:30%;
+    visibility:hidden;
+    color:deepskyblue;
+}
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-2deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(2deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(2deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-2deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-2deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(2deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-2deg); }
+}
+
+.main-image-holder .multimedia-main-action:hover i, .main-comments-holder .small-multimedia-main-action:hover i {
+    -webkit-animation-name: spaceboots;
+	-webkit-animation-duration: 0.8s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.main-image-holder:hover .multimedia-main-action, .main-comments-holder .small-multimedia-main-action:hover i  {
+    visibility:visible;
+}
+
+.main-comments-holder .small-multimedia-main-action {
+    font-size:4em;
+}
+
+.main-comments-holder .comment-image-holder {
+    height:5em;
+    background-size:cover;
+    margin-top:0.5em;
+}
+
+.main-comments-holder .single-comment-item {
+
+}
+.main-comments-holder .single-comment-item button {
+    margin-top: 0.75em;
+}
+
+.main-comments-holder .single-comment-item button:hover {
+    color:red;
+}
+
+.main-comments-holder .single-comment-item:hover{
+    background-color: rgba(0,0,0,0.75);
+    color:#fff;
+    transition: background .2s linear, color .2s linear;
+    -moz-transition: background .2s linear, color .2s linear;
+    -webkit-transition: background .2s linear, color .2s linear;
+    -o-transition: background .2s linear, color .2s linear;
 }

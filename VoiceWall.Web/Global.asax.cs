@@ -26,3 +26,6 @@
 // child action only controller for partials
 // all partials begin with _
 // reqire ajax attribute (request.isAjax)
+// post get redirect
+// static pages have seperate route ?
+// user can not comment more than once 30 sec ?

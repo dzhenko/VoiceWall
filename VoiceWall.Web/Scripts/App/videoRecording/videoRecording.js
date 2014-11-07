@@ -54,6 +54,7 @@ function toggleOnlyVideoRecording(e) {
 function PostOnlyVideoBlob(blob) {
     var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
     form.append("videoFile", blob);
+    form.append("wallItemId", window.wallItemHolderClickedId);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'UploadVideo');
     xhr.send(form);
