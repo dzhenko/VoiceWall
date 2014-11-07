@@ -1,10 +1,11 @@
-﻿namespace VoiceWall.Web.Helpers.Html
+﻿namespace VoiceWall.Web
 {
     using System;
-using System.Web.Mvc;
-using VoiceWall.Web.ViewModels;
+    using System.Web.Mvc;
 
-    public static class Standart
+    using VoiceWall.Web.ViewModels;
+
+    public static class Common
     {
         public static MvcHtmlString Submit(this HtmlHelper helper, string value, object htmlAttributes = null)
         {

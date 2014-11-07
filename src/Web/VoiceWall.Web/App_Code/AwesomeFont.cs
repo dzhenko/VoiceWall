@@ -1,11 +1,11 @@
-﻿namespace VoiceWall.Web.Helpers.Html
+﻿namespace VoiceWall.Web
 {
     using System.Text;
     using System.Web.Mvc;
 
     using VoiceWall.Web.ViewModels;
 
-    public static class FontAwesome
+    public static class AwesomeFont
     {
         //      <button class="commentBtn btn btn-dark pull-left">
         //          <i class="fa fa-fw fa-3x fa-comment"></i>

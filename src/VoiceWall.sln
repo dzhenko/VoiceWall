@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1AB6886E-D662-4FD5-81DD-8F032CE50509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Common", "VoiceWall.Common\VoiceWall.Common.csproj", "{800BA1A0-80DF-45AD-ABD2-15C03385DE75}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{AD7DA3B2-163C-40C3-91E5-A56853180E61}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{33181659-8E97-45BD-9CE6-C8B1F6EECEA4}"
@@ -23,16 +21,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Data.Models", "Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Web.Infrastructure", "Web\VoiceWall.Web.Infrastructure\VoiceWall.Web.Infrastructure.csproj", "{598FB15E-28A6-4C76-A383-F504CA3025BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Upload", "Upload", "{1E19BC30-1A20-4036-8C8C-3641C4EC603B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.CloudStorage.Dropbox", "Upload\VoiceWall.CloudStorage.Dropbox\VoiceWall.CloudStorage.Dropbox.csproj", "{8BCA326C-60EF-47A9-82EF-723A27045A32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.CloudStorage.Common", "Upload\VoiceWall.CloudStorage.Common\VoiceWall.CloudStorage.Common.csproj", "{FC6754CB-7AD5-40F6-96CA-1FA537A1B85B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.CloudStorage.TelerikBackend", "Upload\VoiceWall.CloudStorage.TelerikBackend\VoiceWall.CloudStorage.TelerikBackend.csproj", "{CE5E337E-7527-41B2-97BA-2AF56650E1F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3AD09D41-1C10-490A-B488-8CE15BB504DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Common.ExtensionMethods", "Common\VoiceWall.Common.ExtensionMethods\VoiceWall.Common.ExtensionMethods.csproj", "{E9F3818E-0D1B-4701-9ABC-E16E592D78F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Common.Constants", "Common\VoiceWall.Common.Constants\VoiceWall.Common.Constants.csproj", "{F1A4DC4E-AA27-4CDD-9B19-5EBC37F3AAAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{800BA1A0-80DF-45AD-ABD2-15C03385DE75}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4A5EE8B-3014-49C4-9079-02CE597C04D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +61,26 @@ Global
 		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{598FB15E-28A6-4C76-A383-F504CA3025BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BCA326C-60EF-47A9-82EF-723A27045A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BCA326C-60EF-47A9-82EF-723A27045A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BCA326C-60EF-47A9-82EF-723A27045A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BCA326C-60EF-47A9-82EF-723A27045A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC6754CB-7AD5-40F6-96CA-1FA537A1B85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6754CB-7AD5-40F6-96CA-1FA537A1B85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6754CB-7AD5-40F6-96CA-1FA537A1B85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6754CB-7AD5-40F6-96CA-1FA537A1B85B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE5E337E-7527-41B2-97BA-2AF56650E1F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5E337E-7527-41B2-97BA-2AF56650E1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5E337E-7527-41B2-97BA-2AF56650E1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5E337E-7527-41B2-97BA-2AF56650E1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F3818E-0D1B-4701-9ABC-E16E592D78F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F3818E-0D1B-4701-9ABC-E16E592D78F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F3818E-0D1B-4701-9ABC-E16E592D78F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F3818E-0D1B-4701-9ABC-E16E592D78F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A4DC4E-AA27-4CDD-9B19-5EBC37F3AAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A4DC4E-AA27-4CDD-9B19-5EBC37F3AAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A4DC4E-AA27-4CDD-9B19-5EBC37F3AAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A4DC4E-AA27-4CDD-9B19-5EBC37F3AAAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +91,10 @@ Global
 		{549481AA-0C89-4E41-93B3-FC64D02C8832} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
 		{6480B90C-BCF9-427F-98DA-8E2E747112DD} = {AD7DA3B2-163C-40C3-91E5-A56853180E61}
 		{598FB15E-28A6-4C76-A383-F504CA3025BA} = {1AB6886E-D662-4FD5-81DD-8F032CE50509}
+		{8BCA326C-60EF-47A9-82EF-723A27045A32} = {1E19BC30-1A20-4036-8C8C-3641C4EC603B}
+		{FC6754CB-7AD5-40F6-96CA-1FA537A1B85B} = {1E19BC30-1A20-4036-8C8C-3641C4EC603B}
+		{CE5E337E-7527-41B2-97BA-2AF56650E1F8} = {1E19BC30-1A20-4036-8C8C-3641C4EC603B}
+		{E9F3818E-0D1B-4701-9ABC-E16E592D78F3} = {3AD09D41-1C10-490A-B488-8CE15BB504DC}
+		{F1A4DC4E-AA27-4CDD-9B19-5EBC37F3AAAF} = {3AD09D41-1C10-490A-B488-8CE15BB504DC}
 	EndGlobalSection
 EndGlobal

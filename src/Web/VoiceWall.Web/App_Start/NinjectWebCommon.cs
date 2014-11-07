@@ -5,14 +5,20 @@ namespace VoiceWall.Web.App_Start
 {
     using System;
     using System.Web;
+    using System.Data.Entity;
+    using System.Configuration;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
-    using System.Data.Entity;
+
     using VoiceWall.Data;
     using VoiceWall.Data.Common.Repositories;
+    using VoiceWall.CloudStorage.Common;
+    using VoiceWall.CloudStorage.Dropbox;
+    using VoiceWall.CloudStorage.TelerikBackend;
+    using System.Reflection;
 
     public static class NinjectWebCommon 
     {
@@ -64,10 +70,16 @@ namespace VoiceWall.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            // Db
             kernel.Bind<DbContext>().To<VoiceWallDbContext>();
 
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+
+            // Cloud Storage
+            kernel.Bind<IPicturesCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["PicturesCloudStorage"]));
+            kernel.Bind<ISoundsCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["SoundsCloudStorage"]));
+            kernel.Bind<IVideosCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["VideosCloudStorage"]));
         }        
     }
 }

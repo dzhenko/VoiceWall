@@ -15,7 +15,7 @@
     {
         protected void Application_Start()
         {
-            ViewEnginesConfig.RegisterViewEngines();
+            (new ViewEnginesConfig()).RegisterViewEngines();
             (new AutoMapperConfig(Assembly.GetExecutingAssembly())).Execute();
 
             AreaRegistration.RegisterAllAreas();

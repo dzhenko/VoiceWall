@@ -4,14 +4,15 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using VoiceWall.CloudStorage.Common;
     using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
 
     public class HomeController : Controller
     {
-        public HomeController(IRepository<User> repo /*di test*/)
+        public HomeController(IRepository<User> repo, IVideosCloudStorage storage /*di test*/)
         {
-
+            
         }
 
         public ActionResult Index()

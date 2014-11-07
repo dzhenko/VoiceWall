@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VoiceWall.Common")]
+[assembly: AssemblyTitle("VoiceWall.Common.Constants")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VoiceWall.Common")]
+[assembly: AssemblyProduct("VoiceWall.Common.Constants")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8c53cafd-3024-4618-a0bc-949fe68d5914")]
+[assembly: Guid("06bef2ba-6f23-4e9b-82ef-18a579e918dc")]
 
 // Version information for an assembly consists of the following four values:
 //

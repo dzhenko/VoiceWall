@@ -4,7 +4,7 @@
 
     public class ViewEnginesConfig
     {
-        public static void RegisterViewEngines()
+        public void RegisterViewEngines()
         {
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());

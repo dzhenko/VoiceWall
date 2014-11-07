@@ -1,4 +1,4 @@
-﻿@using VoiceWall.Web.Helpers.Html
+﻿@using VoiceWall.Web
 @using VoiceWall.Web.ViewModels
 @model VoiceWall.Web.ViewModels.WallItemViewModel
 
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-md-6 main-comments-holder">
-            <h1 class =" text-center">Reactions</h1>
+            <h1 class=" text-center">Reactions</h1>
             @if (Model.Comments.Count() == 0)
             {
                 <h4 class=" text-center">None yet</h4>
