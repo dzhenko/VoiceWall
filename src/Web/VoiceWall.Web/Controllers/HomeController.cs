@@ -4,8 +4,16 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using VoiceWall.Data.Common.Repositories;
+    using VoiceWall.Data.Models;
+
     public class HomeController : Controller
     {
+        public HomeController(IRepository<User> repo /*di test*/)
+        {
+
+        }
+
         public ActionResult Index()
         {
             return View("Wall", ViewModels.FakeDataSeeder.GetWallItems(15));
