@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using VoiceWall.Web.Models;
+using VoiceWall.Web.ViewModels;
 using VoiceWall.Data.Models;
 
 namespace VoiceWall.Web.Controllers

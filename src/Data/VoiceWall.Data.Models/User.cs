@@ -7,11 +7,14 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using VoiceWall.Data.Common.Models;
+
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class User : IdentityUser /*IAuditInfo, IDeleatebleEntry*/
+    public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public User()
         {
+            // This will prevent UserManager.CreateAsync from causing exception
             this.CreatedOn = DateTime.Now;
         }
 
@@ -23,6 +26,16 @@
             return userIdentity;
         }
 
+        // IAuditInfo
         public DateTime CreatedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        // IDeletableEntity
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }

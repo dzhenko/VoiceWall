@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace VoiceWall.Web.Models
+namespace VoiceWall.Web.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

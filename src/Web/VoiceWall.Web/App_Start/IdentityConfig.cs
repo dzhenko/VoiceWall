@@ -14,7 +14,7 @@
     using Microsoft.Owin;
     using Microsoft.Owin.Security;
 
-    using VoiceWall.Web.Models;
+    using VoiceWall.Web.ViewModels;
     using VoiceWall.Data.Models;
     using VoiceWall.Data;
 

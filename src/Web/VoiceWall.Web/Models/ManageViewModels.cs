@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace VoiceWall.Web.Models
+namespace VoiceWall.Web.ViewModels
 {
     public class IndexViewModel
     {
