@@ -23,6 +23,23 @@
             LoadStandardMappings(types);
 
             LoadCustomMappings(types);
+
+            LoadGlobbalMappings();
+        }
+
+        private void LoadGlobbalMappings()
+        {
+            Mapper.CreateMap<string, Guid>().ConvertUsing(s =>
+            {
+                var guid = Guid.Empty;
+                Guid.TryParse(s, out guid);
+                return guid;
+            });
+
+            Mapper.CreateMap<Guid, string>().ConvertUsing(g =>
+            {
+                return g.ToString();
+            });
         }
 
         private static void LoadStandardMappings(IEnumerable<Type> types)

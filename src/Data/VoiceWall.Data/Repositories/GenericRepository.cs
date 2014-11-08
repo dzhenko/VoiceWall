@@ -103,7 +103,7 @@
 
         public T Find(object id)
         {
-            throw new NotImplementedException();
+            return this.DbSet.Find(id);
         }
     }
 }

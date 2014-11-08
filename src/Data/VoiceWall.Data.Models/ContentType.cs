@@ -1,4 +1,4 @@
-﻿namespace VoiceWall.Web.ViewModels
+﻿namespace VoiceWall.Data.Models
 {
     public enum ContentType
     {

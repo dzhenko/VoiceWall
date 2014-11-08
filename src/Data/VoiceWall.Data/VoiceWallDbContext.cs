@@ -9,6 +9,7 @@
     using VoiceWall.Data.Migrations;
     using VoiceWall.Data.Models;
     using VoiceWall.Data.Common.Models;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class VoiceWallDbContext : IdentityDbContext<User>
     {
@@ -21,6 +22,20 @@
         public static VoiceWallDbContext Create()
         {
             return new VoiceWallDbContext();
+        }
+
+        public IDbSet<Content> Contents { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
+
+        public IDbSet<ContentView> ContentViews { get; set; }
+
+        public IDbSet<CommentView> CommentViews { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            base.OnModelCreating(modelBuilder);
         }
 
         // for the future :)

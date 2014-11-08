@@ -5,7 +5,9 @@ namespace VoiceWall.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<VoiceWall.Data.VoiceWallDbContext>
+    using VoiceWall.Data.Seeders;
+
+    public sealed class Configuration : DbMigrationsConfiguration<VoiceWallDbContext>
     {
         public Configuration()
         {
@@ -13,20 +15,13 @@ namespace VoiceWall.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(VoiceWall.Data.VoiceWallDbContext context)
+        protected override void Seed(VoiceWallDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            if (!context.Contents.Any())
+            {
+                StaticDataSeeder.SeedUsers(context);
+                StaticDataSeeder.SeedData(context);
+            }
         }
     }
 }

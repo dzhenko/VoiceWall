@@ -1,10 +1,10 @@
 ﻿@using VoiceWall.Web
-@model VoiceWall.Web.ViewModels.WallItemWithCommentsViewModel
+@model VoiceWall.Web.ViewModels.WallItemViewModel
 
 <div class="container wallItemMainHolder">
     <div class="row">
         <div class="col-md-6">
-            @{ Html.RenderPartial("_WallItemHolderPartial", Model.WallItemViewModel); }
+            @{ Html.RenderPartial("_WallItemHolderPartial", Model.WallItemHolderViewModel); }
         </div>
         <div class="col-md-6 main-comments-holder">
             <h1 class=" text-center">Reactions</h1>

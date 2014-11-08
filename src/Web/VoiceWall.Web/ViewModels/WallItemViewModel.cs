@@ -1,34 +1,49 @@
 ﻿namespace VoiceWall.Web.ViewModels
 {
-    using System;
+    using System.Linq;
     using System.Collections.Generic;
 
-    public class WallItemViewModel
+    using AutoMapper;
+
+    using VoiceWall.Web.Infrastructure.Mapping;
+    using VoiceWall.Data.Models;
+
+    public class WallItemViewModel : IMapCustom
     {
-        public string Id { get; set; }
+        public WallItemHolderViewModel WallItemHolderViewModel { get; set; }
 
-        public string UserId { get; set; }
+        public IEnumerable<WallItemCommentViewModel> Comments { get; set; }
 
-        public string UserName { get; set; }
+        public void CreateMappings(IConfiguration configuration)
+        {
+            configuration.CreateMap<Content, WallItemViewModel>()
+                .ForMember(m => m.WallItemHolderViewModel, opt => opt.MapFrom(c => new WallItemHolderViewModel() 
+                {
+                    ContentType = c.ContentType,
+                    ContentUrl = c.ContentUrl,
+                    CreatedOn = c.CreatedOn,
+                    Flags = c.ContentViews.Count(v => v.Flagged == true),
+                    Hates = c.ContentViews.Count(v => v.Liked == false),
+                    Likes = c.ContentViews.Count(v => v.Liked == true),
+                    Id = c.Id.ToString(),
+                    UserId = c.UserId,
+                    UserImage = c.User.UserImage,
+                    UserName = c.User.FirstName + " " + c.User.LastName,
+                }));
 
-        public string UserImage { get; set; }
-
-        public string ContentUrl { get; set; }
-
-        public ContentType ContentType { get; set; }
-
-        public DateTime Created { get; set; }
-
-        public int Views { get; set; }
-
-        public int Likes { get; set; }
-
-        public int Hates { get; set; }
-
-        public int Flags { get; set; }
-
-        public bool? IsLiked { get; set; }
-
-        public bool IsFlagged { get; set; }
+            configuration.CreateMap<Content, WallItemViewModel>()
+                .ForMember(m => m.Comments, opt => opt.MapFrom(content => content.Comments
+                    .Select(c => new WallItemCommentViewModel() 
+                    {
+                        ContentType = c.ContentType,
+                        ContentUrl = c.ContentUrl,
+                        CreatedOn = c.CreatedOn,
+                        Flags = c.CommentViews.Count(v => v.Flagged == true),
+                        Id = c.Id.ToString(),
+                        UserId = c.UserId,
+                        UserImage = c.User.UserImage,
+                        UserName = c.User.FirstName + " " + c.User.LastName
+                    }))); 
+        }
     }
 }

@@ -10,35 +10,19 @@
     {
         private ICloudStorage storage;
 
-        public UploadVideoController(ICloudStorage cloudStorageProvider)
+        public UploadVideoController(IVideosCloudStorage videosCloudStorageProvider)
         {
-            this.storage = cloudStorageProvider;
+            this.storage = videosCloudStorageProvider;
         }
 
         public ActionResult Create(HttpPostedFileBase file)
         {
-            this.ValidateVideo(file, ModelState);
             return View();
         }
 
         public ActionResult Comment()
         {
             return View();
-        }
-
-        private void ValidateVideo(HttpPostedFileBase file, ModelStateDictionary ModelState)
-        {
-            if (file == null)
-            {
-
-            }
-
-            if (file.ContentLength > long.Parse(ConfigurationManager.AppSettings["PicturesCloudStorage"]))
-            {
-
-            }
-
-            throw new System.NotImplementedException();
         }
     }
 }

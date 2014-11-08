@@ -1,5 +1,5 @@
 ﻿@using VoiceWall.Web
-@model VoiceWall.Web.ViewModels.CommentViewModel
+@model VoiceWall.Web.ViewModels.WallItemCommentViewModel
 
 <div class="row single-comment-item" data-wall-item-id="@Model.Id">
     <div class="col-md-3">
@@ -10,7 +10,7 @@
             @Html.ActionLink(Model.UserName, "Details", new { UserID = Model.UserId })
         </div>
         <div class="row">
-            @Html.DisplayFor(m => Model.Created)
+            @Html.DisplayFor(m => Model.CreatedOn)
         </div>
 
         @if (Model.Flags > 0)

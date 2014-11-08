@@ -3,6 +3,7 @@
     using System.Text;
     using System.Web.Mvc;
 
+    using VoiceWall.Data.Models;
     using VoiceWall.Web.ViewModels;
 
     public static class AwesomeFont
@@ -73,9 +74,8 @@
 
         //<i class="fa fa-2x fa-fw fa-thumbs-o-up text-success">123</i>
         //<i class="fa fa-2x fa-fw fa-thumbs-o-down text-danger">222</i>
-        //<i class="fa fa-2x fa-fw fa-eye text-primary">1242</i>
         //<i class="fa fa-2x fa-fw fa-flag-o text-danger">4</i>
-        public static MvcHtmlString FontAwesomeItemStats(this HtmlHelper helper, int likes, int hates, int views, int flags = 0, object htmlAttributes = null)
+        public static MvcHtmlString FontAwesomeItemStats(this HtmlHelper helper, int likes, int hates, int flags = 0, object htmlAttributes = null)
         {
             var sb = new StringBuilder();
 
@@ -88,11 +88,6 @@
             hatesTag.AddCssClass("fa fa-2x fa-fw fa-thumbs-o-down text-danger");
             hatesTag.InnerHtml = hates.ToString();
             sb.Append(hatesTag.ToString());
-
-            var viewsTag = new TagBuilder("i");
-            viewsTag.AddCssClass("fa fa-2x fa-fw fa-eye text-primary");
-            viewsTag.InnerHtml = views.ToString();
-            sb.Append(viewsTag.ToString());
 
             if (flags > 0)
             {
