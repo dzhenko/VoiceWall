@@ -11,27 +11,30 @@ namespace VoiceWall.Web.ViewModels
         private static Random random = new Random();
         private static ContentType lastType = ContentType.Picture;
 
-        public static IEnumerable<WallItemViewModel> GetWallItems(int number)
+        public static IEnumerable<WallItemWithCommentsViewModel> GetWallItems(int number)
         {
-            var wallItems = new List<WallItemViewModel>();
+            var wallItems = new List<WallItemWithCommentsViewModel>();
 
             for (int i = 0; i < number; i++)
             {
-                wallItems.Add(new WallItemViewModel()
+                wallItems.Add(new WallItemWithCommentsViewModel()
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    UserId = Guid.NewGuid().ToString(),
-                    ContentUrl = GetContentUrl(),
-                    ContentType = lastType,
-                    Created = GetDate(),
-                    Flags = random.Next(0, 3),
-                    Likes = random.Next(15, 33),
-                    Hates = random.Next(2, 13),
-                    Views = random.Next(45, 124),
-                    IsLiked = GetIsLiked(),
-                    IsFlagged = GetIsFlagged(),
-                    UserName = GetUsername(GetNext()),
-                    UserImage = GetProfilePicture(GetSame()),
+                    WallItemViewModel = new WallItemViewModel()
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        UserId = Guid.NewGuid().ToString(),
+                        ContentUrl = GetContentUrl(),
+                        ContentType = lastType,
+                        Created = GetDate(),
+                        Flags = random.Next(0, 3),
+                        Likes = random.Next(15, 33),
+                        Hates = random.Next(2, 13),
+                        Views = random.Next(45, 124),
+                        IsLiked = GetIsLiked(),
+                        IsFlagged = GetIsFlagged(),
+                        UserName = GetUsername(GetNext()),
+                        UserImage = GetProfilePicture(GetSame()),
+                    },
                     Comments = GetComments(random.Next(5, 15))
                 });
             }
@@ -59,12 +62,12 @@ namespace VoiceWall.Web.ViewModels
             return false;
         }
 
-        private static IEnumerable<Comment> GetComments(int number)
+        private static IEnumerable<CommentViewModel> GetComments(int number)
         {
-            var comments = new List<Comment>();
+            var comments = new List<CommentViewModel>();
             for (int i = 0; i < number; i++)
             {
-                comments.Add(new Comment()
+                comments.Add(new CommentViewModel()
                 {
                     Id = Guid.NewGuid().ToString(),
                     UserId = Guid.NewGuid().ToString(),

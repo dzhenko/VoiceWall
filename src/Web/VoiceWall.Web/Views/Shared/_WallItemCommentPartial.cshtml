@@ -1,7 +1,7 @@
 ﻿@using VoiceWall.Web
-@model VoiceWall.Web.ViewModels.Comment
+@model VoiceWall.Web.ViewModels.CommentViewModel
 
-<div class="row single-comment-item">
+<div class="row single-comment-item" data-wall-item-id="@Model.Id">
     <div class="col-md-3">
         @Html.DivWithImage(Model.UserImage, new { @class = "comment-image-holder" })
     </div>

@@ -10,7 +10,7 @@
         public static MvcHtmlString Submit(this HtmlHelper helper, string value, object htmlAttributes = null)
         {
             var submitButton = new TagBuilder("input");
-            submitButton.AddCssClass("btn btn-default");
+            submitButton.AddCssClass("btn btn-dark");
             submitButton.Attributes.Add("type", "submit");
             submitButton.Attributes.Add("value", value);
             submitButton.MergeAttributes(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));

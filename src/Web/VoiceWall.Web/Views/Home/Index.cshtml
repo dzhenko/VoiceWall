@@ -1,15 +1,21 @@
-﻿<!-- Header -->
-<header id="top" class="header">
-    <div class="text-vertical-center">
-        <h1>Voice Wall</h1>
-        <h6>Forget your keyboard</h6>
-        <br>
-        @Html.ActionLink("Find Out More", "About", null, new { @class="btn btn-dark btn-lg" })
+﻿@model IEnumerable<VoiceWall.Web.ViewModels.WallItemWithCommentsViewModel>
+
+@{ Html.RenderPartial("_CreateContentPartial"); }
+@{ Html.RenderPartial("_PlayContentPartial"); }
+
+@foreach (var wallItem in Model)
+{
+    <hr />
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            @{ Html.RenderPartial("_WallItemPartial", wallItem); }
+        </div>
     </div>
-</header>
+}
 
 @section scripts {
     @Scripts.Render("~/bundles/commentContent")
+    @Scripts.Render("~/bundles/wallContentHolder")
 }
 
 @section styles{

@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using VoiceWall.Data.Common.Models;
+    using System.ComponentModel.DataAnnotations;
 
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser, IAuditInfo, IDeletableEntity
@@ -25,6 +26,18 @@
             // Add custom user claims here
             return userIdentity;
         }
+
+        [MaxLength(100)]
+        [MinLength(2)]
+        [Required]
+        public string FirstName { get; set; }
+
+        [MaxLength(100)]
+        [MinLength(2)]
+        [Required]
+        public string LastName { get; set; }
+
+        public string UserImage { get; set; }
 
         // IAuditInfo
         public DateTime CreatedOn { get; set; }

@@ -9,6 +9,8 @@
     using System.Web.Optimization;
     using System.Web.Routing;
 
+    using Microsoft.AspNet.Identity;
+
     using VoiceWall.Web.Infrastructure.Mapping;
 
     public class MvcApplication : System.Web.HttpApplication
@@ -22,6 +24,16 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
+            if (custom.Equals("User", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return context.User.Identity.GetUserId();
+            }
+
+            return base.GetVaryByCustomString(context, custom);
         }
     }
 }

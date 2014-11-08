@@ -59,7 +59,7 @@
 
     commentBtns.click(function (e) {
         var self = $(this);
-        window.wallItemHolderClickedId = self.parents('.wallItemMainHolder').first().data("wall-item-id");
+        window.wallItemHolderClickedId = self.parent().parent().data("wall-item-id");
 
         var other = self.parent().parent().children().children('.reactInnerBtn');
         $(other[0]).transition({ x: 95 });
@@ -75,7 +75,7 @@
 
     reactBtns.click(function (e) {
         var self = $(this);
-        window.wallItemHolderClickedId = self.parents('.wallItemMainHolder').first().data("wall-item-id");
+        window.wallItemHolderClickedId = self.parent().parent().data("wall-item-id");
 
         var other = self.parent().parent().children().children('.commentInnerBtn');
         $(other[0]).transition({ x: -100 });

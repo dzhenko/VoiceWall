@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Comment
+    public class CommentViewModel
     {
         public string Id { get; set; }
 
@@ -14,6 +14,7 @@
 
         public int Flags { get; set; }
 
+        // has the user flagged this comment
         public bool IsFlagged { get; set; }
 
         public string ContentUrl { get; set; }

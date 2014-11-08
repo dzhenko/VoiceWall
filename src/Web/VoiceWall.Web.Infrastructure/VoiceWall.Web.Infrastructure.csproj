@@ -37,7 +37,9 @@
       <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\ValidatePictureFileAttribute.cs" />
+    <Compile Include="Filters\ValidateSoundFileAttribute.cs" />
+    <Compile Include="Filters\ValidateVideoFileAttribute.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
     <Compile Include="Mapping\IMapCustom.cs" />
     <Compile Include="Mapping\IMapFrom.cs" />
@@ -54,7 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Filters\" />
+    <ProjectReference Include="..\..\Common\VoiceWall.Common\VoiceWall.Common.csproj">
+      <Project>{974a8acb-2858-4706-8176-27840e4fbdda}</Project>
+      <Name>VoiceWall.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />

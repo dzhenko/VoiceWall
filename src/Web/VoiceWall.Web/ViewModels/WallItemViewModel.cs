@@ -30,7 +30,5 @@
         public bool? IsLiked { get; set; }
 
         public bool IsFlagged { get; set; }
-
-        public IEnumerable<Comment> Comments { get; set; }
     }
 }

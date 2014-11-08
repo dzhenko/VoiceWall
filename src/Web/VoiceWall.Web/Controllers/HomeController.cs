@@ -15,9 +15,11 @@
             
         }
 
+        //[Authorize]
+        //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
-            return View("Wall", ViewModels.FakeDataSeeder.GetWallItems(15));
+            return View(ViewModels.FakeDataSeeder.GetWallItems(15));
         }
 
         public ActionResult About()
