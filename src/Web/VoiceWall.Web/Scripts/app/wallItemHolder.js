@@ -37,7 +37,7 @@
         }
         else if (dataType == 'Sound') {
             videoPlayer.hide();
-            audioPlayer.show().attr('src', 'http://www-mmsp.ece.mcgill.ca/documents/AudioFormats/WAVE/Samples/AFsp/M1F1-Alaw-AFsp.wav');
+            audioPlayer.show().attr('src', dataSrc);
 
             audioPlayer[0].pause();
             audioPlayer[0].load();//suspends and restores all audio element
@@ -90,28 +90,32 @@
     });
 
     // attach events to buttons
-    $('.main-create-comment-holder .voiceBtn').click(function () {
+    $('body').on('click', '.main-create-comment-holder .voiceBtn', function () {
         initAudio();
         $('#modalVoiceWindowMain').modal('show');
     });
 
-    $('.main-create-comment-holder .pictureBtn').click(function () {
+    $('body').on('click', '.main-create-comment-holder .pictureBtn', function () {
         $('#modalPictureWindowMain').modal('show');
     });
 
-    $('.main-create-comment-holder .videoBtn').click(function () {
+    $('body').on('click', '.main-create-comment-holder .videoBtn', function () {
         $('#modalVideoWindowMain').modal('show');
     });
 
-    $('.main-create-comment-holder .likeBtn').click(function () {
-        window.voiceWallReactionSender('like');
+    $('body').on('click', '.main-create-comment-holder .likeBtn', function () {
+        window.voiceWallAjax.react.like(window.wallItemHolderClickedId);
     });
 
-    $('.main-create-comment-holder .hateBtn').click(function () {
-        window.voiceWallReactionSender('hate');
+    $('body').on('click', '.main-create-comment-holder .hateBtn', function () {
+        window.voiceWallAjax.react.hate(window.wallItemHolderClickedId);
     });
 
-    $('.main-create-comment-holder .flagBtn').click(function () {
-        window.voiceWallReactionSender('flag');
+    $('body').on('click', '.main-create-comment-holder .flagBtn', function () {
+        window.voiceWallAjax.react.flag(window.wallItemHolderClickedId);
+    });
+
+    $('body').on('click', '.main-comments-holder .flagCommentBtn', function () {
+        window.voiceWallAjax.react.flagComment($(this).parent().parent().data("wall-item-comment-id"));
     });
 });

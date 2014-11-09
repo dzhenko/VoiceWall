@@ -90,7 +90,7 @@ var pictuireVideoIsOn = false;
 
 function PostBlobPicture() {
     if (pictureFileBlob) {
-        window.voiceWallContentSender(pictureFileBlob);
+        window.voiceWallAjax.comment.withPicture(pictureFileBlob, window.wallItemHolderClickedId);
         //var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
         //form.append("imageFile", pictureFileBlob);
         //var xhr = new XMLHttpRequest();

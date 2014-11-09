@@ -80,7 +80,7 @@ function doneEncoding(blob) {
     recIndex++;
 
     $("#soundRecordingHolder .playButton").show().click(function () { Recorder.setupListen(blob) });
-    $("#soundRecordingHolder .sendButton").show().click(function () { Recorder.setupPost(blob, "UploadVoice") });
+    $("#soundRecordingHolder .sendButton").show().click(function () { Recorder.setupPost(blob) });
     $("#soundRecordingHolder .saveButton").show().click(function() { $("#soundRecordingHolder .save").click() });
 }
 

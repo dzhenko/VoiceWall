@@ -187,6 +187,12 @@
     <Compile Include="Controllers\Upload\UploadPictureController.cs" />
     <Compile Include="Controllers\Upload\UploadSoundController.cs" />
     <Compile Include="Controllers\Upload\UploadVideoController.cs" />
+    <Compile Include="ViewModels\Upload\NewPictureCommentInputModel.cs" />
+    <Compile Include="ViewModels\Upload\NewPictureContentInputModel.cs" />
+    <Compile Include="ViewModels\Upload\NewSoundCommentInputModel.cs" />
+    <Compile Include="ViewModels\Upload\NewVideoCommentInputModel.cs" />
+    <Compile Include="ViewModels\Upload\NewSoundContentInputModel.cs" />
+    <Compile Include="ViewModels\Upload\NewVideoContentInputModel.cs" />
     <Compile Include="ViewModels\WallItemViewModel.cs" />
     <Content Include="App_Code\Common.cs" />
     <Content Include="App_Code\AwesomeFont.cs" />
@@ -360,7 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -373,6 +378,10 @@
     <ProjectReference Include="..\..\Common\VoiceWall.Common.ExtensionMethods\VoiceWall.Common.ExtensionMethods.csproj">
       <Project>{e9f3818e-0d1b-4701-9abc-e16e592d78f3}</Project>
       <Name>VoiceWall.Common.ExtensionMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\VoiceWall.Common\VoiceWall.Common.csproj">
+      <Project>{974a8acb-2858-4706-8176-27840e4fbdda}</Project>
+      <Name>VoiceWall.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj">
       <Project>{549481aa-0c89-4e41-93b3-fc64d02c8832}</Project>

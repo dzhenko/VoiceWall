@@ -121,8 +121,8 @@ DEALINGS IN THE SOFTWARE.
         audioElement.play();
     }
 
-    Recorder.setupPost = function (blob, url) {
-        window.voiceWallContentSender(blob);
+    Recorder.setupPost = function (blob) {
+        window.voiceWallAjax.comment.withSound(blob, window.wallItemHolderClickedId);
         //var form = new FormData(document.querySelector("#commentContentModalWindowsHolder .hiddenForm"));
         //form.append("waveBlobFile", blob);
         //form.append("wallItemId", window.wallItemHolderClickedId);

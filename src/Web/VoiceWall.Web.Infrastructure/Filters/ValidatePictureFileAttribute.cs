@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    class ValidatePictureFileAttribute : ValidationAttribute
+    public class ValidatePictureFileAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

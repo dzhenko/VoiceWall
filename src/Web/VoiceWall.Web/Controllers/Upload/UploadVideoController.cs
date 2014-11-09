@@ -5,6 +5,8 @@
     using System.Web.Mvc;
 
     using VoiceWall.CloudStorage.Common;
+    using VoiceWall.Web.Infrastructure.Filters;
+    using VoiceWall.Web.ViewModels.Upload;
 
     public class UploadVideoController : BaseUploadController
     {
@@ -15,12 +17,16 @@
             this.storage = videosCloudStorageProvider;
         }
 
-        public ActionResult Create(HttpPostedFileBase file)
+        [AjaxPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(NewVideoContentInputModel model)
         {
             return View();
         }
 
-        public ActionResult Comment()
+        [AjaxPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment(NewVideoCommentInputModel model)
         {
             return View();
         }

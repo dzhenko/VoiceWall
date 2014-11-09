@@ -5,6 +5,8 @@
     using System.Web.Mvc;
 
     using VoiceWall.CloudStorage.Common;
+    using VoiceWall.Web.Infrastructure.Filters;
+    using VoiceWall.Web.ViewModels.Upload;
 
     public class UploadSoundController : BaseUploadController
     {
@@ -15,12 +17,16 @@
             this.storage = soundsCloudStorageProvider;
         }
 
-        public ActionResult Create(HttpPostedFileBase file)
+        [AjaxPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(NewSoundContentInputModel model)
         {
             return View();
         }
 
-        public ActionResult Comment()
+        [AjaxPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment(NewSoundCommentInputModel model)
         {
             return View();
         }

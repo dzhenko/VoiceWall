@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    class ValidateSoundFileAttribute : ValidationAttribute
+    public class ValidateSoundFileAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

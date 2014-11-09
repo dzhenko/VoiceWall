@@ -1,5 +1,5 @@
 ﻿<div id="commentContentModalWindowsHolder">
-    @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { hidden = "hidden", @class = "hiddenForm" }))
+    @using (Ajax.BeginForm("action", "controller", FormMethod.Post, new AjaxOptions() { }, new { hidden="hidden", id = "hiddenAjaxPostForm" }))
     {
         @Html.AntiForgeryToken()
     }

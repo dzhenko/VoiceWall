@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    class ValidateVideoFileAttribute : ValidationAttribute
+    public class ValidateVideoFileAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

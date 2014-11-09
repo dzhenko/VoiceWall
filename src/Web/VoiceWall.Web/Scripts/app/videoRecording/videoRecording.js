@@ -25,7 +25,7 @@ function toggleOnlyVideoRecording(e) {
             $("#videoRecording .play").show();
             $("#videoRecording .play").attr("src", URL.createObjectURL(blob));
 
-            $("#videoRecording .sendButton").show().click(function () { window.voiceWallContentSender(blob); });
+            $("#videoRecording .sendButton").show().click(function () { window.voiceWallAjax.comment.withVideo(blob, window.wallItemHolderClickedId); });
 
             $("#videoRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
 

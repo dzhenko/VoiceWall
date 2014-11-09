@@ -123,7 +123,7 @@ function convertMergedStreams(videoBlob, audioBlob) {
             $("#videoAndAudioRecording .play").show();
             $("#videoAndAudioRecording .play").attr("src", URL.createObjectURL(blob));
 
-            $("#videoAndAudioRecording .sendButton").show().click(function () { window.voiceWallContentSender(blob); });
+            $("#videoAndAudioRecording .sendButton").show().click(function () { window.voiceWallAjax.comment.withVideo(blob, window.wallItemHolderClickedId); });
             $("#videoAndAudioRecording .saveButton").show().attr("href", URL.createObjectURL(blob));
             $("#videoAndAudioRecording .cancelButton").show().click(videoMergedResetStates);
         }

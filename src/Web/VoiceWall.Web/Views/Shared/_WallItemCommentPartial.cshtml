@@ -1,7 +1,7 @@
 ﻿@using VoiceWall.Web
 @model VoiceWall.Web.ViewModels.WallItemCommentViewModel
 
-<div class="row single-comment-item" data-wall-item-id="@Model.Id">
+<div class="row single-comment-item" data-wall-item-comment-id="@Model.Id">
     <div class="col-md-3">
         @Html.DivWithImage(Model.UserImage, new { @class = "comment-image-holder" })
     </div>
@@ -21,7 +21,7 @@
         }
     </div>
     <div class="col-md-1">
-        @Html.FontAwesomeButton("Flag", "flag", new { @class = "" }, Model.IsFlagged, 2)
+        @Html.FontAwesomeButton("Flag", "flag", new { @class = "flagCommentBtn" }, Model.IsFlagged, 2)
     </div>
     <div class="col-md-3 col-md-offset-1">
         @Html.FontAwesomeMultimediaActionLink(Model.ContentUrl, Model.ContentType, new { @class = "small-multimedia-main-action" })
