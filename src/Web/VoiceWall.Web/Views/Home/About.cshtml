@@ -1,29 +1,4 @@
-﻿<!-- Static page navigation -->
-<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">Menu&nbsp;<i class="fa fa-bars"></i></a>
-<nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-        <li class="sidebar-brand">
-        </li>
-        <li>
-            <a href="#top">Home</a>
-        </li>
-        <li>
-            <a href="#about">About</a>
-        </li>
-        <li>
-            <a href="#services">Services</a>
-        </li>
-        <li>
-            <a href="#portfolio">Portfolio</a>
-        </li>
-        <li>
-            @Html.ActionLink("Contact", "Contact", "Home")
-        </li>
-    </ul>
-</nav>
-
-<!-- About -->
+﻿<!-- About -->
 <section id="about" class="about">
     <div class="container">
         <div class="row">
@@ -164,7 +139,3 @@
         </div>
     </div>
 </aside>
-
-@section scripts {
-    @Scripts.Render("~/bundles/sideMenu")
-}

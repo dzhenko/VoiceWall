@@ -1,5 +1,4 @@
 ﻿body {
-    padding-top:70px;
     font-family: 'nimbus-sans','helvetica neue',helvetica,arial,sans-serif;
     background: url(../Content/img/bg.jpg) no-repeat center center fixed;
 }
@@ -93,7 +92,7 @@ hr.small {
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    top: 50px;
+    top: 0;
     right: 0;
     width: 250px;
     height: 100%;
@@ -156,7 +155,7 @@ hr.small {
 #menu-toggle {
     z-index: 1;
     position: fixed;
-    top: 50px;
+    top: 0;
     right: 0;
 }
 
