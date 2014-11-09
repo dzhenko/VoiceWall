@@ -44,7 +44,17 @@
 
             toastr.success("Successfully added a comment!");
             $(objToHide.children().first()).remove();
-            objToHide.prepend($(response));
+            $(objToHide.children().first()).after($(response));
+
+            // handle picture opening
+            $(".fancybox-image").fancybox({
+                'titleShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic',
+                'easingIn': 'easeOutBack',
+                'easingOut': 'easeInBack'
+            });
+
             objToHide.children().show();
         }, function (error) {
 

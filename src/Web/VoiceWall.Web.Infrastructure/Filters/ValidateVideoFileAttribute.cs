@@ -27,7 +27,7 @@
 
             var allowedMimeTypes = new List<string>() { "video/webm", "video/mp4" };
 
-            if (allowedMimeTypes.Contains(fileAsHttpPostedFileBase.ContentType))
+            if (!allowedMimeTypes.Contains(fileAsHttpPostedFileBase.ContentType))
             {
                 ErrorMessage = "File type not supported";
                 return false;

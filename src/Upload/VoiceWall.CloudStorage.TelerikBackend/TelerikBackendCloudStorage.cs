@@ -14,7 +14,7 @@
 
     public class TelerikBackendCloudStorage : ICloudStorage, IPicturesCloudStorage, IVideosCloudStorage, ISoundsCloudStorage
     {
-        private const string EverliveAppKey = "yTpcS8cIlRXlVS2a";
+        private const string EverliveAppKey = "lYI6vh7P7BFSL2Wr";
 
         private readonly EverliveApp app;
 
@@ -63,9 +63,7 @@
             var uploadResult = this.app.WorkWith().Files()
                 .Upload(new FileField("fieldName", filename + filetype.GetFileExtension(), filetype, stream)).ExecuteSync();
 
-            var url = app.WorkWith().Files().GetFileDownloadUrl(uploadResult.Id);
-
-            return url;
+            return app.WorkWith().Files().GetById(uploadResult.Id).ExecuteSync().CustomProperties["Uri"].ToString();
         }
 
         public bool DeleteFile(string filename)

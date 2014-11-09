@@ -4,6 +4,7 @@
     using System.Collections.Generic;
 
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     using VoiceWall.Web.Infrastructure.Mapping;
     using VoiceWall.Data.Models;
@@ -32,8 +33,8 @@
                 }));
 
             configuration.CreateMap<Content, WallItemViewModel>()
-                .ForMember(m => m.Comments, opt => opt.MapFrom(content => content.Comments
-                    .Select(c => new WallItemCommentViewModel() 
+                .ForMember(m => m.Comments, opt => opt.MapFrom(content => 
+                    content.Comments.Select(c => new WallItemCommentViewModel()
                     {
                         ContentType = c.ContentType,
                         ContentUrl = c.ContentUrl,
@@ -43,7 +44,7 @@
                         UserId = c.UserId,
                         UserImage = c.User.UserImage,
                         UserName = c.User.FirstName + " " + c.User.LastName
-                    }))); 
+                    })));
         }
     }
 }

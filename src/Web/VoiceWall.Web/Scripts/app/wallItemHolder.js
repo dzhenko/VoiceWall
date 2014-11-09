@@ -12,9 +12,9 @@
         'easingOut': 'easeInBack'
     });
 
-    // handle media play
-    $('.wallItemMainHolder .multimedia-main-action:not(.fancybox-image)').click(playMedia);
-    $('.wallItemMainHolder .small-multimedia-main-action:not(.fancybox-image)').click(playMedia);
+    // handle media play global selector
+    $('.wallItemMainHolder').on('click', '.multimedia-main-action:not(.fancybox-image)', playMedia);
+    $('.wallItemMainHolder').on('click', '.small-multimedia-main-action:not(.fancybox-image)', playMedia);
 
     function playMedia(mediaHolderLink) {
         mediaHolderLink.preventDefault();

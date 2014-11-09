@@ -39,8 +39,10 @@
                 throw new ArgumentException("filetype");
             }
 
-            this.client.UploadFile(path, filename + filetype.GetFileExtension(), stream);
-            var meta = client.GetMedia(filename);
+            var fullFileName = filename + filetype.GetFileExtension();
+
+            this.client.UploadFile(path, fullFileName, stream);
+            var meta = client.GetMedia(fullFileName);
             return meta.Url;
         }
 

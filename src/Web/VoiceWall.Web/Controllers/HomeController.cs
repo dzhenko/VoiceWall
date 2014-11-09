@@ -19,7 +19,7 @@
             
         }
 
-        //[Authorize]
+        [Authorize]
         //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
