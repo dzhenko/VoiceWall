@@ -8,15 +8,28 @@ namespace VoiceWall.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+
+            RegisterScriptBundles(bundles);
+            RegisterStylesBundles(bundles);
+
+            BundleTable.EnableOptimizations = false;
+        }
+
+        private static void RegisterScriptBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                        "~/Scripts/kendo/kendo.all.min.js",
+                        "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.unobtrusive-ajax.js",
-                        "~/Scripts/jquery.transit.min.js",
-                        "~/Scripts/jquery.easing.js",
-                        "~/Scripts/jquery.fancybox.js"));
+                        // using the kendo jquery version
+                        "~/Scripts/kendo/jquery.min.js",
+                        "~/Scripts/jquery.transit.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
@@ -27,7 +40,9 @@ namespace VoiceWall.Web
                      "~/Scripts/app/sideMenu.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/wallContentHolder").Include(
-                    "~/Scripts/app/wallItemHolder.js"));
+                        "~/Scripts/jquery.easing.js",
+                        "~/Scripts/jquery.fancybox.js",
+                        "~/Scripts/app/wallItemHolder.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/commentContent").Include(
                     "~/Scripts/app/contentSender.js",
@@ -38,23 +53,28 @@ namespace VoiceWall.Web
                      "~/Scripts/app/soundRecording/recorder.js",
                      "~/Scripts/app/soundRecording/main.js",
                      "~/Scripts/app/pictureRecording/main.js"));
+        }
+
+        private static void RegisterStylesBundles(BundleCollection bundles)
+        {
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                     "~/Content/kendo/kendo.common.min.css",
+                     "~/Content/kendo/kendo.common-bootstrap.min.css",
+                     "~/Content/kendo/kendo.default.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/commentContent").Include(
                      "~/Content/soundRecording.css",
                      "~/Content/videoRecording.css",
                       "~/Content/wallItemContent.css"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/libs").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome/css/font-awesome.css",
                       "~/Content/toastr.css",
-                      "~/Content/jquery.fancybox.css",
-                      "~/Content/site.css"));
+                      "~/Content/jquery.fancybox.css"));
 
-            // Set EnableOptimizations to false for debugging. For more information,
-            // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            // TODO: Change to true
-            BundleTable.EnableOptimizations = false;
+            bundles.Add(new StyleBundle("~/Content/site").Include(
+                      "~/Content/site.css"));
         }
     }
 }

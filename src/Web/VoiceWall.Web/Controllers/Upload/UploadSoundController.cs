@@ -1,4 +1,4 @@
-﻿namespace VoiceWall.Web.Controllers.Upload
+﻿namespace VoiceWall.Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
