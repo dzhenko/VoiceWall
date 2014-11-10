@@ -6,7 +6,7 @@
 *.user
 *.sln.docstates
 
-src\Web\VoiceWall.Web\References\*
+External Libs
 
 # Build results
 [Dd]ebug/
