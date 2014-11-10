@@ -23,9 +23,6 @@
             this.storage = soundsCloudStorageProvider;
         }
 
-        [AjaxPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(NewSoundContentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -33,22 +30,24 @@
                 return this.Json(ModelState);
             }
 
-            var sound = new Content()
-            {
-                ContentType = ContentType.Sound,
-                UserId = this.HttpContext.User.Identity.GetUserId()
-            };
+            //var sound = new Content()
+            //{
+            //    ContentType = ContentType.Sound,
+            //    UserId = this.HttpContext.User.Identity.GetUserId()
+            //};
 
-            var url = this.storage.UploadFile(model.File.InputStream, sound.Id.ToString(), model.File.ContentType);
+            //var url = this.storage.UploadFile(model.File.InputStream, sound.Id.ToString(), model.File.ContentType);
 
-            sound.ContentUrl = url;
+            //sound.ContentUrl = url;
 
-            this.ContentsRepository.Add(sound);
-            this.ContentsRepository.SaveChanges();
+            //this.ContentsRepository.Add(sound);
+            //this.ContentsRepository.SaveChanges();
+
+            var soundId = this.CreateContent(this.storage, model.File, ContentType.Sound);
 
             // projecting only the holder - the comments are empty as we just created the item
             var viewModelHolder = this.ContentsRepository.All()
-                                .Where(c => c.Id == sound.Id)
+                                .Where(c => c.Id == soundId)
                                 .Project()
                                 .To<WallItemHolderViewModel>()
                                 .FirstOrDefault();
@@ -56,9 +55,6 @@
             return this.PartialView("__WallItemPartial", new WallItemViewModel() { WallItemHolderViewModel = viewModelHolder });
         }
 
-        [AjaxPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
         public ActionResult Comment(NewSoundCommentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -71,22 +67,24 @@
                 return this.Json(new { message = "Content not found" });
             }
 
-            var sound = new Comment()
-            {
-                ContentType = ContentType.Sound,
-                UserId = this.HttpContext.User.Identity.GetUserId(),
-                ContentId = model.ContentId
-            };
+            //var sound = new Comment()
+            //{
+            //    ContentType = ContentType.Sound,
+            //    UserId = this.HttpContext.User.Identity.GetUserId(),
+            //    ContentId = model.ContentId
+            //};
 
-            var url = this.storage.UploadFile(model.File.InputStream, sound.Id.ToString(), model.File.ContentType);
+            //var url = this.storage.UploadFile(model.File.InputStream, sound.Id.ToString(), model.File.ContentType);
 
-            sound.ContentUrl = url;
+            //sound.ContentUrl = url;
 
-            this.CommentsRepository.Add(sound);
-            this.CommentsRepository.SaveChanges();
+            //this.CommentsRepository.Add(sound);
+            //this.CommentsRepository.SaveChanges();
+
+            var soundId = this.CreateComment(this.storage, model.File, ContentType.Sound, model.ContentId);
 
             var viewModel = this.CommentsRepository.All()
-                                .Where(c => c.Id == sound.Id)
+                                .Where(c => c.Id == soundId)
                                 .Project()
                                 .To<WallItemCommentViewModel>()
                                 .FirstOrDefault();

@@ -23,9 +23,6 @@
             this.storage = videosCloudStorageProvider;
         }
 
-        [AjaxPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(NewVideoContentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -33,22 +30,24 @@
                 return this.Json(ModelState);
             }
 
-            var video = new Content()
-            {
-                ContentType = ContentType.Video,
-                UserId = this.HttpContext.User.Identity.GetUserId()
-            };
+            //var video = new Content()
+            //{
+            //    ContentType = ContentType.Video,
+            //    UserId = this.HttpContext.User.Identity.GetUserId()
+            //};
 
-            var url = this.storage.UploadFile(model.File.InputStream, video.Id.ToString(), model.File.ContentType);
+            //var url = this.storage.UploadFile(model.File.InputStream, video.Id.ToString(), model.File.ContentType);
 
-            video.ContentUrl = url;
+            //video.ContentUrl = url;
 
-            this.ContentsRepository.Add(video);
-            this.ContentsRepository.SaveChanges();
+            //this.ContentsRepository.Add(video);
+            //this.ContentsRepository.SaveChanges();
+
+            var videoId = this.CreateContent(this.storage, model.File, ContentType.Video);
 
             // projecting only the holder - the comments are empty as we just created the item
             var viewModelHolder = this.ContentsRepository.All()
-                                .Where(c => c.Id == video.Id)
+                                .Where(c => c.Id == videoId)
                                 .Project()
                                 .To<WallItemHolderViewModel>()
                                 .FirstOrDefault();
@@ -56,9 +55,6 @@
             return this.PartialView("__WallItemPartial", new WallItemViewModel() { WallItemHolderViewModel = viewModelHolder });
         }
 
-        [AjaxPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
         public ActionResult Comment(NewVideoCommentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -71,22 +67,24 @@
                 return this.Json(new { message = "Content not found" });
             }
 
-            var video = new Comment()
-            {
-                ContentType = ContentType.Video,
-                UserId = this.HttpContext.User.Identity.GetUserId(),
-                ContentId = model.ContentId
-            };
+            //var video = new Comment()
+            //{
+            //    ContentType = ContentType.Video,
+            //    UserId = this.HttpContext.User.Identity.GetUserId(),
+            //    ContentId = model.ContentId
+            //};
 
-            var url = this.storage.UploadFile(model.File.InputStream, video.Id.ToString(), model.File.ContentType);
+            //var url = this.storage.UploadFile(model.File.InputStream, video.Id.ToString(), model.File.ContentType);
 
-            video.ContentUrl = url;
+            //video.ContentUrl = url;
 
-            this.CommentsRepository.Add(video);
-            this.CommentsRepository.SaveChanges();
+            //this.CommentsRepository.Add(video);
+            //this.CommentsRepository.SaveChanges();
+
+            var videoCommentId = this.CreateComment(this.storage, model.File, ContentType.Video, model.ContentId);
 
             var viewModel = this.CommentsRepository.All()
-                                .Where(c => c.Id == video.Id)
+                                .Where(c => c.Id == videoCommentId)
                                 .Project()
                                 .To<WallItemCommentViewModel>()
                                 .FirstOrDefault();

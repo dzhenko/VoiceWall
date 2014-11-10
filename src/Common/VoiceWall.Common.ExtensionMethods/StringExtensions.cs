@@ -45,7 +45,7 @@
                 case "image/png": return ".png";
                 case "video/webm": return ".webm";
                 case "video/mp4": return ".mp4";
-                case "audio/x-wav": return ".wav";
+                case "audio/wav": return ".wav";
                 case "audio/mpeg": return ".mp3";
                 default: return string.Empty;
             }

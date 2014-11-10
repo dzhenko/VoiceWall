@@ -23,7 +23,8 @@
         //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
-            return View((new VoiceWall.Data.VoiceWallDbContext()).Contents.Take(10).Project().To<WallItemViewModel>());
+            return View((new VoiceWall.Data.VoiceWallDbContext()).Contents
+                .OrderByDescending(c => c.CreatedOn).Take(10).Project().To<WallItemViewModel>());
         }
 
         public ActionResult About()
