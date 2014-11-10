@@ -23,7 +23,7 @@ namespace VoiceWall.Web
                         "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        // using the kendo jquery version
+                // using the kendo jquery version
                         "~/Scripts/kendo/jquery.min.js",
                         "~/Scripts/jquery.transit.min.js"));
 
@@ -33,18 +33,15 @@ namespace VoiceWall.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js",
                       "~/Scripts/toastr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/sideMenu").Include(
                      "~/Scripts/app/sideMenu.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/wallContentHolder").Include(
-                        "~/Scripts/jquery.easing.js",
-                        "~/Scripts/jquery.fancybox.js",
-                        "~/Scripts/app/wallItemHolder.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/commentContent").Include(
+            bundles.Add(new ScriptBundle("~/bundles/wallItems").Include(
+                    "~/Scripts/jquery.easing.js",
+                    "~/Scripts/jquery.fancybox.js",
+                    "~/Scripts/app/wallItemHolder.js",
                     "~/Scripts/app/contentSender.js",
                     "~/Scripts/app/videoRecording/RecordRTC.js",
                     "~/Scripts/app/videoRecording/videoMerging.js",
@@ -62,7 +59,7 @@ namespace VoiceWall.Web
                      "~/Content/kendo/kendo.common-bootstrap.min.css",
                      "~/Content/kendo/kendo.default.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/commentContent").Include(
+            bundles.Add(new StyleBundle("~/Content/wallItems").Include(
                      "~/Content/soundRecording.css",
                      "~/Content/videoRecording.css",
                       "~/Content/wallItemContent.css"));

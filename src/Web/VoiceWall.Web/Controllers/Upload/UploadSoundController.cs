@@ -1,10 +1,9 @@
-﻿namespace VoiceWall.Web.Controllers
+﻿namespace VoiceWall.Web.Controllers.Upload
 {
     using System.Linq;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
-    using Microsoft.AspNet.Identity;
 
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.Data.Common.Repositories;
@@ -13,11 +12,16 @@
     using VoiceWall.Web.ViewModels.Upload;
     using VoiceWall.Web.ViewModels;
 
+    /// <summary>
+    /// Used as an endpoint for ajax requests for uploading sound content and returns partials of the updated/created content.
+    /// </summary>
+
     [Authorize]
     [ValidateAntiForgeryToken]
     public class UploadSoundController : BaseUploadController
     {
-        public UploadSoundController(ISoundsCloudStorage soundsCloudStorageProvider, IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
+        public UploadSoundController(ISoundsCloudStorage soundsCloudStorageProvider,
+            IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
             : base(soundsCloudStorageProvider, contentsRepository, commentsRepository)
         {
         }
@@ -52,7 +56,7 @@
 
             if (!this.ContentsRepository.All().Any(c => c.Id == model.ContentId))
             {
-                return this.Json(new { message = "Content not found" });
+                return this.HttpNotFound();
             }
 
             var soundId = this.CreateComment(model.File, ContentType.Sound, model.ContentId);

@@ -5,23 +5,27 @@
     using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
 
+    /// <summary>
+    /// Abstract controller used to provide content and comments repositories to its successors.
+    /// </summary>
+
     public abstract class BaseContentAndCommentController : Controller
     {
-        private readonly IRepository<Content> contentsRepository;
-        private readonly IRepository<Comment> commentsRepository;
+        private readonly IDeletableEntityRepository<Content> contentsRepository;
+        private readonly IDeletableEntityRepository<Comment> commentsRepository;
 
-        public BaseContentAndCommentController(IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
+        public BaseContentAndCommentController(IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
         {
             this.contentsRepository = contentsRepository;
             this.commentsRepository = commentsRepository;
         }
-        
-        protected IRepository<Content> ContentsRepository
+
+        protected IDeletableEntityRepository<Content> ContentsRepository
         {
             get { return this.contentsRepository; }
         }
 
-        protected IRepository<Comment> CommentsRepository
+        protected IDeletableEntityRepository<Comment> CommentsRepository
         {
             get { return this.commentsRepository; }
         }

@@ -103,7 +103,7 @@
     }
 
     function getLoadingImage(width, height) {
-        return $('<img src="Content/img/loading.gif"  width="' + (width - 1) + '" height="' + height + '"/>');
+        return $('<img src="~/Content/img/loading.gif"  width="' + (width - 1) + '" height="' + height + '"/>');
     }
 
     return {
@@ -131,16 +131,16 @@
         },
         react: {
             like: function (id) {
-                react("/Reactions/Like", id);
+                react("/ContentReactions/Like", id);
             },
             hate: function (id) {
-                react("/Reactions/Hate", id);
+                react("/ContentReactions/Hate", id);
             },
             flag: function (id) {
-                react("/Reactions/Flag", id);
+                react("/ContentReactions/Flag", id);
             },
             flagComment: function (id) {
-                flagComment("/Reactions/FlagComment", id);
+                flagComment("/CommentReactions/Flag", id);
             }
         }
     }

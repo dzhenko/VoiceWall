@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<VoiceWall.Web.ViewModels.WallItemViewModel>
 
+@section styles{
+    @Styles.Render("~/Content/wallItems")
+}
+
 @{ Html.RenderPartial("_CreateContentPartial"); }
 @{ Html.RenderPartial("_PlayContentPartial"); }
 
@@ -16,10 +20,5 @@
 }
 
 @section scripts {
-    @Scripts.Render("~/bundles/commentContent")
-    @Scripts.Render("~/bundles/wallContentHolder")
-}
-
-@section styles{
-    @Styles.Render("~/Content/commentContent")
+    @Scripts.Render("~/bundles/wallItems")
 }

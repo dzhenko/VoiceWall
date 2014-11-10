@@ -1,21 +1,23 @@
-﻿namespace VoiceWall.Web.Controllers
+﻿namespace VoiceWall.Web.Controllers.Upload
 {
     using System;
     using System.Web;
-    using System.Web.Mvc;
 
     using Microsoft.AspNet.Identity;
 
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
-    using VoiceWall.Web.Infrastructure.Filters;
+
+    /// <summary>
+    /// Abstract controller used to provide creation + upload methods
+    /// </summary>
 
     public abstract class BaseUploadController : BaseContentAndCommentController
     {
         private readonly ICloudStorage cloudStorage;
-        public BaseUploadController(ICloudStorage cloudStorage, 
-            IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
+        public BaseUploadController(ICloudStorage cloudStorage,
+            IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
             : base(contentsRepository, commentsRepository)
         {
             this.cloudStorage = cloudStorage;

@@ -204,7 +204,9 @@
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseContentAndCommentController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
-    <Compile Include="Controllers\ReactionsController.cs" />
+    <Compile Include="Controllers\Reactions\CommentReactionsController.cs" />
+    <Compile Include="Controllers\Reactions\ContentReactionsController.cs" />
+    <Compile Include="Controllers\StaticPagesController.cs" />
     <Compile Include="Controllers\Upload\BaseUploadController.cs" />
     <Compile Include="Controllers\Upload\UploadPictureController.cs" />
     <Compile Include="Controllers\Upload\UploadSoundController.cs" />
@@ -577,8 +579,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\StaticPages\About.cshtml" />
+    <Content Include="Views\StaticPages\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />

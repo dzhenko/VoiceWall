@@ -1,10 +1,9 @@
-﻿namespace VoiceWall.Web.Controllers
+﻿namespace VoiceWall.Web.Controllers.Upload
 {
     using System.Linq;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
-    using Microsoft.AspNet.Identity;
 
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.Data.Common.Repositories;
@@ -13,12 +12,16 @@
     using VoiceWall.Web.ViewModels.Upload;
     using VoiceWall.Web.ViewModels;
 
+    /// <summary>
+    /// Used as an endpoint for ajax requests for uploading picture content and returns partials of the updated/created content.
+    /// </summary>
+
     [Authorize]
     [ValidateAntiForgeryToken]
     public class UploadPictureController : BaseUploadController
     {
-        public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider, 
-            IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
+        public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider,
+            IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
             : base(picturesCloudStorageProvider, contentsRepository, commentsRepository)
         {
         }
@@ -53,7 +56,7 @@
 
             if (!this.ContentsRepository.All().Any(c => c.Id == model.ContentId))
             {
-                return this.Json(new { message = "Content not found" });
+                return this.HttpNotFound();
             }
 
             var pictureCommentId = this.CreateComment(model.File, ContentType.Picture, model.ContentId);
