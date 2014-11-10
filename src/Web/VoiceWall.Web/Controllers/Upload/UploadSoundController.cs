@@ -13,16 +13,16 @@
     using VoiceWall.Web.ViewModels.Upload;
     using VoiceWall.Web.ViewModels;
 
+    [Authorize]
+    [ValidateAntiForgeryToken]
     public class UploadSoundController : BaseUploadController
     {
-        private ICloudStorage storage;
-
         public UploadSoundController(ISoundsCloudStorage soundsCloudStorageProvider, IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
-            : base(contentsRepository, commentsRepository)
+            : base(soundsCloudStorageProvider, contentsRepository, commentsRepository)
         {
-            this.storage = soundsCloudStorageProvider;
         }
 
+        [AjaxPost]
         public ActionResult Create(NewSoundContentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -30,20 +30,7 @@
                 return this.Json(ModelState);
             }
 
-            //var sound = new Content()
-            //{
-            //    ContentType = ContentType.Sound,
-            //    UserId = this.HttpContext.User.Identity.GetUserId()
-            //};
-
-            //var url = this.storage.UploadFile(model.File.InputStream, sound.Id.ToString(), model.File.ContentType);
-
-            //sound.ContentUrl = url;
-
-            //this.ContentsRepository.Add(sound);
-            //this.ContentsRepository.SaveChanges();
-
-            var soundId = this.CreateContent(this.storage, model.File, ContentType.Sound);
+            var soundId = this.CreateContent(model.File, ContentType.Sound);
 
             // projecting only the holder - the comments are empty as we just created the item
             var viewModelHolder = this.ContentsRepository.All()
@@ -55,6 +42,7 @@
             return this.PartialView("__WallItemPartial", new WallItemViewModel() { WallItemHolderViewModel = viewModelHolder });
         }
 
+        [AjaxPost]
         public ActionResult Comment(NewSoundCommentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -67,21 +55,7 @@
                 return this.Json(new { message = "Content not found" });
             }
 
-            //var sound = new Comment()
-            //{
-            //    ContentType = ContentType.Sound,
-            //    UserId = this.HttpContext.User.Identity.GetUserId(),
-            //    ContentId = model.ContentId
-            //};
-
-            //var url = this.storage.UploadFile(model.File.InputStream, sound.Id.ToString(), model.File.ContentType);
-
-            //sound.ContentUrl = url;
-
-            //this.CommentsRepository.Add(sound);
-            //this.CommentsRepository.SaveChanges();
-
-            var soundId = this.CreateComment(this.storage, model.File, ContentType.Sound, model.ContentId);
+            var soundId = this.CreateComment(model.File, ContentType.Sound, model.ContentId);
 
             var viewModel = this.CommentsRepository.All()
                                 .Where(c => c.Id == soundId)

@@ -13,16 +13,17 @@
     using VoiceWall.Web.ViewModels.Upload;
     using VoiceWall.Web.ViewModels;
 
+    [Authorize]
+    [ValidateAntiForgeryToken]
     public class UploadPictureController : BaseUploadController
     {
-        private ICloudStorage storage;
-
-        public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider, IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
-            : base(contentsRepository, commentsRepository)
+        public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider, 
+            IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
+            : base(picturesCloudStorageProvider, contentsRepository, commentsRepository)
         {
-            this.storage = picturesCloudStorageProvider;
         }
 
+        [AjaxPost]
         public ActionResult Create(NewPictureContentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -30,20 +31,7 @@
                 return this.Json(ModelState);
             }
 
-            //var picture = new Content()
-            //{
-            //    ContentType = ContentType.Picture,
-            //    UserId = this.HttpContext.User.Identity.GetUserId()
-            //};
-
-            //var url = this.storage.UploadFile(model.File.InputStream, picture.Id.ToString(), model.File.ContentType);
-
-            //picture.ContentUrl = url;
-
-            //this.ContentsRepository.Add(picture);
-            //this.ContentsRepository.SaveChanges();
-
-            var pictureId = this.CreateContent(this.storage, model.File, ContentType.Picture);
+            var pictureId = this.CreateContent(model.File, ContentType.Picture);
 
             // projecting only the holder - the comments are empty as we just created the item
             var viewModelHolder = this.ContentsRepository.All()
@@ -55,6 +43,7 @@
             return this.PartialView("__WallItemPartial", new WallItemViewModel() { WallItemHolderViewModel = viewModelHolder });
         }
 
+        [AjaxPost]
         public ActionResult Comment(NewPictureCommentInputModel model)
         {
             if (!ModelState.IsValid)
@@ -67,21 +56,7 @@
                 return this.Json(new { message = "Content not found" });
             }
 
-            //var comment = new Comment()
-            //{
-            //    ContentType = ContentType.Picture,
-            //    UserId = this.HttpContext.User.Identity.GetUserId(),
-            //    ContentId = model.ContentId
-            //};
-
-            //var url = this.storage.UploadFile(model.File.InputStream, comment.Id.ToString(), model.File.ContentType);
-
-            //comment.ContentUrl = url;
-
-            //this.CommentsRepository.Add(comment);
-            //this.CommentsRepository.SaveChanges();
-
-            var pictureCommentId = this.CreateComment(this.storage, model.File, ContentType.Picture, model.ContentId);
+            var pictureCommentId = this.CreateComment(model.File, ContentType.Picture, model.ContentId);
 
             var viewModel = this.CommentsRepository.All()
                                 .Where(c => c.Id == pictureCommentId)

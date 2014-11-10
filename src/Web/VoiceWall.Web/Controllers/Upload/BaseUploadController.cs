@@ -11,31 +11,22 @@
     using VoiceWall.Data.Models;
     using VoiceWall.Web.Infrastructure.Filters;
 
-    [Authorize]
-    [ValidateAntiForgeryToken]
-    public abstract class BaseUploadController : Controller
+    public abstract class BaseUploadController : BaseContentAndCommentController
     {
-        private readonly IRepository<Content> contentsRepo;
-        private readonly IRepository<Comment> commentsRepo;
-
-        public BaseUploadController(IRepository<Content> contentsRepo, IRepository<Comment> commentsRepo)
+        private readonly ICloudStorage cloudStorage;
+        public BaseUploadController(ICloudStorage cloudStorage, 
+            IRepository<Content> contentsRepository, IRepository<Comment> commentsRepository)
+            : base(contentsRepository, commentsRepository)
         {
-            this.contentsRepo = contentsRepo;
-            this.commentsRepo = commentsRepo;
+            this.cloudStorage = cloudStorage;
         }
 
-        protected IRepository<Content> ContentsRepository
+        protected ICloudStorage CloudStorage
         {
-            get { return this.contentsRepo; }
+            get { return this.cloudStorage; }
         }
 
-        protected IRepository<Comment> CommentsRepository
-        {
-            get { return this.commentsRepo; }
-        }
-
-        [AjaxPost]
-        protected Guid CreateContent(ICloudStorage storage, HttpPostedFileBase file, ContentType type)
+        protected Guid CreateContent(HttpPostedFileBase file, ContentType type)
         {
             var content = new Content()
             {
@@ -43,7 +34,7 @@
                 UserId = this.HttpContext.User.Identity.GetUserId()
             };
 
-            content.ContentUrl = storage.UploadFile(file.InputStream, content.Id.ToString(), file.ContentType);
+            content.ContentUrl = this.cloudStorage.UploadFile(file.InputStream, content.Id.ToString(), file.ContentType);
 
             this.ContentsRepository.Add(content);
             this.ContentsRepository.SaveChanges();
@@ -51,8 +42,7 @@
             return content.Id;
         }
 
-        [AjaxPost]
-        protected Guid CreateComment(ICloudStorage storage, HttpPostedFileBase file, ContentType type, Guid contentId)
+        protected Guid CreateComment(HttpPostedFileBase file, ContentType type, Guid contentId)
         {
             var comment = new Comment()
             {
@@ -61,7 +51,7 @@
                 ContentId = contentId
             };
 
-            comment.ContentUrl = storage.UploadFile(file.InputStream, comment.Id.ToString(), file.ContentType);
+            comment.ContentUrl = this.cloudStorage.UploadFile(file.InputStream, comment.Id.ToString(), file.ContentType);
 
             this.CommentsRepository.Add(comment);
             this.CommentsRepository.SaveChanges();
