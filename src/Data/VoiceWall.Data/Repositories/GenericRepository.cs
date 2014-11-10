@@ -75,7 +75,7 @@
 
         public virtual void Delete(object id)
         {
-            var entity = this.GetById(id);
+            var entity = this.DbSet.Find(id);
 
             if (entity != null)
             {
