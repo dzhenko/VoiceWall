@@ -6,8 +6,6 @@
 *.user
 *.sln.docstates
 
-External Libs
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
