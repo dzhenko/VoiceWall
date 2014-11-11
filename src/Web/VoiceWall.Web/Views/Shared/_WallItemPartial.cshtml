@@ -7,18 +7,20 @@
             @{ Html.RenderPartial("_WallItemHolderPartial", Model.WallItemHolderViewModel); }
         </div>
         <div class="col-md-6 main-comments-holder">
-            <h1 class=" text-center">Reactions</h1>
-            @if (Model.Comments == null || Model.Comments.Count() == 0)
-            {
-                <h4 class=" text-center">None yet</h4>
-            }
-            else
-            {
-                foreach (var comment in Model.Comments)
+            <div class="container">
+                <h1 class=" text-center">Reactions</h1>
+                @if (Model.Comments == null || Model.Comments.Count() == 0)
                 {
-                    Html.RenderPartial("_WallItemCommentPartial", comment);
+                    <h4 class=" text-center">None yet</h4>
                 }
-            }
+                else
+                {
+                    foreach (var comment in Model.Comments)
+                    {
+                        Html.RenderPartial("_WallItemCommentPartial", comment);
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>

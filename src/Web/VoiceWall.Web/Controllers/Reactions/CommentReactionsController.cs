@@ -29,18 +29,11 @@
         [AjaxPost]
         public ActionResult Flag(Guid contentId)
         {
-            var success = this.AlterFlagOnComment(contentId);
-
-            if (!success)
-            {
-                return this.HttpNotFound();
-            }
-
-            return this.RedirectToAction("GetFromId", "WallItemCommentPartial", new { id = contentId });
+            return this.ConditionalActionResult(() => this.AlterFlagOnComment(contentId), this.PartialView(contentId));
         }
 
         //TODO: Service
-        private bool AlterFlagOnComment(Guid commentId)
+        private void AlterFlagOnComment(Guid commentId)
         {
             var userId = this.HttpContext.User.Identity.GetUserId();
             var view = this.Data.Comments.All().Where(c => c.Id == commentId).Select(c => c.CommentViews.FirstOrDefault(v => v.UserId == userId)).FirstOrDefault();
@@ -51,7 +44,7 @@
 
                 if (comment == null)
                 {
-                    return false;
+                    throw new ArgumentException("Comment does not exist");
                 }
 
                 comment.CommentViews.Add(new CommentView()
@@ -65,16 +58,7 @@
                 view.Flagged = !view.Flagged;
             }
 
-            try
-            {
-                this.Data.Comments.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            this.Data.Comments.SaveChanges();
         }
     }
 }

@@ -13,5 +13,10 @@
         {
             return this.View();
         }
+
+        public ActionResult FAQ()
+        {
+            return this.View();
+        }
     }
 }

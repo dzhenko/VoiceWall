@@ -16,12 +16,12 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
+/* Set width on the form input elements since they're 100% wide by default wtf*/ 
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 /*!
  * Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
@@ -87,13 +87,19 @@ hr.small {
     max-width: 100px;
 }
 
-#loading-cover-image-content-hider {
-    opacity:0.4;
+#loading-cover-image-content-hider img {
+    /*opacity:0.4;
     position:fixed;
     top:0;
     left:0;
-    width:100%;
+    
+    ;*/
+}
+
+#loading-cover-image-content-hider {
+    background-color:rgb(21,25,31);
     height:100%;
+    width:100%;
 }
 
 /* Side Menu */

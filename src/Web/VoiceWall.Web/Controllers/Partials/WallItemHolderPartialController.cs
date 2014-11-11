@@ -20,7 +20,7 @@
         {
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult GetFromId(Guid id)
         {
             var query = this.Data.Contents.All().Where(c => c.Id == id);
@@ -28,7 +28,7 @@
             return this.GetFromQueryable(query);
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult GetFromQueryable(IQueryable<Content> queryable)
         {
             var content = queryable.Project().To<WallItemHolderViewModel>().FirstOrDefault();
@@ -36,7 +36,7 @@
             return this.GetFromViewModel(content);
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult GetFromViewModel(WallItemHolderViewModel viewModel)
         {
             Guid idAsGuid;

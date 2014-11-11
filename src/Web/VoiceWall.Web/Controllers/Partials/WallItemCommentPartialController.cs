@@ -15,14 +15,12 @@
     {
         private const string WallItemCommentPartialViewName = "_WallItemCommentPartial";
 
-        private readonly IVoiceWallData data;
-
         public WallItemCommentPartialController(IVoiceWallData data)
             : base(data)
         {
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult GetFromId(Guid id)
         {
             var query = this.Data.Comments.All().Where(c => c.Id == id);
@@ -30,7 +28,7 @@
             return this.GetFromQueryable(query);
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult GetFromQueryable(IQueryable<Comment> queryable)
         {
             var comment = queryable.Project().To<WallItemCommentViewModel>().FirstOrDefault();
@@ -38,7 +36,7 @@
             return this.GetFromViewModel(comment);
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         private ActionResult GetFromViewModel(WallItemCommentViewModel viewModel)
         {
             Guid idAsGuid;

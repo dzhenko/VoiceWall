@@ -17,7 +17,7 @@
         $.ajax({
             type: 'POST',
             url: url,
-            data: form,
+            data: null,
             processData: false,
             contentType: false
         }).done(cb).error(error);

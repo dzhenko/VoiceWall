@@ -34,7 +34,7 @@
             configuration.CreateMap<Content, WallItemViewModel>()
                 .ForMember(m => m.Comments, opt => opt.MapFrom(content => content.Comments.AsQueryable()
                     .OrderByDescending(c => c.CreatedOn)
-                    .Select(c => new WallItemCommentViewModel() 
+                    .Select(c => new WallItemCommentViewModel()
                     {
                         ContentType = c.ContentType,
                         ContentUrl = c.ContentUrl,
@@ -44,7 +44,8 @@
                         UserId = c.UserId,
                         UserImage = c.User.UserImage,
                         UserName = c.User.FirstName + " " + c.User.LastName
-                    }))); 
+                    })));
+
         }
     }
 }

@@ -17,8 +17,8 @@
     /// Used as an endpoint for ajax requests for uploading picture content and returns partials of the updated/created content.
     /// </summary>
 
-    [Authorize]
-    [ValidateAntiForgeryToken]
+    //[Authorize]
+    //[ValidateAntiForgeryToken]
     public class UploadPictureController : BaseUploadController
     {
         public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider, IVoiceWallData data)
@@ -59,6 +59,7 @@
                 return this.HttpNotFound();
             }
 
+            // TODO: service !
             var pictureCommentId = this.CreateComment(model.File, ContentType.Picture, model.ContentId);
 
             var viewModel = this.Data.Comments.All()

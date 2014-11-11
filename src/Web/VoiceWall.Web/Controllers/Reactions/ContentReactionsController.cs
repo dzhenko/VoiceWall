@@ -29,44 +29,23 @@
         [AjaxPost]
         public ActionResult Like(Guid contentId)
         {
-            var success = this.AlterViewLike(contentId, true);
-
-            if (!success)
-            {
-                return this.HttpNotFound();
-            }
-
-            return this.RedirectToAction("GetFromId", "WallItemHolderPartial", new { id = contentId });
+            return this.ConditionalActionResult(() => this.AlterViewLike(contentId, true), this.PartialView(contentId));
         }
 
         [AjaxPost]
         public ActionResult Hate(Guid contentId)
         {
-            var success = this.AlterViewLike(contentId, false);
-
-            if (!success)
-            {
-                return this.HttpNotFound();
-            }
-
-            return this.RedirectToAction("GetFromId", "WallItemHolderPartial", new { id = contentId });
+            return this.ConditionalActionResult(() => this.AlterViewLike(contentId, false), this.PartialView(contentId));
         }
 
         [AjaxPost]
         public ActionResult Flag(Guid contentId)
         {
-            var success = this.AlterFlagOnContent(contentId);
-
-            if (!success)
-            {
-                return this.HttpNotFound();
-            }
-
-            return this.RedirectToAction("GetFromId", "WallItemHolderPartial", new { id = contentId });
+            return this.ConditionalActionResult(() => this.AlterFlagOnContent(contentId), this.PartialView(contentId));
         }
 
         // TODO: Service ?
-        private bool AlterViewLike(Guid contentId, bool like)
+        private void AlterViewLike(Guid contentId, bool like)
         {
             var userId = this.HttpContext.User.Identity.GetUserId();
             var view = this.Data.Contents.All().Where(c => c.Id == contentId)
@@ -78,7 +57,7 @@
 
                 if (content == null)
                 {
-                    return false;
+                    throw new ArgumentException("Content does not exist");
                 }
 
                 content.ContentViews.Add(new ContentView()
@@ -90,7 +69,7 @@
             else
             {
                 // if they have the same value they are nulled
-                if (like == view.Liked == true)
+                if (like == view.Liked)
                 {
                     view.Liked = null;
                 }
@@ -100,19 +79,10 @@
                 }
             }
 
-            try
-            {
-                this.Data.Contents.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            this.Data.Contents.SaveChanges();
         }
 
-        private bool AlterFlagOnContent(Guid contentId)
+        private void AlterFlagOnContent(Guid contentId)
         {
             var userId = this.HttpContext.User.Identity.GetUserId();
             var view = this.Data.Contents.All().Where(c => c.Id == contentId).Select(c => c.ContentViews.FirstOrDefault(v => v.UserId == userId)).FirstOrDefault();
@@ -123,7 +93,7 @@
 
                 if (content == null)
                 {
-                    return false;
+                    throw new ArgumentException("Content does not exist");
                 }
 
                 content.ContentViews.Add(new ContentView()
@@ -137,16 +107,7 @@
                 view.Flagged = !view.Flagged;
             }
 
-            try
-            {
-                this.Data.Contents.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            this.Data.Contents.SaveChanges();
         }
     }
 }
