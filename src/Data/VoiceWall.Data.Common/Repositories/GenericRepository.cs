@@ -6,8 +6,6 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
-    using VoiceWall.Data.Common.Repositories;
-
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         private DbContext context;

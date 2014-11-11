@@ -1,35 +1,23 @@
 ﻿namespace VoiceWall.Web.Infrastructure.Filters
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    public class ValidatePictureFileAttribute : ValidationAttribute
+    public class ValidatePictureFileAttribute : BaseValidateMediaFileAttribute
     {
+        private readonly IList<string> allowedMimeTypes = new List<string>() { "image/jpeg", "image/png" };
+
         public override bool IsValid(object value)
         {
-            // 5MB
-            const int AllowedMaxSize = 1024 * 1024 * 5;
-
-            var fileAsHttpPostedFileBase = value as HttpPostedFileBase;
-
-            if (fileAsHttpPostedFileBase == null)
+            try
             {
-                ErrorMessage = "Please upload a file";
-                return false;
+                this.ValidateOrThrowException(value, 1024 * 1024 * 5 /*5MB*/, allowedMimeTypes);
             }
-
-            if (fileAsHttpPostedFileBase.ContentLength > AllowedMaxSize)
+            catch (Exception ex)
             {
-                ErrorMessage = string.Format("File size can not exceed {0}", AllowedMaxSize);
-                return false;
-            }
-
-            var allowedMimeTypes = new List<string>() { "image/jpeg", "image/png" };
-
-            if (!allowedMimeTypes.Contains(fileAsHttpPostedFileBase.ContentType))
-            {
-                ErrorMessage = "File type not supported";
+                ErrorMessage = ex.Message;
                 return false;
             }
 

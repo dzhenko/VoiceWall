@@ -40,7 +40,7 @@
         public ActionResult GetFromViewModel(WallItemHolderViewModel viewModel)
         {
             Guid idAsGuid;
-            if (!Guid.TryParse(viewModel.Id, out idAsGuid))
+            if (!Guid.TryParse(viewModel.Id, out idAsGuid) || idAsGuid == Guid.Empty)
             {
                 return this.HttpNotFound();
             }
