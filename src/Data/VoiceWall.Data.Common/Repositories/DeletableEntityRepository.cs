@@ -1,4 +1,4 @@
-﻿namespace VoiceWall.Data.Repositories
+﻿namespace VoiceWall.Data.Common.Repositories
 {
     using System;
     using System.Data.Entity;
@@ -9,7 +9,7 @@
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity
     {
-        public DeletableEntityRepository(IVoiceWallDbContext context)
+        public DeletableEntityRepository(DbContext context)
             : base(context)
         {
         }

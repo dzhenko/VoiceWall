@@ -1,4 +1,4 @@
-﻿namespace VoiceWall.Data.Repositories
+﻿namespace VoiceWall.Data.Common.Repositories
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -10,20 +10,25 @@
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        public GenericRepository(IVoiceWallDbContext context)
+        private DbContext context;
+
+        public GenericRepository(DbContext context)
         {
             if (context == null)
             {
                 throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
             }
 
-            this.Context = context;
+            this.context = context;
             this.DbSet = this.Context.Set<T>();
         }
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected IVoiceWallDbContext Context { get; set; }
+        protected DbContext Context
+        {
+            get { return this.context; }
+        }
 
         public virtual IQueryable<T> All()
         {

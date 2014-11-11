@@ -6,7 +6,6 @@
     using VoiceWall.Data.Common.Models;
     using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
-    using VoiceWall.Data.Repositories;
 
     public class VoiceWallData : IVoiceWallData
     {

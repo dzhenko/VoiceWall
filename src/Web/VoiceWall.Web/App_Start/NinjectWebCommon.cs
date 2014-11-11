@@ -18,7 +18,6 @@ namespace VoiceWall.Web.App_Start
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.CloudStorage.Dropbox;
     using VoiceWall.CloudStorage.TelerikBackend;
-    using VoiceWall.Data.Repositories;
 
     public static class NinjectWebCommon 
     {

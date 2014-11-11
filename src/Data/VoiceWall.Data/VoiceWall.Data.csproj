@@ -56,8 +56,6 @@
     <Compile Include="IVoiceWallDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DeletableEntityRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Seeders\StaticDataSeeder.cs" />
     <Compile Include="VoiceWallData.cs" />
     <Compile Include="VoiceWallDbContext.cs" />
