@@ -10,7 +10,7 @@
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        public GenericRepository(VoiceWallDbContext context)
+        public GenericRepository(IVoiceWallDbContext context)
         {
             if (context == null)
             {
@@ -23,7 +23,7 @@
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected VoiceWallDbContext Context { get; set; }
+        protected IVoiceWallDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {

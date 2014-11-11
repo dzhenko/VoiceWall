@@ -1,29 +1,25 @@
 ﻿namespace VoiceWall.Web.Controllers
 {
-    using System;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
 
-    using VoiceWall.CloudStorage.Common;
-    using VoiceWall.Data.Common.Repositories;
-    using VoiceWall.Data.Models;
+    using VoiceWall.Data;
     using VoiceWall.Web.ViewModels;
 
-    public class HomeController : BaseContentAndCommentController
+    public class HomeController : BaseController
     {
-        public HomeController(IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
-            : base(contentsRepository, commentsRepository)
+        public HomeController(IVoiceWallData data)
+            : base(data)
         {
         }
 
         [Authorize]
-        //[OutputCache(Duration = 10, VaryByCustom = "User")]
+        [OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
-            return View(this.ContentsRepository.All()
+            return View(this.Data.Contents.All()
                 .OrderByDescending(c => c.CreatedOn).Take(10).Project().To<WallItemViewModel>());
         }
     }

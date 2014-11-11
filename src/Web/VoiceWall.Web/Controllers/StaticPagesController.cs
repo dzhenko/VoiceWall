@@ -6,12 +6,12 @@
     {
         public ActionResult About()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Contact()
         {
-            return View();
+            return this.View();
         }
     }
 }

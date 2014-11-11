@@ -13,11 +13,11 @@ namespace VoiceWall.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    name: "Static",
-            //    url: "{action}",
-            //    defaults: new { controller = "StaticPages" }
-            //);
+            routes.MapRoute(
+                name: "Static",
+                url: "{action}",
+                defaults: new { controller = "StaticPages" }
+            );
 
             routes.MapRoute(
                 name: "Default",

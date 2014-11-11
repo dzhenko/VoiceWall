@@ -72,9 +72,10 @@ namespace VoiceWall.Web.App_Start
         {
             // Db
             kernel.Bind<DbContext>().To<VoiceWallDbContext>();
-
+            kernel.Bind<IVoiceWallDbContext>().To<VoiceWallDbContext>();
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind<IVoiceWallData>().To<VoiceWallData>();
 
             // Cloud Storage
             kernel.Bind<IPicturesCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["PicturesCloudStorage"]));

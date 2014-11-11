@@ -202,8 +202,11 @@
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
-    <Compile Include="Controllers\BaseContentAndCommentController.cs" />
-    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Partials\WallItemCommentPartialController.cs" />
+    <Compile Include="Controllers\Partials\WallItemHolderPartialController.cs" />
+    <Compile Include="Controllers\Partials\WallItemPartialController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\Reactions\CommentReactionsController.cs" />
     <Compile Include="Controllers\Reactions\ContentReactionsController.cs" />
     <Compile Include="Controllers\StaticPagesController.cs" />
@@ -234,7 +237,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="JsonModels\SuccessJsonModel.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -492,6 +494,7 @@
     <Content Include="Licensed Libs\Kendo.Mvc.dll" />
     <Content Include="Licensed Libs\README.txt" />
     <Content Include="Scripts\app\contentSender.js" />
+    <Content Include="Scripts\app\loadingImageHider.js" />
     <Content Include="Scripts\app\sideMenu.js" />
     <Content Include="Scripts\app\pictureRecording\main.js" />
     <Content Include="Scripts\app\soundRecording\audiodisplay.js" />
@@ -621,7 +624,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Controllers\Services\" />
     <Folder Include="References\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

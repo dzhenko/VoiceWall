@@ -1,7 +1,7 @@
 ﻿window.voiceWallAjax = (function () {
     function send(url, blob, id, cb, error) {
         var form = new FormData($("#hiddenAjaxPostForm"));
-
+        
         form.append('__RequestVerificationToken', $('#hiddenAjaxPostForm input').val());
         
         if (blob) {
@@ -103,7 +103,7 @@
     }
 
     function getLoadingImage(width, height) {
-        return $('<img src="~/Content/img/loading.gif"  width="' + (width - 1) + '" height="' + height + '"/>');
+        return $('<img src="/Content/img/loading.gif"  width="' + (width - 1) + '" height="' + height + '"/>');
     }
 
     return {

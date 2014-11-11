@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Common.ExtensionM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Common", "Common\VoiceWall.Common\VoiceWall.Common.csproj", "{974A8ACB-2858-4706-8176-27840E4FBDDA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{1B384CD7-8C6C-4BAC-9B24-351604E555FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Common", "Services\VoiceWall.Services.Common\VoiceWall.Services.Common.csproj", "{2C93F2A5-C793-4DB3-8838-2376C66EE75A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,10 @@ Global
 		{974A8ACB-2858-4706-8176-27840E4FBDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{974A8ACB-2858-4706-8176-27840E4FBDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{974A8ACB-2858-4706-8176-27840E4FBDDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C93F2A5-C793-4DB3-8838-2376C66EE75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C93F2A5-C793-4DB3-8838-2376C66EE75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C93F2A5-C793-4DB3-8838-2376C66EE75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C93F2A5-C793-4DB3-8838-2376C66EE75A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,5 +104,6 @@ Global
 		{CE5E337E-7527-41B2-97BA-2AF56650E1F8} = {1E19BC30-1A20-4036-8C8C-3641C4EC603B}
 		{E9F3818E-0D1B-4701-9ABC-E16E592D78F3} = {3AD09D41-1C10-490A-B488-8CE15BB504DC}
 		{974A8ACB-2858-4706-8176-27840E4FBDDA} = {3AD09D41-1C10-490A-B488-8CE15BB504DC}
+		{2C93F2A5-C793-4DB3-8838-2376C66EE75A} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 	EndGlobalSection
 EndGlobal

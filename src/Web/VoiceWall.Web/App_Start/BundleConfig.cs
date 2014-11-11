@@ -38,6 +38,9 @@ namespace VoiceWall.Web
             bundles.Add(new ScriptBundle("~/bundles/sideMenu").Include(
                      "~/Scripts/app/sideMenu.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/loadingImageHider").Include(
+                     "~/Scripts/app/loadingImageHider.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/wallItems").Include(
                     "~/Scripts/jquery.easing.js",
                     "~/Scripts/jquery.fancybox.js",

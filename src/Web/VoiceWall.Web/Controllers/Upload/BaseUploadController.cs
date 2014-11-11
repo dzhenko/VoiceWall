@@ -6,19 +6,18 @@
     using Microsoft.AspNet.Identity;
 
     using VoiceWall.CloudStorage.Common;
-    using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
+    using VoiceWall.Data;
 
     /// <summary>
     /// Abstract controller used to provide creation + upload methods
     /// </summary>
 
-    public abstract class BaseUploadController : BaseContentAndCommentController
+    public abstract class BaseUploadController : BaseController
     {
         private readonly ICloudStorage cloudStorage;
-        public BaseUploadController(ICloudStorage cloudStorage,
-            IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
-            : base(contentsRepository, commentsRepository)
+        public BaseUploadController(ICloudStorage cloudStorage, IVoiceWallData data)
+            : base(data)
         {
             this.cloudStorage = cloudStorage;
         }
@@ -38,8 +37,8 @@
 
             content.ContentUrl = this.cloudStorage.UploadFile(file.InputStream, content.Id.ToString(), file.ContentType);
 
-            this.ContentsRepository.Add(content);
-            this.ContentsRepository.SaveChanges();
+            this.Data.Contents.Add(content);
+            this.Data.SaveChanges();
 
             return content.Id;
         }
@@ -55,8 +54,8 @@
 
             comment.ContentUrl = this.cloudStorage.UploadFile(file.InputStream, comment.Id.ToString(), file.ContentType);
 
-            this.CommentsRepository.Add(comment);
-            this.CommentsRepository.SaveChanges();
+            this.Data.Comments.Add(comment);
+            this.Data.SaveChanges();
 
             return comment.Id;
         }

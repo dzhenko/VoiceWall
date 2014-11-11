@@ -11,6 +11,7 @@
     using VoiceWall.Web.Infrastructure.Filters;
     using VoiceWall.Web.ViewModels.Upload;
     using VoiceWall.Web.ViewModels;
+    using VoiceWall.Data;
 
     /// <summary>
     /// Used as an endpoint for ajax requests for uploading picture content and returns partials of the updated/created content.
@@ -20,16 +21,15 @@
     [ValidateAntiForgeryToken]
     public class UploadPictureController : BaseUploadController
     {
-        public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider,
-            IDeletableEntityRepository<Content> contentsRepository, IDeletableEntityRepository<Comment> commentsRepository)
-            : base(picturesCloudStorageProvider, contentsRepository, commentsRepository)
+        public UploadPictureController(IPicturesCloudStorage picturesCloudStorageProvider, IVoiceWallData data)
+            : base(picturesCloudStorageProvider, data)
         {
         }
 
         [AjaxPost]
         public ActionResult Create(NewPictureContentInputModel model)
         {
-            if (!ModelState.IsValid)
+            if (model == null || !ModelState.IsValid)
             {
                 return this.Json(ModelState);
             }
@@ -37,7 +37,7 @@
             var pictureId = this.CreateContent(model.File, ContentType.Picture);
 
             // projecting only the holder - the comments are empty as we just created the item
-            var viewModelHolder = this.ContentsRepository.All()
+            var viewModelHolder = this.Data.Contents.All()
                                 .Where(c => c.Id == pictureId)
                                 .Project()
                                 .To<WallItemHolderViewModel>()
@@ -49,19 +49,19 @@
         [AjaxPost]
         public ActionResult Comment(NewPictureCommentInputModel model)
         {
-            if (!ModelState.IsValid)
+            if (model == null || !ModelState.IsValid)
             {
                 return this.Json(ModelState);
             }
 
-            if (!this.ContentsRepository.All().Any(c => c.Id == model.ContentId))
+            if (!this.Data.Contents.All().Any(c => c.Id == model.ContentId))
             {
                 return this.HttpNotFound();
             }
 
             var pictureCommentId = this.CreateComment(model.File, ContentType.Picture, model.ContentId);
 
-            var viewModel = this.CommentsRepository.All()
+            var viewModel = this.Data.Comments.All()
                                 .Where(c => c.Id == pictureCommentId)
                                 .Project()
                                 .To<WallItemCommentViewModel>()

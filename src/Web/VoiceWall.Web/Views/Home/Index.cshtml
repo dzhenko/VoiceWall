@@ -4,6 +4,10 @@
     @Styles.Render("~/Content/wallItems")
 }
 
+@section prescripts {
+    @Scripts.Render("~/bundles/loadingImageHider")
+}
+
 @{ Html.RenderPartial("_CreateContentPartial"); }
 @{ Html.RenderPartial("_PlayContentPartial"); }
 

@@ -11,7 +11,7 @@
     using VoiceWall.Data.Common.Models;
     using System.Data.Entity.ModelConfiguration.Conventions;
 
-    public class VoiceWallDbContext : IdentityDbContext<User>
+    public class VoiceWallDbContext : IdentityDbContext<User>, IVoiceWallDbContext
     {
         public VoiceWallDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

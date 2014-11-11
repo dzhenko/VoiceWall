@@ -54,10 +54,7 @@
     });
     
     // animate buttons
-    var commentBtns = $(".wallItemMainHolder .commentBtn");
-    var reactBtns = $(".wallItemMainHolder .reactBtn");
-
-    commentBtns.click(function (e) {
+    $('body').on('click', ".wallItemMainHolder .commentBtn", function (e) {
         var self = $(this);
         window.wallItemHolderClickedId = self.parent().parent().data("wall-item-id");
 
@@ -68,12 +65,12 @@
         other.hide();
 
         var own = self.siblings().show();
-        $(own[0]).transition({ x: 100 });
-        $(own[1]).transition({ x: 195 });
-        $(own[2]).transition({ x: 290 });
+        $(own[0]).transition({ x: 15 });
+        $(own[1]).transition({ x: 105 });
+        $(own[2]).transition({ x: 200 });
     });
 
-    reactBtns.click(function (e) {
+    $('body').on('click', ".wallItemMainHolder .reactBtn", function (e) {
         var self = $(this);
         window.wallItemHolderClickedId = self.parent().parent().data("wall-item-id");
 
