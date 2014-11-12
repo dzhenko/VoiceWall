@@ -15,9 +15,17 @@ namespace VoiceWall.Web.App_Start
 
     using VoiceWall.Data;
     using VoiceWall.Data.Common.Repositories;
+
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.CloudStorage.Dropbox;
     using VoiceWall.CloudStorage.TelerikBackend;
+
+    using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Services.Common.Generators;
+    using VoiceWall.Services.Common.Logic.Reactions;
+    using VoiceWall.Services.Fetcher;
+    using VoiceWall.Services.Generator;
+    using VoiceWall.Services.Logic.Reactions;
 
     public static class NinjectWebCommon 
     {
@@ -69,17 +77,38 @@ namespace VoiceWall.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            // Db
+            RegisterDatabaseServices(kernel);
+            RegisterCloudStorageServices(kernel);
+            RegisterServicesLayerServices(kernel);
+        }
+
+        private static void RegisterDatabaseServices(IKernel kernel)
+        {
             kernel.Bind<DbContext>().To<VoiceWallDbContext>();
             kernel.Bind<IVoiceWallDbContext>().To<VoiceWallDbContext>();
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind<IVoiceWallData>().To<VoiceWallData>();
+        }
 
-            // Cloud Storage
+        private static void RegisterCloudStorageServices(IKernel kernel)
+        {
             kernel.Bind<IPicturesCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["PicturesCloudStorage"]));
             kernel.Bind<ISoundsCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["SoundsCloudStorage"]));
             kernel.Bind<IVideosCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["VideosCloudStorage"]));
-        }        
+        }
+
+        private static void RegisterServicesLayerServices(IKernel kernel)
+        {
+            kernel.Bind<IContentFetcherService>().To<ContentFetcherService>();
+            kernel.Bind<ICommentFetcherService>().To<CommentFetcherService>();
+
+            kernel.Bind<ISoundUploadingGeneratorService>().To<SoundUploadingGeneratorService>();
+            kernel.Bind<IVideoUploadingGeneratorService>().To<VideoUploadingGeneratorService>();
+            kernel.Bind<IPictureUploadingGeneratorService>().To<PictureUploadingGeneratorService>();
+
+            kernel.Bind<IContentReactionsService>().To<ContentReactionsService>();
+            kernel.Bind<ICommentReactionsService>().To<CommentReactionsService>();
+        }
     }
 }

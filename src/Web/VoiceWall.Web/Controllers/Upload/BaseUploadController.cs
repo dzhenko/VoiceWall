@@ -1,63 +1,54 @@
 ﻿namespace VoiceWall.Web.Controllers.Upload
 {
     using System;
+    using System.Linq;
     using System.Web;
+    using System.Web.Mvc;
 
     using Microsoft.AspNet.Identity;
 
-    using VoiceWall.CloudStorage.Common;
-    using VoiceWall.Data.Models;
-    using VoiceWall.Data;
+    using VoiceWall.Services.Common.Generators;
 
     /// <summary>
-    /// Abstract controller used to provide creation + upload methods
+    /// Abstract controller used to provide access to content and comments Generators
     /// </summary>
 
     public abstract class BaseUploadController : BaseController
     {
-        private readonly ICloudStorage cloudStorage;
-        public BaseUploadController(ICloudStorage cloudStorage, IVoiceWallData data)
-            : base(data)
+        private readonly IUploadingGeneratorService uploadingGeneratorService;
+
+        public BaseUploadController(IUploadingGeneratorService uploadingGeneratorService)
         {
-            this.cloudStorage = cloudStorage;
+            this.uploadingGeneratorService = uploadingGeneratorService;
         }
 
-        protected ICloudStorage CloudStorage
+        public IUploadingGeneratorService UploadingGeneratorService
         {
-            get { return this.cloudStorage; }
+            get { return this.uploadingGeneratorService; }
         }
 
-        protected Guid CreateContent(HttpPostedFileBase file, ContentType type)
+        public Guid CreateContent(HttpPostedFileBase file)
         {
-            var content = new Content()
+            if (!ModelState.IsValid)
             {
-                ContentType = type,
-                UserId = this.HttpContext.User.Identity.GetUserId()
-            };
+                throw new ArgumentException(ModelState.Values.FirstOrDefault() == null ? "Invalid file" 
+                    : ModelState.Values.FirstOrDefault().Errors.FirstOrDefault().ErrorMessage);
+            }
 
-            content.ContentUrl = this.cloudStorage.UploadFile(file.InputStream, content.Id.ToString(), file.ContentType);
-
-            this.Data.Contents.Add(content);
-            this.Data.SaveChanges();
-
-            return content.Id;
+            return this.uploadingGeneratorService.Create(file.InputStream, 
+                this.HttpContext.User.Identity.GetUserId(), file.ContentType);
         }
 
-        protected Guid CreateComment(HttpPostedFileBase file, ContentType type, Guid contentId)
+        public Guid CommentContent(HttpPostedFileBase file, Guid contentId)
         {
-            var comment = new Comment()
+            if (!ModelState.IsValid)
             {
-                ContentType = type,
-                UserId = this.HttpContext.User.Identity.GetUserId(),
-                ContentId = contentId
-            };
+                throw new ArgumentException(ModelState.Values.FirstOrDefault() == null ? "Invalid file"
+                    : ModelState.Values.FirstOrDefault().Errors.FirstOrDefault().ErrorMessage);
+            }
 
-            comment.ContentUrl = this.cloudStorage.UploadFile(file.InputStream, comment.Id.ToString(), file.ContentType);
-
-            this.Data.Comments.Add(comment);
-            this.Data.SaveChanges();
-
-            return comment.Id;
+            return this.uploadingGeneratorService.Comment(file.InputStream,
+                this.HttpContext.User.Identity.GetUserId(), file.ContentType, contentId);
         }
     }
 }

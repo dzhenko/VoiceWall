@@ -625,11 +625,16 @@
     <Content Include="Views\ContentReactions\Hate.cshtml" />
     <Content Include="Views\ContentReactions\Flag.cshtml" />
     <Content Include="Views\StaticPages\FAQ.cshtml" />
+    <Content Include="Views\UploadPicture\Create.cshtml" />
+    <Content Include="Views\UploadPicture\Comment.cshtml" />
+    <Content Include="Views\UploadSound\Comment.cshtml" />
+    <Content Include="Views\UploadSound\Create.cshtml" />
+    <Content Include="Views\UploadVideo\Comment.cshtml" />
+    <Content Include="Views\UploadVideo\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Controllers\Services\" />
     <Folder Include="References\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
@@ -660,6 +665,22 @@
     <ProjectReference Include="..\..\Data\VoiceWall.Data\VoiceWall.Data.csproj">
       <Project>{09299d1d-4396-46fd-b501-58c5bc97e4a5}</Project>
       <Name>VoiceWall.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Common\VoiceWall.Services.Common.csproj">
+      <Project>{2c93f2a5-c793-4db3-8838-2376c66ee75a}</Project>
+      <Name>VoiceWall.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Fetcher\VoiceWall.Services.Fetcher.csproj">
+      <Project>{8e79ca49-708a-4ade-b3c7-90cd9b31d10d}</Project>
+      <Name>VoiceWall.Services.Fetcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Generator\VoiceWall.Services.Generator.csproj">
+      <Project>{e68dccb8-bb7c-4fcd-8790-53de5df68f6a}</Project>
+      <Name>VoiceWall.Services.Generator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Logic\VoiceWall.Services.Logic.csproj">
+      <Project>{2ef8813f-c9c0-4133-bf88-4dfa650aef89}</Project>
+      <Name>VoiceWall.Services.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Upload\VoiceWall.CloudStorage.Common\VoiceWall.CloudStorage.Common.csproj">
       <Project>{fc6754cb-7ad5-40f6-96ca-1fa537a1b85b}</Project>

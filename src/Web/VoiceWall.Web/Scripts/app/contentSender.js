@@ -2,7 +2,8 @@
     function send(url, blob, id, cb, error) {
         var form = new FormData($("#hiddenAjaxPostForm"));
         
-        form.append('__RequestVerificationToken', $('#hiddenAjaxPostForm input').val());
+        var verificationToken = $('#hiddenAjaxPostForm input').val();
+        form.append('__RequestVerificationToken', verificationToken);
         
         if (blob) {
             form.append("File", blob);
@@ -17,7 +18,7 @@
         $.ajax({
             type: 'POST',
             url: url,
-            data: null,
+            data: form,
             processData: false,
             contentType: false
         }).done(cb).error(error);
@@ -44,7 +45,8 @@
 
             toastr.success("Successfully added a comment!");
             $(objToHide.children().first()).remove();
-            $(objToHide.children().first()).after($(response));
+            objToHide.children().show();
+            $('.wallItemMainHolder .new-content-placeholder').after($(response));
 
             // handle picture opening
             $(".fancybox-image").fancybox({
@@ -55,7 +57,6 @@
                 'easingOut': 'easeInBack'
             });
 
-            objToHide.children().show();
         }, function (error) {
 
             toastr.error("Invalid data");

@@ -39,10 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IContentService.cs" />
+    <Compile Include="Fetchers\CommentStateForUser.cs" />
+    <Compile Include="Fetchers\ContentStateForUser.cs" />
+    <Compile Include="Fetchers\IContentFetcherService.cs" />
+    <Compile Include="Fetchers\ICommentFetcherService.cs" />
+    <Compile Include="Generators\IPictureUploadingGeneratorService.cs" />
+    <Compile Include="Generators\ISoundUploadingGeneratorService.cs" />
+    <Compile Include="Generators\IUploadingGeneratorService.cs" />
+    <Compile Include="Generators\IVideoUploadingGeneratorService.cs" />
+    <Compile Include="Logic\Reactions\ICommentReactionsService.cs" />
+    <Compile Include="Logic\Reactions\IContentReactionsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj">
+      <Project>{549481aa-0c89-4e41-93b3-fc64d02c8832}</Project>
+      <Name>VoiceWall.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\VoiceWall.Data.Models\VoiceWall.Data.Models.csproj">
       <Project>{6480b90c-bcf9-427f-98da-8e2e747112dd}</Project>
       <Name>VoiceWall.Data.Models</Name>

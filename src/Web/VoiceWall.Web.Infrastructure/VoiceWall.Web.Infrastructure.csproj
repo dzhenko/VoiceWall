@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Filters\AjaxPostAttribute.cs" />
+    <Compile Include="Filters\BaseValidateMediaFileAttribute.cs" />
     <Compile Include="Filters\ValidatePictureFileAttribute.cs" />
     <Compile Include="Filters\ValidateSoundFileAttribute.cs" />
     <Compile Include="Filters\ValidateVideoFileAttribute.cs" />

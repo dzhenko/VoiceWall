@@ -1,10 +1,9 @@
 ﻿namespace VoiceWall.Web.Controllers
 {
     using System;
-using System.Web.Mvc;
-using VoiceWall.Data;
-using VoiceWall.Data.Common.Repositories;
-using VoiceWall.Data.Models;
+    using System.Web.Mvc;
+
+    using VoiceWall.Data;
 
     /// <summary>
     /// Abstract controller used to provide uow to its successors.
@@ -12,30 +11,30 @@ using VoiceWall.Data.Models;
 
     public abstract class BaseController : Controller
     {
-        private readonly IVoiceWallData data;
-
-        public BaseController(IVoiceWallData data)
-        {
-            this.data = data;
-        }
-
-        protected IVoiceWallData Data
-        {
-            get { return this.data; }
-        }
-
-        protected ActionResult ConditionalActionResult(Action actionToPerform, ActionResult resultToReturn)
+        protected ActionResult ConditionalActionResult<T>(Func<T> funcToPerform, Func<T, ActionResult> resultToReturn)
         {
             try
             {
-                actionToPerform();
+                var result = funcToPerform();
+                return resultToReturn(result);
             }
             catch (Exception ex)
             {
                 return this.HttpNotFound(ex.Message);
             }
+        }
 
-            return resultToReturn;
+        protected ActionResult IndependentActionResult(Action actionToPerform, ActionResult resultToReturn)
+        {
+            try
+            {
+                actionToPerform();
+                return resultToReturn;
+            }
+            catch (Exception ex)
+            {
+                return this.HttpNotFound(ex.Message);
+            }
         }
     }
 }

@@ -4,53 +4,44 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
+    using AutoMapper.QueryableExtensions;
 
-    using VoiceWall.Data;
-    using VoiceWall.Web.ViewModels;
     using VoiceWall.Data.Models;
+    using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Web.ViewModels;
 
     public class WallItemHolderPartialController : BaseController
     {
         private const string PartialViewName = "_WallItemHolderPartial";
 
-        public WallItemHolderPartialController(IVoiceWallData data)
-            : base(data)
+        private readonly IContentFetcherService contentFetcherService;
+
+        public WallItemHolderPartialController(IContentFetcherService contentFetcherService)
         {
+            this.contentFetcherService = contentFetcherService;
         }
 
         [ChildActionOnly]
         public ActionResult GetFromId(Guid id)
         {
-            var query = this.Data.Contents.All().Where(c => c.Id == id);
-
-            return this.GetFromQueryable(query);
+            return this.GetFromQueryable(this.contentFetcherService.GetById(id));
         }
 
         [ChildActionOnly]
         public ActionResult GetFromQueryable(IQueryable<Content> queryable)
         {
-            var content = queryable.Project().To<WallItemHolderViewModel>().FirstOrDefault();
+            var model = queryable.Project().To<WallItemHolderViewModel>().FirstOrDefault();
+            var state = this.contentFetcherService.ContentLikedFlaggedByUser(Guid.Parse(model.Id), this.HttpContext.User.Identity.GetUserId());
+            model.IsLiked = state == null ? null : state.IsLiked;
+            model.IsFlagged = state == null ? false : state.IsFlagged;
 
-            return this.GetFromViewModel(content);
+            return this.GetFromViewModel(model);
         }
 
         [ChildActionOnly]
         public ActionResult GetFromViewModel(WallItemHolderViewModel viewModel)
         {
-            Guid idAsGuid;
-            if (!Guid.TryParse(viewModel.Id, out idAsGuid) || idAsGuid == Guid.Empty)
-            {
-                return this.HttpNotFound();
-            }
-            var userId = this.HttpContext.User.Identity.GetUserId();
-            var state = this.Data.ContentViews.All().Where(cv => cv.UserId == userId && cv.ContentId == idAsGuid)
-                .Select(cv => new { Liked = cv.Liked, Flagged = cv.Flagged }).FirstOrDefault();
-
-            viewModel.IsLiked = state.Liked;
-            viewModel.IsFlagged = state.Flagged;
-
             return this.PartialView(PartialViewName, viewModel);
         }
     }

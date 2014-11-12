@@ -8,20 +8,22 @@
 
     using VoiceWall.Data;
     using VoiceWall.Web.ViewModels;
+    using VoiceWall.Services.Common.Fetchers;
 
     public class HomeController : BaseController
     {
-        public HomeController(IVoiceWallData data)
-            : base(data)
+        private IContentFetcherService contentFetcherService;
+
+        public HomeController(IContentFetcherService contentFetcherService)
         {
+            this.contentFetcherService = contentFetcherService;
         }
 
         [Authorize]
         [OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
-            return View(this.Data.Contents.All()
-                .OrderByDescending(c => c.CreatedOn).Take(10).Project().To<WallItemViewModel>());
+            return View(this.contentFetcherService.GetLast().Project().To<WallItemViewModel>());
         }
     }
 }

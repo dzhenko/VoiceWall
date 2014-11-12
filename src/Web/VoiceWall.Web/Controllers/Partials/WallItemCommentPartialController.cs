@@ -4,52 +4,43 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
+    using AutoMapper.QueryableExtensions;
 
-    using VoiceWall.Data;
-    using VoiceWall.Web.ViewModels;
     using VoiceWall.Data.Models;
+    using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Web.ViewModels;
 
     public class WallItemCommentPartialController : BaseController
     {
         private const string WallItemCommentPartialViewName = "_WallItemCommentPartial";
 
-        public WallItemCommentPartialController(IVoiceWallData data)
-            : base(data)
+        private readonly ICommentFetcherService commentFetcherService;
+
+        public WallItemCommentPartialController(ICommentFetcherService commentFetcherService)
         {
+            this.commentFetcherService = commentFetcherService;
         }
 
         [ChildActionOnly]
         public ActionResult GetFromId(Guid id)
         {
-            var query = this.Data.Comments.All().Where(c => c.Id == id);
-
-            return this.GetFromQueryable(query);
+            return this.GetFromQueryable(this.commentFetcherService.GetById(id));
         }
 
         [ChildActionOnly]
         public ActionResult GetFromQueryable(IQueryable<Comment> queryable)
         {
-            var comment = queryable.Project().To<WallItemCommentViewModel>().FirstOrDefault();
+            var model = queryable.Project().To<WallItemCommentViewModel>().FirstOrDefault();
+            var state = this.commentFetcherService.CommentFlaggedByUser(Guid.Parse(model.Id), this.HttpContext.User.Identity.GetUserId());
+            model.IsFlagged = state == null ? false : state.IsFlagged;
 
-            return this.GetFromViewModel(comment);
+            return this.GetFromViewModel(model);
         }
 
         [ChildActionOnly]
         private ActionResult GetFromViewModel(WallItemCommentViewModel viewModel)
         {
-            Guid idAsGuid;
-            if (!Guid.TryParse(viewModel.Id, out idAsGuid) || idAsGuid == Guid.Empty)
-            {
-                return this.HttpNotFound();
-            }
-
-            var userId = this.HttpContext.User.Identity.GetUserId();
-
-            viewModel.IsFlagged = this.Data.CommentViews.All()
-                .FirstOrDefault(cv => cv.UserId == userId && cv.CommentId == idAsGuid).Flagged;
-
             return this.PartialView(WallItemCommentPartialViewName, viewModel);
         }
     }

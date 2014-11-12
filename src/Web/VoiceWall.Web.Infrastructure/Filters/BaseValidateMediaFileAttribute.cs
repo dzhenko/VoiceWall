@@ -7,7 +7,7 @@
 
     public abstract class BaseValidateMediaFileAttribute : ValidationAttribute
     {
-        protected override void ValidateOrThrowException(object value, int allowedMaxSize, IList<string> allowedMimeTypes)
+        protected void ValidateOrThrowException(object value, int allowedMaxSize, IList<string> allowedMimeTypes)
         {
             var fileAsHttpPostedFileBase = value as HttpPostedFileBase;
 
