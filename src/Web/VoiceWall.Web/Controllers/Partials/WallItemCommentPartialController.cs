@@ -1,4 +1,4 @@
-﻿namespace VoiceWall.Web.Controllers.Partials
+﻿namespace VoiceWall.Web.Controllers
 {
     using System;
     using System.Linq;

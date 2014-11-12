@@ -631,12 +631,14 @@
     <Content Include="Views\UploadSound\Create.cshtml" />
     <Content Include="Views\UploadVideo\Comment.cshtml" />
     <Content Include="Views\UploadVideo\Create.cshtml" />
+    <Content Include="Views\Profile\Find.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Profile\Own.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="References\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

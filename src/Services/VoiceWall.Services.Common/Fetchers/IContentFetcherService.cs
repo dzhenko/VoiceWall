@@ -9,6 +9,8 @@
     {
         IQueryable<Content> GetLast(int count = 5);
 
+        IQueryable<AnalyzedContentQuery> GetLastWithStats(string userId, int count = 5);
+
         IQueryable<Content> GetById(Guid id);
 
         ContentStateForUser ContentLikedFlaggedByUser(Guid contentId, string userId);

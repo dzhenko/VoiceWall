@@ -6,15 +6,20 @@
     public class ProfileController : Controller
     {
         // GET: Profile
-        public ActionResult Index()
+        public ActionResult Find()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Details(Guid userId)
+        public ActionResult Details(Guid id)
         {
-            return null;
+            return View();
+        }
+
+        public ActionResult Own()
+        {
+            return View();
         }
     }
 }

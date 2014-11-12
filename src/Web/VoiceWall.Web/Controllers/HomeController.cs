@@ -5,6 +5,7 @@
 
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using Microsoft.AspNet.Identity;
 
     using VoiceWall.Data;
     using VoiceWall.Web.ViewModels;
@@ -20,7 +21,7 @@
         }
 
         [Authorize]
-        [OutputCache(Duration = 10, VaryByCustom = "User")]
+        //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
             return View(this.contentFetcherService.GetLast().Project().To<WallItemViewModel>());

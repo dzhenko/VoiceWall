@@ -14,6 +14,18 @@ namespace VoiceWall.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Own Profile",
+                url: "profle/own",
+                defaults: new { controller = "Profile", action = "Own" }
+            );
+
+            routes.MapRoute(
+                name: "Profile",
+                url: "profle/{action}/{id}/{username}",
+                defaults: new { controller="Profile", action = "Find", id = UrlParameter.Optional, username = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Static",
                 url: "{action}",
                 defaults: new { controller = "StaticPages" }

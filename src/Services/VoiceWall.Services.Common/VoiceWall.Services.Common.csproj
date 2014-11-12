@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fetchers\AnalyzedContentQuery.cs" />
     <Compile Include="Fetchers\CommentStateForUser.cs" />
+    <Compile Include="Fetchers\CommentStateForUserCollection.cs" />
     <Compile Include="Fetchers\ContentStateForUser.cs" />
     <Compile Include="Fetchers\IContentFetcherService.cs" />
     <Compile Include="Fetchers\ICommentFetcherService.cs" />

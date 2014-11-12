@@ -21,6 +21,32 @@
             return this.data.Contents.All().OrderByDescending(c => c.CreatedOn).Take(count);
         }
 
+        public IQueryable<AnalyzedContentQuery> GetLastWithStats(string userId, int count = 5)
+        {
+            var analyzedContents = this.data.Contents.All()
+                .OrderByDescending(c => c.CreatedOn)
+                .Take(count)
+                .Select(c => new AnalyzedContentQuery()
+                {
+                    OriginalContent = c,
+                    ContentStateForUser = c.ContentViews.Where(cv => cv.UserId == userId).Select(cv => new ContentStateForUser()
+                    {
+                        IsLiked = cv.Liked,
+                        IsFlagged = cv.Flagged
+                    }).FirstOrDefault(),
+                    ContentCommentsFlags = c.Comments
+                        .Select(cm => cm.CommentViews.Where(cmv => cmv.UserId == userId)
+                            .Select(cmv => new CommentStateForUserCollection
+                            {
+                                CommentId = cmv.Id,
+                                IsFlagged = cmv.Flagged
+                            })
+                            .FirstOrDefault())
+                });
+
+            return analyzedContents;
+        }
+
         public IQueryable<Content> GetById(Guid id)
         {
             return this.data.Contents.All().Where(c => c.Id == id);
