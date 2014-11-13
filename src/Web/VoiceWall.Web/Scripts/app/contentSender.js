@@ -28,7 +28,7 @@
         send(url, blob, null, function (response) {
 
             toastr.success("Successfully created a post!");
-            $('body .new-content-placeholder').prepend(response);
+            $('#new-created-content-placeholder').prepend($(response));
         }, function (error) {
             toastr.error("Invalid data");
         });
@@ -121,13 +121,13 @@
         },
         comment: {
             withVideo: function (blob, id) {
-                comment("UploadVideo/Comment", blob, id);
+                id ?  comment("UploadVideo/Comment", blob, id) : create("UploadVideo/Create", blob);
             },
             withSound: function (blob, id) {
-                comment("UploadSound/Comment", blob, id);
+                id ? comment("UploadSound/Comment", blob, id) : create("UploadSound/Create", blob);
             },
             withPicture: function (blob, id) {
-                comment("UploadPicture/Comment", blob, id);
+                id ? comment("UploadPicture/Comment", blob, id) : create("UploadPicture/Create", blob);
             }
         },
         react: {

@@ -21,14 +21,14 @@
         }
 
         [AjaxPost]
-        public ActionResult Create(NewPictureContentInputModel model)
+        public ActionResult Create(NewSoundContentInputModel model)
         {
             return this.ConditionalActionResult<Guid>(() => this.CreateContent(model.File), 
                                                       (id) => this.PartialView(id));
         }
 
         [AjaxPost]
-        public ActionResult Comment(NewPictureCommentInputModel model)
+        public ActionResult Comment(NewSoundCommentInputModel model)
         {
             return this.ConditionalActionResult<Guid>(() => this.CommentContent(model.File, model.ContentId), 
                                                       (id) => this.PartialView(id));

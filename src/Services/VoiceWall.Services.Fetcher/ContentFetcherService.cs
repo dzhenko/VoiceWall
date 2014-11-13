@@ -18,17 +18,18 @@
 
         public IQueryable<Content> GetLast(int count = 5)
         {
-            return this.data.Contents.All().OrderByDescending(c => c.CreatedOn).Take(count);
+            return this.data.Contents.All().Where(c => !c.IsHidden).OrderByDescending(c => c.CreatedOn).Take(count);
         }
 
-        public IQueryable<Content> GetNext(int skip, int count = 5)
+        public IQueryable<Content> GetNext(int skip = 5, int count = 5)
         {
-            return this.data.Contents.All().OrderByDescending(c => c.CreatedOn).Skip(skip).Take(count);
+            return this.data.Contents.All().Where(c => !c.IsHidden).OrderByDescending(c => c.CreatedOn).Skip(skip).Take(count);
         }
 
         public IQueryable<AnalyzedContentQuery> GetLastWithStats(string userId, int count = 5)
         {
             var analyzedContents = this.data.Contents.All()
+                .Where(c => !c.IsHidden)
                 .OrderByDescending(c => c.CreatedOn)
                 .Take(count)
                 .Select(c => new AnalyzedContentQuery()
@@ -54,7 +55,7 @@
 
         public IQueryable<Content> GetById(Guid id)
         {
-            return this.data.Contents.All().Where(c => c.Id == id);
+            return this.data.Contents.All().Where(c => c.Id == id && c.IsHidden == false);
         }
 
         public ContentStateForUser ContentLikedFlaggedByUser(Guid contentId, string userId)

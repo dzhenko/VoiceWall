@@ -1,5 +1,5 @@
 ﻿<div id="commentContentModalWindowsHolder">
-    @using (Ajax.BeginForm("action", "controller", FormMethod.Post, new AjaxOptions() { }, new { hidden="hidden", id = "hiddenAjaxPostForm" }))
+    @using (Ajax.BeginForm("action", "controller", FormMethod.Post, new AjaxOptions() { }, new { hidden = "hidden", id = "hiddenAjaxPostForm" }))
     {
         @Html.AntiForgeryToken()
     }
@@ -35,8 +35,10 @@
                             </div>
 
                             <div class="tab-pane fade" id="voiceUpload">
-                                TODO
-                                <button class="btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                                @Html.FontAwesomeButton("Choose File", "upload", new { @class = "inputUploadedVoiceBtnSrc" })
+                                @Html.TextBox("File", "", new { name = "File", type = "file", @class = "inputUploadedVoiceBtn display-none" })
+
+                                @Html.FontAwesomeButton("Send", "send", new { data_dismiss = "modal", @class = "col-md-offset-2 btn btn-success sendUploadedVoiceBtnSrc" })
                             </div>
                         </div>
                     </div>
@@ -82,8 +84,10 @@
                             </div>
 
                             <div class="tab-pane fade" id="videoUpload">
-                                TODO
-                                <button class="btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                                @Html.FontAwesomeButton("Choose File", "upload", new { @class = "inputUploadedVideoBtnSrc" })
+                                @Html.TextBox("File", "", new { name = "File", type = "file", @class = "inputUploadedVideoBtn display-none" })
+
+                                @Html.FontAwesomeButton("Send", "send", new { data_dismiss = "modal", @class = "col-md-offset-2 btn btn-success sendUploadedVideoBtnSrc" })
                             </div>
                         </div>
 
@@ -118,8 +122,10 @@
                             </div>
 
                             <div class="tab-pane fade" id="pictureUpload">
-                                TODO
-                                <button class="btn btn-dark"><i class="fa fa-upload fa-2x"> Choose File</i></button>
+                                @Html.FontAwesomeButton("Choose File", "upload", new { @class = "inputUploadedPictureBtnSrc" })
+                                @Html.TextBox("File", "", new { name = "File", type = "file", @class = "inputUploadedPictureBtn display-none" })
+
+                                @Html.FontAwesomeButton("Send", "send", new {data_dismiss="modal", @class = "col-md-offset-2 btn btn-success sendUploadedPictureBtnSrc" })
                             </div>
                         </div>
                     </div>

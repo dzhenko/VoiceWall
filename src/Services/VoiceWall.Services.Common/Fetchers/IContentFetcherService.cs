@@ -15,6 +15,6 @@
 
         ContentStateForUser ContentLikedFlaggedByUser(Guid contentId, string userId);
 
-        IQueryable<Content> GetNext(int skip, int count);
+        IQueryable<Content> GetNext(int skip = 5, int count = 5);
     }
 }

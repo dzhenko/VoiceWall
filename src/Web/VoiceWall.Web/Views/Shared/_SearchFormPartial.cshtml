@@ -1,5 +1,5 @@
 ﻿<div id="search-form-holder">
-    @using (Html.BeginForm("All", "Search", FormMethod.Post))
+    @using (Html.BeginForm("SearchAll", "Search", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.FontAwesomeButton("Find", "search", new { type = "Submit", id = "Search-form-button" })

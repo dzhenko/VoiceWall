@@ -16,8 +16,12 @@
     $('.wallItemMainHolder').on('click', '.multimedia-main-action:not(.fancybox-image)', playMedia);
     $('.wallItemMainHolder').on('click', '.small-multimedia-main-action:not(.fancybox-image)', playMedia);
 
-    $("#add-post-btn").click(function () {
-
+    $("#Search-form-button").click(function (e) {
+        if (!$("#search-form-text").children().first().val()) {
+            window.location = "/Search/Index";
+            e.preventDefault();
+            return false;
+        }
     });
 
     function playMedia(mediaHolderLink) {
@@ -55,6 +59,15 @@
     $("#modalContentPlayerHolder").on('hidden.bs.modal', function () {
         $('#modalContentPlayerHolder .audio-player')[0].pause();
         $('#modalContentPlayerHolder .video-player')[0].pause();
+    });
+
+    // click for more
+    var skip = 5;
+    $("#click-for-more-btn").click(function () {
+        $.get("/Home/More/" + skip, function (response) {
+            $("#main-content-reciever").append(response);
+        });
+        skip += 5;
     });
     
     // animate buttons
@@ -122,5 +135,37 @@
 
     $('body').on('click', '.main-comments-holder .flagCommentBtn', function () {
         window.voiceWallAjax.react.flagComment($(this).parent().parent().data("wall-item-comment-id"));
+    });
+
+    // upload content
+    $('.inputUploadedPictureBtnSrc').click(function (e) {
+        e.preventDefault();
+        $('.inputUploadedPictureBtn').click();
+    });
+
+    $('.sendUploadedPictureBtnSrc').click(function () {
+        window.voiceWallAjax.comment.withPicture($(".inputUploadedPictureBtn")[0].files[0], window.wallItemHolderClickedId);
+    });
+
+    $('.inputUploadedVideoBtnSrc').click(function (e) {
+        e.preventDefault();
+        $('.inputUploadedVideoBtn').click();
+    });
+
+    $('.sendUploadedVideoBtnSrc').click(function () {
+        window.voiceWallAjax.comment.withVideo($(".inputUploadedVideoBtn")[0].files[0], window.wallItemHolderClickedId);
+    });
+
+    $('.inputUploadedVoiceBtnSrc').click(function (e) {
+        e.preventDefault();
+        $('.inputUploadedVoiceBtn').click();
+    });
+
+    $('.sendUploadedVoiceBtnSrc').click(function () {
+        window.voiceWallAjax.comment.withSound($(".inputUploadedVoiceBtn")[0].files[0], window.wallItemHolderClickedId);
+    });
+
+    $("#add-post-btn").click(function () {
+        window.wallItemHolderClickedId = undefined;
     });
 });

@@ -202,6 +202,8 @@
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
+    <Compile Include="Areas\Moderators\ModeratorsAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Partials\BasePartialController.cs" />
     <Compile Include="Controllers\Partials\WallItemCommentPartialController.cs" />
@@ -550,6 +552,8 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Home\Navigation.cshtml" />
+    <Content Include="Areas\Moderators\Views\web.config" />
+    <Content Include="Areas\Games\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -639,10 +643,20 @@
     <Content Include="Views\Shared\_WallItemMultiplePartials.cshtml" />
     <Content Include="Views\Shared\_NewContentPartial.cshtml" />
     <Content Include="Views\Search\All.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\WallItemCommentViewModel.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Shared\_ClickForMorePartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\WallItemViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Games\Controllers\" />
+    <Folder Include="Areas\Games\Models\" />
+    <Folder Include="Areas\Games\Views\Shared\" />
+    <Folder Include="Areas\Moderators\Controllers\" />
+    <Folder Include="Areas\Moderators\Models\" />
+    <Folder Include="Areas\Moderators\Views\Shared\" />
     <Folder Include="References\" />
   </ItemGroup>
   <ItemGroup>
@@ -688,6 +702,10 @@
     <ProjectReference Include="..\..\Services\VoiceWall.Services.Logic\VoiceWall.Services.Logic.csproj">
       <Project>{2ef8813f-c9c0-4133-bf88-4dfa650aef89}</Project>
       <Name>VoiceWall.Services.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Users\VoiceWall.Services.Users.csproj">
+      <Project>{8cb78bfc-caac-4203-88b0-085891d8e4c7}</Project>
+      <Name>VoiceWall.Services.Users</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Upload\VoiceWall.CloudStorage.Common\VoiceWall.CloudStorage.Common.csproj">
       <Project>{fc6754cb-7ad5-40f6-96ca-1fa537a1b85b}</Project>

@@ -16,6 +16,11 @@
                 throw new ArgumentException("Please upload a file");
             }
 
+            if (fileAsHttpPostedFileBase.ContentLength == 0)
+            {
+                throw new ArgumentException("Please upload a non-empty file");
+            }
+
             if (fileAsHttpPostedFileBase.ContentLength > allowedMaxSize)
             {
                 throw new ArgumentException(string.Format("File size can not exceed {0}", allowedMaxSize));

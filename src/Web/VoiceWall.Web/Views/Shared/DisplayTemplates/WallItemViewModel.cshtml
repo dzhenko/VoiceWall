@@ -1,0 +1,6 @@
+﻿@model VoiceWall.Web.ViewModels.WallItemViewModel
+
+<hr />
+<div class="row">
+    @Html.Action("GetFromViewModel", "WallItemPartial", new { viewModel = wallItem })
+</div>

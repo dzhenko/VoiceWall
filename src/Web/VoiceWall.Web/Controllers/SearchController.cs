@@ -4,9 +4,21 @@
 
     public class SearchController : BaseController
     {
-        public ActionResult All(string search)
+        public ActionResult Index()
         {
-            ViewBag.Search = search;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchAll(string search)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult Results()
+        {
             return View();
         }
     }

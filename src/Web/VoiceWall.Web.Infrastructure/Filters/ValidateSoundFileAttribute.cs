@@ -7,7 +7,7 @@
 
     public class ValidateSoundFileAttribute : BaseValidateMediaFileAttribute
     {
-        private readonly IList<string> allowedMimeTypes = new List<string>() { "audio/mpeg", "audio/wav" };
+        private readonly IList<string> allowedMimeTypes = new List<string>() { "audio/mpeg", "audio/wav", "audio/mp3" };
 
         public override bool IsValid(object value)
         {

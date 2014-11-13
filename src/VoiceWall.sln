@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Generato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Fetcher", "Services\VoiceWall.Services.Fetcher\VoiceWall.Services.Fetcher.csproj", "{8E79CA49-708A-4ADE-B3C7-90CD9B31D10D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Users", "Services\VoiceWall.Services.Users\VoiceWall.Services.Users.csproj", "{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{8E79CA49-708A-4ADE-B3C7-90CD9B31D10D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E79CA49-708A-4ADE-B3C7-90CD9B31D10D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E79CA49-708A-4ADE-B3C7-90CD9B31D10D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,5 +132,6 @@ Global
 		{2EF8813F-C9C0-4133-BF88-4DFA650AEF89} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 		{E68DCCB8-BB7C-4FCD-8790-53DE5DF68F6A} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 		{8E79CA49-708A-4ADE-B3C7-90CD9B31D10D} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
+		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 	EndGlobalSection
 EndGlobal

@@ -7,6 +7,8 @@
     {
         public DateTime CreatedOn { get; set; }
 
+        public bool IsHidden { get; set; }
+
         /// <summary>
         /// Specifies whether or not the CreatedOn property should be automatically set.
         /// </summary>

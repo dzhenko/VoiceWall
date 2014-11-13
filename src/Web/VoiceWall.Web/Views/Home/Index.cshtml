@@ -11,14 +11,19 @@
 @{ Html.RenderPartial("_CreateContentPartial"); }
 @{ Html.RenderPartial("_PlayContentPartial"); }
 
-<div class="new-content-placeholder"></div>
-
 @{Html.RenderPartial("_NewContentPartial");}
 
-@{Html.RenderPartial("_WallItemMultiplePartials");}
+<div id="main-content-reciever" class="col-md-offset-1 col-md-10">
+    <div class="row">
+        <div id="new-created-content-placeholder" class="col-md-offset-1 col-md-10"></div>
+    </div>
+
+    @{Html.RenderPartial("_WallItemMultiplePartials");}
+</div>
+
 
 @{Html.RenderPartial("_SearchFormPartial");}
-
+@{Html.RenderPartial("_ClickForMorePartial");}
 @section scripts {
     @Scripts.Render("~/bundles/wallItems")
 }

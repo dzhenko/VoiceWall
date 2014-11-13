@@ -320,3 +320,7 @@ footer {
     right:0.5em;
     top: 7em;
 }
+
+.display-none {
+    display:none!important;
+}

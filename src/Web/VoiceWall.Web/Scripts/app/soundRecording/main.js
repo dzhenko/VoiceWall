@@ -85,6 +85,7 @@ function doneEncoding(blob) {
 }
 
 function toggleRecording(e) {
+
     if (e.classList.contains("recording")) {
         // stop recording
         audioRecorder.stop();
@@ -234,7 +235,7 @@ function initAudio() {
                 "optional": []
             },
         }, gotStream, function (e) {
-            alert('Error getting audio');
+            console.log('Error getting audio');
             console.log(e);
         });
 }

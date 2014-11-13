@@ -11,6 +11,7 @@
     using VoiceWall.Web.ViewModels;
     using VoiceWall.Services.Common.Fetchers;
 
+    [Authorize]
     public class HomeController : BaseController
     {
         private IContentFetcherService contentFetcherService;
@@ -20,12 +21,18 @@
             this.contentFetcherService = contentFetcherService;
         }
 
-        [Authorize]
         //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
             return this.ConditionalActionResult(() => this.contentFetcherService.GetLast().Project().To<WallItemViewModel>(),
                                                       (wallItems) => this.View(wallItems));
+        }
+
+        //[OutputCache(Duration = 10, VaryByCustom = "User")]
+        public ActionResult More(int id = 5)
+        {
+            return this.ConditionalActionResult(() => this.contentFetcherService.GetNext(id).Project().To<WallItemViewModel>(),
+                                                      (wallItems) => this.PartialView("_WallItemMultiplePartials", wallItems));
         }
     }
 }
