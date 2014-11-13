@@ -1,0 +1,10 @@
+﻿<div id="search-form-holder">
+    @using (Html.BeginForm("All", "Search", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.FontAwesomeButton("Find", "search", new { type = "Submit", id = "Search-form-button" })
+        <div id="search-form-text" hidden="hidden" class="col-md-12">
+            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Find stuff" })
+        </div>
+    }
+</div>

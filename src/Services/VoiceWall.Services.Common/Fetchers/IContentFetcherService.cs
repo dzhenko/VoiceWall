@@ -14,5 +14,7 @@
         IQueryable<Content> GetById(Guid id);
 
         ContentStateForUser ContentLikedFlaggedByUser(Guid contentId, string userId);
+
+        IQueryable<Content> GetNext(int skip, int count);
     }
 }

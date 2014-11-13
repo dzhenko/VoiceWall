@@ -23,13 +23,15 @@
         [AjaxPost]
         public ActionResult Create(NewPictureContentInputModel model)
         {
-            return this.ConditionalActionResult<Guid>(() => this.CreateContent(model.File), (id) => this.PartialView(id));
+            return this.ConditionalActionResult<Guid>(() => this.CreateContent(model.File), 
+                                                      (id) => this.PartialView(id));
         }
 
         [AjaxPost]
         public ActionResult Comment(NewPictureCommentInputModel model)
         {
-            return this.ConditionalActionResult<Guid>(() => this.CommentContent(model.File, model.ContentId), (id) => this.PartialView(id));
+            return this.ConditionalActionResult<Guid>(() => this.CommentContent(model.File, model.ContentId), 
+                                                      (id) => this.PartialView(id));
         }
     }
 }

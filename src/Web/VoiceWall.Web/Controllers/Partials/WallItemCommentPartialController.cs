@@ -11,7 +11,7 @@
     using VoiceWall.Services.Common.Fetchers;
     using VoiceWall.Web.ViewModels;
 
-    public class WallItemCommentPartialController : BaseController
+    public class WallItemCommentPartialController : BasePartialController
     {
         private const string WallItemCommentPartialViewName = "_WallItemCommentPartial";
 
@@ -39,7 +39,7 @@
         }
 
         [ChildActionOnly]
-        private ActionResult GetFromViewModel(WallItemCommentViewModel viewModel)
+        public ActionResult GetFromViewModel(WallItemCommentViewModel viewModel)
         {
             return this.PartialView(WallItemCommentPartialViewName, viewModel);
         }

@@ -24,7 +24,8 @@
         //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
-            return View(this.contentFetcherService.GetLast().Project().To<WallItemViewModel>());
+            return this.ConditionalActionResult(() => this.contentFetcherService.GetLast().Project().To<WallItemViewModel>(),
+                                                      (wallItems) => this.View(wallItems));
         }
     }
 }

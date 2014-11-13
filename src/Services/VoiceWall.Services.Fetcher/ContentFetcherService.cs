@@ -21,6 +21,11 @@
             return this.data.Contents.All().OrderByDescending(c => c.CreatedOn).Take(count);
         }
 
+        public IQueryable<Content> GetNext(int skip, int count = 5)
+        {
+            return this.data.Contents.All().OrderByDescending(c => c.CreatedOn).Skip(skip).Take(count);
+        }
+
         public IQueryable<AnalyzedContentQuery> GetLastWithStats(string userId, int count = 5)
         {
             var analyzedContents = this.data.Contents.All()

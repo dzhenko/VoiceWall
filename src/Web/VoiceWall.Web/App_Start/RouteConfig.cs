@@ -14,27 +14,30 @@ namespace VoiceWall.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Own Profile",
-                url: "profle/own",
-                defaults: new { controller = "Profile", action = "Own" }
+                name: "Search",
+                url: "Search/{action}/{search}",
+                defaults: new { controller = "Search", action = "Index", search = UrlParameter.Optional },
+                namespaces: new[] { "VoiceWall.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "Profile",
-                url: "profle/{action}/{id}/{username}",
-                defaults: new { controller="Profile", action = "Find", id = UrlParameter.Optional, username = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Static",
-                url: "{action}",
-                defaults: new { controller = "StaticPages" }
+                url: "Profile/{action}/{id}/{username}",
+                defaults: new { controller = "Profile", action = "Index", id = UrlParameter.Optional, username = UrlParameter.Optional },
+                namespaces: new[] { "VoiceWall.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "VoiceWall.Web.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "StaticPages",
+                url: "{action}",
+                defaults: new { controller = "StaticPages" },
                 namespaces: new[] { "VoiceWall.Web.Controllers" }
             );
         }

@@ -93,9 +93,14 @@ namespace VoiceWall.Web.App_Start
 
         private static void RegisterCloudStorageServices(IKernel kernel)
         {
-            kernel.Bind<IPicturesCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["PicturesCloudStorage"]));
-            kernel.Bind<ISoundsCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["SoundsCloudStorage"]));
-            kernel.Bind<IVideosCloudStorage>().To(Type.GetType(ConfigurationManager.AppSettings["VideosCloudStorage"]));
+            kernel.Bind<IPicturesCloudStorage>().To(ConfigurationManager.AppSettings["PicturesCloudStorage"] == null ?
+                typeof(DropboxCloudStorage) : Type.GetType(ConfigurationManager.AppSettings["PicturesCloudStorage"]));
+
+            kernel.Bind<ISoundsCloudStorage>().To(ConfigurationManager.AppSettings["SoundsCloudStorage"] == null ?
+                typeof(DropboxCloudStorage) : Type.GetType(ConfigurationManager.AppSettings["SoundsCloudStorage"]));
+
+            kernel.Bind<IVideosCloudStorage>().To(ConfigurationManager.AppSettings["VideosCloudStorage"] == null ?
+                typeof(DropboxCloudStorage) : Type.GetType(ConfigurationManager.AppSettings["VideosCloudStorage"]));
         }
 
         private static void RegisterServicesLayerServices(IKernel kernel)

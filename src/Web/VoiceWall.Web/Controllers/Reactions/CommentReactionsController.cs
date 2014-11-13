@@ -28,7 +28,7 @@
         {
             return this.ConditionalActionResult<Guid>(() =>
                 this.commentReactionsService.FlagComment(contentId, this.HttpContext.User.Identity.GetUserId()),
-                    (id) => this.PartialView(id));
+                (id) => this.PartialView(id));
         }
     }
 }

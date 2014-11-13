@@ -26,9 +26,9 @@
         [AjaxPost]
         public ActionResult Like(Guid contentId)
         {
-            return this.ConditionalActionResult<Guid>(() => 
+            return this.ConditionalActionResult<Guid>(() =>
                 this.contentReactionsService.LikeComment(contentId, this.HttpContext.User.Identity.GetUserId()),
-                    (id) => this.PartialView(id));
+                (id) => this.PartialView(id));
         }
 
         [AjaxPost]
@@ -36,15 +36,15 @@
         {
             return this.ConditionalActionResult<Guid>(() =>
                 this.contentReactionsService.HateComment(contentId, this.HttpContext.User.Identity.GetUserId()),
-                    (id) => this.PartialView(id));
+                (id) => this.PartialView(id));
         }
 
-        [AjaxPost]              
+        [AjaxPost]
         public ActionResult Flag(Guid contentId)
         {
             return this.ConditionalActionResult<Guid>(() =>
                 this.contentReactionsService.FlagContent(contentId, this.HttpContext.User.Identity.GetUserId()),
-                    (id) => this.PartialView(id));
+                (id) => this.PartialView(id));
         }
     }
 }

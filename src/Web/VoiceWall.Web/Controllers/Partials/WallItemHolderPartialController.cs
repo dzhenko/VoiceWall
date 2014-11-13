@@ -11,7 +11,7 @@
     using VoiceWall.Services.Common.Fetchers;
     using VoiceWall.Web.ViewModels;
 
-    public class WallItemHolderPartialController : BaseController
+    public class WallItemHolderPartialController : BasePartialController
     {
         private const string PartialViewName = "_WallItemHolderPartial";
 

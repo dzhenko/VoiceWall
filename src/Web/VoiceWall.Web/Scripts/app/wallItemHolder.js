@@ -16,6 +16,10 @@
     $('.wallItemMainHolder').on('click', '.multimedia-main-action:not(.fancybox-image)', playMedia);
     $('.wallItemMainHolder').on('click', '.small-multimedia-main-action:not(.fancybox-image)', playMedia);
 
+    $("#add-post-btn").click(function () {
+
+    });
+
     function playMedia(mediaHolderLink) {
         mediaHolderLink.preventDefault();
         var dataSet = $(mediaHolderLink.currentTarget.dataset)[0];
@@ -90,6 +94,10 @@
     $('body').on('click', '.main-create-comment-holder .voiceBtn', function () {
         initAudio();
         $('#modalVoiceWindowMain').modal('show');
+    });
+
+    $('body').on('click', '.new-content-voice', function () {
+        initAudio();
     });
 
     $('body').on('click', '.main-create-comment-holder .pictureBtn', function () {

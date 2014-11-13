@@ -1,9 +1,9 @@
 ﻿namespace VoiceWall.Web
 {
     using System;
-    using System.Web.Mvc;
-
-    using VoiceWall.Web.ViewModels;
+using System.Linq.Expressions;
+using System.Web.Mvc;
+using VoiceWall.Web.ViewModels;
 
     public static class Common
     {
@@ -24,5 +24,15 @@
             div.Attributes.Add("style", string.Format("background-image:url({0})", imageUrl));
             return new MvcHtmlString(div.ToString());
         }
+
+        //public static MvcHtmlString ActionLink<TController>(this HtmlHelper helper, Expression<Action<TController>> action,
+        //    object rootValues = null, object htmlAttributes = null) where TController : Controller
+        //{
+        //    var controllerName = typeof(TController).Name;
+
+        //    var actionName = action.Compile().Method.Name;
+
+        //    return null;
+        //}
     }
 }

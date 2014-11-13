@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-4">
         <div class="row">
-            @Html.ActionLink(Model.UserName, "Details", new { UserID = Model.UserId })
+            @Html.ActionLink(Model.UserName, "Details", "Profile", new { id = Model.UserId, username = Model.UserName }, null)
         </div>
         <div class="row">
             @Html.DisplayFor(m => Model.CreatedOn)

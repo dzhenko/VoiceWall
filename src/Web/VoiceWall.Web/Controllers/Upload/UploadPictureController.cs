@@ -11,8 +11,8 @@
     /// Used as an endpoint for ajax requests for uploading picture content and returns partials of the updated/created content.
     /// </summary>
 
-    //[Authorize]
-    //[ValidateAntiForgeryToken]
+    [Authorize]
+    [ValidateAntiForgeryToken]
     public class UploadPictureController : BaseUploadController
     {
         public UploadPictureController(IPictureUploadingGeneratorService pictureUploadingGeneratorService)
@@ -23,13 +23,15 @@
         [AjaxPost]
         public ActionResult Create(NewPictureContentInputModel model)
         {
-            return this.ConditionalActionResult<Guid>(() => this.CreateContent(model.File), (id) => this.PartialView(id));
+            return this.ConditionalActionResult<Guid>(() => this.CreateContent(model.File), 
+                                                      (id) => this.PartialView(id));
         }
 
         [AjaxPost]
         public ActionResult Comment(NewPictureCommentInputModel model)
         {
-            return this.ConditionalActionResult<Guid>(() => this.CommentContent(model.File, model.ContentId), (id) => this.PartialView(id));
+            return this.ConditionalActionResult<Guid>(() => this.CommentContent(model.File, model.ContentId), 
+                                                      (id) => this.PartialView(id));
         }
     }
 }

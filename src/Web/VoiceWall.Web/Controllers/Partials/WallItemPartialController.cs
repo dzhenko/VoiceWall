@@ -12,7 +12,7 @@
 
     using VoiceWall.Services.Common.Fetchers;
 
-    public class WallItemPartialController : BaseController
+    public class WallItemPartialController : BasePartialController
     {
         private const string PartialViewName = "_WallItemPartial";
 
@@ -26,19 +26,22 @@
         [ChildActionOnly]
         public ActionResult GetFromId(Guid id)
         {
-            return this.GetFromQueryable(this.contentFetcherService.GetById(id));
+            return this.PartialActionResult(id.ToString(), 
+                () => this.GetFromQueryable(this.contentFetcherService.GetById(id)));
         }
 
         [ChildActionOnly]
         public ActionResult GetFromQueryable(IQueryable<Content> queryable)
         {
-            return this.GetFromViewModel(queryable.Project().To<WallItemViewModel>().FirstOrDefault());
+            return this.PartialActionResult(queryable.Select(c => c.Id).FirstOrDefault().ToString(), 
+                () => this.GetFromViewModel(queryable.Project().To<WallItemViewModel>().FirstOrDefault()));
         }
 
         [ChildActionOnly]
         public ActionResult GetFromViewModel(WallItemViewModel viewModel)
         {
-            return this.PartialView(PartialViewName, viewModel);
+            return this.PartialActionResult(viewModel.WallItemHolderViewModel.Id.ToString(), 
+                () => this.PartialView(PartialViewName, viewModel));
         }
     }
 }

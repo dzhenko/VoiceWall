@@ -8,25 +8,16 @@
     @Scripts.Render("~/bundles/loadingImageHider")
 }
 
-
-
 @{ Html.RenderPartial("_CreateContentPartial"); }
 @{ Html.RenderPartial("_PlayContentPartial"); }
 
 <div class="new-content-placeholder"></div>
 
-@if (Model != null)
-{
-    foreach (var wallItem in Model)
-    {
-        <hr />
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10">
-                @{ Html.RenderPartial("_WallItemPartial", wallItem); }
-            </div>
-        </div>
-    }
-}
+@{Html.RenderPartial("_NewContentPartial");}
+
+@{Html.RenderPartial("_WallItemMultiplePartials");}
+
+@{Html.RenderPartial("_SearchFormPartial");}
 
 @section scripts {
     @Scripts.Render("~/bundles/wallItems")

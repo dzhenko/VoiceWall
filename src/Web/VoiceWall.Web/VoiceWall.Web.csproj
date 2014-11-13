@@ -203,12 +203,14 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Partials\BasePartialController.cs" />
     <Compile Include="Controllers\Partials\WallItemCommentPartialController.cs" />
     <Compile Include="Controllers\Partials\WallItemHolderPartialController.cs" />
     <Compile Include="Controllers\Partials\WallItemPartialController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\Reactions\CommentReactionsController.cs" />
     <Compile Include="Controllers\Reactions\ContentReactionsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\StaticPagesController.cs" />
     <Compile Include="Controllers\Upload\BaseUploadController.cs" />
     <Compile Include="Controllers\Upload\UploadPictureController.cs" />
@@ -631,9 +633,12 @@
     <Content Include="Views\UploadSound\Create.cshtml" />
     <Content Include="Views\UploadVideo\Comment.cshtml" />
     <Content Include="Views\UploadVideo\Create.cshtml" />
-    <Content Include="Views\Profile\Find.cshtml" />
     <Content Include="Views\Profile\Details.cshtml" />
     <Content Include="Views\Profile\Own.cshtml" />
+    <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
+    <Content Include="Views\Shared\_WallItemMultiplePartials.cshtml" />
+    <Content Include="Views\Shared\_NewContentPartial.cshtml" />
+    <Content Include="Views\Search\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

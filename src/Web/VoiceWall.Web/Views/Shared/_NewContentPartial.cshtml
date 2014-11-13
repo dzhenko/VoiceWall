@@ -1,0 +1,14 @@
+﻿@Html.FontAwesomeButton("Create", "plus-circle", new { id = "add-post-btn", data_toggle="modal", data_target="#modalNewContentMain" })
+
+<div id="modalNewContentMain" class="modal">
+    <div class="modal-dialog text-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button data-toggle="modal" data-dismiss="modal" data-target="#modalVoiceWindowMain" class="new-content-voice btn btn-default"><i class="fa fa-microphone fa-2x"> Voice</i></button>
+                <button data-toggle="modal" data-dismiss="modal" data-target="#modalPictureWindowMain" class="new-content-picture btn btn-default"><i class="fa fa-picture-o fa-2x"> Picture</i></button>
+                <button data-toggle="modal" data-dismiss="modal" data-target="#modalVideoWindowMain" class="new-content-video btn btn-default"><i class="fa fa-video-camera fa-2x"> Video</i></button>
+                <button data-dismiss="modal" class="btn btn-danger pull-right"><i class="fa fa-times fa-1x"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

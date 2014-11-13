@@ -13,7 +13,7 @@ namespace VoiceWall.Web
             RegisterScriptBundles(bundles);
             RegisterStylesBundles(bundles);
 
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
