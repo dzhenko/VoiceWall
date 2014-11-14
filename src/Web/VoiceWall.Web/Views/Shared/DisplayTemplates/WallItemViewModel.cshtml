@@ -2,5 +2,5 @@
 
 <hr />
 <div class="row">
-    @Html.Action("GetFromViewModel", "WallItemPartial", new { viewModel = wallItem })
+    @(Html.Action<WallItemPartialController>((c)=>c.GetFromViewModel(null),new { viewModel = Model }))
 </div>

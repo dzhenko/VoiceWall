@@ -23,7 +23,7 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public IDeletableEntityRepository<User> User
+        public IDeletableEntityRepository<User> Users
         {
             get
             {

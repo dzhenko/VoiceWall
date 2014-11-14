@@ -5,7 +5,7 @@
 
     public interface IVoiceWallData
     {
-        IDeletableEntityRepository<User> User { get; }
+        IDeletableEntityRepository<User> Users { get; }
 
         IDeletableEntityRepository<Content> Contents { get; }
 

@@ -8,22 +8,23 @@
     @Scripts.Render("~/bundles/loadingImageHider")
 }
 
-@{ Html.RenderPartial("_CreateContentPartial"); }
-@{ Html.RenderPartial("_PlayContentPartial"); }
-
-@{Html.RenderPartial("_NewContentPartial");}
-
 <div id="main-content-reciever" class="col-md-offset-1 col-md-10">
     <div class="row">
-        <div id="new-created-content-placeholder" class="col-md-offset-1 col-md-10"></div>
+        <div id="new-created-content-placeholder"></div>
     </div>
 
     @{Html.RenderPartial("_WallItemMultiplePartials");}
 </div>
+@{ Html.RenderPartial("_PlayContentPartial"); }
 
+@{ Html.RenderPartial("_CreateContentPartial"); }
+
+@{Html.RenderPartial("_NewContentPartial");}
 
 @{Html.RenderPartial("_SearchFormPartial");}
+
 @{Html.RenderPartial("_ClickForMorePartial");}
+
 @section scripts {
     @Scripts.Render("~/bundles/wallItems")
 }

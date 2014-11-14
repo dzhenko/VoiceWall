@@ -1,0 +1,14 @@
+﻿@model VoiceWall.Web.ViewModels.Account.SingleProfileViewModel
+
+<div class="row">
+    <h1>
+        @Html.DisplayFor(m => m.FirstName)
+        @Html.DisplayFor(m => m.LastName)
+    </h1>
+</div>
+<div class="row">
+    <h4>@Html.DisplayFor(m => m.Email)</h4>
+    <p class="pull-left">
+        Joined on @Html.DisplayFor(m => m.CreatedOn)
+    </p>
+</div>

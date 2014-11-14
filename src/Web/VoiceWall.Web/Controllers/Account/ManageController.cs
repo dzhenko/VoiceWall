@@ -10,7 +10,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using VoiceWall.Web.ViewModels;
+    using VoiceWall.Web.ViewModels.Account;
     using VoiceWall.Data.Models;
 
     [Authorize]

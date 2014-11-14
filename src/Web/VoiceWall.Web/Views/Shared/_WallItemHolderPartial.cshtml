@@ -1,13 +1,14 @@
 ﻿@using VoiceWall.Web
 @using VoiceWall.Data.Models
 @using VoiceWall.Web.Controllers
+
 @model VoiceWall.Web.ViewModels.WallItemHolderViewModel
 
 <div class="row">
     <div class="main-image-holder" style="background-image:url(@(Model.ContentType == ContentType.Picture ? Model.ContentUrl : Model.UserImage))">
         <p class="image-holder-header">
             <span class="pull-left lead">
-                @Html.ActionLink(Model.UserName, "Details", "Profile", new { id = Model.UserId, username = Model.UserName }, null)
+                @(Html.ActionLink<ProfileController>((c) => c.Details(Guid.Empty), Model.UserName, new { id = Model.UserId, username = Model.UserName }))
             </span>
 
             <img class="pull-right" width="90" height="90" alt="User" src="@Model.UserImage">

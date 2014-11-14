@@ -1,8 +1,8 @@
 ﻿namespace VoiceWall.Web.Controllers
 {
     using System;
+    using System.Linq.Expressions;
     using System.Web.Mvc;
-
     using VoiceWall.Data;
 
     /// <summary>
@@ -35,6 +35,15 @@
             {
                 return this.HttpNotFound(ex.Message);
             }
+        }
+
+        protected ActionResult RedirectToAction<TCtrl>(Expression<Action<TCtrl>> expression) where TCtrl : Controller
+        {
+            var ctrl = typeof(TCtrl).Name.Replace("Controller", "");
+            
+            var action = ((MethodCallExpression)expression.Body).Method.Name;
+
+            return this.RedirectToAction(action, ctrl);
         }
     }
 }

@@ -47,6 +47,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Fetcher"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Users", "Services\VoiceWall.Services.Users\VoiceWall.Services.Users.csproj", "{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Administration", "Services\VoiceWall.Services.Administration\VoiceWall.Services.Administration.csproj", "{CD9D016B-C031-496C-B00A-4F8C092A367E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Moderation", "Services\VoiceWall.Services.Moderation\VoiceWall.Services.Moderation.csproj", "{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Games", "Services\VoiceWall.Services.Games\VoiceWall.Services.Games.csproj", "{94A2D63F-E473-49F6-8A07-62B38E9CDEDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +119,18 @@ Global
 		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9D016B-C031-496C-B00A-4F8C092A367E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9D016B-C031-496C-B00A-4F8C092A367E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9D016B-C031-496C-B00A-4F8C092A367E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9D016B-C031-496C-B00A-4F8C092A367E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94A2D63F-E473-49F6-8A07-62B38E9CDEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A2D63F-E473-49F6-8A07-62B38E9CDEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A2D63F-E473-49F6-8A07-62B38E9CDEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A2D63F-E473-49F6-8A07-62B38E9CDEDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +151,8 @@ Global
 		{E68DCCB8-BB7C-4FCD-8790-53DE5DF68F6A} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 		{8E79CA49-708A-4ADE-B3C7-90CD9B31D10D} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 		{8CB78BFC-CAAC-4203-88B0-085891D8E4C7} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
+		{CD9D016B-C031-496C-B00A-4F8C092A367E} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
+		{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
+		{94A2D63F-E473-49F6-8A07-62B38E9CDEDF} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 	EndGlobalSection
 EndGlobal

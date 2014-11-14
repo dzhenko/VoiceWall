@@ -1,5 +1,6 @@
 ﻿@model DateTime
 
+@*Time picker!*@
 <span>
-    Custom : @Model.ToLongDateString()
+    @Html.TextBoxFor(x => Model, new { @class = "date" })
 </span>

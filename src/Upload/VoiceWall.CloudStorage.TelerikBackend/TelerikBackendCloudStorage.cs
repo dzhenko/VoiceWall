@@ -12,7 +12,7 @@
     using VoiceWall.Common.ExtensionMethods;
     using VoiceWall.CloudStorage.Common;
 
-    public class TelerikBackendCloudStorage : ICloudStorage, IPicturesCloudStorage, IVideosCloudStorage, ISoundsCloudStorage
+    public class TelerikBackendCloudStorage : ICloudStorage, IPicturesCloudStorage, IVideosCloudStorage, ISoundsCloudStorage, IUserProfilePicturesCloudStorage
     {
         private const string EverliveAppKey = "lYI6vh7P7BFSL2Wr";
 

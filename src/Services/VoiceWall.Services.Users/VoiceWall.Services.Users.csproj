@@ -30,7 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,7 +52,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OwnProfileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj">
+      <Project>{549481aa-0c89-4e41-93b3-fc64d02c8832}</Project>
+      <Name>VoiceWall.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data.Models\VoiceWall.Data.Models.csproj">
+      <Project>{6480b90c-bcf9-427f-98da-8e2e747112dd}</Project>
+      <Name>VoiceWall.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data\VoiceWall.Data.csproj">
+      <Project>{09299d1d-4396-46fd-b501-58c5bc97e4a5}</Project>
+      <Name>VoiceWall.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Upload\VoiceWall.CloudStorage.Common\VoiceWall.CloudStorage.Common.csproj">
+      <Project>{fc6754cb-7ad5-40f6-96ca-1fa537a1b85b}</Project>
+      <Name>VoiceWall.CloudStorage.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VoiceWall.Services.Common\VoiceWall.Services.Common.csproj">
+      <Project>{2c93f2a5-c793-4db3-8838-2376c66ee75a}</Project>
+      <Name>VoiceWall.Services.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

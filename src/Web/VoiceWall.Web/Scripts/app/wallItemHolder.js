@@ -63,9 +63,25 @@
 
     // click for more
     var skip = 5;
-    $("#click-for-more-btn").click(function () {
+    var contentReciever = $("#main-content-reciever");
+    var contentClickBtn = $("#click-for-more-btn");
+    contentClickBtn.click(function () {
+        contentClickBtn.slideUp();
+        contentReciever.append($('<img src="/Content/img/loading.gif"  width="100%" height="400em"/>'));
+
         $.get("/Home/More/" + skip, function (response) {
-            $("#main-content-reciever").append(response);
+            contentReciever.children().last().remove();
+            contentReciever.append(response);
+
+            $(".fancybox-image").fancybox({
+                'titleShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic',
+                'easingIn': 'easeOutBack',
+                'easingOut': 'easeInBack'
+            });
+
+            contentClickBtn.slideDown();
         });
         skip += 5;
     });
@@ -76,15 +92,17 @@
         window.wallItemHolderClickedId = self.parent().parent().data("wall-item-id");
 
         var other = self.parent().parent().children().children('.reactInnerBtn');
-        $(other[0]).transition({ x: 95 });
-        $(other[1]).transition({ x: 190 });
-        $(other[2]).transition({ x: 280 });
+        self.parent().parent().children().children('.commentBtn').transition({ x: 0 });;
+        $(other[0]).transition({ x: 0 });
+        $(other[1]).transition({ x: 100 });
+        $(other[2]).transition({ x: 200 });
         other.hide();
 
         var own = self.siblings().show();
-        $(own[0]).transition({ x: 15 });
-        $(own[1]).transition({ x: 105 });
-        $(own[2]).transition({ x: 200 });
+        self.transition({ x: -110 });
+        $(own[0]).transition({ x: -90 });
+        $(own[1]).transition({ x: 12 });
+        $(own[2]).transition({ x: 115 });
     });
 
     $('body').on('click', ".wallItemMainHolder .reactBtn", function (e) {
@@ -92,15 +110,17 @@
         window.wallItemHolderClickedId = self.parent().parent().data("wall-item-id");
 
         var other = self.parent().parent().children().children('.commentInnerBtn');
-        $(other[0]).transition({ x: -100 });
-        $(other[1]).transition({ x: -195 });
-        $(other[2]).transition({ x: -290 });
+        self.parent().parent().children().children('.reactBtn').transition({ x: 0 });
+        $(other[0]).transition({ x: 90 });
+        $(other[1]).transition({ x: -12 });
+        $(other[2]).transition({ x: -115 });
         other.hide();
 
         var own = self.siblings().show();
-        $(own[0]).transition({ x: -95 });
-        $(own[1]).transition({ x: -190 });
-        $(own[2]).transition({ x: -280 });
+        self.transition({ x: 105 });
+        $(own[0]).transition({ x: 0 });
+        $(own[1]).transition({ x: -100 });
+        $(own[2]).transition({ x: -200 });
     });
 
     // attach events to buttons

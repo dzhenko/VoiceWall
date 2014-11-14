@@ -9,10 +9,5 @@
         {
             return this.View();
         }
-
-        public ActionResult Own()
-        {
-            return this.View();
-        }
     }
 }

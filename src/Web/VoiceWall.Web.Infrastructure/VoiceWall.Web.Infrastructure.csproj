@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\AjaxGetAttribute.cs" />
     <Compile Include="Filters\AjaxPostAttribute.cs" />
     <Compile Include="Filters\BaseValidateMediaFileAttribute.cs" />
     <Compile Include="Filters\ValidatePictureFileAttribute.cs" />

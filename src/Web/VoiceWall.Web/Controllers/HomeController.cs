@@ -10,6 +10,7 @@
     using VoiceWall.Data;
     using VoiceWall.Web.ViewModels;
     using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Web.Infrastructure.Filters;
 
     [Authorize]
     public class HomeController : BaseController
@@ -21,14 +22,13 @@
             this.contentFetcherService = contentFetcherService;
         }
 
-        //[OutputCache(Duration = 10, VaryByCustom = "User")]
         public ActionResult Index()
         {
             return this.ConditionalActionResult(() => this.contentFetcherService.GetLast().Project().To<WallItemViewModel>(),
                                                       (wallItems) => this.View(wallItems));
         }
 
-        //[OutputCache(Duration = 10, VaryByCustom = "User")]
+        [AjaxGet]
         public ActionResult More(int id = 5)
         {
             return this.ConditionalActionResult(() => this.contentFetcherService.GetNext(id).Project().To<WallItemViewModel>(),

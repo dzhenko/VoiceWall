@@ -202,6 +202,7 @@
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Fun\FunAreaRegistration.cs" />
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
     <Compile Include="Areas\Moderators\ModeratorsAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -213,12 +214,16 @@
     <Compile Include="Controllers\Reactions\CommentReactionsController.cs" />
     <Compile Include="Controllers\Reactions\ContentReactionsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\Account\SettingsController.cs" />
     <Compile Include="Controllers\StaticPagesController.cs" />
     <Compile Include="Controllers\Upload\BaseUploadController.cs" />
     <Compile Include="Controllers\Upload\UploadPictureController.cs" />
     <Compile Include="Controllers\Upload\UploadSoundController.cs" />
     <Compile Include="Controllers\Upload\UploadVideoController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="ViewModels\Account\OwnProfileViewModel.cs" />
+    <Compile Include="ViewModels\Account\UpdateProfileViewModel.cs" />
+    <Compile Include="ViewModels\Profile\ProfileDetailsViewModel.cs" />
     <Compile Include="ViewModels\Upload\NewPictureCommentInputModel.cs" />
     <Compile Include="ViewModels\Upload\NewPictureContentInputModel.cs" />
     <Compile Include="ViewModels\Upload\NewSoundCommentInputModel.cs" />
@@ -241,8 +246,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="ViewModels\Account\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Account\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\WallItemCommentViewModel.cs" />
@@ -554,6 +559,7 @@
     <Content Include="Areas\Administration\Views\Home\Navigation.cshtml" />
     <Content Include="Areas\Moderators\Views\web.config" />
     <Content Include="Areas\Games\Views\web.config" />
+    <Content Include="Areas\Fun\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -638,7 +644,6 @@
     <Content Include="Views\UploadVideo\Comment.cshtml" />
     <Content Include="Views\UploadVideo\Create.cshtml" />
     <Content Include="Views\Profile\Details.cshtml" />
-    <Content Include="Views\Profile\Own.cshtml" />
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_WallItemMultiplePartials.cshtml" />
     <Content Include="Views\Shared\_NewContentPartial.cshtml" />
@@ -647,10 +652,18 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Shared\_ClickForMorePartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\WallItemViewModel.cshtml" />
+    <Content Include="Views\Settings\General.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\UpdateProfileViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\HttpPostedFileBase.cshtml" />
+    <Content Include="Views\Shared\_ProfileOverviewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Fun\Controllers\" />
+    <Folder Include="Areas\Fun\Models\" />
+    <Folder Include="Areas\Fun\Views\Shared\" />
     <Folder Include="Areas\Games\Controllers\" />
     <Folder Include="Areas\Games\Models\" />
     <Folder Include="Areas\Games\Views\Shared\" />
@@ -687,6 +700,10 @@
       <Project>{09299d1d-4396-46fd-b501-58c5bc97e4a5}</Project>
       <Name>VoiceWall.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Administration\VoiceWall.Services.Administration.csproj">
+      <Project>{cd9d016b-c031-496c-b00a-4f8c092a367e}</Project>
+      <Name>VoiceWall.Services.Administration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\VoiceWall.Services.Common\VoiceWall.Services.Common.csproj">
       <Project>{2c93f2a5-c793-4db3-8838-2376c66ee75a}</Project>
       <Name>VoiceWall.Services.Common</Name>
@@ -695,6 +712,10 @@
       <Project>{8e79ca49-708a-4ade-b3c7-90cd9b31d10d}</Project>
       <Name>VoiceWall.Services.Fetcher</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Games\VoiceWall.Services.Games.csproj">
+      <Project>{94a2d63f-e473-49f6-8a07-62b38e9cdedf}</Project>
+      <Name>VoiceWall.Services.Games</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\VoiceWall.Services.Generator\VoiceWall.Services.Generator.csproj">
       <Project>{e68dccb8-bb7c-4fcd-8790-53de5df68f6a}</Project>
       <Name>VoiceWall.Services.Generator</Name>
@@ -702,6 +723,10 @@
     <ProjectReference Include="..\..\Services\VoiceWall.Services.Logic\VoiceWall.Services.Logic.csproj">
       <Project>{2ef8813f-c9c0-4133-bf88-4dfa650aef89}</Project>
       <Name>VoiceWall.Services.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Moderation\VoiceWall.Services.Moderation.csproj">
+      <Project>{e438e5b4-aeed-4b39-adca-fdfbd83c0e5c}</Project>
+      <Name>VoiceWall.Services.Moderation</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\VoiceWall.Services.Users\VoiceWall.Services.Users.csproj">
       <Project>{8cb78bfc-caac-4203-88b0-085891d8e4c7}</Project>

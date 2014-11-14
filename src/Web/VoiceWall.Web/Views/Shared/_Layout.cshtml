@@ -26,13 +26,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("VoiceWall", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @(Html.ActionLink<HomeController>((c) => c.Index(), "Home", new { area = "" }, new { @class = "navbar-brand" }))
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@(Html.ActionLink<HomeController>((c) => c.Index(),"Home"))</li>
+                        <li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
+                        <li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
@@ -44,9 +44,11 @@
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <a id="menu-close" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
+                <li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
+                <li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
+
+                <li>@(Html.ActionLink<SettingsController>((c) => c.General(), "Profile"))</li>
             </ul>
         </nav>
     </div>

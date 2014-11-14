@@ -8,7 +8,7 @@
     using VoiceWall.Common.ExtensionMethods;
     using VoiceWall.CloudStorage.Common;
 
-    public class DropboxCloudStorage : ICloudStorage, IPicturesCloudStorage, IVideosCloudStorage, ISoundsCloudStorage
+    public class DropboxCloudStorage : ICloudStorage, IPicturesCloudStorage, IVideosCloudStorage, ISoundsCloudStorage, IUserProfilePicturesCloudStorage
     {
         private const string DropboxAppKey = "jkgqqefhutacq4n";
         private const string DropboxAppSecret = "21kf0wc1d5kn38j";

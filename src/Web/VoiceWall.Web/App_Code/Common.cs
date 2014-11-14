@@ -1,9 +1,11 @@
 ﻿namespace VoiceWall.Web
 {
     using System;
-using System.Linq.Expressions;
-using System.Web.Mvc;
-using VoiceWall.Web.ViewModels;
+    using System.Linq.Expressions;
+    using System.Web.Mvc;
+    using System.Web.Mvc.Html;
+
+    using VoiceWall.Web.ViewModels;
 
     public static class Common
     {
@@ -25,14 +27,34 @@ using VoiceWall.Web.ViewModels;
             return new MvcHtmlString(div.ToString());
         }
 
-        //public static MvcHtmlString ActionLink<TController>(this HtmlHelper helper, Expression<Action<TController>> action,
-        //    object rootValues = null, object htmlAttributes = null) where TController : Controller
-        //{
-        //    var controllerName = typeof(TController).Name;
+        public static MvcHtmlString ActionLink<TCtrl>(this HtmlHelper helper, Expression<Action<TCtrl>> expression,
+            string linkText, object rootValues = null, object htmlAttributes = null) where TCtrl : Controller
+        {
+            var ctrl = typeof(TCtrl).Name.Replace("Controller", "");
+            
+            var action = ((MethodCallExpression)expression.Body).Method.Name;
 
-        //    var actionName = action.Compile().Method.Name;
+            return helper.ActionLink(linkText, action, ctrl, rootValues, htmlAttributes);
+        }
 
-        //    return null;
-        //}
+        public static MvcForm BeginForm<TCtrl>(this HtmlHelper helper, Expression<Action<TCtrl>> expression,
+            object rootValues = null, FormMethod method = FormMethod.Post, object htmlAttributes = null) where TCtrl : Controller
+        {
+            var ctrl = typeof(TCtrl).Name.Replace("Controller", "");
+
+            var action = ((MethodCallExpression)expression.Body).Method.Name;
+
+            return helper.BeginForm(action, ctrl, rootValues, method, htmlAttributes);
+        }
+
+        public static MvcHtmlString Action<TCtrl>(this HtmlHelper helper, Expression<Action<TCtrl>> expression,
+            object rootValues = null) where TCtrl : Controller
+        {
+            var ctrl = typeof(TCtrl).Name.Replace("Controller", "");
+
+            var action = ((MethodCallExpression)expression.Body).Method.Name;
+
+            return helper.Action(action, ctrl, rootValues);
+        }
     }
 }

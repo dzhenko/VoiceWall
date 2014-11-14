@@ -26,6 +26,8 @@ namespace VoiceWall.Web.App_Start
     using VoiceWall.Services.Fetcher;
     using VoiceWall.Services.Generator;
     using VoiceWall.Services.Logic.Reactions;
+    using VoiceWall.Services.Common.Users;
+    using VoiceWall.Services.Users;
 
     public static class NinjectWebCommon 
     {
@@ -101,6 +103,9 @@ namespace VoiceWall.Web.App_Start
 
             kernel.Bind<IVideosCloudStorage>().To(ConfigurationManager.AppSettings["VideosCloudStorage"] == null ?
                 typeof(DropboxCloudStorage) : Type.GetType(ConfigurationManager.AppSettings["VideosCloudStorage"]));
+
+            kernel.Bind<IUserProfilePicturesCloudStorage>().To(ConfigurationManager.AppSettings["UserProfilePicturesCloudStorage"] == null ?
+                typeof(DropboxCloudStorage) : Type.GetType(ConfigurationManager.AppSettings["UserProfilePicturesCloudStorage"]));
         }
 
         private static void RegisterServicesLayerServices(IKernel kernel)
@@ -114,6 +119,8 @@ namespace VoiceWall.Web.App_Start
 
             kernel.Bind<IContentReactionsService>().To<ContentReactionsService>();
             kernel.Bind<ICommentReactionsService>().To<CommentReactionsService>();
+
+            kernel.Bind<IOwnProfileService>().To<OwnProfileService>();
         }
     }
 }

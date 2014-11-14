@@ -1,2 +1,29 @@
-﻿<h2>Details</h2>
+﻿@model VoiceWall.Web.ViewModels.Profile.ProfileDetailsViewModel
 
+@section styles{
+    @Styles.Render("~/Content/wallItems")
+}
+
+@section afterbodyscripts {
+    @Scripts.Render("~/bundles/loadingImageHider")
+}
+
+<h1 class="text-center">Profile details</h1>
+
+<div class="container">
+    @{Html.RenderPartial("_ProfileOverviewPartial", Model);}
+</div>
+
+<div id="main-content-reciever" class="col-md-offset-1 col-md-10">
+    @{Html.RenderPartial("_WallItemMultiplePartials", Model.WallItems);}
+</div>
+
+@{ Html.RenderPartial("_PlayContentPartial"); }
+
+@{ Html.RenderPartial("_CreateContentPartial"); }
+
+@{Html.RenderPartial("_ClickForMorePartial");}
+
+@section scripts {
+    @Scripts.Render("~/bundles/wallItems")
+}

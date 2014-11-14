@@ -29,6 +29,15 @@
 
             toastr.success("Successfully created a post!");
             $('#new-created-content-placeholder').prepend($(response));
+
+            // handle picture opening
+            $(".fancybox-image").fancybox({
+                'titleShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic',
+                'easingIn': 'easeOutBack',
+                'easingOut': 'easeInBack'
+            });
         }, function (error) {
             toastr.error("Invalid data");
         });

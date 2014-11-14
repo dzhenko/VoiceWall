@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICloudStorage.cs" />
+    <Compile Include="IUserProfilePicturesCloudStorage.cs" />
     <Compile Include="ISoundsCloudStorage.cs" />
     <Compile Include="IPicturesCloudStorage.cs" />
     <Compile Include="IVideosCloudStorage.cs" />

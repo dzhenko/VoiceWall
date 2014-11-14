@@ -44,37 +44,29 @@
                     throw new ArgumentException("Content does not exist");
                 }
 
-                var contentView = new ContentView() { UserId = userId };
+                content.ContentViews.Add(new ContentView() { UserId = userId });
+                this.data.Contents.Update(content);
+                this.data.SaveChanges();
 
-                if (like.HasValue)
+                view = this.data.ContentViews.All().FirstOrDefault(v => v.ContentId == contentId && v.UserId == userId);
+            }
+
+            if (like.HasValue)
+            {
+                // if they have the same value they are nulled
+                if (like.Value == view.Liked)
                 {
-                    contentView.Liked = like.Value;
+                    view.Liked = null;
                 }
-
-                if (flag.HasValue)
+                else
                 {
-                    contentView.Flagged = flag.Value;
+                    view.Liked = like.Value;
                 }
             }
-            else
-            {
-                if (like.HasValue)
-                {
-                    // if they have the same value they are nulled
-                    if (like.Value == view.Liked)
-                    {
-                        view.Liked = null;
-                    }
-                    else
-                    {
-                        view.Liked = like.Value;
-                    }
-                }
 
-                else if (flag.HasValue)
-                {
-                    view.Flagged = !view.Flagged;
-                }
+            else if (flag.HasValue)
+            {
+                view.Flagged = !view.Flagged;
             }
 
             this.data.ContentViews.Update(view);
