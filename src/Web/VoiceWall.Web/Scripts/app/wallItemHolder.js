@@ -90,6 +90,10 @@
             });
 
             contentClickBtn.slideDown();
+
+            if (!response) {
+                contentClickBtn.text("No more content");
+            }
         });
         skip += 5;
     });
