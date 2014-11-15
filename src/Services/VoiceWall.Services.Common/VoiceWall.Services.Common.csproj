@@ -65,7 +65,7 @@
     <Compile Include="Logic\Reactions\ICommentReactionsService.cs" />
     <Compile Include="Logic\Reactions\IContentReactionsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\IOwnProfileService.cs" />
+    <Compile Include="Users\IUserProfileService.cs" />
     <Compile Include="Users\UserUpdateProfileModel.cs" />
   </ItemGroup>
   <ItemGroup>

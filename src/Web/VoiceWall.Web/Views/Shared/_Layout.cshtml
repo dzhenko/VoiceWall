@@ -26,7 +26,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @(Html.ActionLink<HomeController>((c) => c.Index(), "Home", new { area = "" }, new { @class = "navbar-brand" }))
+                    @(Html.ActionLink<HomeController>((c) => c.Index(), "VoiceWall", new { area = "" }, new { @class = "navbar-brand" }))
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -111,6 +111,7 @@
     @Scripts.Render("~/bundles/sideMenu")
     @RenderSection("scripts", required: false)
 
+    @*TODO: Clean this*@
     @if (TempData["Success"] != null)
     {
         <script>toastr.success('@TempData["Success"].ToString()')</script>

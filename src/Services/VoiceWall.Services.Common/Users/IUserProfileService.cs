@@ -5,7 +5,7 @@
 
     using VoiceWall.Data.Models;
 
-    public interface IOwnProfileService
+    public interface IUserProfileService
     {
         /// <summary>
         /// Gets the user model by id.
@@ -30,5 +30,14 @@
         /// <param name="mimeType">Picture file mimetype.</param>
         /// <returns>The Id of the user.</returns>
         string ChangeUserPicture(string userId, Stream stream, string mimeType);
+
+        /// <summary>
+        /// Gets next wall item contents for a user.
+        /// </summary>
+        /// <param name="userId">The id of the user.</param>
+        /// <param name="skip">The number of contents to skip.</param>
+        /// <param name="count">The number of contents to take.</param>
+        /// <returns>The extracted contents.</returns>
+        IQueryable<Content> GetNext(string userId, int skip = 5, int count = 5);
     }
 }

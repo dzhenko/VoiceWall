@@ -13,9 +13,9 @@
     [Authorize]
     public class SettingsController : BaseController
     {
-        private IOwnProfileService ownProfileService;
+        private IUserProfileService ownProfileService;
 
-        public SettingsController(IOwnProfileService ownProfileService)
+        public SettingsController(IUserProfileService ownProfileService)
         {
             this.ownProfileService = ownProfileService;
         }

@@ -45,5 +45,14 @@
 
             return this.RedirectToAction(action, ctrl);
         }
+
+        protected ActionResult RedirectToActionPermanent<TCtrl>(Expression<Action<TCtrl>> expression) where TCtrl : Controller
+        {
+            var ctrl = typeof(TCtrl).Name.Replace("Controller", "");
+
+            var action = ((MethodCallExpression)expression.Body).Method.Name;
+
+            return this.RedirectToActionPermanent(action, ctrl);
+        }
     }
 }

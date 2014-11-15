@@ -28,7 +28,8 @@
                                                       (wallItems) => this.View(wallItems));
         }
 
-        [AjaxGet]
+        [AjaxPost]
+        [ValidateAntiForgeryToken]
         public ActionResult More(int id = 5)
         {
             return this.ConditionalActionResult(() => this.contentFetcherService.GetNext(id).Project().To<WallItemViewModel>(),

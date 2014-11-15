@@ -37,7 +37,6 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            // IsLiked and IsFlagged are left to the ctrl - we dont have access to current user here
             configuration.CreateMap<Content, WallItemHolderViewModel>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(c => c.Id.ToString()));
 

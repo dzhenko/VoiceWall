@@ -8,10 +8,10 @@
     @Scripts.Render("~/bundles/loadingImageHider")
 }
 
-<h1 class="text-center">Profile details</h1>
+<h1 class="text-center">@Model.Profile.FirstName's profile</h1>
 
 <div class="container">
-    @{Html.RenderPartial("_ProfileOverviewPartial", Model);}
+    @{Html.RenderPartial("_ProfileOverviewPartial", Model.Profile);}
 </div>
 
 <div id="main-content-reciever" class="col-md-offset-1 col-md-10">

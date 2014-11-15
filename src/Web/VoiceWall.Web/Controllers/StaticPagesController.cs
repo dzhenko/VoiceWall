@@ -3,7 +3,7 @@
     using System;
     using System.Web.Mvc;
 
-    public class StaticPagesController : Controller
+    public class StaticPagesController : BaseController
     {
         public ActionResult About()
         {
@@ -22,7 +22,7 @@
 
         public ActionResult Home()
         {
-            return this.RedirectToActionPermanent("Index", "Home");
+            return this.RedirectToActionPermanent<HomeController>((c) => c.Index());
         }
     }
 }

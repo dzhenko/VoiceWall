@@ -120,7 +120,7 @@ namespace VoiceWall.Web.App_Start
             kernel.Bind<IContentReactionsService>().To<ContentReactionsService>();
             kernel.Bind<ICommentReactionsService>().To<CommentReactionsService>();
 
-            kernel.Bind<IOwnProfileService>().To<OwnProfileService>();
+            kernel.Bind<IUserProfileService>().To<UserProfileService>();
         }
     }
 }

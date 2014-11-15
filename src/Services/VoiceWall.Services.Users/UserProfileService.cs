@@ -2,17 +2,18 @@
 {
     using System.IO;
     using System.Linq;
+
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.Data;
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Common.Users;
 
-    public class OwnProfileService : IOwnProfileService
+    public class UserProfileService : IUserProfileService
     {
         private IVoiceWallData data;
         private IUserProfilePicturesCloudStorage storage;
 
-        public OwnProfileService(IVoiceWallData data, IUserProfilePicturesCloudStorage storage)
+        public UserProfileService(IVoiceWallData data, IUserProfilePicturesCloudStorage storage)
         {
             this.data = data;
             this.storage = storage;
@@ -51,6 +52,12 @@
             this.data.SaveChanges();
 
             return userId;
+        }
+
+        public IQueryable<Content> GetNext(string userId, int skip = 5, int count = 5)
+        {
+            return this.data.Contents.All().Where(c => !c.IsHidden && c.UserId == userId)
+                .OrderByDescending(c => c.CreatedOn).Skip(skip).Take(count);
         }
     }
 }

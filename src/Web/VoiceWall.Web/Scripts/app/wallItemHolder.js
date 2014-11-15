@@ -68,8 +68,16 @@
     contentClickBtn.click(function () {
         contentClickBtn.slideUp();
         contentReciever.append($('<img src="/Content/img/loading.gif"  width="100%" height="400em"/>'));
+        var token = { __RequestVerificationToken: $('#hiddenAjaxPostForm input').val() };
 
-        $.get("/Home/More/" + skip, function (response) {
+        var url = "/Home/More/" + skip;
+
+        var indexOfDetails = window.location.href.indexOf('Details/');
+        if (indexOfDetails >= 0) {
+            url = "/Profile/More/" + skip + "/" + window.location.href.substr(window.location.href.indexOf('Details/') + 8, 36);
+        }
+
+        $.post(url, token, function (response) {
             contentReciever.children().last().remove();
             contentReciever.append(response);
 
@@ -85,7 +93,7 @@
         });
         skip += 5;
     });
-    
+
     // animate buttons
     $('body').on('click', ".wallItemMainHolder .commentBtn", function (e) {
         var self = $(this);
