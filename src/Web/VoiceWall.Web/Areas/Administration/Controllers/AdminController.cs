@@ -6,7 +6,7 @@
     using VoiceWall.Web.Controllers;
     using VoiceWall.Web.Infrastructure.Caching;
 
-    //[Authorize(Roles=GlobalConstants.AdminRole)]
+    [Authorize(Roles=GlobalConstants.AdminRole)]
     public abstract class AdminController : BaseController
     {
         private readonly ICacheService cache;

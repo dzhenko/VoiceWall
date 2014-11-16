@@ -8,16 +8,15 @@
     using VoiceWall.Data.Models;
     using VoiceWall.Web.Infrastructure.Mapping;
 
-    public class ContentAdministrationViewModel : AdministrationViewModel, IMapFrom<Content>, IMapCustom
+    public class CommentViewAdministrationViewModel : AdministrationViewModel, IMapFrom<CommentView>, IMapCustom
     {
-        [DataType(DataType.Url)]
-        public string ContentUrl { get; set; }
-
         public bool IsHidden { get; set; }
+
+        public bool Flagged { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Content, ContentAdministrationViewModel>()
+            configuration.CreateMap<CommentView, ContentAdministrationViewModel>()
                 .ReverseMap();
         }
     }

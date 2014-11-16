@@ -18,7 +18,7 @@
 
         public IQueryable<Comment> GetById(Guid id)
         {
-            return this.data.Comments.All().Where(c => c.Id == id);
+            return this.data.Comments.All().Where(c => c.Id == id && !c.IsHidden);
         }
 
         public CommentStateForUser CommentFlaggedByUser(Guid commentId, string userId)

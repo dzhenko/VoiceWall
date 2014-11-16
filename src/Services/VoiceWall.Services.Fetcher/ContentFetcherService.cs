@@ -55,7 +55,7 @@
 
         public IQueryable<Content> GetById(Guid id)
         {
-            return this.data.Contents.All().Where(c => c.Id == id && c.IsHidden == false);
+            return this.data.Contents.All().Where(c => c.Id == id && !c.IsHidden);
         }
 
         public ContentStateForUser ContentLikedFlaggedByUser(Guid contentId, string userId)

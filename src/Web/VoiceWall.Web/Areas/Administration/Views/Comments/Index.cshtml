@@ -1,0 +1,26 @@
+﻿@using VoiceWall.Web.Areas.Administration.ViewModels;
+@model Guid?
+@{
+    const string ControllerName = "Comments";
+}
+
+<h2>@ControllerName</h2>
+@(Html.FullFeaturedGrid<CommentAdministrationViewModel>(ControllerName, m => m.Id, cols =>
+{
+    cols.Bound(m => m.Id).Hidden();
+    cols.Bound(m => m.ContentUrl).Locked().ClientTemplate("<a href='#: ContentUrl #' alt='VoiceWall'> #= ContentUrl.substring(0, 25) #... </a>");
+    cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
+    cols.Command(m => m.Custom("See Views").Click("viewViewsForCommentCommandBtn"));
+    cols.Command(c => c.Edit());
+    cols.Command(c => c.Destroy());
+}, new { contentId = Model }))
+
+<script>
+    function viewViewsForCommentCommandBtn(e) {
+        e.preventDefault();
+
+        var id = $(e.currentTarget).parent().parent().children().first().html();
+        var location = window.location.href;
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/CommentViews?contentId=' + id;
+    }
+</script>

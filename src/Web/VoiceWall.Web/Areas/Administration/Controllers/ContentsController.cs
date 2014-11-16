@@ -25,14 +25,6 @@
         }
 
         [HttpPost]
-        public ActionResult Create([DataSourceRequest]DataSourceRequest request, ViewModel model)
-        {
-            var dbModel = base.Create(model);
-            model.Id = dbModel.Id;
-            return this.GridOperation(model, request);
-        }
-
-        [HttpPost]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Update(model);

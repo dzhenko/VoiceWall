@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseAdministrationService.cs" />
+    <Compile Include="CommentAdministrationService.cs" />
+    <Compile Include="ContentViewsAdministrationService .cs" />
+    <Compile Include="CommentViewsAdministrationService.cs" />
     <Compile Include="ContentAdministrationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

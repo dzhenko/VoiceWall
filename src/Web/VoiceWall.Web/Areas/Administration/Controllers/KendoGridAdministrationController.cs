@@ -15,6 +15,7 @@
     using VoiceWall.Web.Areas.Administration.ViewModels;
     using VoiceWall.Services.Common.Administration;
     using VoiceWall.Web.Infrastructure.Caching;
+    using System;
 
     public abstract class KendoGridAdministrationController<TDbModel, TViewModel> : AdminController 
         where TDbModel : IDeletableEntity
@@ -28,35 +29,26 @@
             this.administrationService = administrationService;
         }
 
+        protected IAdministrationService<TDbModel> AdministrationService
+        {
+            get { return this.administrationService; }
+        }
+
         [HttpPost]
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
+        public virtual ActionResult Read([DataSourceRequest]DataSourceRequest request, Guid? id = null)
         {
             var data = this.administrationService.Read().AsQueryable().Project().To<TViewModel>().ToDataSourceResult(request);
             return this.Json(data);
         }
 
         [NonAction]
-        protected virtual TDbModel Create(TViewModel model)
-        {
-            if (model != null && ModelState.IsValid)
-            {
-                var dbModel = Mapper.Map<TDbModel>(model);
-                this.administrationService.Create(dbModel);
-                return dbModel;
-            }
-
-            return default(TDbModel);
-        }
-
-        [NonAction]
-        protected virtual void Update(TViewModel model)
+        protected virtual void Update([Bind(Exclude="ModifiedOn")]TViewModel model)
         {
             if (model != null && ModelState.IsValid)
             {
                 var dbModel = this.administrationService.Get(model.Id);
                 Mapper.Map<TViewModel, TDbModel>(model, dbModel);
                 this.administrationService.Update(dbModel);
-                model.ModifiedOn = dbModel.ModifiedOn;
 
                 this.Cache.Clear(model.Id);
             }
@@ -79,7 +71,7 @@
             }
         }
 
-        protected JsonResult GridOperation<TViewModel>(TViewModel model, [DataSourceRequest]DataSourceRequest request)
+        protected JsonResult GridOperation(TViewModel model, [DataSourceRequest]DataSourceRequest request)
         {
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }

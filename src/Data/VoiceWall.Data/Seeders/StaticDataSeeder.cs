@@ -26,14 +26,20 @@
 
             for (int i = 0; i < Math.Min(names.Length, profilePictures.Length); i++)
             {
-                userManager.Create(new User()
+                var user = new User()
                 { 
                     UserName = string.Format("FakeUser{0}", i + 1),
                     Email = string.Format("FakeUser{0}@FakeEmail.com", i + 1),
                     FirstName = names[i].Substring(0, names[i].IndexOf(" ")),
                     LastName = names[i].Substring(names[i].IndexOf(" ") + 1),
                     UserImage = profilePictures[i]
-                }, "qwerty");
+                };
+
+                userManager.Create(user, "qwerty");
+
+                userManager.AddToRole(user.Id, GlobalConstants.DefaultRole);
+
+                context.SaveChanges();
             }
         }
 
@@ -68,8 +74,8 @@
 
         internal static void SeedAdmin(VoiceWallDbContext context)
         {
-            const string AdminEmail = "admin@admin.com";
-            const string AdminPassword = "admin123456";
+            const string AdminEmail = "qwe@qwe.com";
+            const string AdminPassword = "qweqwe";
 
             if (context.Users.Any(u => u.Email == AdminEmail))
             {
@@ -80,13 +86,16 @@
 
             var admin = new User
             {
+                FirstName = "Pesho",
+                LastName = "Admina",
                 Email = AdminEmail,
                 UserName = AdminEmail
             };
 
             userManager.Create(admin, AdminPassword);
-
             userManager.AddToRole(admin.Id, GlobalConstants.AdminRole);
+            userManager.AddToRole(admin.Id, GlobalConstants.ModeratorRole);
+            userManager.AddToRole(admin.Id, GlobalConstants.DefaultRole);
 
             context.SaveChanges();
         }
@@ -105,6 +114,8 @@
 
             var admin = new User
             {
+                FirstName = "Gosho",
+                LastName = "Moderatora",
                 Email = ModeratorEmail,
                 UserName = ModeratorEmail
             };
@@ -112,6 +123,7 @@
             userManager.Create(admin, ModeratorPassword);
 
             userManager.AddToRole(admin.Id, GlobalConstants.ModeratorRole);
+            userManager.AddToRole(admin.Id, GlobalConstants.DefaultRole);
 
             context.SaveChanges();
         }
@@ -126,6 +138,7 @@
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
 
+            roleManager.Create(new IdentityRole { Name = GlobalConstants.DefaultRole });
             roleManager.Create(new IdentityRole { Name = GlobalConstants.AdminRole });
             roleManager.Create(new IdentityRole { Name = GlobalConstants.ModeratorRole });
 

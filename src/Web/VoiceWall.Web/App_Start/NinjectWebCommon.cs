@@ -133,6 +133,9 @@ namespace VoiceWall.Web.App_Start
 
             // admin
             kernel.Bind<IAdministrationService<Content>>().To<ContentAdministrationService>();
+            kernel.Bind<IAdministrationService<Comment>>().To<CommentAdministrationService>();
+            kernel.Bind<IAdministrationService<ContentView>>().To<ContentViewsAdministrationService>();
+            kernel.Bind<IAdministrationService<CommentView>>().To<CommentViewsAdministrationService>();
         }
     }
 }

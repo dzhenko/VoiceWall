@@ -4,4 +4,31 @@
 }
 
 <h2>@ControllerName</h2>
-@(Html.FullFeaturedGrid<ContentAdministrationViewModel>(ControllerName, m => m.Id))
+@(Html.FullFeaturedGrid<ContentAdministrationViewModel>(ControllerName, m => m.Id, cols => 
+{
+    cols.Bound(m => m.Id).Hidden();
+    cols.Bound(m => m.ContentUrl).Locked().ClientTemplate("<a href='#: ContentUrl #' alt='VoiceWall'> #= ContentUrl.substring(0, 25) #... </a>");
+    cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
+    cols.Command(m => m.Custom("See Comments").Click("viewCommentsForContentCommandBtn"));
+    cols.Command(m => m.Custom("See Views").Click("viewViewsForContentCommandBtn"));
+    cols.Command(c => c.Edit());
+    cols.Command(c => c.Destroy());
+}))
+
+<script>
+    function viewCommentsForContentCommandBtn(e) {
+        e.preventDefault();
+
+        var id = $(e.currentTarget).parent().parent().children().first().html();
+        var location = window.location.href;
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/Comments?contentId=' + id;
+    }
+
+    function viewViewsForContentCommandBtn(e) {
+        e.preventDefault();
+
+        var id = $(e.currentTarget).parent().parent().children().first().html();
+        var location = window.location.href;
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/ContentViews?contentId=' + id;
+    }
+</script>

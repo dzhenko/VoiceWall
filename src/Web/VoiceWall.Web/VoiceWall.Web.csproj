@@ -203,9 +203,15 @@
     <Content Include="App_Code\KendoHelpers.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentViewsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ContentViewsController.cs" />
     <Compile Include="Areas\Administration\Controllers\ContentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\Administration\ViewModels\AdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CommentAdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CommentViewAdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\ContentViewAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ContentAdministrationViewModel.cs" />
     <Compile Include="Areas\Fun\FunAreaRegistration.cs" />
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
@@ -569,6 +575,9 @@
     <Content Include="Areas\Moderators\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Moderators\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Contents\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\CommentViews\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ContentViews\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -601,7 +610,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -636,7 +647,7 @@
     <Content Include="Views\Shared\_CreateContentPartial.cshtml" />
     <Content Include="Views\Shared\_WallItemPartial.cshtml" />
     <Content Include="Views\Shared\_WallItemCommentPartial.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\_PlayContentPartial.cshtml" />
     <Content Include="Views\Shared\_WallItemHolderPartial.cshtml" />
@@ -665,7 +676,7 @@
     <Content Include="Views\Shared\DisplayTemplates\WallItemViewModel.cshtml" />
     <Content Include="Views\Settings\General.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\UpdateProfileViewModel.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\HttpPostedFileBase.cshtml" />
     <Content Include="Views\Shared\_ProfileOverviewPartial.cshtml" />
     <Content Include="Views\Search\AllResults.cshtml" />
@@ -673,20 +684,23 @@
     <Content Include="Views\Search\PicturesResults.cshtml" />
     <Content Include="Views\Search\VoicesResults.cshtml" />
     <Content Include="Views\Search\_SearchFormPartial.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\MultiLinetext.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DropDownList.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\MultiLineText.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\SingleLineText.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\_NavigationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

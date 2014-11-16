@@ -23,7 +23,11 @@
 
         public void Clear(object cacheId)
         {
-            HttpRuntime.Cache.Remove(cacheId as string);
+            var idAsGuid = cacheId as Guid?;
+            if (idAsGuid != null)
+            {
+                HttpRuntime.Cache.Remove(idAsGuid.Value.ToString());
+	        }
         }
     }
 }

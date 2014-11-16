@@ -1,0 +1,33 @@
+﻿
+<li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
+<li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
+
+@if (User.IsInRole(GlobalConstants.AdminRole))
+{
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Administrator <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>@(Html.ActionLink<ContentsController>((c) => c.Index(), "Contents", new { area = "Administration" }))</li>
+            <li>@(Html.ActionLink<CommentsController>((c) => c.Index(null), "Comments", new { area = "Administration" }))</li>
+            <li>@(Html.ActionLink<ContentViewsController>((c) => c.Index(null), "Content Views", new { area = "Administration" }))</li>
+            <li>@(Html.ActionLink<CommentViewsController>((c) => c.Index(null), "Comment Views", new { area = "Administration" }))</li>
+        </ul>
+    </li>
+}
+
+@if (User.IsInRole(GlobalConstants.ModeratorRole))
+{
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Moderator <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>@(Html.ActionLink<ContentsController>((c) => c.Index(), "Contents", new { area = "Moderators" }))</li>
+            <li>@(Html.ActionLink<ContentsController>((c) => c.Index(), "Contents", new { area = "Moderators" }))</li>
+            <li>@(Html.ActionLink<ContentsController>((c) => c.Index(), "Contents", new { area = "Moderators" }))</li>
+            <li>@(Html.ActionLink<ContentsController>((c) => c.Index(), "Contents", new { area = "Moderators" }))</li>
+        </ul>
+    </li>
+}
+
+<li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
+<li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
+<li>@(Html.ActionLink<StaticPagesController>((c) => c.FAQ(), "FAQ"))</li>

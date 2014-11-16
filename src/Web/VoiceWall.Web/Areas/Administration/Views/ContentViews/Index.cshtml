@@ -1,0 +1,16 @@
+﻿@using VoiceWall.Web.Areas.Administration.ViewModels;
+@model Guid?
+@{
+    const string ControllerName = "ContentViews";
+}
+
+<h2>Content Views</h2>
+@(Html.FullFeaturedGrid<ContentViewAdministrationViewModel>(ControllerName, m => m.Id, cols =>
+{
+    cols.Bound(m => m.Id).Visible(false);
+    cols.Bound(m => m.Liked).ClientTemplate("#=Liked == null ? '<i class=\"fa fa-question\"></i>': Liked ? '<i class=\"fa fa-thumbs-up color-green\"></i>' : '<i class=\"fa fa-thumbs-down color-red\"></i>' #");
+    cols.Bound(m => m.Flagged).ClientTemplate("#=Flagged ? '<i class=\"fa fa-flag color-red\"></i>' : '' #");
+    cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
+    cols.Command(c => c.Edit());
+    cols.Command(c => c.Destroy());
+}, new { contentId = Model }))

@@ -30,10 +30,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@(Html.ActionLink<HomeController>((c) => c.Index(),"Home"))</li>
-                        <li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
-                        <li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
-                        <li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
+                        @{Html.RenderPartial("_NavigationPartial");}
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
@@ -45,12 +42,8 @@
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <a id="menu-close" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-                <li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
-                <li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
-                <li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
-                <li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
-
-                <li>@(Html.ActionLink<SettingsController>((c) => c.General(), "Profile"))</li>
+                @{Html.RenderPartial("_NavigationPartial");}
+                @Html.Partial("_LoginPartial")
             </ul>
         </nav>
     </div>
@@ -108,6 +101,7 @@
             </div>
         </footer>
     </div>
+
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/sideMenu")

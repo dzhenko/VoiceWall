@@ -14,6 +14,7 @@
 
     using VoiceWall.Web.ViewModels.Account;
     using VoiceWall.Data.Models;
+    using VoiceWall.Common;
 
     [Authorize]
     public class AccountController : Controller
@@ -157,12 +158,12 @@
         {
             if (ModelState.IsValid)
             {
-                const string defaultUserPicture = "http://bs2.cdn.telerik.com/v1/lYI6vh7P7BFSL2Wr/6d268bf0-6c25-11e4-a292-0bb26865c9e7";
-
-                var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, UserImage = defaultUserPicture };
+                var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, UserImage = GlobalConstants.DefaultUserPicture };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, GlobalConstants.DefaultRole);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
