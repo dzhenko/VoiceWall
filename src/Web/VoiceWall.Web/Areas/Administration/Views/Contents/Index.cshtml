@@ -1,0 +1,7 @@
+﻿@using VoiceWall.Web.Areas.Administration.ViewModels;
+@{
+    const string ControllerName = "Contents";
+}
+
+<h2>@ControllerName</h2>
+@(Html.FullFeaturedGrid<ContentAdministrationViewModel>(ControllerName, m => m.Id))

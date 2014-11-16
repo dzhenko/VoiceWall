@@ -7,10 +7,10 @@
 
     using AutoMapper.QueryableExtensions;
 
-    using VoiceWall.Web.ViewModels;
     using VoiceWall.Data.Models;
-
     using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Web.ViewModels;
+    using VoiceWall.Web.Infrastructure.Caching;
 
     public class WallItemPartialController : BasePartialController
     {
@@ -18,7 +18,8 @@
 
         private readonly IContentFetcherService contentFetcherService;
 
-        public WallItemPartialController(IContentFetcherService contentFetcherService)
+        public WallItemPartialController(IContentFetcherService contentFetcherService, ICacheService cache)
+            : base(cache)
         {
             this.contentFetcherService = contentFetcherService;
         }

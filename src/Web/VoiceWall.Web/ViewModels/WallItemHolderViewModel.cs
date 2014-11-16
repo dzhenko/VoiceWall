@@ -38,21 +38,11 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Content, WallItemHolderViewModel>()
-                .ForMember(m => m.Id, opt => opt.MapFrom(c => c.Id.ToString()));
-
-            configuration.CreateMap<Content, WallItemHolderViewModel>()
-                .ForMember(m => m.UserName, opt => opt.MapFrom(c => c.User.FirstName + " " + c.User.LastName));
-
-            configuration.CreateMap<Content, WallItemHolderViewModel>()
-                .ForMember(m => m.UserImage, opt => opt.MapFrom(c => c.User.UserImage));
-
-            configuration.CreateMap<Content, WallItemHolderViewModel>()
-                .ForMember(m => m.Likes, opt => opt.MapFrom(c => c.ContentViews.Count(v => v.Liked == true)));
-
-            configuration.CreateMap<Content, WallItemHolderViewModel>()
-                .ForMember(m => m.Hates, opt => opt.MapFrom(c => c.ContentViews.Count(v => v.Liked == false)));
-
-            configuration.CreateMap<Content, WallItemHolderViewModel>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(c => c.Id.ToString()))
+                .ForMember(m => m.UserName, opt => opt.MapFrom(c => c.User.FirstName + " " + c.User.LastName))
+                .ForMember(m => m.UserImage, opt => opt.MapFrom(c => c.User.UserImage))
+                .ForMember(m => m.Likes, opt => opt.MapFrom(c => c.ContentViews.Count(v => v.Liked == true)))
+                .ForMember(m => m.Hates, opt => opt.MapFrom(c => c.ContentViews.Count(v => v.Liked == false)))
                 .ForMember(m => m.Flags, opt => opt.MapFrom(c => c.ContentViews.Count(v => v.Flagged == true)));
         }
     }

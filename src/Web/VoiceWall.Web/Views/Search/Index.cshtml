@@ -1,12 +1,46 @@
-﻿<h2>Search for people, places and stuff</h2>
+﻿<h2>Search for people, posts and stuff</h2>
 
-@using (Html.BeginForm("SearchAll", "Search", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.FontAwesomeButton("Find", "search", new { type = "Submit", id = "Search-form-button" })
-    <div id="search-form-text" hidden="hidden" class="col-md-12">
-        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Find stuff" })
+<ul class="nav nav-tabs">
+    <li class="fa-2x active"><a href="#search-users-tab" data-toggle="tab">Users <i class="fa fa-fw fa-users"></i></a></li>
+    <li class="fa-2x"><a href="#search-all-tab" data-toggle="tab">All <i class="fa fa-fw fa-search-plus"></i></a></li>
+    <li class="fa-2x"><a href="#search-videos-tab" data-toggle="tab">Videos <i class="fa fa-fw fa-video-camera"></i></a></li>
+    <li class="fa-2x"><a href="#search-voices-tab" data-toggle="tab">Voices <i class="fa fa-fw fa-microphone"></i></a></li>
+    <li class="fa-2x"><a href="#search-pictures-tab" data-toggle="tab">Pictures <i class="fa fa-fw fa-picture-o"></i></a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="search-users-tab">
+        @using (Html.BeginForm<SearchController>((c) => c.SearchUsers(null)))
+        {
+            <h3>Enter part of the user's name</h3>
+            Html.RenderPartial("_SearchFormPartial");
+        }
     </div>
-}
-
-tabstrip !
+    <div class="tab-pane fade in" id="search-all-tab">
+        @using (Html.BeginForm<SearchController>((c) => c.SearchAll(null)))
+        {
+            <h3>Enter part of the creator's name</h3>
+            Html.RenderPartial("_SearchFormPartial");
+        }
+    </div>
+    <div class="tab-pane fade in" id="search-videos-tab">
+        @using (Html.BeginForm<SearchController>((c) => c.SearchVideos(null)))
+        {
+            <h3>Enter part of the video's owner name</h3>
+            Html.RenderPartial("_SearchFormPartial");
+        }
+    </div>
+    <div class="tab-pane fade in" id="search-voices-tab">
+        @using (Html.BeginForm<SearchController>((c) => c.SearchVoices(null)))
+        {
+            <h3>Enter part of the voice's owner name</h3>
+            Html.RenderPartial("_SearchFormPartial");
+        }
+    </div>
+    <div class="tab-pane fade in" id="search-pictures-tab">
+        @using (Html.BeginForm<SearchController>((c) => c.SearchPictures(null)))
+        {
+            <h3>Enter part of the picture's owner name</h3>
+            Html.RenderPartial("_SearchFormPartial");
+        }
+    </div>
+</div>

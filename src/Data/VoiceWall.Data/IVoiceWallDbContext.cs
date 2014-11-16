@@ -18,6 +18,8 @@
 
         IDbSet<User> Users { get; set; }
 
+        DbContext DbContext { get; }
+
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
         void Dispose();

@@ -23,8 +23,8 @@
 
         public ActionResult Details(Guid id)
         {
-            return this.ConditionalActionResult<ProfileDetailsViewModel>(
-                () => this.userProfileService.GetUserProfile(id.ToString())
+            return this.ConditionalActionResult<ProfileDetailsViewModel>
+                (() => this.userProfileService.GetUserProfile(id.ToString())
                     .Project().To<ProfileDetailsViewModel>().FirstOrDefault(),
                 (profile) => this.View(profile));
         }
@@ -33,8 +33,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult More(int id, Guid username)
         {
-            return this.ConditionalActionResult(
-                () => this.userProfileService.GetNext(username.ToString(), id).Project().To<WallItemViewModel>(),
+            return this.ConditionalActionResult
+                (() => this.userProfileService.GetNext(username.ToString(), id).Project().To<WallItemViewModel>(),
                 (wallItems) => this.PartialView("_WallItemMultiplePartials", wallItems));
         }
     }

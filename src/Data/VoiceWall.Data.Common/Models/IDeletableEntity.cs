@@ -2,7 +2,7 @@
 {
     using System;
 
-    public interface IDeletableEntity
+    public interface IDeletableEntity : IAuditInfo
     {
         bool IsDeleted { get; set; }
 

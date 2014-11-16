@@ -21,7 +21,7 @@
 
         public IQueryable<User> GetUserProfile(string userId)
         {
-            return this.data.Users.All().Where(u => u.Id == userId);
+            return this.data.Users.All().Where(u => u.Id == userId && !u.IsHidden);
         }
 
         public string UpdateUserProfile(string userId, UserUpdateProfileModel model)

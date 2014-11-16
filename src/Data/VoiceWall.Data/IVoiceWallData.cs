@@ -15,6 +15,8 @@
 
         IDeletableEntityRepository<CommentView> CommentViews { get; }
 
+        IVoiceWallDbContext Context { get; }
+
         void SaveChanges();
     }
 }

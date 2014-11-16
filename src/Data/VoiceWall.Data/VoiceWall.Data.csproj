@@ -65,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\VoiceWall.Common\VoiceWall.Common.csproj">
+      <Project>{974a8acb-2858-4706-8176-27840e4fbdda}</Project>
+      <Name>VoiceWall.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj">
       <Project>{549481aa-0c89-4e41-93b3-fc64d02c8832}</Project>
       <Name>VoiceWall.Data.Common</Name>

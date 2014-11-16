@@ -2,8 +2,7 @@
 
 <div class="row">
     <h1>
-        @Html.DisplayFor(m => m.FirstName)
-        @Html.DisplayFor(m => m.LastName)
+        @(Html.ActionLink<ProfileController>((c) => c.Details(Guid.Empty), string.Format("{0} {1}", Model.FirstName, Model.LastName), new { id = Model.Id, username = string.Format("{0} {1}", Model.FirstName, Model.LastName) }))
     </h1>
 </div>
 <div class="row">

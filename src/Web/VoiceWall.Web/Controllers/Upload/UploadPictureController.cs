@@ -4,6 +4,7 @@
     using System.Web.Mvc;
 
     using VoiceWall.Services.Common.Generators;
+    using VoiceWall.Web.Infrastructure.Caching;
     using VoiceWall.Web.Infrastructure.Filters;
     using VoiceWall.Web.ViewModels.Upload;
 
@@ -15,8 +16,8 @@
     [ValidateAntiForgeryToken]
     public class UploadPictureController : BaseUploadController
     {
-        public UploadPictureController(IPictureUploadingGeneratorService pictureUploadingGeneratorService)
-            : base(pictureUploadingGeneratorService)
+        public UploadPictureController(IPictureUploadingGeneratorService pictureUploadingGeneratorService, ICacheService cache)
+            : base(pictureUploadingGeneratorService, cache)
         {
         }
 

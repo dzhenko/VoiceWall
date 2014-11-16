@@ -55,7 +55,8 @@
             toastr.success("Successfully added a comment!");
             $(objToHide.children().first()).remove();
             objToHide.children().show();
-            $('.wallItemMainHolder .new-content-placeholder').after($(response));
+            objToHide.children().first().children('.new-content-placeholder').first().after($(response));
+           // $('.wallItemMainHolder .new-content-placeholder')
 
             // handle picture opening
             $(".fancybox-image").fancybox({
@@ -119,24 +120,24 @@
     return {
         create: {
             video: function (blob) {
-                create("UploadVideo/Create", blob);
+                create("/UploadVideo/Create", blob);
             },
             sound: function (blob) {
-                create("UploadSound/Create", blob);
+                create("/UploadSound/Create", blob);
             },
             picture: function (blob) {
-                create("UploadPicture/Create", blob);
+                create("/UploadPicture/Create", blob);
             }
         },
         comment: {
             withVideo: function (blob, id) {
-                id ?  comment("UploadVideo/Comment", blob, id) : create("UploadVideo/Create", blob);
+                id ?  comment("/UploadVideo/Comment", blob, id) : create("/UploadVideo/Create", blob);
             },
             withSound: function (blob, id) {
-                id ? comment("UploadSound/Comment", blob, id) : create("UploadSound/Create", blob);
+                id ? comment("/UploadSound/Comment", blob, id) : create("/UploadSound/Create", blob);
             },
             withPicture: function (blob, id) {
-                id ? comment("UploadPicture/Comment", blob, id) : create("UploadPicture/Create", blob);
+                id ? comment("/UploadPicture/Comment", blob, id) : create("/UploadPicture/Create", blob);
             }
         },
         react: {

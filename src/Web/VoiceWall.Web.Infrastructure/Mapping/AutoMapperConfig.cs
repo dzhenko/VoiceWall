@@ -59,6 +59,8 @@
             foreach (var map in maps)
             {
                 Mapper.CreateMap(map.Source, map.Destination);
+                // reverse all the mappings
+                Mapper.CreateMap(map.Destination, map.Source);
             }
         }
 

@@ -5,6 +5,7 @@
 
     using Microsoft.AspNet.Identity;
 
+    using VoiceWall.Web.Infrastructure.Caching;
     using VoiceWall.Web.Infrastructure.Filters;
     using VoiceWall.Services.Common.Logic.Reactions;
 
@@ -14,11 +15,12 @@
 
     [Authorize]
     [ValidateAntiForgeryToken]
-    public class ContentReactionsController : BaseController
+    public class ContentReactionsController : BaseReactionsController
     {
         private readonly IContentReactionsService contentReactionsService;
 
-        public ContentReactionsController(IContentReactionsService contentReactionsService)
+        public ContentReactionsController(IContentReactionsService contentReactionsService, ICacheService cache)
+            : base(cache)
         {
             this.contentReactionsService = contentReactionsService;
         }
@@ -26,25 +28,25 @@
         [AjaxPost]
         public ActionResult Like(Guid contentId)
         {
-            return this.ConditionalActionResult<Guid>(() =>
-                this.contentReactionsService.LikeComment(contentId, this.HttpContext.User.Identity.GetUserId()),
-                (id) => this.PartialView(id));
+            return this.ConditionalCacheRemovingActionResult(contentId,
+                    () => this.contentReactionsService.LikeComment(contentId, this.HttpContext.User.Identity.GetUserId()),
+                    this.PartialView(contentId));
         }
 
         [AjaxPost]
         public ActionResult Hate(Guid contentId)
         {
-            return this.ConditionalActionResult<Guid>(() =>
-                this.contentReactionsService.HateComment(contentId, this.HttpContext.User.Identity.GetUserId()),
-                (id) => this.PartialView(id));
+            return this.ConditionalCacheRemovingActionResult(contentId,
+                    () => this.contentReactionsService.HateComment(contentId, this.HttpContext.User.Identity.GetUserId()),
+                    this.PartialView(contentId));
         }
 
         [AjaxPost]
         public ActionResult Flag(Guid contentId)
         {
-            return this.ConditionalActionResult<Guid>(() =>
-                this.contentReactionsService.FlagContent(contentId, this.HttpContext.User.Identity.GetUserId()),
-                (id) => this.PartialView(id));
+            return this.ConditionalCacheRemovingActionResult(contentId,
+                    () => this.contentReactionsService.FlagContent(contentId, this.HttpContext.User.Identity.GetUserId()),
+                    this.PartialView(contentId));
         }
     }
 }

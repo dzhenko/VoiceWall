@@ -52,12 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\IAdministrationService.cs" />
     <Compile Include="Fetchers\AnalyzedContentQuery.cs" />
     <Compile Include="Fetchers\CommentStateForUser.cs" />
     <Compile Include="Fetchers\CommentStateForUserCollection.cs" />
     <Compile Include="Fetchers\ContentStateForUser.cs" />
     <Compile Include="Fetchers\IContentFetcherService.cs" />
     <Compile Include="Fetchers\ICommentFetcherService.cs" />
+    <Compile Include="Fetchers\ISearchResultsFetcherService.cs" />
     <Compile Include="Generators\IPictureUploadingGeneratorService.cs" />
     <Compile Include="Generators\ISoundUploadingGeneratorService.cs" />
     <Compile Include="Generators\IUploadingGeneratorService.cs" />
@@ -76,6 +78,10 @@
     <ProjectReference Include="..\..\Data\VoiceWall.Data.Models\VoiceWall.Data.Models.csproj">
       <Project>{6480b90c-bcf9-427f-98da-8e2e747112dd}</Project>
       <Name>VoiceWall.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data\VoiceWall.Data.csproj">
+      <Project>{09299d1d-4396-46fd-b501-58c5bc97e4a5}</Project>
+      <Name>VoiceWall.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

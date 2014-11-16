@@ -18,10 +18,8 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Content, WallItemViewModel>()
-                .ForMember(m => m.WallItemHolderViewModel, opt => opt.MapFrom(c => c));
-
-            configuration.CreateMap<Content, WallItemViewModel>()
-                .ForMember(m => m.Comments, opt => opt.MapFrom(c => c.Comments));
+                .ForMember(m => m.WallItemHolderViewModel, opt => opt.MapFrom(c => c))
+                .ForMember(m => m.Comments, opt => opt.MapFrom(c => c.Comments.OrderByDescending(com => com.CreatedOn)));
         }
     }
 }

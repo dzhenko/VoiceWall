@@ -5,6 +5,7 @@
 
     using Microsoft.AspNet.Identity;
 
+    using VoiceWall.Web.Infrastructure.Caching;
     using VoiceWall.Web.Infrastructure.Filters;
     using VoiceWall.Services.Common.Logic.Reactions;
 
@@ -14,21 +15,22 @@
 
     [Authorize]
     [ValidateAntiForgeryToken]
-    public class CommentReactionsController : BaseController
+    public class CommentReactionsController : BaseReactionsController
     {
         private readonly ICommentReactionsService commentReactionsService;
 
-        public CommentReactionsController(ICommentReactionsService commentReactionsService)
+        public CommentReactionsController(ICommentReactionsService commentReactionsService, ICacheService cache)
+            : base(cache)
         {
             this.commentReactionsService = commentReactionsService;
         }
 
-        [AjaxPost]              //contentId is the name of the ajax value
+        [AjaxPost]
         public ActionResult Flag(Guid contentId)
         {
-            return this.ConditionalActionResult<Guid>(() =>
-                this.commentReactionsService.FlagComment(contentId, this.HttpContext.User.Identity.GetUserId()),
-                (id) => this.PartialView(id));
+            return this.ConditionalCacheRemovingActionResult(contentId,
+                    () => this.commentReactionsService.FlagComment(contentId, this.HttpContext.User.Identity.GetUserId()),
+                    this.PartialView(contentId));
         }
     }
 }

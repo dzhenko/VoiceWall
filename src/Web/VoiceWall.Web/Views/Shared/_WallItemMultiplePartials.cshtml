@@ -1,10 +1,19 @@
-﻿@if (Model != null)
+﻿@model IEnumerable<VoiceWall.Web.ViewModels.WallItemViewModel>
+
+@if (Model != null)
 {
-    foreach (var wallItem in Model)
+    if (Model.Count() > 0)
     {
-        <hr />
-        <div class="row">
-            @(Html.Action<WallItemPartialController>((c) => c.GetFromViewModel(null), new { viewModel = wallItem }))
-        </div>
+        foreach (var wallItem in Model)
+        {
+            <hr />
+            <div class="row">
+                @(Html.Action<WallItemPartialController>((c) => c.GetFromViewModel(null), new { viewModel = wallItem }))
+            </div>
+        }
+    }
+    else
+    {
+        <h3 class="text-danger text-center">No items to show.</h3>
     }
 }

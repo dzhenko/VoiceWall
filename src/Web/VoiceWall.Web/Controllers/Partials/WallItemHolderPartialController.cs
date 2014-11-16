@@ -9,6 +9,7 @@
 
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Web.Infrastructure.Caching;
     using VoiceWall.Web.ViewModels;
 
     public class WallItemHolderPartialController : BasePartialController
@@ -17,7 +18,8 @@
 
         private readonly IContentFetcherService contentFetcherService;
 
-        public WallItemHolderPartialController(IContentFetcherService contentFetcherService)
+        public WallItemHolderPartialController(IContentFetcherService contentFetcherService, ICacheService cache)
+            : base(cache)
         {
             this.contentFetcherService = contentFetcherService;
         }

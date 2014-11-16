@@ -1,0 +1,23 @@
+﻿@model IEnumerable<VoiceWall.Web.ViewModels.WallItemViewModel>
+
+@section styles{
+    @Styles.Render("~/Content/wallItems")
+}
+
+@section afterbodyscripts {
+    @Scripts.Render("~/bundles/loadingImageHider")
+}
+
+<h1 class="text-center">Found pictures: </h1>
+
+<div id="main-content-reciever" class="col-md-offset-1 col-md-10">
+    @{Html.RenderPartial("_WallItemMultiplePartials", Model);}
+</div>
+
+@{ Html.RenderPartial("_PlayContentPartial"); }
+
+@{ Html.RenderPartial("_CreateContentPartial"); }
+
+@section scripts {
+    @Scripts.Render("~/bundles/wallItems")
+}

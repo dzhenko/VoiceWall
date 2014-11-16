@@ -91,5 +91,13 @@
                 entry.State = EntityState.Modified;
             }
         }
+
+        public DbContext DbContext
+        {
+            get
+            {
+                return this;
+            }
+        }
     }
 }

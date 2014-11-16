@@ -200,8 +200,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\KendoHelpers.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ContentsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\KendoGridAdministrationController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\AdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\ContentAdministrationViewModel.cs" />
     <Compile Include="Areas\Fun\FunAreaRegistration.cs" />
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
     <Compile Include="Areas\Moderators\ModeratorsAreaRegistration.cs" />
@@ -211,6 +216,7 @@
     <Compile Include="Controllers\Partials\WallItemHolderPartialController.cs" />
     <Compile Include="Controllers\Partials\WallItemPartialController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\Reactions\BaseReactionsController.cs" />
     <Compile Include="Controllers\Reactions\CommentReactionsController.cs" />
     <Compile Include="Controllers\Reactions\ContentReactionsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -221,9 +227,10 @@
     <Compile Include="Controllers\Upload\UploadSoundController.cs" />
     <Compile Include="Controllers\Upload\UploadVideoController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
-    <Compile Include="ViewModels\Account\OwnProfileViewModel.cs" />
+    <Compile Include="ViewModels\Account\SingleProfileViewModel.cs" />
     <Compile Include="ViewModels\Account\UpdateProfileViewModel.cs" />
     <Compile Include="ViewModels\Profile\ProfileDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Search\SearchViewModel.cs" />
     <Compile Include="ViewModels\Upload\NewPictureCommentInputModel.cs" />
     <Compile Include="ViewModels\Upload\NewPictureContentInputModel.cs" />
     <Compile Include="ViewModels\Upload\NewSoundCommentInputModel.cs" />
@@ -501,7 +508,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Licensed Libs\Kendo.Mvc.dll" />
-    <Content Include="Licensed Libs\README.txt" />
     <Content Include="Scripts\app\clickForMore.js" />
     <Content Include="Scripts\app\contentSender.js" />
     <Content Include="Scripts\app\loadingImageHider.js" />
@@ -557,10 +563,12 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Administration\Views\Home\Navigation.cshtml" />
     <Content Include="Areas\Moderators\Views\web.config" />
     <Content Include="Areas\Games\Views\web.config" />
     <Content Include="Areas\Fun\Views\web.config" />
+    <Content Include="Areas\Moderators\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Moderators\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Contents\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -584,7 +592,9 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -648,7 +658,7 @@
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_WallItemMultiplePartials.cshtml" />
     <Content Include="Views\Shared\_NewContentPartial.cshtml" />
-    <Content Include="Views\Search\All.cshtml" />
+    <Content Include="Views\Search\UserResults.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\WallItemCommentViewModel.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Shared\_ClickForMorePartial.cshtml" />
@@ -658,10 +668,28 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\HttpPostedFileBase.cshtml" />
     <Content Include="Views\Shared\_ProfileOverviewPartial.cshtml" />
+    <Content Include="Views\Search\AllResults.cshtml" />
+    <Content Include="Views\Search\VideosResults.cshtml" />
+    <Content Include="Views\Search\PicturesResults.cshtml" />
+    <Content Include="Views\Search\VoicesResults.cshtml" />
+    <Content Include="Views\Search\_SearchFormPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultiLinetext.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Fun\Controllers\" />
     <Folder Include="Areas\Fun\Models\" />
     <Folder Include="Areas\Fun\Views\Shared\" />
@@ -670,7 +698,6 @@
     <Folder Include="Areas\Games\Views\Shared\" />
     <Folder Include="Areas\Moderators\Controllers\" />
     <Folder Include="Areas\Moderators\Models\" />
-    <Folder Include="Areas\Moderators\Views\Shared\" />
     <Folder Include="References\" />
   </ItemGroup>
   <ItemGroup>

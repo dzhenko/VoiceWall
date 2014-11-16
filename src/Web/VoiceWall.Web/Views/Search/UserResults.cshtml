@@ -1,0 +1,25 @@
+﻿@model IEnumerable<VoiceWall.Web.ViewModels.Account.SingleProfileViewModel>
+
+@section afterbodyscripts {
+    @Scripts.Render("~/bundles/loadingImageHider")
+}
+
+<h1 class="text-center">Found users: </h1>
+
+<div class="container">
+    <div class="col-md-6">
+        @foreach (var profile in Model)
+        {
+            <hr/>
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.DivWithImage(profile.UserImage, new { @class = "user-results-images" })
+                </div>
+                <div class="col-md-6">
+                    @{Html.RenderPartial("_ProfileOverviewPartial", profile);}
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

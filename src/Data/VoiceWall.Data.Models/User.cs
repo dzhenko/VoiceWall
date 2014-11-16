@@ -81,6 +81,8 @@
 
         public DateTime? ModifiedOn { get; set; }
 
+        public bool IsHidden { get; set; }
+
         // IDeletableEntity
         public bool IsDeleted { get; set; }
 

@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VoiceWall.Data.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-
-namespace VoiceWall.Data.Seeders
+﻿namespace VoiceWall.Data.Seeders
 {
-    public static class StaticDataSeeder
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using VoiceWall.Common;
+    using VoiceWall.Data.Models;
+
+    internal static class StaticDataSeeder
     {
         private static readonly Random random = new Random();
 
-        public static void SeedUsers(VoiceWallDbContext context)
+        internal static void SeedUsers(VoiceWallDbContext context)
         {
             var names = GetUserNames();
 
@@ -34,7 +37,7 @@ namespace VoiceWall.Data.Seeders
             }
         }
 
-        public static void SeedData(VoiceWallDbContext context)
+        internal static void SeedData(VoiceWallDbContext context)
         {
             var userIds = context.Users.Select(u => u.Id).ToArray();
 
@@ -61,6 +64,72 @@ namespace VoiceWall.Data.Seeders
 
                 context.SaveChanges();
             }
+        }
+
+        internal static void SeedAdmin(VoiceWallDbContext context)
+        {
+            const string AdminEmail = "admin@admin.com";
+            const string AdminPassword = "admin123456";
+
+            if (context.Users.Any(u => u.Email == AdminEmail))
+            {
+                return;
+            }
+
+            var userManager = new UserManager<User>(new UserStore<User>(context));
+
+            var admin = new User
+            {
+                Email = AdminEmail,
+                UserName = AdminEmail
+            };
+
+            userManager.Create(admin, AdminPassword);
+
+            userManager.AddToRole(admin.Id, GlobalConstants.AdminRole);
+
+            context.SaveChanges();
+        }
+
+        internal static void SeedModerator(VoiceWallDbContext context)
+        {
+            const string ModeratorEmail = "moderator@moderator.com";
+            const string ModeratorPassword = "moderator123456";
+
+            if (context.Users.Any(u => u.Email == ModeratorEmail))
+            {
+                return;
+            }
+
+            var userManager = new UserManager<User>(new UserStore<User>(context));
+
+            var admin = new User
+            {
+                Email = ModeratorEmail,
+                UserName = ModeratorEmail
+            };
+
+            userManager.Create(admin, ModeratorPassword);
+
+            userManager.AddToRole(admin.Id, GlobalConstants.ModeratorRole);
+
+            context.SaveChanges();
+        }
+
+        internal static void SeedRoles(VoiceWallDbContext context)
+        {
+            if (context.Roles.Any())
+            {
+                return;
+            }
+
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            roleManager.Create(new IdentityRole { Name = GlobalConstants.AdminRole });
+            roleManager.Create(new IdentityRole { Name = GlobalConstants.ModeratorRole });
+
+            context.SaveChanges();
         }
 
         private static ICollection<Comment> GetComments(string[] userIds)

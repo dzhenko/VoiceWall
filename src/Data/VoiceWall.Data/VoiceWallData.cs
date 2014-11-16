@@ -23,6 +23,14 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
+        public IVoiceWallDbContext Context
+        {
+            get
+            {
+                return this.context;
+            }
+        }
+
         public IDeletableEntityRepository<User> Users
         {
             get

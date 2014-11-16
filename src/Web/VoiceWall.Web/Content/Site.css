@@ -343,3 +343,9 @@ footer {
 .date {
     font-style:italic;
 }
+
+.user-results-images {
+    height:10em;
+    background-size:contain;
+    background-repeat:no-repeat;
+}

@@ -9,9 +9,15 @@
 }
 
 <h1 class="text-center">@Model.Profile.FirstName's profile</h1>
-
 <div class="container">
-    @{Html.RenderPartial("_ProfileOverviewPartial", Model.Profile);}
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            @Html.DivWithImage(Model.Profile.UserImage, new { @class = "user-results-images" })
+        </div>
+        <div class="col-md-6">
+            @{Html.RenderPartial("_ProfileOverviewPartial", Model.Profile);}
+        </div>
+    </div>
 </div>
 
 <div id="main-content-reciever" class="col-md-offset-1 col-md-10">

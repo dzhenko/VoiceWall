@@ -16,9 +16,7 @@
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
             configuration.CreateMap<User, ProfileDetailsViewModel>()
-                .ForMember(m => m.Profile, opt => opt.MapFrom(u => u));
-
-            configuration.CreateMap<User, ProfileDetailsViewModel>()
+                .ForMember(m => m.Profile, opt => opt.MapFrom(u => u))
                 .ForMember(m => m.WallItems, opt => opt.MapFrom(u => u.Contents.OrderByDescending(c => c.CreatedOn).Take(5)));
         }
     }

@@ -32,18 +32,10 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Comment, WallItemCommentViewModel>()
-                .ForMember(m => m.Id, opt => opt.MapFrom(c => c.Id.ToString()));
-
-            configuration.CreateMap<Comment, WallItemCommentViewModel>()
-                .ForMember(m => m.UserName, opt => opt.MapFrom(c => c.User.FirstName + " " + c.User.LastName));
-
-            configuration.CreateMap<Comment, WallItemCommentViewModel>()
-                .ForMember(m => m.UserImage, opt => opt.MapFrom(c => c.User.UserImage));
-
-            configuration.CreateMap<Comment, WallItemCommentViewModel>()
-                .ForMember(m => m.Flags, opt => opt.MapFrom(c => c.CommentViews.Count(v => v.Flagged == true)));
-
-            configuration.CreateMap<Comment, WallItemCommentViewModel>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(c => c.Id.ToString()))
+                .ForMember(m => m.UserName, opt => opt.MapFrom(c => c.User.FirstName + " " + c.User.LastName))
+                .ForMember(m => m.UserImage, opt => opt.MapFrom(c => c.User.UserImage))
+                .ForMember(m => m.Flags, opt => opt.MapFrom(c => c.CommentViews.Count(v => v.Flagged == true)))
                 .ForMember(m => m.IsFlagged, opt => opt.MapFrom(c => false));
         }
     }

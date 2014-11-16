@@ -28,6 +28,12 @@ namespace VoiceWall.Web.App_Start
     using VoiceWall.Services.Logic.Reactions;
     using VoiceWall.Services.Common.Users;
     using VoiceWall.Services.Users;
+    using VoiceWall.Services.Common;
+
+    using VoiceWall.Web.Infrastructure.Caching;
+    using VoiceWall.Services.Common.Administration;
+    using VoiceWall.Data.Models;
+    using VoiceWall.Services.Administration;
 
     public static class NinjectWebCommon 
     {
@@ -110,6 +116,8 @@ namespace VoiceWall.Web.App_Start
 
         private static void RegisterServicesLayerServices(IKernel kernel)
         {
+            kernel.Bind<ICacheService>().To<InMemoryCache>();
+
             kernel.Bind<IContentFetcherService>().To<ContentFetcherService>();
             kernel.Bind<ICommentFetcherService>().To<CommentFetcherService>();
 
@@ -121,6 +129,10 @@ namespace VoiceWall.Web.App_Start
             kernel.Bind<ICommentReactionsService>().To<CommentReactionsService>();
 
             kernel.Bind<IUserProfileService>().To<UserProfileService>();
+            kernel.Bind<ISearchResultsFetcherService>().To<SearchResultsFetcherService>();
+
+            // admin
+            kernel.Bind<IAdministrationService<Content>>().To<ContentAdministrationService>();
         }
     }
 }

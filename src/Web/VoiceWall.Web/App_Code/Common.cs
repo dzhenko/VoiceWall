@@ -34,6 +34,11 @@
             
             var action = ((MethodCallExpression)expression.Body).Method.Name;
 
+            if (rootValues == null)
+            {
+                rootValues = new { area = string.Empty };
+            }
+
             return helper.ActionLink(linkText, action, ctrl, rootValues, htmlAttributes);
         }
 

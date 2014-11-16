@@ -9,5 +9,7 @@
         bool PreserveCreatedOn { get; set; }
 
         DateTime? ModifiedOn { get; set; }
+
+        bool IsHidden { get; set; }
     }
 }

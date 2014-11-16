@@ -26,11 +26,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @(Html.ActionLink<HomeController>((c) => c.Index(), "VoiceWall", new { area = "" }, new { @class = "navbar-brand" }))
+                    @(Html.ActionLink<HomeController>((c) => c.Index(), "VoiceWall", null, new { @class = "navbar-brand" }))
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@(Html.ActionLink<HomeController>((c) => c.Index(),"Home"))</li>
+                        <li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
                         <li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
                         <li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
                     </ul>
@@ -45,6 +46,7 @@
             <ul class="sidebar-nav">
                 <a id="menu-close" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
                 <li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
+                <li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
                 <li>@(Html.ActionLink<StaticPagesController>((c) => c.About(), "About"))</li>
                 <li>@(Html.ActionLink<StaticPagesController>((c) => c.Contact(), "Contact"))</li>
 

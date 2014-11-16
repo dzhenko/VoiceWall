@@ -60,7 +60,7 @@ namespace VoiceWall.Web
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
                      "~/Content/kendo/kendo.common.min.css",
                      "~/Content/kendo/kendo.common-bootstrap.min.css",
-                     "~/Content/kendo/kendo.default.min.css"));
+                     "~/Content/kendo/kendo.black.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/wallItems").Include(
                      "~/Content/soundRecording.css",

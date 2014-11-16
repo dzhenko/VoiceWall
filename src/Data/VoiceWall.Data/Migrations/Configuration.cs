@@ -19,6 +19,9 @@ namespace VoiceWall.Data.Migrations
         {
             if (!context.Contents.Any())
             {
+                StaticDataSeeder.SeedRoles(context);
+                StaticDataSeeder.SeedAdmin(context);
+                StaticDataSeeder.SeedModerator(context);
                 StaticDataSeeder.SeedUsers(context);
                 StaticDataSeeder.SeedData(context);
             }

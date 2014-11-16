@@ -7,7 +7,6 @@
     using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
 
-    using VoiceWall.Data;
     using VoiceWall.Web.ViewModels;
     using VoiceWall.Services.Common.Fetchers;
     using VoiceWall.Web.Infrastructure.Filters;
@@ -34,6 +33,11 @@
         {
             return this.ConditionalActionResult(() => this.contentFetcherService.GetNext(id).Project().To<WallItemViewModel>(),
                                                       (wallItems) => this.PartialView("_WallItemMultiplePartials", wallItems));
+        }
+
+        public ActionResult Error()
+        {
+            return this.View();
         }
     }
 }

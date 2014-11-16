@@ -9,6 +9,7 @@
 
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Web.Infrastructure.Caching;
     using VoiceWall.Web.ViewModels;
 
     public class WallItemCommentPartialController : BasePartialController
@@ -17,7 +18,8 @@
 
         private readonly ICommentFetcherService commentFetcherService;
 
-        public WallItemCommentPartialController(ICommentFetcherService commentFetcherService)
+        public WallItemCommentPartialController(ICommentFetcherService commentFetcherService, ICacheService cache)
+            : base(cache)
         {
             this.commentFetcherService = commentFetcherService;
         }
