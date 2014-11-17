@@ -1,0 +1,16 @@
+﻿@using VoiceWall.Web.Areas.Moderators.ViewModels;
+@model Guid?
+@{
+    const string ControllerName = "CommentsModeration";
+}
+
+<h2 class="text-center">Comments Moderation</h2>
+@(Html.FullFeaturedGrid<CommentModerationViewModel>(ControllerName, m => m.Id, cols =>
+{
+    cols.Bound(m => m.Id).Hidden();
+    cols.Bound(m => m.ContentUrl).Locked().ClientTemplate("<a href='#: ContentUrl #' alt='VoiceWall'> #= ContentUrl.substring(0, 25) #... </a>");
+    cols.Bound(m => m.Flags).Sortable(true);
+    cols.Bound(m => m.Owner);
+    cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
+    cols.Command(c => c.Edit());
+}, new { contentId = Model }))

@@ -1,9 +1,9 @@
-﻿namespace VoiceWall.Web.Areas.Administration.ViewModels
+﻿namespace VoiceWall.Web.Areas.Moderators.ViewModels
 {
     using System;
     using System.Web.Mvc;
 
-    public abstract class AdministrationViewModel
+    public abstract class ModerationViewModel
     {
         [HiddenInput(DisplayValue = false)]
         public Guid Id { get; set; }

@@ -1,5 +1,6 @@
 ﻿namespace VoiceWall.Web.Areas.Administration.ViewModels
 {
+    using System;
     using System.Linq;
     using System.ComponentModel.DataAnnotations;
 
@@ -10,15 +11,20 @@
 
     public class ContentViewAdministrationViewModel : AdministrationViewModel, IMapFrom<ContentView>, IMapCustom
     {
-        public bool IsHidden { get; set; }
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
 
         public bool? Liked { get; set; }
+
+        public string Owner { get; set; }
 
         public bool Flagged { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<ContentView, ContentAdministrationViewModel>()
+            configuration.CreateMap<ContentView, ContentViewAdministrationViewModel>()
+                .ForMember(m => m.Owner, opt => opt.MapFrom(c => c.User.Email))
                 .ReverseMap();
         }
     }

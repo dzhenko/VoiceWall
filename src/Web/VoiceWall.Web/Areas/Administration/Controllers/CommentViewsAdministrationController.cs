@@ -4,39 +4,39 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
-
     using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
+
+    using AutoMapper.QueryableExtensions;
 
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Common.Administration;
     using VoiceWall.Web.Areas.Administration.ViewModels;
     using VoiceWall.Web.Infrastructure.Caching;
 
-    using Model = VoiceWall.Data.Models.ContentView;
-    using ViewModel = VoiceWall.Web.Areas.Administration.ViewModels.ContentViewAdministrationViewModel;
+    using Model = VoiceWall.Data.Models.CommentView;
+    using ViewModel = VoiceWall.Web.Areas.Administration.ViewModels.CommentViewAdministrationViewModel;
 
-    public class ContentViewsController : KendoGridAdministrationController<Model, ViewModel>
+    public class CommentViewsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
-        public ContentViewsController(IAdministrationService<Model> administrationService, ICacheService cache)
+        public CommentViewsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
             : base(administrationService, cache)
         {
         }
 
-        public ActionResult Index(Guid? contentId)
+        public ActionResult Index(Guid? commentId)
         {
-            return View(contentId);
+            return View(commentId);
         }
 
         [HttpPost]
-        public override ActionResult Read(DataSourceRequest request, Guid? contentId = null)
+        public override ActionResult Read(DataSourceRequest request, Guid? commentId = null)
         {
             var data = this.AdministrationService.Read().AsQueryable();
 
-            if (contentId.HasValue)
+            if (commentId.HasValue)
             {
-                data = data.Where(c => c.ContentId == contentId.Value);
+                data = data.Where(c => c.CommentId == commentId.Value);
             }
 
             return this.Json(data.Project().To<ViewModel>().ToDataSourceResult(request));
@@ -46,6 +46,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Update(model);
+            
             return this.GridOperation(model, request);
         }
 

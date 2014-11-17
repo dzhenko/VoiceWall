@@ -17,9 +17,9 @@
     using Model = VoiceWall.Data.Models.Comment;
     using ViewModel = VoiceWall.Web.Areas.Administration.ViewModels.CommentAdministrationViewModel;
 
-    public class CommentsController : KendoGridAdministrationController<Model, ViewModel>
+    public class CommentsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
-        public CommentsController(IAdministrationService<Model> administrationService, ICacheService cache)
+        public CommentsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
             : base(administrationService, cache)
         {
         }
@@ -46,6 +46,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Update(model);
+            this.Cache.Clear(model.ContentId);
             return this.GridOperation(model, request);
         }
 
@@ -53,6 +54,7 @@
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Destroy(model);
+            this.Cache.Clear(model.ContentId);
             return this.GridOperation(model, request);
         }
     }

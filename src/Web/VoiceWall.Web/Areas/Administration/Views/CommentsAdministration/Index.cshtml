@@ -1,14 +1,18 @@
 ﻿@using VoiceWall.Web.Areas.Administration.ViewModels;
 @model Guid?
 @{
-    const string ControllerName = "Comments";
+    const string ControllerName = "CommentsAdministration";
 }
 
-<h2>@ControllerName</h2>
+<h2 class="text-center">Comments Administration</h2>
 @(Html.FullFeaturedGrid<CommentAdministrationViewModel>(ControllerName, m => m.Id, cols =>
 {
     cols.Bound(m => m.Id).Hidden();
     cols.Bound(m => m.ContentUrl).Locked().ClientTemplate("<a href='#: ContentUrl #' alt='VoiceWall'> #= ContentUrl.substring(0, 25) #... </a>");
+    cols.Bound(m => m.Owner);
+    cols.Bound(m => m.CreatedOn).Hidden();
+    cols.Bound(m => m.ModifiedOn).Hidden();
+    cols.Bound(m => m.Flags);
     cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
     cols.Command(m => m.Custom("See Views").Click("viewViewsForCommentCommandBtn"));
     cols.Command(c => c.Edit());
@@ -21,6 +25,11 @@
 
         var id = $(e.currentTarget).parent().parent().children().first().html();
         var location = window.location.href;
-        window.location = location.substr(0, location.lastIndexOf('/')) + '/CommentViews?contentId=' + id;
+
+        if (location.indexOf("/Index") >= 0) {
+            location = location.substr(0, location.length - 6);
+        }
+
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/CommentViewsAdministration?contentId=' + id;
     }
 </script>

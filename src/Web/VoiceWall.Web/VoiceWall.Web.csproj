@@ -203,10 +203,10 @@
     <Content Include="App_Code\KendoHelpers.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
-    <Compile Include="Areas\Administration\Controllers\CommentViewsController.cs" />
-    <Compile Include="Areas\Administration\Controllers\ContentViewsController.cs" />
-    <Compile Include="Areas\Administration\Controllers\ContentsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentsAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentViewsAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ContentViewsAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ContentsAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\Administration\ViewModels\AdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CommentAdministrationViewModel.cs" />
@@ -215,7 +215,14 @@
     <Compile Include="Areas\Administration\ViewModels\ContentAdministrationViewModel.cs" />
     <Compile Include="Areas\Fun\FunAreaRegistration.cs" />
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
+    <Compile Include="Areas\Moderators\Controllers\ModeratorController.cs" />
+    <Compile Include="Areas\Moderators\Controllers\CommentsModerationController.cs" />
+    <Compile Include="Areas\Moderators\Controllers\ContentsModerationController.cs" />
+    <Compile Include="Areas\Moderators\Controllers\KendoGridModeratorController.cs" />
     <Compile Include="Areas\Moderators\ModeratorsAreaRegistration.cs" />
+    <Compile Include="Areas\Moderators\ViewModels\CommentModerationViewModel.cs" />
+    <Compile Include="Areas\Moderators\ViewModels\ContentModerationViewModel.cs" />
+    <Compile Include="Areas\Moderators\ViewModels\ModerationViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Partials\BasePartialController.cs" />
     <Compile Include="Controllers\Partials\WallItemCommentPartialController.cs" />
@@ -569,15 +576,41 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Moderators\Views\web.config" />
+    <Content Include="Areas\Moderators\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Games\Views\web.config" />
     <Content Include="Areas\Fun\Views\web.config" />
     <Content Include="Areas\Moderators\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Moderators\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administration\Views\Contents\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\CommentViews\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\ContentViews\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ContentsAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\CommentsAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\CommentViewsAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ContentViewsAdministration\Index.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\DropDownList.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\MultiLineText.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\SingleLineText.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Moderators\Views\ContentsModeration\Index.cshtml" />
+    <Content Include="Areas\Moderators\Views\CommentsModeration\Index.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\ContentModerationViewModel.cshtml" />
+    <Content Include="Areas\Moderators\Views\Shared\EditorTemplates\CommentModerationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ContentViewAdministrationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ContentAdministrationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CommentViewAdministrationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CommentAdministrationViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -705,13 +738,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Fun\Controllers\" />
-    <Folder Include="Areas\Fun\Models\" />
+    <Folder Include="Areas\Fun\ViewModels\" />
     <Folder Include="Areas\Fun\Views\Shared\" />
     <Folder Include="Areas\Games\Controllers\" />
-    <Folder Include="Areas\Games\Models\" />
+    <Folder Include="Areas\Games\ViewModels\" />
     <Folder Include="Areas\Games\Views\Shared\" />
-    <Folder Include="Areas\Moderators\Controllers\" />
-    <Folder Include="Areas\Moderators\Models\" />
     <Folder Include="References\" />
   </ItemGroup>
   <ItemGroup>

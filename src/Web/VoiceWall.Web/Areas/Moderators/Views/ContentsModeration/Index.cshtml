@@ -1,0 +1,32 @@
+﻿@using VoiceWall.Web.Areas.Moderators.ViewModels;
+@{
+    const string ControllerName = "ContentsModeration";
+}
+
+<h2 class="text-center">Contents Moderation</h2>
+
+@(Html.FullFeaturedGrid<ContentModerationViewModel>(ControllerName, m => m.Id, cols =>
+{
+    cols.Bound(m => m.Id).Hidden();
+    cols.Bound(m => m.ContentUrl).ClientTemplate("<a href='#: ContentUrl #' alt='VoiceWall'> #= ContentUrl.substring(0, 25) #... </a>");
+    cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
+    cols.Bound(m => m.Flags).Sortable(true);
+    cols.Bound(m => m.Owner);
+    cols.Command(m => m.Custom("See Comments").Click("viewCommentsForContentCommandBtn"));
+    cols.Command(c => c.Edit());
+}))
+
+<script>
+    function viewCommentsForContentCommandBtn(e) {
+        e.preventDefault();
+
+        var id = $(e.currentTarget).parent().parent().children().first().html();
+        var location = window.location.href;
+
+        if (location.indexOf("/Index") >= 0) {
+            location = location.substr(0, location.length - 6);
+        }
+
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/CommentsModeration?contentId=' + id;
+    }
+</script>

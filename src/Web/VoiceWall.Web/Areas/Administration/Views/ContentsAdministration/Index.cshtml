@@ -1,13 +1,20 @@
 ﻿@using VoiceWall.Web.Areas.Administration.ViewModels;
 @{
-    const string ControllerName = "Contents";
+    const string ControllerName = "ContentsAdministration";
 }
 
-<h2>@ControllerName</h2>
+<h2 class="text-center">Contents Administration</h2>
 @(Html.FullFeaturedGrid<ContentAdministrationViewModel>(ControllerName, m => m.Id, cols => 
 {
     cols.Bound(m => m.Id).Hidden();
     cols.Bound(m => m.ContentUrl).Locked().ClientTemplate("<a href='#: ContentUrl #' alt='VoiceWall'> #= ContentUrl.substring(0, 25) #... </a>");
+    cols.Bound(m => m.Owner);
+    cols.Bound(m => m.CreatedOn).Hidden();
+    cols.Bound(m => m.ModifiedOn).Hidden();
+    cols.Bound(m => m.Likes).Hidden();
+    cols.Bound(m => m.Hates).Hidden();
+    cols.Bound(m => m.Flags);
+    cols.Bound(m => m.CommentsCount).Hidden();
     cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
     cols.Command(m => m.Custom("See Comments").Click("viewCommentsForContentCommandBtn"));
     cols.Command(m => m.Custom("See Views").Click("viewViewsForContentCommandBtn"));
@@ -21,7 +28,12 @@
 
         var id = $(e.currentTarget).parent().parent().children().first().html();
         var location = window.location.href;
-        window.location = location.substr(0, location.lastIndexOf('/')) + '/Comments?contentId=' + id;
+
+        if (location.indexOf("/Index") >= 0) {
+            location = location.substr(0, location.length - 6);
+        }
+
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/CommentsAdministration?contentId=' + id;
     }
 
     function viewViewsForContentCommandBtn(e) {
@@ -29,6 +41,11 @@
 
         var id = $(e.currentTarget).parent().parent().children().first().html();
         var location = window.location.href;
-        window.location = location.substr(0, location.lastIndexOf('/')) + '/ContentViews?contentId=' + id;
+
+        if (location.indexOf("/Index") >= 0) {
+            location = location.substr(0, location.length - 6);
+        }
+
+        window.location = location.substr(0, location.lastIndexOf('/')) + '/ContentViewsAdministration?contentId=' + id;
     }
 </script>

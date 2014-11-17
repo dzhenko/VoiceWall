@@ -52,11 +52,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseModerationService.cs" />
+    <Compile Include="CommentModerationService.cs" />
+    <Compile Include="ContentModerationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj">
+      <Project>{549481aa-0c89-4e41-93b3-fc64d02c8832}</Project>
+      <Name>VoiceWall.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data.Models\VoiceWall.Data.Models.csproj">
+      <Project>{6480b90c-bcf9-427f-98da-8e2e747112dd}</Project>
+      <Name>VoiceWall.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\VoiceWall.Data\VoiceWall.Data.csproj">
+      <Project>{09299d1d-4396-46fd-b501-58c5bc97e4a5}</Project>
+      <Name>VoiceWall.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VoiceWall.Services.Common\VoiceWall.Services.Common.csproj">
+      <Project>{2c93f2a5-c793-4db3-8838-2376c66ee75a}</Project>
+      <Name>VoiceWall.Services.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,39 +4,39 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
-
-    using AutoMapper.QueryableExtensions;
 
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Common.Administration;
     using VoiceWall.Web.Areas.Administration.ViewModels;
     using VoiceWall.Web.Infrastructure.Caching;
 
-    using Model = VoiceWall.Data.Models.CommentView;
-    using ViewModel = VoiceWall.Web.Areas.Administration.ViewModels.CommentViewAdministrationViewModel;
+    using Model = VoiceWall.Data.Models.ContentView;
+    using ViewModel = VoiceWall.Web.Areas.Administration.ViewModels.ContentViewAdministrationViewModel;
 
-    public class CommentViewsController : KendoGridAdministrationController<Model, ViewModel>
+    public class ContentViewsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
-        public CommentViewsController(IAdministrationService<Model> administrationService, ICacheService cache)
+        public ContentViewsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
             : base(administrationService, cache)
         {
         }
 
-        public ActionResult Index(Guid? commentId)
+        public ActionResult Index(Guid? contentId)
         {
-            return View(commentId);
+            return View(contentId);
         }
 
         [HttpPost]
-        public override ActionResult Read(DataSourceRequest request, Guid? commentId = null)
+        public override ActionResult Read(DataSourceRequest request, Guid? contentId = null)
         {
             var data = this.AdministrationService.Read().AsQueryable();
 
-            if (commentId.HasValue)
+            if (contentId.HasValue)
             {
-                data = data.Where(c => c.CommentId == commentId.Value);
+                data = data.Where(c => c.ContentId == contentId.Value);
             }
 
             return this.Json(data.Project().To<ViewModel>().ToDataSourceResult(request));

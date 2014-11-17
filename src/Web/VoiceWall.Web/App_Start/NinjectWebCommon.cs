@@ -34,6 +34,8 @@ namespace VoiceWall.Web.App_Start
     using VoiceWall.Services.Common.Administration;
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Administration;
+    using VoiceWall.Services.Common.Moderation;
+    using VoiceWall.Services.Moderation;
 
     public static class NinjectWebCommon 
     {
@@ -136,6 +138,10 @@ namespace VoiceWall.Web.App_Start
             kernel.Bind<IAdministrationService<Comment>>().To<CommentAdministrationService>();
             kernel.Bind<IAdministrationService<ContentView>>().To<ContentViewsAdministrationService>();
             kernel.Bind<IAdministrationService<CommentView>>().To<CommentViewsAdministrationService>();
+
+            //moderator
+            kernel.Bind<IModerationService<Content>>().To<ContentModerationService>();
+            kernel.Bind<IModerationService<Comment>>().To<CommentModerationService>();
         }
     }
 }

@@ -12,9 +12,9 @@
     using Model = VoiceWall.Data.Models.Content;
     using ViewModel = VoiceWall.Web.Areas.Administration.ViewModels.ContentAdministrationViewModel;
 
-    public class ContentsController : KendoGridAdministrationController<Model, ViewModel>
+    public class ContentsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
-        public ContentsController(IAdministrationService<Model> administrationService, ICacheService cache)
+        public ContentsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
             : base(administrationService, cache)
         {
         }
@@ -28,6 +28,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Update(model);
+            this.Cache.Clear(model.Id);
             return this.GridOperation(model, request);
         }
 
@@ -35,6 +36,7 @@
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Destroy(model);
+            this.Cache.Clear(model.Id);
             return this.GridOperation(model, request);
         } 
     }
