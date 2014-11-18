@@ -218,11 +218,13 @@
     <Compile Include="Areas\Administration\Controllers\ContentViewsAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\ContentsAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\KendoGridAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UsersAdministrationController.cs" />
     <Compile Include="Areas\Administration\ViewModels\AdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CommentAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CommentViewAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ContentViewAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ContentAdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\UsersAdministrationViewModel.cs" />
     <Compile Include="Areas\Fun\FunAreaRegistration.cs" />
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
     <Compile Include="Areas\Moderators\Controllers\ModeratorController.cs" />
@@ -624,6 +626,8 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ContentAdministrationViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CommentViewAdministrationViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CommentAdministrationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\UsersAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\UsersAdministrationViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

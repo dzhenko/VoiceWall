@@ -138,6 +138,7 @@ namespace VoiceWall.Web.App_Start
             kernel.Bind<IAdministrationService<Comment>>().To<CommentAdministrationService>();
             kernel.Bind<IAdministrationService<ContentView>>().To<ContentViewsAdministrationService>();
             kernel.Bind<IAdministrationService<CommentView>>().To<CommentViewsAdministrationService>();
+            kernel.Bind<IUserAdministrationService>().To<UsersAdministrationService>();
 
             //moderator
             kernel.Bind<IModerationService<Content>>().To<ContentModerationService>();

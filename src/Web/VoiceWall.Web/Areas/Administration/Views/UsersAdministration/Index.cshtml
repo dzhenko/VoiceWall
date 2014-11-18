@@ -1,0 +1,47 @@
+﻿@using VoiceWall.Web.Areas.Administration.ViewModels;
+@model string
+@{
+    const string ControllerName = "UsersAdministration";
+}
+
+<h2 class="text-center">Users  Administration</h2>
+@(Html.FullFeaturedGrid<UsersAdministrationViewModel>(ControllerName, m => m.Id, cols =>
+{
+    cols.Bound(m => m.Id).Visible(false);
+    cols.Bound(m => m.Email);
+    cols.Bound(m => m.UserImage).ClientTemplate("<a href='#: UserImage #' alt='VoiceWall'>View Image</a>"); ;
+    cols.Bound(m => m.FirstName);
+    cols.Bound(m => m.LastName);
+    cols.Bound(m => m.CreatedOn).Hidden();
+    cols.Bound(m => m.ModifiedOn).Hidden();
+    cols.Bound(m => m.IsHidden).ClientTemplate("#=IsHidden ? '<i class=\"fa fa-check-square-o\"></i>' : '<i class=\"fa fa-ban\"></i>' #");
+    cols.Command(c => c.Edit());
+    cols.Command(c => c.Destroy());
+},null, "user-details-template"))
+
+<script id="user-details-template" type="text/kendo-tmpl">
+    <h2>#= FirstName # #= LastName #</h2>
+    <p>Joined on #= CreatedOn #</p>
+    <div class="row">
+        <div class="col-md-4">
+            <p><label>Is Admin:</label>#= IsCurrentlyAdmin #</p>
+            <p><label>Is Moderator:</label>#= IsCurrentlyModerator #</p>
+            <p><label>ContentsCreatedCount:</label>#= ContentsCreatedCount #</p>
+            <p><label>CommentsCreatedCount:</label>#= CommentsCreatedCount #</p>
+            <p><label>ContentViewsCount:</label>#= ContentViewsCount #</p>
+            <p><label>CommentViewsCount:</label>#= CommentViewsCount #</p>
+        </div>
+        <div class="col-md-3">
+            <p><label>ContentLikesRecievedCount:</label>#= ContentLikesRecievedCount #</p>
+            <p><label>ContentHatesRecievedCount:</label>#= ContentHatesRecievedCount #</p>
+            <p><label>ContentFlagsRecievedCount:</label>#= ContentFlagsRecievedCount #</p>
+            <p><label>CommentFlagsRecievedCount:</label>#= CommentFlagsRecievedCount #</p>
+        </div>
+        <div class="col-md-3">
+            <p><label>ContentLikesGivvenCount:</label>#= ContentLikesGivvenCount #</p>
+            <p><label>ContentHatesGivvenCount:</label>#= ContentHatesGivvenCount #</p>
+            <p><label>ContentFlagsGivvenCount:</label>#= ContentFlagsGivvenCount #</p>
+            <p><label>CommentFlagsGivvenCount:</label>#= CommentFlagsGivvenCount #</p>
+        </div>
+    </div>
+</script>

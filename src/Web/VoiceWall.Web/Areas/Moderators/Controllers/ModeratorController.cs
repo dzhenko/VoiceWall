@@ -9,16 +9,5 @@
     [Authorize(Roles=GlobalConstants.ModeratorRole)]
     public abstract class ModeratorController : BaseController
     {
-        private readonly ICacheService cache;
-
-        public ModeratorController(ICacheService cache)
-        {
-            this.cache = cache;
-        }
-
-        protected ICacheService Cache
-        {
-            get { return this.cache; }
-        }
     }
 }

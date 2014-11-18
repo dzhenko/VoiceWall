@@ -11,6 +11,7 @@
             <li>@(Html.ActionLink<CommentsAdministrationController>((c) => c.Index(null), "Comments", new { area = "Administration" }))</li>
             <li>@(Html.ActionLink<ContentViewsAdministrationController>((c) => c.Index(null), "Content Views", new { area = "Administration" }))</li>
             <li>@(Html.ActionLink<CommentViewsAdministrationController>((c) => c.Index(null), "Comment Views", new { area = "Administration" }))</li>
+            <li>@(Html.ActionLink<UsersAdministrationController>((c) => c.Index(), "Users", new { area = "Administration" }))</li>
         </ul>
     </li>
 }

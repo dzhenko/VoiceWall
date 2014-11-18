@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
+
     using VoiceWall.Data.Common.Models;
     using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
@@ -23,11 +25,11 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public IVoiceWallDbContext Context
+        public DbContext Context
         {
             get
             {
-                return this.context;
+                return this.context.DbContext;
             }
         }
 

@@ -14,9 +14,12 @@
 
     public class ContentsModerationController : KendoGridModeratorController<Model, ViewModel>
     {
+        private readonly ICacheService cache;
+
         public ContentsModerationController(IModerationService<Model> moderationService, ICacheService cache)
-            : base(moderationService, cache)
+            : base(moderationService)
         {
+            this.cache = cache;
         }
 
         public ActionResult Index()
@@ -28,7 +31,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Update(model);
-            this.Cache.Clear(model.Id);
+            this.cache.Clear(model.Id);
             return this.GridOperation(model, request);
         }
     }

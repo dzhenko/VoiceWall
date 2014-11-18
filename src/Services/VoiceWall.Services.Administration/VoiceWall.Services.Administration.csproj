@@ -58,12 +58,17 @@
     <Compile Include="CommentViewsAdministrationService.cs" />
     <Compile Include="ContentAdministrationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersAdministrationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\VoiceWall.Common\VoiceWall.Common.csproj">
+      <Project>{974a8acb-2858-4706-8176-27840e4fbdda}</Project>
+      <Name>VoiceWall.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\VoiceWall.Data.Common\VoiceWall.Data.Common.csproj">
       <Project>{549481aa-0c89-4e41-93b3-fc64d02c8832}</Project>
       <Name>VoiceWall.Data.Common</Name>

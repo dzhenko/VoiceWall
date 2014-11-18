@@ -19,9 +19,12 @@
 
     public class CommentsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
+        private readonly ICacheService cache;
+
         public CommentsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
-            : base(administrationService, cache)
+            : base(administrationService)
         {
+            this.cache = cache;
         }
 
         public ActionResult Index(Guid? contentId)
@@ -46,7 +49,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Update(model);
-            this.Cache.Clear(model.ContentId);
+            this.cache.Clear(model.ContentId);
             return this.GridOperation(model, request);
         }
 
@@ -54,7 +57,7 @@
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             base.Destroy(model);
-            this.Cache.Clear(model.ContentId);
+            this.cache.Clear(model.ContentId);
             return this.GridOperation(model, request);
         }
     }

@@ -19,8 +19,8 @@
 
     public class ContentViewsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
-        public ContentViewsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
-            : base(administrationService, cache)
+        public ContentViewsAdministrationController(IAdministrationService<Model> administrationService)
+            : base(administrationService)
         {
         }
 

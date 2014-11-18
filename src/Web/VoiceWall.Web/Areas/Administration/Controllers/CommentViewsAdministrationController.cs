@@ -19,8 +19,8 @@
 
     public class CommentViewsAdministrationController : KendoGridAdministrationController<Model, ViewModel>
     {
-        public CommentViewsAdministrationController(IAdministrationService<Model> administrationService, ICacheService cache)
-            : base(administrationService, cache)
+        public CommentViewsAdministrationController(IAdministrationService<Model> administrationService)
+            : base(administrationService)
         {
         }
 

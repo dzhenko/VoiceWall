@@ -1,0 +1,45 @@
+﻿@model VoiceWall.Web.Areas.Administration.ViewModels.UsersAdministrationViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.UserImage, new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.EditorFor(m => m.UserImage, new { @class = "form-control" })
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsHidden, new { @class = "col-md-5 control-label" })
+    <div class="col-md-4">
+        @Html.EditorFor(m => m.IsHidden, new { @class = "form-control" })
+    </div>
+</div>
+
+
+<br />
+<br />
+<br />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsCurrentlyAdmin, new { @class = "col-md-5 control-label" })
+    <div class="col-md-4">
+        @Html.EditorFor(m => m.IsCurrentlyAdmin, new { @class = "form-control" })
+    </div>
+</div>
+
+
+<br />
+<br />
+<br />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsCurrentlyModerator, new { @class = "col-md-5 control-label" })
+    <div class="col-md-4">
+        @Html.EditorFor(m => m.IsCurrentlyModerator, new { @class = "form-control" })
+    </div>
+</div>
+
+

@@ -1,5 +1,7 @@
 ﻿namespace VoiceWall.Data
 {
+    using System.Data.Entity;
+
     using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
 
@@ -15,7 +17,7 @@
 
         IDeletableEntityRepository<CommentView> CommentViews { get; }
 
-        IVoiceWallDbContext Context { get; }
+        DbContext Context { get; }
 
         void SaveChanges();
     }

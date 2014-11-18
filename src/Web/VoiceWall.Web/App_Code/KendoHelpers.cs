@@ -10,8 +10,8 @@
     public static class KendoHelpers
     {
         public static GridBuilder<T> FullFeaturedGrid<T>(this HtmlHelper helper, string controllerName, 
-            Expression<Func<T, object>> modelIdExpression, Action<GridColumnFactory<T>> columns = null, object readRouteValues = null,
-            string clientRowTemplate = null, string clientAltRowTemplate = null) where T : class
+            Expression<Func<T, object>> modelIdExpression, Action<GridColumnFactory<T>> columns = null,
+            object readRouteValues = null, string clientDetailTemplateId = null, string clientRowTemplate = null, string clientAltRowTemplate = null) where T : class
         {
             if (columns == null)
             {
@@ -41,6 +41,11 @@
                     .Update(update => update.Action("Update", controllerName))
                     .Destroy(destroy => destroy.Action("Destroy", controllerName))
                 );
+
+            if (clientDetailTemplateId != null)
+            {
+                kendo = kendo.ClientDetailTemplateId(clientDetailTemplateId);
+            }
 
             if (clientRowTemplate != null)
             {

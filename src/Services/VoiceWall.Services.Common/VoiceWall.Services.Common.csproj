@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\IAdministrationService.cs" />
+    <Compile Include="Administration\IUserAdministrationService.cs" />
     <Compile Include="Fetchers\AnalyzedContentQuery.cs" />
     <Compile Include="Fetchers\CommentStateForUser.cs" />
     <Compile Include="Fetchers\CommentStateForUserCollection.cs" />

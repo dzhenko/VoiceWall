@@ -5,8 +5,6 @@
 
     using VoiceWall.Data;
     using VoiceWall.Data.Models;
-
-    using VoiceWall.Data;
     using VoiceWall.Services.Common.Moderation;
 
     public class ContentModerationService : BaseModerationService, IModerationService<Content>

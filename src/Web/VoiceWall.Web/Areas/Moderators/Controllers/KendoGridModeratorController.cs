@@ -23,8 +23,7 @@
     {
         private readonly IModerationService<TDbModel> moderationService;
 
-        public KendoGridModeratorController(IModerationService<TDbModel> moderationService, ICacheService cache)
-            : base(cache)
+        public KendoGridModeratorController(IModerationService<TDbModel> moderationService)
         {
             this.moderationService = moderationService;
         }
@@ -47,7 +46,6 @@
             if (model != null && ModelState.IsValid)
             {
                 this.moderationService.ChangeHide(model.Id, model.IsHidden);
-                this.Cache.Clear(model.Id);
             }
         }
 

@@ -23,8 +23,7 @@
     {
         private readonly IAdministrationService<TDbModel> administrationService;
 
-        public KendoGridAdministrationController(IAdministrationService<TDbModel> administrationService, ICacheService cache)
-            : base(cache)
+        public KendoGridAdministrationController(IAdministrationService<TDbModel> administrationService)
         {
             this.administrationService = administrationService;
         }
