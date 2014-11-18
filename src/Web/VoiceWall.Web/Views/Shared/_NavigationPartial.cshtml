@@ -1,5 +1,6 @@
 ﻿<li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
 <li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
+<li>@(Html.ActionLink<ChatController>((c) => c.Index(), "Chat"))</li>
 
 @if (User.IsInRole(GlobalConstants.AdminRole))
 {

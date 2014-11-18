@@ -25,3 +25,6 @@
 /// <reference path="app/videorecording/recordrtc.js" />
 /// <reference path="app/videorecording/videomerging.js" />
 /// <reference path="app/videorecording/videorecording.js" />
+/// <reference path="app/clickformore.js" />
+/// <reference path="jquery.signalr-2.1.2.min.js" />
+/// <reference path="app/chat.js" />

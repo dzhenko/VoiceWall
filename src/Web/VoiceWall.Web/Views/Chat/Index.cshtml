@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2 class="text-center">Voice Wall Chat room</h2>
+<h5 class="text-center">In case you miss your keyboard</h5>
+<script src="~/Scripts/jquery.signalR-2.1.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<div class="form-group">
+    <label class="control-label">Send message</label>
+    <div class="input-group">
+        <input type="text" id="send-message-text" placeholder="Make it something funny" class="form-control">
+        <span class="input-group-btn">
+            <button class="btn btn-dark" type="button" id="send-message-btn">Send</button>
+        </span>
+    </div>
+</div>
+
+<div class="container" id="all-messages">
+
+</div>
+
+@section afterbodyscripts {
+    @Scripts.Render("~/bundles/chat")
+}
+
+<script>
+    window.currentUsernameName = '@User.Identity.Name';
+</script>

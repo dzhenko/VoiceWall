@@ -26,6 +26,14 @@ namespace VoiceWall.Web
                 // using the kendo jquery version
                         "~/Scripts/kendo/jquery.min.js",
                         "~/Scripts/jquery.transit.min.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/chat").Include(
+                     "~/Scripts/app/chat.js"));
+
+            
+                     //"~/Scripts/jquery.signalR-2.1.2.js",
+                     //"~/signalr/hubs",
+                     //"~/signalr/js",
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*",
