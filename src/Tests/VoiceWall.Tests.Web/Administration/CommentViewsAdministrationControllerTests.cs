@@ -4,15 +4,15 @@
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    using VoiceWall.Web.Controllers;
+    using VoiceWall.Web.Areas.Administration.Controllers;
 
     [TestClass]
-    public class ChatControllerTests
+    public class CommentViewsAdministrationControllerTests
     {
         [TestMethod]
         public void InstancingTheControllerShouldNotThrowException()
         {
-            var controller = new ChatController();
+            var controller = new CommentViewsAdministrationController(null);
         }
     }
 }

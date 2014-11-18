@@ -1,14 +1,18 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace VoiceWall.Tests.Web
+﻿namespace VoiceWall.Tests.Web.Moderation
 {
+    using System;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using VoiceWall.Web.Controllers;
+
     [TestClass]
     public class ProfileControllerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstancingTheControllerShouldNotThrowException()
         {
+            var controller = new ProfileController(null);
         }
     }
 }

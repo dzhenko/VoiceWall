@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1AB6886E-D66
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{AD7DA3B2-163C-40C3-91E5-A56853180E61}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{33181659-8E97-45BD-9CE6-C8B1F6EECEA4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6B36CA1F-BA10-4173-8E45-567B83177128}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Web", "Web\VoiceWall.Web\VoiceWall.Web.csproj", "{F4A5EE8B-3014-49C4-9079-02CE597C04D8}"
@@ -54,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Tests.Web", "Tests\VoiceWall.Tests.Web\VoiceWall.Tests.Web.csproj", "{7C667DF8-9E8E-4E10-B75C-1E2CB4BA603C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Services.Fun", "Services\VoiceWall.Services.Fun\VoiceWall.Services.Fun.csproj", "{F17E4374-93CF-49FA-BDDE-80362D41E75A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Tests.Services", "Tests\VoiceWall.Tests.Services\VoiceWall.Tests.Services.csproj", "{2D50F5B6-5B29-49DD-BA9A-218D92ACB813}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +137,10 @@ Global
 		{F17E4374-93CF-49FA-BDDE-80362D41E75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F17E4374-93CF-49FA-BDDE-80362D41E75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F17E4374-93CF-49FA-BDDE-80362D41E75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D50F5B6-5B29-49DD-BA9A-218D92ACB813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D50F5B6-5B29-49DD-BA9A-218D92ACB813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D50F5B6-5B29-49DD-BA9A-218D92ACB813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D50F5B6-5B29-49DD-BA9A-218D92ACB813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,5 +165,6 @@ Global
 		{E438E5B4-AEED-4B39-ADCA-FDFBD83C0E5C} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
 		{7C667DF8-9E8E-4E10-B75C-1E2CB4BA603C} = {6B36CA1F-BA10-4173-8E45-567B83177128}
 		{F17E4374-93CF-49FA-BDDE-80362D41E75A} = {1B384CD7-8C6C-4BAC-9B24-351604E555FC}
+		{2D50F5B6-5B29-49DD-BA9A-218D92ACB813} = {6B36CA1F-BA10-4173-8E45-567B83177128}
 	EndGlobalSection
 EndGlobal

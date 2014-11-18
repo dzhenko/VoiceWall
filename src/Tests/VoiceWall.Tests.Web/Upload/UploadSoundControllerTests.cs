@@ -1,14 +1,18 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace VoiceWall.Tests.Web.Upload
+﻿namespace VoiceWall.Tests.Web.Moderation
 {
+    using System;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using VoiceWall.Web.Controllers;
+
     [TestClass]
     public class UploadSoundControllerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstancingTheControllerShouldNotThrowException()
         {
+            var controller = new UploadSoundController(null, null);
         }
     }
 }

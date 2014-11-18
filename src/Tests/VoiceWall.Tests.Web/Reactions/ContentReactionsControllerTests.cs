@@ -1,14 +1,18 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace VoiceWall.Tests.Web.Reactions
+﻿namespace VoiceWall.Tests.Web.Moderation
 {
+    using System;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using VoiceWall.Web.Controllers;
+
     [TestClass]
     public class ContentReactionsControllerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstancingTheControllerShouldNotThrowException()
         {
+            var controller = new ContentReactionsController(null, null);
         }
     }
 }

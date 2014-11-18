@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7C667DF8-9E8E-4E10-B75C-1E2CB4BA603C}</ProjectGuid>
+    <ProjectGuid>{2D50F5B6-5B29-49DD-BA9A-218D92ACB813}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VoiceWall.Tests.Web</RootNamespace>
-    <AssemblyName>VoiceWall.Tests.Web</AssemblyName>
+    <RootNamespace>VoiceWall.Tests.Services</RootNamespace>
+    <AssemblyName>VoiceWall.Tests.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,38 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.JustMock">
-      <HintPath>..\..\packages\JustMock.2014.3.1021.2\lib\Net35\Telerik.JustMock.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -81,35 +50,24 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Account\SettingsControllerTests.cs" />
-    <Compile Include="Administration\CommentsAdministrationControllerTests.cs" />
-    <Compile Include="Administration\CommentViewsAdministrationControllerTests.cs" />
-    <Compile Include="Administration\ContentsAdministrationControllerTests.cs" />
-    <Compile Include="Administration\ContentViewsAdministrationControllerTests.cs" />
-    <Compile Include="Administration\UsersAdministrationControllerTests.cs" />
-    <Compile Include="Fun\BraingameControllerTests.cs" />
-    <Compile Include="Fun\GamesControllerTests.cs" />
-    <Compile Include="Fun\JokesControllerTests.cs" />
-    <Compile Include="Moderation\CommentsModerationControllerTests.cs" />
-    <Compile Include="Moderation\ContentsModerationControllerTests.cs" />
-    <Compile Include="Partials\WallItemCommentPartialControllerTests.cs" />
-    <Compile Include="Partials\WallItemHolderPartialControllerTests.cs" />
-    <Compile Include="Partials\WallItemPartialControllerTests.cs" />
-    <Compile Include="Reactions\CommentReactionsControllerTests.cs" />
-    <Compile Include="Reactions\ContentReactionsControllerTests.cs" />
-    <Compile Include="StaticPagesControllerTests.cs" />
+    <Compile Include="Administration\ContentViewsAdministrationServiceTests.cs" />
+    <Compile Include="Administration\ContentAdministrationServiceTests.cs" />
+    <Compile Include="Administration\CommentViewsAdministrationServiceTests.cs" />
+    <Compile Include="Administration\CommentAdministrationServiceTests.cs" />
+    <Compile Include="Administration\UsersAdministrationServiceTests.cs" />
+    <Compile Include="Fetcher\SearchResultsFetcherServiceTests.cs" />
+    <Compile Include="Fetcher\ContentFetcherServiceTests.cs" />
+    <Compile Include="Fetcher\CommentFetcherServiceTests.cs" />
+    <Compile Include="Fun\JokesFetherServiceTests.cs" />
+    <Compile Include="Generator\SoundUploadingGeneratorServiceTests.cs" />
+    <Compile Include="Generator\PictureUploadingGeneratorServiceTests.cs" />
+    <Compile Include="Generator\VideoUploadingGeneratorServiceTests.cs" />
+    <Compile Include="Logic\Reactions\CommentReactionsServiceTests.cs" />
+    <Compile Include="Logic\Reactions\ContentReactionsServiceTests.cs" />
+    <Compile Include="Moderation\ContentModerationServiceTests.cs" />
+    <Compile Include="Moderation\CommentModerationServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchControllerTests.cs" />
-    <Compile Include="ProfileControllerTests.cs" />
-    <Compile Include="HomeControllerTests.cs" />
-    <Compile Include="ChatControllerTests.cs" />
-    <Compile Include="Upload\UploadVideoControllerTests.cs" />
-    <Compile Include="Upload\UploadSoundControllerTests.cs" />
-    <Compile Include="Upload\UploadPictureControllerTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <Compile Include="Users\UserProfileServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\VoiceWall.Common.ExtensionMethods\VoiceWall.Common.ExtensionMethods.csproj">
@@ -176,16 +134,7 @@
       <Project>{ce5e337e-7527-41b2-97ba-2af56650e1f8}</Project>
       <Name>VoiceWall.CloudStorage.TelerikBackend</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Web\VoiceWall.Web.Infrastructure\VoiceWall.Web.Infrastructure.csproj">
-      <Project>{598fb15e-28a6-4c76-a383-f504ca3025ba}</Project>
-      <Name>VoiceWall.Web.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Web\VoiceWall.Web\VoiceWall.Web.csproj">
-      <Project>{f4a5ee8b-3014-49c4-9079-02ce597c04d8}</Project>
-      <Name>VoiceWall.Web</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
