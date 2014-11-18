@@ -17,6 +17,8 @@
 
         IDeletableEntityRepository<CommentView> CommentViews { get; }
 
+        IDeletableEntityRepository<Joke> Jokes { get; }
+
         DbContext Context { get; }
 
         void SaveChanges();

@@ -4,38 +4,35 @@
 namespace VoiceWall.Web.App_Start
 {
     using System;
-    using System.Web;
-    using System.Data.Entity;
     using System.Configuration;
+    using System.Data.Entity;
+    using System.Web;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
 
-    using VoiceWall.Data;
-    using VoiceWall.Data.Common.Repositories;
-
     using VoiceWall.CloudStorage.Common;
     using VoiceWall.CloudStorage.Dropbox;
-    using VoiceWall.CloudStorage.TelerikBackend;
-
-    using VoiceWall.Services.Common.Fetchers;
-    using VoiceWall.Services.Common.Generators;
-    using VoiceWall.Services.Common.Logic.Reactions;
-    using VoiceWall.Services.Fetcher;
-    using VoiceWall.Services.Generator;
-    using VoiceWall.Services.Logic.Reactions;
-    using VoiceWall.Services.Common.Users;
-    using VoiceWall.Services.Users;
-    using VoiceWall.Services.Common;
-
-    using VoiceWall.Web.Infrastructure.Caching;
-    using VoiceWall.Services.Common.Administration;
+    using VoiceWall.Data;
+    using VoiceWall.Data.Common.Repositories;
     using VoiceWall.Data.Models;
     using VoiceWall.Services.Administration;
+    using VoiceWall.Services.Common.Administration;
+    using VoiceWall.Services.Common.Fetchers;
+    using VoiceWall.Services.Common.Fun;
+    using VoiceWall.Services.Common.Generators;
+    using VoiceWall.Services.Common.Logic.Reactions;
     using VoiceWall.Services.Common.Moderation;
+    using VoiceWall.Services.Common.Users;
+    using VoiceWall.Services.Fetcher;
+    using VoiceWall.Services.Fun;
+    using VoiceWall.Services.Generator;
+    using VoiceWall.Services.Logic.Reactions;
     using VoiceWall.Services.Moderation;
+    using VoiceWall.Services.Users;
+    using VoiceWall.Web.Infrastructure.Caching;
 
     public static class NinjectWebCommon 
     {
@@ -122,6 +119,8 @@ namespace VoiceWall.Web.App_Start
 
             kernel.Bind<IContentFetcherService>().To<ContentFetcherService>();
             kernel.Bind<ICommentFetcherService>().To<CommentFetcherService>();
+
+            kernel.Bind<IJokesFetherService>().To<JokesFetherService>();
 
             kernel.Bind<ISoundUploadingGeneratorService>().To<SoundUploadingGeneratorService>();
             kernel.Bind<IVideoUploadingGeneratorService>().To<VideoUploadingGeneratorService>();

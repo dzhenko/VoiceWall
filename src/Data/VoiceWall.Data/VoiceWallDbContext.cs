@@ -32,6 +32,8 @@
 
         public IDbSet<CommentView> CommentViews { get; set; }
 
+        public IDbSet<Joke> Jokes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

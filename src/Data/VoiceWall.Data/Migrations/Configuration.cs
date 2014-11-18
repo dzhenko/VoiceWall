@@ -24,6 +24,7 @@ namespace VoiceWall.Data.Migrations
                 StaticDataSeeder.SeedModerator(context);
                 StaticDataSeeder.SeedUsers(context);
                 StaticDataSeeder.SeedData(context);
+                StaticDataSeeder.SeedJokes(context);
             }
         }
     }

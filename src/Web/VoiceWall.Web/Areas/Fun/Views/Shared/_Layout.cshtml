@@ -1,0 +1,15 @@
+﻿@section styles {
+    @RenderSection("styles", required: false)
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Fun Zone</h1>
+
+@RenderBody()
+
+@section scripts {
+    @RenderSection("scripts", required: false)
+}

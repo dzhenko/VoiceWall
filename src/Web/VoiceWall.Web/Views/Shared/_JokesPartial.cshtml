@@ -1,0 +1,35 @@
+﻿<div id="modalJokeMain" class="modal">
+    <div class="modal-dialog text-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times fa-1x"></i></button>
+                <p id="modal-main-content-joke-text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getRandomJoke() {
+        $.get("/Fun/Jokes/GetRandomJoke")
+        .success(function (joke) {
+            $("#modal-main-content-joke-text").html(htmlEncode(joke));
+            $('#modalJokeMain').modal('show');
+        });
+    }
+
+    var entityMap = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': '&quot;',
+        "'": '&#39;',
+        "/": '&#x2F;'
+    };
+
+    function htmlEncode(string) {
+        return String(string).replace(/[&<>"'\/]/g, function (s) {
+            return entityMap[s];
+        });
+    };
+</script>

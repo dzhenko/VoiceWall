@@ -225,8 +225,10 @@
     <Compile Include="Areas\Administration\ViewModels\ContentViewAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ContentAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\UsersAdministrationViewModel.cs" />
+    <Compile Include="Areas\Fun\Controllers\BraingameController.cs" />
+    <Compile Include="Areas\Fun\Controllers\GamesController.cs" />
+    <Compile Include="Areas\Fun\Controllers\JokesController.cs" />
     <Compile Include="Areas\Fun\FunAreaRegistration.cs" />
-    <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
     <Compile Include="Areas\Moderators\Controllers\ModeratorController.cs" />
     <Compile Include="Areas\Moderators\Controllers\CommentsModerationController.cs" />
     <Compile Include="Areas\Moderators\Controllers\ContentsModerationController.cs" />
@@ -293,12 +295,19 @@
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\games\braingame\style.css" />
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\callout.jpg" />
     <Content Include="Content\img\fancybox\blank.gif" />
     <Content Include="Content\img\fancybox\fancybox-x.png" />
     <Content Include="Content\img\fancybox\fancybox-y.png" />
     <Content Include="Content\img\fancybox\fancybox.png" />
+    <Content Include="Content\img\games\braingame\bodyBack.png" />
+    <Content Include="Content\img\games\braingame\brain-game-img.jpg" />
+    <Content Include="Content\img\games\braingame\GameBackground.png" />
+    <Content Include="Content\img\games\braingame\ship-game\asteroid.png" />
+    <Content Include="Content\img\games\braingame\ship-game\explode.png" />
+    <Content Include="Content\img\games\braingame\ship-game\shipSprite.png" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\navback.jpg" />
     <Content Include="Content\img\navigationback.png" />
@@ -594,7 +603,6 @@
     <Content Include="Areas\Moderators\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Areas\Games\Views\web.config" />
     <Content Include="Areas\Fun\Views\web.config" />
     <Content Include="Areas\Moderators\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Moderators\Views\_ViewStart.cshtml" />
@@ -628,7 +636,18 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CommentAdministrationViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\UsersAdministration\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\UsersAdministrationViewModel.cshtml" />
+    <Content Include="Areas\Fun\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Fun\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Fun\Views\Games\Index.cshtml" />
+    <Content Include="Areas\Fun\Views\Braingame\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\games\braingame\creator-game.js" />
+    <Content Include="Scripts\games\braingame\engine-game.js" />
+    <Content Include="Scripts\games\braingame\graph-drawer.js" />
+    <Content Include="Scripts\games\braingame\kinetic.min.js" />
+    <Content Include="Scripts\games\braingame\numbers-game.js" />
+    <Content Include="Scripts\games\braingame\raphael-min.js" />
+    <Content Include="Scripts\games\braingame\ship-game.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.easing.js" />
@@ -754,15 +773,11 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\_NavigationPartial.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Shared\_JokesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Fun\Controllers\" />
     <Folder Include="Areas\Fun\ViewModels\" />
-    <Folder Include="Areas\Fun\Views\Shared\" />
-    <Folder Include="Areas\Games\Controllers\" />
-    <Folder Include="Areas\Games\ViewModels\" />
-    <Folder Include="Areas\Games\Views\Shared\" />
     <Folder Include="References\" />
   </ItemGroup>
   <ItemGroup>
@@ -805,9 +820,9 @@
       <Project>{8e79ca49-708a-4ade-b3c7-90cd9b31d10d}</Project>
       <Name>VoiceWall.Services.Fetcher</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\VoiceWall.Services.Games\VoiceWall.Services.Games.csproj">
-      <Project>{94a2d63f-e473-49f6-8a07-62b38e9cdedf}</Project>
-      <Name>VoiceWall.Services.Games</Name>
+    <ProjectReference Include="..\..\Services\VoiceWall.Services.Fun\VoiceWall.Services.Fun.csproj">
+      <Project>{f17e4374-93cf-49fa-bdde-80362d41e75a}</Project>
+      <Name>VoiceWall.Services.Fun</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\VoiceWall.Services.Generator\VoiceWall.Services.Generator.csproj">
       <Project>{e68dccb8-bb7c-4fcd-8790-53de5df68f6a}</Project>

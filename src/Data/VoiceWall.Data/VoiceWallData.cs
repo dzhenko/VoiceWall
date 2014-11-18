@@ -41,6 +41,14 @@
             }
         }
 
+        public IDeletableEntityRepository<Joke> Jokes
+        {
+            get
+            {
+                return this.GetRepository<Joke>();
+            }
+        }
+
         public IDeletableEntityRepository<Content> Contents
         {
             get

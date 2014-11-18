@@ -1,6 +1,11 @@
-﻿<li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
-<li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
-<li>@(Html.ActionLink<ChatController>((c) => c.Index(), "Chat"))</li>
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <li>@(Html.ActionLink<HomeController>((c) => c.Index(), "Home"))</li>
+    <li>@(Html.ActionLink<SearchController>((c) => c.Index(), "Search"))</li>
+    <li>@(Html.ActionLink<ChatController>((c) => c.Index(), "Chat"))</li>
+    <li>@(Html.ActionLink<GamesController>((c) => c.Index(), "Games", new { area = "Fun" }))</li>
+    <li><a href="#" onclick="getRandomJoke()">Joke</a></li>
+}
 
 @if (User.IsInRole(GlobalConstants.AdminRole))
 {

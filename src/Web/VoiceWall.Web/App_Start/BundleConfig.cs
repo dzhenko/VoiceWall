@@ -43,6 +43,16 @@ namespace VoiceWall.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/toastr.js"));
 
+
+            bundles.Add(new ScriptBundle("~/bundles/braingame").Include(
+                     "~/Scripts/games/braingame/creator-game.js",
+                     "~/Scripts/games/braingame/engine-game.js",
+                     "~/Scripts/games/braingame/graph-drawer.js",
+                     "~/Scripts/games/braingame/kinetic.min.js",
+                     "~/Scripts/games/braingame/numbers-game.js",
+                     "~/Scripts/games/braingame/raphael-min.js",
+                     "~/Scripts/games/braingame/ship-game.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/sideMenu").Include(
                      "~/Scripts/app/sideMenu.js"));
 
@@ -83,6 +93,9 @@ namespace VoiceWall.Web
 
             bundles.Add(new StyleBundle("~/Content/site").Include(
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/braingame").Include(
+                      "~/Content/games/braingame/style.css"));
         }
     }
 }

@@ -89,7 +89,8 @@
                 FirstName = "Pesho",
                 LastName = "Admina",
                 Email = AdminEmail,
-                UserName = AdminEmail
+                UserName = AdminEmail,
+                UserImage= GlobalConstants.DefaultUserPicture
             };
 
             userManager.Create(admin, AdminPassword);
@@ -117,7 +118,8 @@
                 FirstName = "Gosho",
                 LastName = "Moderatora",
                 Email = ModeratorEmail,
-                UserName = ModeratorEmail
+                UserName = ModeratorEmail,
+                UserImage = GlobalConstants.DefaultUserPicture
             };
 
             userManager.Create(admin, ModeratorPassword);
@@ -141,6 +143,23 @@
             roleManager.Create(new IdentityRole { Name = GlobalConstants.DefaultRole });
             roleManager.Create(new IdentityRole { Name = GlobalConstants.AdminRole });
             roleManager.Create(new IdentityRole { Name = GlobalConstants.ModeratorRole });
+
+            context.SaveChanges();
+        }
+
+        internal static void SeedJokes(VoiceWallDbContext context)
+        {
+            if (context.Jokes.Any())
+            {
+                return;
+            }
+
+            var allJokes = GetAllJokes();
+
+            foreach (var joke in allJokes)
+            {
+                context.Jokes.Add(new Joke() { Text = joke });
+            }
 
             context.SaveChanges();
         }
@@ -277,6 +296,71 @@
             };
 
             return images[random.Next(0, images.Length)];
+        }
+
+        private static IEnumerable<string> GetAllJokes()
+        {
+            return new List<string>() 
+            {
+@"Q: Why do Jews have long noses? A: Because air is free.",
+@"Light travels faster than sound. This is why some people appear bright until you hear them speak.",
+@"If a man opens the car door for his wife, you can be sure of one thing: either the car is new or the wife.",
+@"Q: Why can't a blonde dial 911?A: She can't find the eleven.",
+@"Helium walks into a bar and asks for a drink. The bartender says, ""Sorry, we don't serve noble gases here."" Helium doesn't react.",
+@"Yo mama is so stupid she came over to my house and shouted in my mailbox to leave me voicemail.",
+@"Why are asprins white? Because they work!",
+@"A husband and wife are trying to set up a new password for their computer. The husband puts, ""Mypenis,"" and the wife falls on the ground laughing because on the screen it says, ""Error. Not long enough.""",
+@"Q: Did you hear about the guy who drank 8 Cokes? A: He burped 7Up.",
+@"Q: What did the duck say when he bought lipstick?A: ""Put it on my bill.""",
+@"Do not be racist , be like Mario.  He's an italian plumber, made by Japanese people, who speaks english, looks like a mexican, jumps like a black man, and grabs coins like a jew!",
+@"If at first you don't succeed, skydiving is not for you!",
+@"Q: What is the difference between snowmen and snowwomen? A: Snowballs.",
+@"What happens to a frog's car when it breaks down?It gets toad away.",
+@"Blonde: ""What does IDK stand for?""",
+@"Brunette: ""I dont know.""",
+@"Blonde: ""OMG, nobody does!""",
+@"Yo mamma is so ugly when she tried to join an ugly contest they said, ""Sorry, no professionals.""",
+@"Wife: I look fat.  Can you give me a compliment? Husband: You have perfect eyesight.",
+@"A husband and wife are trying to set up a new password for their computer. The husband puts, ""Mypenis,"" and the wife falls on the ground laughing because on the screen it says, ""Error. Not long enough.""",
+@"Q: Why did they have to bury George Washington standing up? A: Because he could never lie.",
+@"Yo momma is so fat she uses a pillow for a tampon.",
+@"Yo momma is so fat, when she sat on an iPod, she made the iPad!",
+@"The teacher asked Jimmy, ""Why is your cat at school today Jimmy?"" Jimmy replied crying, ""Because I heard my daddy tell my mommy, 'I am going to eat that p*ssy once Jimmy leaves for school today!'""",
+@"Q: Which two letters in the alphabet are always jealous? A: NV.",
+@"Yo momma is so fat when she got on the scale it said, ""I need your weight not your phone number.""",
+@"Q: Why did President Obama get two terms? A: Because every black man gets a longer sentence.",
+@"Q: Why do centipedes have 100 legs? A: So they can walk.",
+@"Scientists have proven that there are two things in the air that have been known to cause women to get pregnant: their legs.",
+@"A little kids sends a letter to Santa that says: ""Dear Santa I want a brother for Christmas.""",
+@"Santa writes back, ""Dear Timmy send me me your mommy.""",
+@"I named my hard drive ""dat ass,"" so once a month my computer asks if I want to ""back dat ass up.""",
+@"Teacher: ""Kids,what does the chicken give you?""Student: ""Meat!""Teacher: ""Very good! Now what does the pig give you?""Student: ""Bacon!""Teacher: ""Great! And what does the fat cow give you?""Student: ""Homework!""",
+@"Q. What did the elephant say to the naked man? A. ""How do you breathe through something so small?",
+@"Teacher: ""Kids,what does the chicken give you?""Student: ""Meat!""Teacher: ""Very good! Now what does the pig give you?""Student: ""Bacon!""Teacher: ""Great! And what does the fat cow give you?""Student: ""Homework!""",
+@"I don't really like watching basketball, I just watch it to find out who the next member of the Kardashian family will be.",
+@"Mexico doesn't win Olympic medals because all the best runners, jumpers, and swimmers are in America.",
+@"Q: What did the duck say when he bought lipstick?A: ""Put it on my bill.""",
+@"How do you starve a black person? Put their food stamp card under their workboots!",
+@"Blonde: ""What does IDK stand for?""",
+@"Brunette: ""I dont know.""",
+@"Blonde: ""OMG, nobody does!""",
+@"Q: What's the difference between a Jew and a boy scout?A: A boy scout comes home from camp.",
+@"Q. What did the elephant say to the naked man? A. ""How do you breathe through something so small?""",
+@"An organization is like a tree full of monkeys, all on different limbs at different levels. The monkeys on top look down and see a tree full of smiling faces. The monkeys on the bottom look up and see nothing but assholes.",
+@"Yo momma is so fat that when she went to the beach a whale swam up and sang, ""We are family, even though you're fatter than me.""",
+@"The teller shrugged his shoulders and said, ""Fluctuations."" The Asian lady says, ""Fluc you white people too!""",
+@"Q: What do a Christmas tree and a priest have in common? A: Their balls are just for decoration.",
+@"Yo mamma is so ugly when she tried to join an ugly contest they said, ""Sorry, no professionals.""",
+@"Q: What's the difference between a black man and a park bench? A: A park bench can support a family of four.",
+@"Teacher: ""Kids,what does the chicken give you?""Student: ""Meat!""Teacher: ""Very good! Now what does the pig give you?""Student: ""Bacon!""Teacher: ""Great! And what does the fat cow give you?""Student: ""Homework!""",
+@"Scientists have proven that there are two things in the air that have been known to cause women to get pregnant: their legs.",
+@"Yo momma's so ugly, the government moved Halloween to her birthday!",
+@"Q: How do Chinese people name their babies? A: They throw them down the stairs to see what noise they make.",
+@"The teller shrugged his shoulders and said, ""Fluctuations."" The Asian lady says, ""Fluc you white people too!""",
+@"Q: Why was six scared of seven? A: Because seven ""ate"" nine.",
+@"Yo momma is so fat she uses a pillow for a tampon.",
+@"Most people want a perfect relationship; I just want a hamburger that looks like ones in commercials."
+            };
         }
     }
 }

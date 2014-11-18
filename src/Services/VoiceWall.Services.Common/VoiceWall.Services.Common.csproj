@@ -61,6 +61,7 @@
     <Compile Include="Fetchers\IContentFetcherService.cs" />
     <Compile Include="Fetchers\ICommentFetcherService.cs" />
     <Compile Include="Fetchers\ISearchResultsFetcherService.cs" />
+    <Compile Include="Fun\IJokesFetherService.cs" />
     <Compile Include="Generators\IPictureUploadingGeneratorService.cs" />
     <Compile Include="Generators\ISoundUploadingGeneratorService.cs" />
     <Compile Include="Generators\IUploadingGeneratorService.cs" />

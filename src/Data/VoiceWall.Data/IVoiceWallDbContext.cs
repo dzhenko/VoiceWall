@@ -16,6 +16,8 @@
 
         IDbSet<CommentView> CommentViews { get; set; }
 
+        IDbSet<Joke> Jokes { get; set; }
+
         IDbSet<User> Users { get; set; }
 
         DbContext DbContext { get; }

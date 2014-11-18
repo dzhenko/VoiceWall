@@ -31,6 +31,7 @@
         [AjaxPost]
         public ActionResult Comment(NewVideoCommentInputModel model)
         {
+            this.TempData["Success"] = "Video Comment Added"; 
             return this.ConditionalActionResult<Guid>(() => this.CommentContent(model.File, model.ContentId), 
                                                       (id) => this.PartialView(id));
         }

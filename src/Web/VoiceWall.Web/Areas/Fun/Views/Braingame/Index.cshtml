@@ -1,0 +1,34 @@
+﻿<div id="game-wrapper"></div>
+<div id="start-game-menu-container">
+    <h1>Space Brain - The Game</h1>
+    <ul class="start-game-menu-list">
+        <li><a href="#" data-difficulty="1">Normal</a></li>
+        <li><a href="#" data-difficulty="2">Nightmare</a></li>
+        <li><a href="#" data-difficulty="3">Hell</a></li>
+        <li>
+            <a href="#">Help</a>
+            <div class="help-content">
+                <h2>Controls and Instructions</h2>
+                <p>'w', 'up arrow' - move up</p>
+                <p>'a', 'left arrow' - move left</p>
+                <p>'s', 'down arrow' - move down</p>
+                <p>'d', 'right arrow' - move right</p>
+                <p>'mouse left button' - picks equotation</p>
+                <p>
+                    After the beggining of the game on the right screen you will see colorfull bubbles with numbers
+                    and an equation you need to solve in order to load your ship with fuel. Clicking on the bubble with
+                    the number you think is the answer will add to your fuel. Clicking on a wrong answer will remove some
+                    of the fuel.
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+@section styles {
+    @Styles.Render("~/Content/braingame")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/braingame")
+}

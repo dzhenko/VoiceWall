@@ -33,6 +33,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult UpdateProfile(UpdateProfileViewModel model)
         {
+            this.TempData["Success"] = "Profile updated"; 
             return this.IndependentActionResult(() => 
                 this.ownProfileService.ChangeUserPicture(User.Identity.GetUserId(), model.File.InputStream, model.File.ContentType),
                 this.RedirectToAction<SettingsController>((c) => c.General()));
