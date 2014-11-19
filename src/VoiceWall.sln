@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1AB6886E-D662-4FD5-81DD-8F032CE50509}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{AD7DA3B2-163C-40C3-91E5-A56853180E61}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6B36CA1F-BA10-4173-8E45-567B83177128}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceWall.Web", "Web\VoiceWall.Web\VoiceWall.Web.csproj", "{F4A5EE8B-3014-49C4-9079-02CE597C04D8}"
 EndProject

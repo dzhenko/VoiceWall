@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@9)" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:50" Bounds="1782.67600875843,-347.925714789113,228.553333333333,25" CodeSchemaProperty_StrongName="VoiceWall.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(598fb15e-28a6-4c76-a383-f504ca3025ba.OutputPath)" Group="Collapsed" Label="VoiceWall.Web.Infrastructure.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@11" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:52" Bounds="201.432504308283,46.0210644158999,237.633333333333,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Moderation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(e438e5b4-aeed-4b39-adca-fdfbd83c0e5c.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Moderation.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@13" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:52" Bounds="731.46991331135,53.887007526432,253.39,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Administration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(cd9d016b-c031-496c-b00a-4f8c092a367e.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Administration.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@15" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:48" Bounds="952.992955794019,520.614763355677,206.666666666667,25" CodeSchemaProperty_StrongName="VoiceWall.Data.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(549481aa-0c89-4e41-93b3-fc64d02c8832.OutputPath)" Group="Collapsed" Label="VoiceWall.Data.Common.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@17" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:49" Bounds="1794.25840727975,249.810066139213,254.29,25" CodeSchemaProperty_StrongName="VoiceWall.CloudStorage.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(fc6754cb-7ad5-40f6-96ca-1fa537a1b85b.OutputPath)" Group="Collapsed" Label="VoiceWall.CloudStorage.Common.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@19" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:51" Bounds="1082.09526254707,-352.535348732621,224.363333333334,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(2c93f2a5-c793-4db3-8838-2376c66ee75a.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Common.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@2" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:50" Bounds="-288.950940969773,519.793121370968,155.113333333333,25" CodeSchemaProperty_StrongName="VoiceWall.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(09299d1d-4396-46fd-b501-58c5bc97e4a5.OutputPath)" Group="Collapsed" Label="VoiceWall.Data.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@21" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:52" Bounds="487.78204214315,46.0210644158999,194.85,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Fun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(f17e4374-93cf-49fa-bdde-80362d41e75a.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Fun.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@23" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:51" Bounds="1030.48032782388,44.9013249314164,214.396666666667,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Fetcher, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8e79ca49-708a-4ade-b3c7-90cd9b31d10d.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Fetcher.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@25" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:52" Bounds="1861.60810943124,44.7885205467789,228.536666666667,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Generator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(e68dccb8-bb7c-4fcd-8790-53de5df68f6a.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Generator.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@27" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:49" Bounds="1629.86377782122,532.466958326689,279.603333333333,25" CodeSchemaProperty_StrongName="VoiceWall.Common.ExtensionMethods, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(e9f3818e-0d1b-4701-9abc-e16e592d78f3.OutputPath)" Group="Collapsed" Label="VoiceWall.Common.ExtensionMethods.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@29" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:49" Bounds="212.735155897034,-481.33746549568,196.863333333334,25" CodeSchemaProperty_StrongName="VoiceWall.Data.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(6480b90c-bcf9-427f-98da-8e2e747112dd.OutputPath)" Group="Collapsed" Label="VoiceWall.Data.Models.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@31" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:51" Bounds="1559.26802561478,43.6620340513804,204.29,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Users, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8cb78bfc-caac-4203-88b0-085891d8e4c7.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Users.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@33" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:50" Bounds="1444.50689137812,366.846471930574,251.596666666667,25" CodeSchemaProperty_StrongName="VoiceWall.CloudStorage.Dropbox, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8bca326c-60ef-47a9-82ef-723a27045a32.OutputPath)" Group="Collapsed" Label="VoiceWall.CloudStorage.Dropbox.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@4" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:55" Bounds="1013.22733084987,-751.084207980446,154.96,25" CodeSchemaProperty_StrongName="VoiceWall.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(f4a5ee8b-3014-49c4-9079-02ce597c04d8.OutputPath)" Group="Collapsed" Label="VoiceWall.Web.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@6" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:52" Bounds="1301.56402227275,38.8446629595347,203.606666666667,25" CodeSchemaProperty_StrongName="VoiceWall.Services.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(2ef8813f-c9c0-4133-bf88-4dfa650aef89.OutputPath)" Group="Collapsed" Label="VoiceWall.Services.Logic.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@8" Category="CodeSchema_Assembly" AssemblyTimestamp="11/19/2014 21:23:50" Bounds="1899.14087418467,381.571926288498,284.753333333334,25" CodeSchemaProperty_StrongName="VoiceWall.CloudStorage.TelerikBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(ce5e337e-7527-41b2-97ba-2af56650e1f8.OutputPath)" Group="Collapsed" Label="VoiceWall.CloudStorage.TelerikBackend.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+  </Nodes>
+  <Links>
+    <Link Source="@11" Target="@15" Category="CodeSchema_Calls" Bounds="339.636204552217,71.0210644158999,689.739001591717,444.716696112085" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8" />
+    <Link Source="@11" Target="@19" Category="Implements" Bounds="347.661468500604,-323.801255397607,811.014356988445,369.822319813507" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@11" Target="@2" Category="References" Bounds="-190.648248733296,71.0210644158999,496.870541237011,442.784314286275" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@11" Target="@29" Category="References" Bounds="311.537079912133,-447.338799939459,8.49681180079392,493.359864355358" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="10" />
+    <Link Source="@13" Target="@15" Category="CodeSchema_Calls" Bounds="863.472112565654,78.887007526432,184.029687325026,433.443513487308" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="49" />
+    <Link Source="@13" Target="@19" Category="Implements" Bounds="868.502435679588,-320.599809390317,309.701267718965,374.486816916749" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@13" Target="@2" Category="References" Bounds="-174.447455472303,78.887007526432,1003.91669502471,437.311867747907" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="76">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@13" Target="@29" Category="References" Bounds="330.374606312212,-450.043111166823,515.015337843229,503.930118693255" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="100">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@19" Target="@29" Category="References" Bounds="405.776750553712,-455.038553106216,702.796025571983,102.503204373595" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="17">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@2" Target="@15" Category="CodeSchema_Calls" Bounds="-133.83760763644,532.343387821924,1077.83056532076,0.698569440628944" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="18">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@2" Target="@29" Category="References" Bounds="-204.869637261221,-448.358960573864,505.347274882895,968.152081944833" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="135">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@21" Target="@15" Category="CodeSchema_Calls" Bounds="597.615530920937,71.0210644158999,439.961731725914,443.206400477951" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6" />
+    <Link Source="@21" Target="@19" Category="Implements" Bounds="604.309415953266,-322.607346840533,563.334216707986,368.628411256433" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@21" Target="@2" Category="References" Bounds="-182.641425524934,71.0210644158999,746.830941814881,444.171537501091" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@21" Target="@29" Category="References" Bounds="321.812363391126,-448.351360319293,256.899092636602,494.372424735193" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="12">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@23" Target="@15" Category="CodeSchema_Calls" Bounds="1059.98100849584,69.9013249314164,75.5600114508554,441.842222393601" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="12" />
+    <Link Source="@23" Target="@19" Category="References" Bounds="1139.45876449841,-318.625244217881,51.7691888287482,363.526569149298" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="17">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@23" Target="@2" Category="References" Bounds="-167.394883923684,69.9013249314164,1269.56353665437,446.903419947587" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="18">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@23" Target="@29" Category="References" Bounds="338.391152871277,-451.50377711727,779.654979916,496.405102048687" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="76" />
+    <Link Source="@25" Target="@15" Category="CodeSchema_Calls" Bounds="1088.47621826276,69.7885205467789,863.243555772044,446.690086611693" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@25" Target="@17" Category="References" Bounds="1927.03565052243,69.7885205467789,45.5196147454453,171.323328814393" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@25" Target="@19" Category="Implements" Bounds="1226.88930501395,-323.456941102266,724.397641184245,368.245461649045" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6" />
+    <Link Source="@25" Target="@2" Category="References" Bounds="-145.0400808438,69.7885205467789,2063.35732541133,448.094611730839" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="12">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@25" Target="@29" Category="References" Bounds="359.299549102845,-453.625275991865,1577.02577700042,498.413796538644" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="20">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@29" Target="@15" Category="InheritsFrom" Bounds="320.463167303333,-456.33746549568,721.195904218045,969.730475279433" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="12">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@31" Target="@15" Category="CodeSchema_Calls" Bounds="1079.25261985898,68.6620340513804,566.302263551377,446.381310190301" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6" />
+    <Link Source="@31" Target="@17" Category="References" Bounds="1677.17781239396,68.6620340513804,221.408652424305,175.556332861977" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@31" Target="@19" Category="References" Bounds="1215.87878631802,-321.713923105429,430.796127792887,365.37595715681" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@31" Target="@2" Category="References" Bounds="-153.504426841941,68.6620340513804,1765.75012885102,448.913526138756" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="10">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@31" Target="@29" Category="References" Bounds="351.703816334793,-453.075968522109,1277.56045951413,496.738002573489" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="20">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@33" Target="@17" Category="Implements" Bounds="1607.80404614593,277.656196537665,267.562416852074,89.1902753929084" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@33" Target="@27" Category="CodeSchema_Calls" Bounds="1585.35168907967,391.846471930574,162.344546105886,134.869347154441" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@4" Target="(@9)" Category="References" Bounds="1115.70510958303,-726.084207980446,748.200085451989,374.133284720388" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="84">
+      <Category Ref="CodeSchema_AttributeUse" />
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@4" Target="@11" Category="References" Bounds="338.586173784774,-726.084207980446,740.039030234495,765.63406489816" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@4" Target="@13" Category="References" Bounds="864.273758601789,-726.084207980446,222.822536023142,771.324774049705" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@4" Target="@17" Category="References" Bounds="1101.78186035156,-726.084228515625,806.74267578125,968.319137573242" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8" />
+    <Link Source="@4" Target="@19" Category="References" Bounds="1093.9556652749,-726.084207980446,94.8093120367439,364.838174090073" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="114">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@4" Target="@21" Category="References" Bounds="597.954174471763,-726.084207980446,484.826030780462,764.504776681364" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@4" Target="@23" Category="References" Bounds="1079.52526855469,-726.084228515625,54.369384765625,762.123512268066" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@4" Target="@25" Category="References" Bounds="1104.60982241961,-726.084207980446,850.671551819144,764.855302691623" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@4" Target="@29" Category="References" Bounds="355.795736949007,-726.084207980446,698.787871835428,241.803665251313" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="513">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@4" Target="@31" Category="References" Bounds="1099.68355597341,-726.084207980446,547.503663324586,762.43584551074" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@4" Target="@6" Category="References" Bounds="1098.2490234375,-726.084228515625,300.687133789063,756.117345809937" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@6" Target="@15" Category="CodeSchema_Calls" Bounds="1070.59101704984,63.8446629595347,323.772016105723,449.467488926921" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11" />
+    <Link Source="@6" Target="@19" Category="Implements" Bounds="1205.1958051337,-319.597159098829,191.493564239508,358.441822058364" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@6" Target="@2" Category="References" Bounds="-160.800581390283,63.8446629595347,1522.19978007466,453.379386815317" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@6" Target="@29" Category="References" Bounds="345.537945078384,-452.467537880575,1031.58378247513,491.31220084011" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="33">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@8" Target="@17" Category="Implements" Bounds="1938.86159645591,281.461213571152,91.2609423216488,100.110712717346" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@8" Target="@27" Category="CodeSchema_Calls" Bounds="1800.05447238021,406.571926288498,218.943101056401,121.527207957513" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Assembly" Label="Assembly" BasedOn="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Assembly" NavigationActionLabel="Assemblies" />
+    <Category Id="CodeSchema_AttributeUse" Label="Uses Attribute" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Used by" OutgoingActionLabel="Uses Attribute" />
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+    <Category Id="FileSystem.Category.FileOfType.dll" BasedOn="CodeSchema_Assembly" CanBeDataDriven="True" IsProviderRoot="False" />
+    <Category Id="Implements" Label="Implements" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Implemented by" OutgoingActionLabel="Implements" />
+    <Category Id="InheritsFrom" Label="Inherits From" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Inherited By" OutgoingActionLabel="Inherits From" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="AssemblyTimestamp" DataType="System.DateTime" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_StrongName" Label="StrongName" Description="StrongName" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(09299d1d-4396-46fd-b501-58c5bc97e4a5.OutputPathUri)" />
+    <Alias n="2" Id="(@1)" />
+    <Alias n="3" Uri="Assembly=$(f4a5ee8b-3014-49c4-9079-02ce597c04d8.OutputPathUri)" />
+    <Alias n="4" Id="(@3)" />
+    <Alias n="5" Uri="Assembly=$(2ef8813f-c9c0-4133-bf88-4dfa650aef89.OutputPathUri)" />
+    <Alias n="6" Id="(@5)" />
+    <Alias n="7" Uri="Assembly=$(ce5e337e-7527-41b2-97ba-2af56650e1f8.OutputPathUri)" />
+    <Alias n="8" Id="(@7)" />
+    <Alias n="9" Uri="Assembly=$(598fb15e-28a6-4c76-a383-f504ca3025ba.OutputPathUri)" />
+    <Alias n="10" Uri="Assembly=$(e438e5b4-aeed-4b39-adca-fdfbd83c0e5c.OutputPathUri)" />
+    <Alias n="11" Id="(@10)" />
+    <Alias n="12" Uri="Assembly=$(cd9d016b-c031-496c-b00a-4f8c092a367e.OutputPathUri)" />
+    <Alias n="13" Id="(@12)" />
+    <Alias n="14" Uri="Assembly=$(549481aa-0c89-4e41-93b3-fc64d02c8832.OutputPathUri)" />
+    <Alias n="15" Id="(@14)" />
+    <Alias n="16" Uri="Assembly=$(fc6754cb-7ad5-40f6-96ca-1fa537a1b85b.OutputPathUri)" />
+    <Alias n="17" Id="(@16)" />
+    <Alias n="18" Uri="Assembly=$(2c93f2a5-c793-4db3-8838-2376c66ee75a.OutputPathUri)" />
+    <Alias n="19" Id="(@18)" />
+    <Alias n="20" Uri="Assembly=$(f17e4374-93cf-49fa-bdde-80362d41e75a.OutputPathUri)" />
+    <Alias n="21" Id="(@20)" />
+    <Alias n="22" Uri="Assembly=$(8e79ca49-708a-4ade-b3c7-90cd9b31d10d.OutputPathUri)" />
+    <Alias n="23" Id="(@22)" />
+    <Alias n="24" Uri="Assembly=$(e68dccb8-bb7c-4fcd-8790-53de5df68f6a.OutputPathUri)" />
+    <Alias n="25" Id="(@24)" />
+    <Alias n="26" Uri="Assembly=$(e9f3818e-0d1b-4701-9abc-e16e592d78f3.OutputPathUri)" />
+    <Alias n="27" Id="(@26)" />
+    <Alias n="28" Uri="Assembly=$(6480b90c-bcf9-427f-98da-8e2e747112dd.OutputPathUri)" />
+    <Alias n="29" Id="(@28)" />
+    <Alias n="30" Uri="Assembly=$(8cb78bfc-caac-4203-88b0-085891d8e4c7.OutputPathUri)" />
+    <Alias n="31" Id="(@30)" />
+    <Alias n="32" Uri="Assembly=$(8bca326c-60ef-47a9-82ef-723a27045a32.OutputPathUri)" />
+    <Alias n="33" Id="(@32)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="Has category">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Reference" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FieldReference')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="09299d1d-4396-46fd-b501-58c5bc97e4a5.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Data\VoiceWall.Data\bin\Release\VoiceWall.Data.dll" />
+    <Path Id="09299d1d-4396-46fd-b501-58c5bc97e4a5.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Data/VoiceWall.Data/bin/Release/VoiceWall.Data.dll" />
+    <Path Id="2c93f2a5-c793-4db3-8838-2376c66ee75a.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Common\bin\Release\VoiceWall.Services.Common.dll" />
+    <Path Id="2c93f2a5-c793-4db3-8838-2376c66ee75a.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Common/bin/Release/VoiceWall.Services.Common.dll" />
+    <Path Id="2ef8813f-c9c0-4133-bf88-4dfa650aef89.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Logic\bin\Release\VoiceWall.Services.Logic.dll" />
+    <Path Id="2ef8813f-c9c0-4133-bf88-4dfa650aef89.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Logic/bin/Release/VoiceWall.Services.Logic.dll" />
+    <Path Id="549481aa-0c89-4e41-93b3-fc64d02c8832.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Data\VoiceWall.Data.Common\bin\Release\VoiceWall.Data.Common.dll" />
+    <Path Id="549481aa-0c89-4e41-93b3-fc64d02c8832.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Data/VoiceWall.Data.Common/bin/Release/VoiceWall.Data.Common.dll" />
+    <Path Id="598fb15e-28a6-4c76-a383-f504ca3025ba.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Web\VoiceWall.Web.Infrastructure\bin\Release\VoiceWall.Web.Infrastructure.dll" />
+    <Path Id="598fb15e-28a6-4c76-a383-f504ca3025ba.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Web/VoiceWall.Web.Infrastructure/bin/Release/VoiceWall.Web.Infrastructure.dll" />
+    <Path Id="6480b90c-bcf9-427f-98da-8e2e747112dd.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Data\VoiceWall.Data.Models\bin\Release\VoiceWall.Data.Models.dll" />
+    <Path Id="6480b90c-bcf9-427f-98da-8e2e747112dd.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Data/VoiceWall.Data.Models/bin/Release/VoiceWall.Data.Models.dll" />
+    <Path Id="8bca326c-60ef-47a9-82ef-723a27045a32.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Upload\VoiceWall.CloudStorage.Dropbox\bin\Release\VoiceWall.CloudStorage.Dropbox.dll" />
+    <Path Id="8bca326c-60ef-47a9-82ef-723a27045a32.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Upload/VoiceWall.CloudStorage.Dropbox/bin/Release/VoiceWall.CloudStorage.Dropbox.dll" />
+    <Path Id="8cb78bfc-caac-4203-88b0-085891d8e4c7.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Users\bin\Release\VoiceWall.Services.Users.dll" />
+    <Path Id="8cb78bfc-caac-4203-88b0-085891d8e4c7.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Users/bin/Release/VoiceWall.Services.Users.dll" />
+    <Path Id="8e79ca49-708a-4ade-b3c7-90cd9b31d10d.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Fetcher\bin\Release\VoiceWall.Services.Fetcher.dll" />
+    <Path Id="8e79ca49-708a-4ade-b3c7-90cd9b31d10d.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Fetcher/bin/Release/VoiceWall.Services.Fetcher.dll" />
+    <Path Id="cd9d016b-c031-496c-b00a-4f8c092a367e.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Administration\bin\Release\VoiceWall.Services.Administration.dll" />
+    <Path Id="cd9d016b-c031-496c-b00a-4f8c092a367e.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Administration/bin/Release/VoiceWall.Services.Administration.dll" />
+    <Path Id="ce5e337e-7527-41b2-97ba-2af56650e1f8.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Upload\VoiceWall.CloudStorage.TelerikBackend\bin\Release\VoiceWall.CloudStorage.TelerikBackend.dll" />
+    <Path Id="ce5e337e-7527-41b2-97ba-2af56650e1f8.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Upload/VoiceWall.CloudStorage.TelerikBackend/bin/Release/VoiceWall.CloudStorage.TelerikBackend.dll" />
+    <Path Id="e438e5b4-aeed-4b39-adca-fdfbd83c0e5c.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Moderation\bin\Release\VoiceWall.Services.Moderation.dll" />
+    <Path Id="e438e5b4-aeed-4b39-adca-fdfbd83c0e5c.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Moderation/bin/Release/VoiceWall.Services.Moderation.dll" />
+    <Path Id="e68dccb8-bb7c-4fcd-8790-53de5df68f6a.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Generator\bin\Release\VoiceWall.Services.Generator.dll" />
+    <Path Id="e68dccb8-bb7c-4fcd-8790-53de5df68f6a.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Generator/bin/Release/VoiceWall.Services.Generator.dll" />
+    <Path Id="e9f3818e-0d1b-4701-9abc-e16e592d78f3.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Common\VoiceWall.Common.ExtensionMethods\bin\Release\VoiceWall.Common.ExtensionMethods.dll" />
+    <Path Id="e9f3818e-0d1b-4701-9abc-e16e592d78f3.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Common/VoiceWall.Common.ExtensionMethods/bin/Release/VoiceWall.Common.ExtensionMethods.dll" />
+    <Path Id="f17e4374-93cf-49fa-bdde-80362d41e75a.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Services\VoiceWall.Services.Fun\bin\Release\VoiceWall.Services.Fun.dll" />
+    <Path Id="f17e4374-93cf-49fa-bdde-80362d41e75a.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Services/VoiceWall.Services.Fun/bin/Release/VoiceWall.Services.Fun.dll" />
+    <Path Id="f4a5ee8b-3014-49c4-9079-02ce597c04d8.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Web\VoiceWall.Web\bin\VoiceWall.Web.dll" />
+    <Path Id="f4a5ee8b-3014-49c4-9079-02ce597c04d8.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Web/VoiceWall.Web/bin/VoiceWall.Web.dll" />
+    <Path Id="fc6754cb-7ad5-40f6-96ca-1fa537a1b85b.OutputPath" Value="C:\Users\dzhenko\Documents\Visual Studio 2013\Projects\VoiceWall\src\Upload\VoiceWall.CloudStorage.Common\bin\Release\VoiceWall.CloudStorage.Common.dll" />
+    <Path Id="fc6754cb-7ad5-40f6-96ca-1fa537a1b85b.OutputPathUri" Value="file:///C:/Users/dzhenko/Documents/Visual Studio 2013/Projects/VoiceWall/src/Upload/VoiceWall.CloudStorage.Common/bin/Release/VoiceWall.CloudStorage.Common.dll" />
+  </Paths>
+</DirectedGraph>
