@@ -9,7 +9,7 @@
 
     public static class KendoHelpers
     {
-        public static GridBuilder<T> FullFeaturedGrid<T>(this HtmlHelper helper, string controllerName, 
+        public static GridBuilder<T> FullFeaturedGrid<T>(this HtmlHelper helper, string controllerName,
             Expression<Func<T, object>> modelIdExpression, Action<GridColumnFactory<T>> columns = null,
             object readRouteValues = null, string clientDetailTemplateId = null, string clientRowTemplate = null, string clientAltRowTemplate = null) where T : class
         {

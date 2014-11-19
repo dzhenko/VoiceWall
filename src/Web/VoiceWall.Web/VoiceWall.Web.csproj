@@ -210,7 +210,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\KendoHelpers.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsAdministrationController.cs" />
@@ -255,6 +254,9 @@
     <Compile Include="Controllers\Upload\UploadSoundController.cs" />
     <Compile Include="Controllers\Upload\UploadVideoController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="HtmlHelpers\AwesomeFont.cs" />
+    <Compile Include="HtmlHelpers\Common.cs" />
+    <Compile Include="HtmlHelpers\KendoHelpers.cs" />
     <Compile Include="Hubs\Chat.cs" />
     <Compile Include="ViewModels\Account\SingleProfileViewModel.cs" />
     <Compile Include="ViewModels\Account\UpdateProfileViewModel.cs" />
@@ -267,8 +269,6 @@
     <Compile Include="ViewModels\Upload\NewSoundContentInputModel.cs" />
     <Compile Include="ViewModels\Upload\NewVideoContentInputModel.cs" />
     <Compile Include="ViewModels\WallItemViewModel.cs" />
-    <Content Include="App_Code\Common.cs" />
-    <Content Include="App_Code\AwesomeFont.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
