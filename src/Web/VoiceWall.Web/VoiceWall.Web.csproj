@@ -544,6 +544,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Licensed Libs\Kendo.Mvc.dll" />
+    <Content Include="Licensed Libs\README.txt" />
     <Content Include="Scripts\app\chat.js" />
     <Content Include="Scripts\app\clickForMore.js" />
     <Content Include="Scripts\app\contentSender.js" />
